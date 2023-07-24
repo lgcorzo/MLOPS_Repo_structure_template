@@ -1,0 +1,24 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - ipykernel
+  - pip=20.2.4
+  - python=3.8.16
+  
+  - pip:
+      - azure-identity==1.10.0
+      - azure-keyvault-secrets==4.4.0
+      - numpy==1.23.3
+      - pandas==1.5.0
+      - python-dotenv==0.20.0
+      - scikit-learn==1.1.2
+      - plotly
+      - ipykernel
+      - fastparquet
+      - autopep8
+      - tqdm
+      - python-dotenv
+      - nbformat
+
+name: BU_template_env

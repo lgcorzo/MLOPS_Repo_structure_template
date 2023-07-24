@@ -1,0 +1,19 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8.16
+  - pip=20.2.4
+  - pip:
+    - azure-core==1.26.3
+    - azureml-core==1.49.0
+    - azureml-sdk==1.49.0
+    - cloudpickle==1.2.2
+    - flake8
+    - flake8-formatter-junit-xml==0.0.*
+    - numpy==1.21.4
+    - pytest
+    - pytest-cov
+    - python-dotenv
+    - scikit-learn==0.24.0
+name: code_development_env

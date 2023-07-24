@@ -1,0 +1,101 @@
+# Merlin.MLOPS.DatIngest
+
+$$\color{red}{IMPORTANT}$$
+<span style="color:red"> This table is necessary to update </span>
+
+| Version | name | Release Date | Description |
+| ------- |---------| ------------ | ----------- |
+| 1.0     | Luis Galo Corzo |February 13, 2023 | Initial release |
+<!-- PULL_REQUESTS_TABLE -->
+<!-- cspell:ignore Databricks LANTEK -->
+<!-- cspell:disable -->
+
+## Contents
+
+- [Contents](#contents)
+- [Introduction](#introduction)
+- [Scope](#scope)
+- [Objectives](#objectives)
+- [Requirements](#requirements)
+- [Structure of the repo](#structure-of-the-repo)
+- [testing](#testing)
+- [Keywords](#keywords)
+
+<!-- cspell:enable -->
+## Introduction
+
+The goal of this project is to create a Databricks infrastructure that allows the seamless transfer of data to LANTEK MLOps system in Azure. The objective is to ensure that data can be processed, cleaned, and transformed in an efficient and automated manner, and that it can be seamlessly integrated into the MLOps system for use in machine learning models.
+
+## Scope
+
+- The scope of the project includes the creation of a Databricks infrastructure that can collect, process, and store data from various sources such as databases, cloud storage, APIs, and IoT devices.
+- The project will also involve the integration of the Databricks infrastructure with the LANTEK MLOps system in Azure, to ensure that data is available for use in machine learning models.
+
+## Objectives
+
+- The main objective of the project is to create a Databricks infrastructure that allows for the efficient transfer of data to an MLOps system in Azure.
+- The project will also aim to ensure that data is properly formatted, cleaned, and transformed into a format that is usable by machine learning algorithms.
+- The project will also aim to monitor and update the data pipeline to ensure that the data is up-to-date and accurate.
+
+## Requirements
+
+- A Databricks infrastructure that can collect, process, and store data from various sources.
+- An MLOps system in Azure that can receive and process data from the Databricks infrastructure.
+- A data pipeline that automates the collection and preprocessing of data.
+- A system for monitoring and updating the data pipeline to ensure that the data is up-to-date and accurate.
+
+## Structure of the repo
+
+The windows command to extract the folder structure is:
+
+ ``` cmd
+ tree /a /f > output.txt.
+```
+
+The initial content is:
+
+ ``` txt
+|   .env (file with the local configuration of the environment variables)
+|   .gitattributes (file with git configuration)
+|   .gitignore (files to be ignored)
+|   README.md (README file with the general information of the project)
+|   setup.cfg (setup file for  flake and other tools)
++---Code (folder to put the code to be control by the CI pipelines
+|   \---Utils (example folder)
+|           __init__.py
++---Data (folder to put the local data of the project)
+|       .gitkeep
++---Notebooks (folder to place the experimenting  notebooks)
+|   \---DataIngest (example folder)
+|           .gitkeep
++---Pipelines (folder for the pipeline YAMLs)
+|       .gitkeep
++---Settings (folder for the environments YML files)
+|   \---Code
+|           mlops_data_ingest_env.yaml (initial env)
+\---Tests (folder for the test)
+    |   __init__.py
+    \---Code
+            __init__.py
+             \---Utils (example folder for the Utils code folder)
+                         __init__.py
+```
+
+## testing
+
+to check the coverage of the code install coverage gutter plugin and run:
+
+``` bash
+pytest --cov=Code  --cov-report=xml:cov.xml
+```
+
+## Keywords
+
+- Databricks Infrastructure
+- MLOps System
+- Azure
+- Data Sources
+- Data Processing
+- Data Storage
+- Data Pipeline
+- Data Monitoring
