@@ -58,7 +58,7 @@ class Helper:
 
     def delete_dir(self):
         # Delete unwanted directories
-        dirs = ["Code/Boostsrap",
+        dirs = ["Code/Bootsrap",
                 "Data/Archive",
                 "Data/Core",
                 "Data/Results",
@@ -91,7 +91,7 @@ class Helper:
                 "Data/Core",
                 "Scripts/windows/",
                 "Data/Results",
-                "Code/Boostsrap",
+                "Code/Bootsrap",
                 "Notebooks/Commissioning",
                 "Notebooks/DataIngestion",
                 "Notebooks/DataUnderstanding",
@@ -159,7 +159,7 @@ def main(args):
                         type=str,
                         required=True,
                         help="Name of the project [3-15 chars, letters and underscores only]")  # NOQA: E501
-    parser.add_argument("-n",
+    parser.add_argument("-k",
                         "--sonar_key",
                         type=str,
                         required=True,
@@ -168,10 +168,10 @@ def main(args):
         args = parser.parse_args()
 
         project_directory = args.directory
-        project_name = args.name
+        project_name = args.project_name
         sonar_key = args.sonar_key
 
-        helper = Helper(project_directory, project_name)
+        helper = Helper(project_directory, project_name, sonar_key)
         helper.validate_args()
         helper.clean_dir()
 
