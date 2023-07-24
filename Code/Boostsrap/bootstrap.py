@@ -70,6 +70,13 @@ class Helper:
                 "Notebooks/Modelling",
                 "Notebooks/Monitoring",
                 "Notebooks/Testing",
+                "Code/FrontEnd/assets",
+                "Code/FrontEnd",
+                "Code/Controller",
+                "Code/Domain/Models",
+                "Code/Domain",
+                "Code/Application/Services",
+                "Code/Application"
                 ]
         if (platform.system() == "Windows"):
             cmd = 'rmdir /S /Q "{}"'
@@ -92,7 +99,15 @@ class Helper:
                 "Notebooks/Experimenting",
                 "Notebooks/Modelling",
                 "Notebooks/Monitoring",
-                "Notebooks/Testing"]
+                "Notebooks/Testing",
+                "Code/Controller",
+                "Code/Domain/Models",
+                "Code/Domain"
+                "Code/FrontEnd/assets",
+                "Code/FrontEnd",
+                "Code/Application/Services",
+                "Code/Application"
+                ]
         for dir in dirs:
             for root, dirs, files in os.walk(os.path.join(self._project_directory, dir)):  # NOQA: E501
                 for file in files:
