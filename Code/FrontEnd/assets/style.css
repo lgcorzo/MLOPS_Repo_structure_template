@@ -1,0 +1,226 @@
+body{
+    background-color: #f8f8f8;
+    margin:0;
+    font-family:"Roboto", sans-serif;
+}
+
+#header{
+    display:flex;
+    justify-content:space-between;
+    background:#fff;
+    border-bottom:1px solid #eee;
+    padding:0 3em;
+}
+
+#header p{
+    background: #1ff3f0;
+    color:#444;
+    font-size:11px;
+    padding:0.2em 0.8em;
+}
+
+#p-1{
+    height: 100%;
+}
+
+#logo{
+    display:flex; 
+    align-items:center; 
+    padding:0.8em 0;
+}
+#logo img{width:38px;}
+
+h1{
+    font-size:21px;
+    font-weight:normal;
+    margin:0;
+    text-align:left;
+    padding:0 0.5em;
+}
+
+button{
+    background-color:#00918f;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    text-transform:uppercase;
+    padding:1.2em;
+}
+
+button:disabled{
+    background-color: #dddddd;
+}
+
+#1check{
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+#2check{
+    filter: grayscale(100%);
+    opacity: 0.4;
+}
+
+#3check{
+    filter: grayscale(0%);
+    opacity: 0.7;
+}
+
+#4check{
+    filter: grayscale(100%);
+    opacity: 0.4;
+}
+
+#upload-data{
+    border:2px dashed rgba(0,145,143,1);
+    position: relative;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor:pointer;
+    background: rgba(0,145,143,0.05) url("/machine-configuration-finder/assets/uploadCNC.svg") center center no-repeat;
+    background-size:auto;
+    width: 100%;
+    height: 230px;
+    justify-content:center;
+}
+#upload-data:hover{
+    background-color:rgba(0,145,143,0.09); 
+    color:rgba(0,145,143,1);
+}
+
+#upload-data p{
+    margin:2.8em 0 0 0;
+}
+
+#upload-data input{background:#fff!important;}
+
+#content{
+    padding:2em 3em;
+    height:90vh;
+    box-sizing:border-box;
+    display:inline-flex;
+    width: 100%;
+}
+
+#content-1{
+    width:350px;
+    border-right:1px solid #EDEDED;
+    background:#fff;
+    padding:1em;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+#uploaded-file{
+    background:#f8f8f8;
+    margin:5px 0;
+    padding:1.5em;
+    height:calc(100% - 220px);
+    display: block;
+}
+
+#operations-div{
+    display: block;
+    width: 45%;
+    height: 600px;
+    margin-left: 2%;
+}
+
+#result-div{
+    width: calc(100% - 350px);
+    height: 100%;
+    background-color: white;
+    display: block;
+    padding:0 3em;
+    position:relative;
+}
+
+#result-div div{position:relative;}
+
+#machine-config-result{
+    display: inline;
+    width: 600px;
+    height: 1000px;
+}
+
+#read-data{
+    display: inline;
+}
+
+#check-icons-table-id{
+    position:absolute;
+    top:54px;
+    right:0;
+    pointer-events: none;
+}
+
+#check-icons-table-id img{
+    padding:0.82em 1em !important
+}
+
+#textarea{
+    display: block;
+    width: 95%;
+    height: 400px;
+    background: #f8f8f8;
+    border: none;
+    color:#666;
+    resize: none;
+}
+
+textarea:focus, input:focus{
+    outline: 0;
+}
+
+#comment-text{margin-top:3em;}
+
+#comment-text textarea{width:100%; height:100px;}
+
+body .dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner table{font-family:"Roboto", sans-serif !important; }
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner table td.cell--selected.focused{
+    background-color:rgba(0,145,143,0.05)!important;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner th{
+    background-color:#f8f8f8!important;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner td{
+    cursor:pointer!important;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner table{
+    width:100%!important;
+    font-family: "Roboto", sans-serif !important;
+    font-size:12px!important; border:none!important;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner table td{
+    border:none!important;
+    text-align:left;
+    border-bottom:1px solid #EBF6F6!important;
+    padding:1.7em 1em 1.7em 3.5em;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner table tr:nth-of-type(2) td{
+    color:rgba(0,145,143,1)!important;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner table tr:hover{
+    background-color:rgba(0,145,143,0.05);
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner table tr:nth-of-type(2) td:nth-of-type(1){
+    background:url("/machine-configuration-finder/assets/star.svg") 8px center no-repeat;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner td, .dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner th{
+    text-align:left!important;
+    border:none!important;
+    padding:1.7em 1em 1.7em 3.5em!important;
+    text-transform:capitalize!important;
+}
