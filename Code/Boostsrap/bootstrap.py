@@ -131,7 +131,7 @@ def replace_project_name(project_dir, project_name, rename_name):
     # Replace instances of rename_name within files with project_name
     files = [
         r"Pipelines/DevopsPipelines/ci_build_PROJECT_NAME.yaml",
-        r"Notebooks/BusinessUnderstanding/BU_Poject_env_init_notebook.ipynb",
+        r"Notebooks/BusinessUnderstanding/BU_Project_env_init_notebook.ipynb",
     ]
 
     for file in files:
