@@ -53,7 +53,7 @@ class Helper:
                 if (not (os.path.exists(newPath))):
                     os.mkdir(newPath)
                 file_path = os.path.join(path, name)
-                new_name = os.path.join(newPath, name)
+                new_name = os.path.join(newPath, name).lower()
                 os.rename(file_path, new_name)
 
     def delete_dir(self):

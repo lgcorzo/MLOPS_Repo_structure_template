@@ -74,7 +74,7 @@ stages:
               sonarServiceConnection: $(sonar_service_connection_name)
               projectKey: $(sonar_project_key)
 
-          - template: Pipelines/DevopsPipelines/code-quality-template.yaml@Merlin.SmartQuoting
+          - template: Pipelines/DevopsPipelines/code-quality-template.yaml@Merlin.PROJECT_NAME
             parameters:
               workingDirectory: 'Code'
               testsWorkingDirectory: ''
