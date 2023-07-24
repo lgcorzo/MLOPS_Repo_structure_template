@@ -10,7 +10,7 @@ class Helper:
     def __init__(self, project_directory, project_name, sonar_key):
         self._project_directory = project_directory
         self._project_name = project_name
-        self._git_repo = "https://github.com/microsoft/MLOpsPython.git"
+        self._git_repo = "https://github.com/lgcorzo/MLOPS_Repo_structure_template.git"
         self._sonar_key = sonar_key
 
     @property
@@ -102,7 +102,7 @@ class Helper:
                 "Notebooks/Testing",
                 "Code/Controller",
                 "Code/Domain/Models",
-                "Code/Domain"
+                "Code/Domain",
                 "Code/FrontEnd/assets",
                 "Code/FrontEnd",
                 "Code/Application/Services",
@@ -155,7 +155,7 @@ def main(args):
                         required=True,
                         help="Absolute path to new project direcory")
     parser.add_argument("-n",
-                        "--name",
+                        "--project_name",
                         type=str,
                         required=True,
                         help="Name of the project [3-15 chars, letters and underscores only]")  # NOQA: E501
@@ -169,14 +169,14 @@ def main(args):
 
         project_directory = args.directory
         project_name = args.name
-        project_name = args.sonar_key
+        sonar_key = args.sonar_key
 
         helper = Helper(project_directory, project_name)
         helper.validate_args()
         helper.clean_dir()
 
         replace_project_name(project_directory, project_name, "PROJECT_NAME")  # NOQA: E501
-        replace_project_name(project_directory, project_name, "SONAR_KEY")
+        replace_project_name(project_directory, sonar_key, "SONAR_KEY")
 
         helper.rename_files()
         helper.rename_dir()
