@@ -23,20 +23,20 @@ jobs:
         echo $CONDA/bin >> $GITHUB_PATH
     - name: Install dependencies
       run: |
-        ENVS=$(conda env list | awk '{print $conda_environment_name}' )
+        ENVS=$(conda env list | awk '{print ${{ env.conda_environment_name }}}' )
         if [[ $ENVS = *"$conda_environment_name"* ]]; then
           echo "Environment found, updating it..."
-          conda env update --name $(conda_environment_name) --file Settings/Code/$(conda_environment_name).yaml --prune
+          conda env update --name ${{ env.conda_environment_name }} --file Settings/Code/${{ env.conda_environment_name }}.yaml --prune
         else
           echo "No environment found, creating it..."
           # Create the current environment based on environment file
-          conda env create --name $(conda_environment_name) --file Settings/Code/$(conda_environment_name).yaml
+          conda env create --name ${{ env.conda_environment_name }} --file Settings/Code/${{ env.conda_environment_name }}.yaml
         fi;
 
-        source activate $(conda_environment_name)
-        
+        source activate ${{ env.conda_environment_name }}
+
         # Add PATH to environment
-        echo $CONDA/envs/$(conda_environment_name)/bin >> $GITHUB_PATH
+        echo $CONDA/envs/${{ env.conda_environment_name }}/bin >> $GITHUB_PATH
 
         
         conda env list
