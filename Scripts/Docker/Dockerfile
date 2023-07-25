@@ -14,7 +14,7 @@ RUN pip install dash==2.6.2 \
     && pip install gunicorn
 
 
-COPY . /Projects
+COPY ../../ /Projects
 WORKDIR /Projects
 
 RUN chmod +x start_be.sh
