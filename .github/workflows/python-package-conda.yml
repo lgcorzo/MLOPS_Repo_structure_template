@@ -20,7 +20,7 @@ jobs:
         echo $CONDA/bin >> $GITHUB_PATH
     - name: Install dependencies
       run: |
-        conda env create --file Settings\Code\code_development_env.yaml
+        conda env create --file Settings/Code/code_development_env.yaml
         conda activate code_development_env
 
     - name: Lint with flake8
