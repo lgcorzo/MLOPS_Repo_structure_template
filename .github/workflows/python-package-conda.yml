@@ -2,6 +2,9 @@ name: Python Package using Conda
 
 on: [push]
 
+env:
+  conda_environment_name: 'code_development_env'
+
 jobs:
   build-linux:
     runs-on: ubuntu-latest
@@ -20,9 +23,24 @@ jobs:
         echo $CONDA/bin >> $GITHUB_PATH
     - name: Install dependencies
       run: |
-        conda env create --file Settings/Code/code_development_env.yaml
-        conda init bash
-        conda activate code_development_env
+        ENVS=$(conda env list | awk '{print $conda_environment_name}' )
+        if [[ $ENVS = *"$conda_environment_name"* ]]; then
+          echo "Environment found, updating it..."
+          conda env update --name $(conda_environment_name) --file Settings/Code/$(conda_environment_name).yaml --prune
+        else
+          echo "No environment found, creating it..."
+          # Create the current environment based on environment file
+          conda env create --name $(conda_environment_name) --file Settings/Code/$(conda_environment_name).yaml
+        fi;
+
+        source activate $(conda_environment_name)
+        
+        # Add PATH to environment
+        echo $CONDA/envs/$(conda_environment_name)/bin >> $GITHUB_PATH
+
+        
+        conda env list
+
 
     - name: Lint with flake8
       run: |
