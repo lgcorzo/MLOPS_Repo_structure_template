@@ -26,6 +26,8 @@ class Env(Singleton):
         self._resource_group = os.getenv("RESOURCE_GROUP")
         self._environment_alias = os.getenv("ENVIRONMENT_ALIAS")
         self._mlw_workspace_name = os.getenv("MLW_WORKSPACE_NAME")
+        self._host = os.getenv("HOST")
+        self._port = os.getenv("PORT")
 
     @property
     def subscription_id(self) -> str:
@@ -62,3 +64,11 @@ class Env(Singleton):
     @property
     def mlw_workspace_name(self) -> str:
         return self._mlw_workspace_name
+
+    @property
+    def host(self) -> str:
+        return self._host
+
+    @property
+    def port(self) -> int:
+        return self._port

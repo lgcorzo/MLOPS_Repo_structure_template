@@ -1,3 +1,3 @@
 build:
-	docker build -t mlops_service ./Scripts/Linux
+	docker build -t mlops_service ./Scripts/Docker
 
