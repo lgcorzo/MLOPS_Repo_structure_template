@@ -121,7 +121,8 @@ class Helper:
             raise Exception("Invalid project name length. Project name should be 3 to 15 chars long, letters and underscores only.")  # NOQA: E501
         if (not re.search("^[\\w_]+$", self._project_name)):
             raise Exception(
-                "Invalid characters in project name. Project name should be 3 to 15 chars long, letters and underscores only.")
+                "Invalid characters in project name. Project name should be 3 \
+                to 15 chars long, letters and underscores only.")
         if (not re.search("^[\\w_]+$", self._sonar_key)):
             raise Exception("Invalid characters in project name. Project name should be 3 to 15 chars long, letters and underscores only.")  # NOQA: E501
 # NOQA: E501

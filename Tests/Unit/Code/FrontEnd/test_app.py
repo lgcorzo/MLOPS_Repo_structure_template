@@ -3,7 +3,7 @@ import os
 
 from dash import dash, html
 from unittest import mock
-from Code.FrontEnd.app import parse_contents, load_result_table, dash_app_layout, main, \
+from Code.FrontEnd.app import parse_contents, load_result_table, dash_app_layout, \
     register_dash_callback, update_output, configure_dash_app, update_comment, get_style_data_conditional, \
     confirm_output, animation_output, register_dash_animation_callback, register_dash_confirm_callback, \
     register_dash_comment_update_callback
@@ -201,4 +201,3 @@ def test_get_style_data_conditional():
     assert con_style['backgroundColor'] == 'rgba(0,145,143,0.05)'
     assert con_style['fontWeight'] == 'bold'
     assert con_style['color'] == 'black'
-
