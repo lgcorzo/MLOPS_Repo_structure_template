@@ -355,7 +355,6 @@ def crete_service_url() -> dash.Dash:
 
 
 def main():
-    # app = crete_service_url()
     app.run_server(debug=False)
 
 

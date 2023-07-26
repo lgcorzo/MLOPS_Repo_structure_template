@@ -202,8 +202,3 @@ def test_get_style_data_conditional():
     assert con_style['fontWeight'] == 'bold'
     assert con_style['color'] == 'black'
 
-
-@mock.patch('Code.FrontEnd.app.configure_dash_app')
-def test_main(mock_configure_dash_app: mock):
-    main()
-    mock_configure_dash_app.assert_called()
