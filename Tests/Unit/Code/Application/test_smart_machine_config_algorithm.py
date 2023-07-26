@@ -1,7 +1,6 @@
 import os
 import pandas as pd
 
-from unittest import mock
 from Code.Application.smart_machine_config_algorithm import read_cnc_csv, split_text, read_file, intersection_count, \
     jacc_metric_multiset, remove_coordinate_numbers, clean_data_cncs
 from Tests.Unit.Code.Application.test_smart_machine_config_evaluation import CNC_DF
@@ -9,7 +8,7 @@ from Tests.Unit.Code.Application.test_smart_machine_config_evaluation import CNC
 cwd = os.path.dirname(os.path.abspath(__file__))
 
 CNC_FOLDER_PATH = '../../../../Data/Raw/CNC'
-CSV_PATH = os.path.join(cwd, 'Fixtures/test_cnc_ext.csv')
+CSV_PATH = 'test_cnc_ext.csv'
 FIXTURES_FOLDER = os.path.join(cwd, 'Fixtures/')
 TEST_CNC_FILE = '0000.GCD'
 
@@ -22,7 +21,7 @@ def test_split_text():
 
 def test_read_file():
     cwd = os.path.dirname(os.path.abspath(__file__))
-    path = 'Fixtures/test_cnc.txt'
+    path = 'Fixtures/CNC/test_cnc.txt'
     path_file = os.path.join(cwd, path)
     output = read_file(path_file)
     assert output == 'asd\nf\ngh'
@@ -40,9 +39,8 @@ def test_clean_data_cncs():
     assert data_output == ['asd', 'sde', 'de6', 'e6 ', '6 g', ' gh', 'ghi', 'hi ', 'i j', ' jk']
 
 
-@mock.patch('Code.Application.smart_machine_config_algorithm.csv_path', CSV_PATH)
 def test_read_cnc_csv():
-    test_df = read_cnc_csv()
+    test_df = read_cnc_csv(os.path.join(cwd, 'Fixtures/CNC', CSV_PATH))
     pd.testing.assert_frame_equal(test_df, CNC_DF)
 
 

@@ -7,6 +7,7 @@ from Code.Domain.Models.machine_configuration import MachineConfiguration
 
 cwd = os.path.dirname(os.path.abspath(__file__))
 cnc_path = os.path.join(cwd, '../../../Data/Raw/CNC/')
+global pickle_model
 pickle_model = ''
 
 
@@ -14,10 +15,8 @@ def fit_model_service() -> bool:
     csv_path = os.path.join(cwd, '../../../Data/Raw/CNC', 'cnc_post_ext.csv')
     cnc_df = read_cnc_csv(csv_path)
     global pickle_model
-    try:
-        pickle_model = load_model()
-    except FileNotFoundError as error:
-        print(error)
+    pickle_model = load_model()
+    if (pickle_model is None):
         model_fit(cnc_path, cnc_df, csv_path)
         pickle_model = load_model()
     return True

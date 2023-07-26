@@ -6,8 +6,9 @@ from Code.Application.smart_machine_config_evaluation import model_fit, model_tr
     load_model, train_test_split_parts, load_cnc_kgram, create_train_test_dict
 
 cwd = os.path.dirname(os.path.abspath(__file__))
-CSV_PATH = os.path.join(cwd, 'Fixtures/test_cnc_ext.csv')
-FIXTURES_PATH = os.path.join(cwd, 'Fixtures/')
+CSV_FILE = 'test_cnc_ext.csv'
+FIXTURES_PATH = os.path.join(cwd, 'Fixtures', 'CNC')
+CNC_PATH = os.path.join(cwd, 'Fixtures', 'CNC', CSV_FILE)
 POST = 'pst.exe'
 SEED = 'pst.se1'
 PART = 'DXFPAR0105'
@@ -51,19 +52,19 @@ def test_create_train_test_dict():
 
 @mock.patch('Code.Application.smart_machine_config_evaluation.print')
 @mock.patch('Code.Application.smart_machine_config_evaluation.load_cnc_kgram')
-@mock.patch('Code.Application.smart_machine_config_algorithm.csv_path', CSV_PATH)
 @mock.patch('Code.Application.smart_machine_config_evaluation.pickle')
 def test_model_fit(mock_pickle: mock, mock_load_cnc: mock, mock_print: mock):
     mock_load_cnc.return_value = {'file1.cnc': ['abc', 'bcd'],
                                   'file2.cnc': ['efg', 'fgh']}
-    model_fit(FIXTURES_PATH, CNC_DF)
+    model_fit(FIXTURES_PATH, CNC_DF, CNC_PATH)
     mock_pickle.dump.assert_called_once()
     mock_print.assert_called()
 
 
-@mock.patch('Code.Application.smart_machine_config_algorithm.csv_path', CSV_PATH)
+@mock.patch('Code.Application.smart_machine_config_algorithm.RAW_PATH', FIXTURES_PATH)
+@mock.patch('Code.Application.smart_machine_config_algorithm.CSV_FILE', CSV_FILE)
 def test_model_train() -> None:
-    score = model_train(FIXTURES_PATH, PART, CNC_DF)
+    score = model_train(FIXTURES_PATH, PART, CNC_DF, CNC_PATH)
     assert score == 1.0
 
 

@@ -138,7 +138,7 @@ def configure_dash_app(services_url: str) -> dash.Dash:
     dash_app = dash.Dash(__name__,
                          server=server,
                          suppress_callback_exceptions=True,
-                         url_base_pathname='/machine-configuration-finder/',
+                         url_base_pathname='/frontend-service-dev/',
                          assets_folder=ASSETS_FOLDER)
 
     dash_app.layout = dash_app_layout()
@@ -350,11 +350,12 @@ def load_result_table(jason: dict) -> html.Div:
 def crete_service_url() -> dash.Dash:
     e = Env()
     services_url = f'http://127.0.0.1:{e.port}/services/'
+    print(services_url)
     return configure_dash_app(services_url)
 
 
 def main():
-    app = crete_service_url()
+    # app = crete_service_url()
     app.run_server(debug=False)
 
 

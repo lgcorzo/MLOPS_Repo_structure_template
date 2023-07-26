@@ -15,16 +15,18 @@ DIN_FILE = ['M25', 'M25', 'M25',
             'M15', 'M15', 'M15']
 
 cwd = os.path.dirname(os.path.abspath(__file__))
-csv_path = os.path.join(cwd, 'Fixtures/test_list_cnc.csv')
-fixtures_folder = os.path.join(cwd, 'Fixtures/')
-fixtures_cnc_folder = os.path.join(cwd, 'Fixtures/CNC/')
+CSV_FILE = 'test_list_cnc.csv'
+csv_path = os.path.join(cwd, 'Fixtures/CNC/test_list_cnc.csv')
+fixtures_folder = os.path.join(cwd, 'Fixtures')
+fixtures_cnc_folder = os.path.join(cwd, 'Fixtures/CNC')
 test_cnc_file = os.path.join(cwd, 'Fixtures/CNC/0000.CNC')
 
 
 @pytest.fixture
-@mock.patch('Code.Application.smart_machine_config_algorithm.csv_path', csv_path)
+@mock.patch('Code.Application.smart_machine_config_algorithm.RAW_PATH', fixtures_folder)
+@mock.patch('Code.Application.smart_machine_config_algorithm.CSV_FILE', CSV_FILE)
 def fixture_init_model():
-    return SmartMachineConfigModel()
+    return SmartMachineConfigModel(csv_path)
 
 
 @pytest.fixture

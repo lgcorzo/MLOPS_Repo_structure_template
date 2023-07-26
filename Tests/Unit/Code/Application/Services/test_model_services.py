@@ -1,5 +1,4 @@
 import os
-
 from unittest import mock
 from unittest.mock import MagicMock
 
@@ -18,8 +17,24 @@ DATA = 'G02 X23.43 Y34.21'
 @mock.patch('Code.Application.Services.model_services.model_fit')
 def test_fit_model_service(mock_fit: mock, mock_load_model: mock, mock_pd: mock, mock_read: mock):
     mock_read.return_value = mock_pd.DataFrame
+    mock_load_model.return_value = None
     result = fit_model_service()
-    mock_fit.assert_called_once_with(FIXTURES_FOLDER, mock_pd.DataFrame)
+    mock_fit.assert_called_once()
+    mock_load_model.assert_called()
+    assert mock_load_model.call_count == 2
+    mock_read.assert_called_once()
+    assert result
+
+
+@mock.patch('Code.Application.Services.model_services.cnc_path', FIXTURES_FOLDER)
+@mock.patch('Code.Application.Services.model_services.read_cnc_csv')
+@mock.patch('Code.Application.Services.model_services.pd')
+@mock.patch('Code.Application.Services.model_services.load_model')
+@mock.patch('Code.Application.Services.model_services.model_fit')
+def test_nofit_model_service(mock_fit: mock, mock_load_model: mock, mock_pd: mock, mock_read: mock):
+    mock_read.return_value = mock_pd.DataFrame
+    result = fit_model_service()
+    mock_fit.assert_not_called()
     mock_load_model.assert_called_once()
     mock_read.assert_called_once()
     assert result

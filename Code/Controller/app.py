@@ -6,6 +6,7 @@ from Code.Application.Services.feedback_services import feedback_service
 from Code.Application.Services.model_services import fit_model_service, predict_model_service
 from Code.Utils.env_variables import Env
 
+global pickle_model
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
@@ -41,4 +42,5 @@ fit_model_service()
 
 if __name__ == '__main__':
     e = Env()
-    app.run(host=e.get_host, port=e.get_port)
+    # fit_model_service()
+    app.run(host=e.host, port=e.port)

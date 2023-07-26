@@ -28,10 +28,10 @@ def load_cnc_kgram(path_files_in: str, df: pd.DataFrame) -> dict:
     return knowledge_dict
 
 
-def model_fit(path_files_in: str, df: pd.DataFrame, cnc_path: str) -> None:
+def model_fit(path_files_in: str, df: pd.DataFrame, cnc_path_in: str) -> None:
     print('---------------------------------CREATE KNOWLEDGE DATABASE-------------------------------------------------')
     knowledge_dict = load_cnc_kgram(path_files_in, df)
-    model = SmartMachineConfigModel(cnc_path)
+    model = SmartMachineConfigModel(cnc_path_in)
     model.fit(list(knowledge_dict.values()), list(knowledge_dict.keys()))
     with open(pkl_path, 'wb') as file:
         pickle.dump(model, file)
@@ -56,9 +56,9 @@ def create_train_test_dict(knowledge_dict: dict, df: pd.DataFrame, part_name: st
     return knowledge_train_dict, knowledge_test_dict
 
 
-def model_train(path_files_in: str, part_name: str, df: pd.DataFrame) -> float:
+def model_train(path_files_in: str, part_name: str, df: pd.DataFrame, cnc_path_in=cnc_path) -> float:
     knowledge_train_dict, knowledge_test_dict = create_train_test_dict(load_cnc_kgram(path_files_in, df), df, part_name)
-    model = SmartMachineConfigModel()
+    model = SmartMachineConfigModel(cnc_path_in)
     model.fit(list(knowledge_train_dict.values()), list(knowledge_train_dict.keys()))
     score = model.score(list(knowledge_test_dict.values()), list(knowledge_test_dict.keys()))
     return score
@@ -86,9 +86,11 @@ def get_evaluation_results(path_files_in: str, df: pd.DataFrame) -> bool:
 
 def load_model() -> object:
     # Load from file
+    if not os.path.exists(pkl_path):
+        return None
     with open(pkl_path, 'rb') as file:
         model = pickle.load(file)
-    return model
+        return model
 
 
 def main() -> None:
