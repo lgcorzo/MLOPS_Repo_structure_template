@@ -5,7 +5,7 @@ import json
 from unittest import mock
 from Code.Controller.app import app
 
-CNC_FOLDER_PATH = '../../../../Data/Raw/CNC/'
+CNC_FOLDER_PATH = '../../../../Data/Results/CNC/'
 TEST_CNC_FILE = 'Fixtures/0000.GCD'
 MACHINE_CONFIG_ENDPOINT = 'machine-configuration'
 

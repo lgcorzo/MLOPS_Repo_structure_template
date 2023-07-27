@@ -9,7 +9,7 @@ from typing import Tuple, Dict
 from Code.Application.smart_machine_config_algorithm import read_cnc_csv, clean_data_cncs, read_file
 from Code.Application.smart_machine_config_model import SmartMachineConfigModel
 
-RAW_PATH = '../../Data/Raw'
+RAW_PATH = '../../Data/Results'
 NUM_GRAM: int = 3
 N = 1  # position in ranking 0 if compared with other, 1 if compared with itself
 PKL_FILE = 'smart_machine_config_model.pkl'

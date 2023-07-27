@@ -5,7 +5,7 @@ import os
 
 from collections import Counter
 
-RAW_PATH = '../../Data/Raw'
+RAW_PATH = '../../Data/Results'
 CSV_FILE = 'cnc_post_ext.csv'
 
 cnc_path = os.path.join(RAW_PATH, 'CNC')

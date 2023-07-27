@@ -6,13 +6,13 @@ from Code.Application.smart_machine_config_evaluation import model_fit, load_mod
 from Code.Domain.Models.machine_configuration import MachineConfiguration
 
 cwd = os.path.dirname(os.path.abspath(__file__))
-cnc_path = os.path.join(cwd, '../../../Data/Raw/CNC/')
+cnc_path = os.path.join(cwd, '../../../Data/Results/CNC/')
 global pickle_model
 pickle_model = ''
 
 
 def fit_model_service() -> bool:
-    csv_path = os.path.join(cwd, '../../../Data/Raw/CNC', 'cnc_post_ext.csv')
+    csv_path = os.path.join(cwd, '../../../Data/Results/CNC', 'cnc_post_ext.csv')
     cnc_df = read_cnc_csv(csv_path)
     global pickle_model
     pickle_model = load_model()

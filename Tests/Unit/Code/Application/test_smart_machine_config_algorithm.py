@@ -7,7 +7,7 @@ from Tests.Unit.Code.Application.test_smart_machine_config_evaluation import CNC
 
 cwd = os.path.dirname(os.path.abspath(__file__))
 
-CNC_FOLDER_PATH = '../../../../Data/Raw/CNC'
+CNC_FOLDER_PATH = '../../../../Data/Results/CNC'
 CSV_PATH = 'test_cnc_ext.csv'
 FIXTURES_FOLDER = os.path.join(cwd, 'Fixtures/')
 TEST_CNC_FILE = '0000.GCD'
