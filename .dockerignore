@@ -1,0 +1,13 @@
+# Exclude these directories and files
+Pipelines/
+Test/
+Docker/
+Documentation/
+Notebooks/
+Scripts/
+.github/
+.pytest_cache/
+logs/
+.git
+*.md
+.cache

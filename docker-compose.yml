@@ -4,8 +4,11 @@ services:
       hostname: backend
       restart: always
       environment:
-        DEV_LOCAL_IP: 172.29.1.7
-        DEV_LOCAL_HOSTNAME: backend
+        BE_LOCAL_IP: 172.29.1.7
+        BE_LOCAL_HOSTNAME: backend
+        BE_PORT: 8001
+        BE_HOST : 127.0.0.1
+        
       ports:
         - "8001:8001"
       volumes:
@@ -18,8 +21,10 @@ services:
       hostname: frontend
       restart: always
       environment:
-        DEV_LOCAL_IP: 172.29.1.8
-        DEV_LOCAL_HOSTNAME: frontend
+        FE_LOCAL_IP: 172.29.1.8
+        FE_LOCAL_HOSTNAME: frontend
+        FE_PORT: 8000
+        FE_HOST : 127.0.0.1
       ports:
         - "8000:8000"
       networks:

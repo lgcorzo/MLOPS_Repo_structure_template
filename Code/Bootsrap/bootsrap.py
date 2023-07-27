@@ -136,7 +136,9 @@ def replace_project_name(project_dir, project_name, rename_name):
     # Replace instances of rename_name within files with project_name
     files = [
         r"Pipelines/DevopsPipelines/ci_build_project_name.yaml",
-        r"Notebooks/BusinessUnderstanding/BU_Project_env_init_notebook.ipynb"
+        r"Notebooks/BusinessUnderstanding/BU_Project_env_init_notebook.ipynb",
+        r"Makefile",
+        r"docker-compose.yml"
     ]
     search_pattern = f"{project_dir}/**/*.py"
     files_py = glob.glob(search_pattern, recursive=True)
