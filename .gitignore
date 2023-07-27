@@ -26,7 +26,7 @@ tmp
 **/catboost_info
 
 # Data Files
-*.csv
+# *.csv
 *.parquet
 !evaluation_results.csv
 *.xls
