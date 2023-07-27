@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Nest>
+  <Settings>
+    <General>
+      <MachineNumber>1030</MachineNumber>
+      <MachineName>PLF_1530_Tulus1</MachineName>
+      <BatchName>C:/Lantek/Expert/CNC/1829_BATCH</BatchName>
+      <ProgramSeq>1</ProgramSeq>
+      <ArchiveNumber>0</ArchiveNumber>
+      <ArchiveName/>
+      <NestName>C:/Lantek/Expert/CNC/1829</NestName>
+      <SheetsTotal>1</SheetsTotal>
+      <EstMachTimeInSecs>25</EstMachTimeInSecs>
+      <SheetAreaParts_m2>0</SheetAreaParts_m2>
+      <SheetAreaWaste_m2>0.056966</SheetAreaWaste_m2>
+      <SheetUtil>0</SheetUtil>
+      <NestPictureFile>C:/Lantek/Expert/CNC/1829-IMGB.png</NestPictureFile>
+      <InchUnit>0</InchUnit>
+      <CustomerMaterialName>313x182</CustomerMaterialName>
+    </General>
+    <Control>
+      <Material>
+        <SheetX>313</SheetX>
+        <SheetY>182</SheetY>
+        <SheetThickness>0.8</SheetThickness>
+        <MaterialName>ALM 5754 H-22</MaterialName>
+        <TensileStrength>270</TensileStrength>
+      </Material>
+      <Loading>
+        <LoadTableNo>1</LoadTableNo>
+        <LoadEjectorAreas>0</LoadEjectorAreas>
+        <LoadPinNo>1</LoadPinNo>
+        <ManualLoading>0</ManualLoading>
+        <StorageAddress>501</StorageAddress>
+      </Loading>
+      <Unloading>
+        <UnloadXDim>313</UnloadXDim>
+        <UnloadYDim>182</UnloadYDim>
+        <UnloadXCorr>0</UnloadXCorr>
+        <UnloadAddress>109</UnloadAddress>
+        <UnloadTableNo>1</UnloadTableNo>
+        <UnloadXCoord>313</UnloadXCoord>
+      </Unloading>
+      <Clamps>
+        <Clamp1>0</Clamp1>
+        <Clamp2>0</Clamp2>
+        <Clamp3>0</Clamp3>
+        <Clamp4>0</Clamp4>
+      </Clamps>
+      <PreSettings>
+        <FirstX>74.33</FirstX>
+        <FirstY>123.14</FirstY>
+        <FirstTool>0</FirstTool>
+      </PreSettings>
+      <Misc>
+        <XCarrPos>0</XCarrPos>
+        <SheetProbing>1</SheetProbing>
+      </Misc>
+      <LaserGeneralSettings>
+        <LaserProcessInProgram>1</LaserProcessInProgram>
+        <LaserStandbyActivation>0</LaserStandbyActivation>
+        <SheetProbingType>1</SheetProbingType>
+        <SheetProbStorage>0</SheetProbStorage>
+        <AutomaticClamping>0</AutomaticClamping>
+        <ActivatePrePointProcess>0</ActivatePrePointProcess>
+        <ActivatePreTrajectoryProcess>0</ActivatePreTrajectoryProcess>
+        <ZPosStartEnd>130</ZPosStartEnd>
+        <ZPosEndPart>40</ZPosEndPart>
+        <ZPosEndProfile>30</ZPosEndProfile>
+        <OffsetTable>0</OffsetTable>
+        <AvoidSensor>0</AvoidSensor>
+        <PlateMeasPointX1>156.5</PlateMeasPointX1>
+        <PlateMeasPointX2>250.4</PlateMeasPointX2>
+        <PlateMeasPointY1>91</PlateMeasPointY1>
+        <WorkDimX>313</WorkDimX>
+        <WorkDimY>182</WorkDimY>
+        <PresetOrigin>1</PresetOrigin>
+        <PresetOriX>0</PresetOriX>
+        <PresetOriY>0</PresetOriY>
+        <UseKerf>1</UseKerf>
+        <UseLowPressure>0</UseLowPressure>
+      </LaserGeneralSettings>
+    </Control>
+  </Settings>
+  <Tools>
+    <ManualOperation>
+      <FocalLength Unit="inch">3</FocalLength>
+      <NozzleType>35</NozzleType>
+    </ManualOperation>
+    <LaserProcessTools>
+      <LaserProcessTool Index="1">
+        <GasType>2</GasType>
+        <FocalLength>3</FocalLength>
+        <NozzleType>35</NozzleType>
+        <LaserProcessTechnologies>
+          <PointProcessTechnology Index="1">
+            <ProcessType>1</ProcessType>
+            <TechnologyType>1</TechnologyType>
+            <!--Standard-->
+          </PointProcessTechnology>
+          <PointProcessTechnology Index="2">
+            <ProcessType>1</ProcessType>
+            <TechnologyType>2</TechnologyType>
+            <!--Quick-->
+          </PointProcessTechnology>
+          <PointProcessTechnology Index="3">
+            <ProcessType>1</ProcessType>
+            <TechnologyType>4</TechnologyType>
+            <!--Monitored-->
+          </PointProcessTechnology>
+          <PointProcessTechnology Index="4">
+            <ProcessType>1</ProcessType>
+            <TechnologyType>5</TechnologyType>
+            <!--Nitrogen-->
+          </PointProcessTechnology>
+          <PointProcessTechnology Index="5">
+            <ProcessType>2</ProcessType>
+            <TechnologyType>2</TechnologyType>
+            <!--Micro-welding-->
+          </PointProcessTechnology>
+          <TrajectoryProcessTechnology Index="1">
+            <ProcessType>1</ProcessType>
+            <TechnologyType>0</TechnologyType>
+            <!--Large Contour Cutting-->
+          </TrajectoryProcessTechnology>
+          <TrajectoryProcessTechnology Index="2">
+            <ProcessType>2</ProcessType>
+            <TechnologyType>0</TechnologyType>
+            <!--Medium Contour Cutting-->
+          </TrajectoryProcessTechnology>
+          <TrajectoryProcessTechnology Index="3">
+            <ProcessType>3</ProcessType>
+            <TechnologyType>0</TechnologyType>
+            <!--Small Contour Cutting-->
+          </TrajectoryProcessTechnology>
+          <TrajectoryProcessTechnology Index="4">
+            <ProcessType>4</ProcessType>
+            <TechnologyType>0</TechnologyType>
+            <!--Marking-->
+          </TrajectoryProcessTechnology>
+          <TrajectoryProcessTechnology Index="5">
+            <ProcessType>5</ProcessType>
+            <TechnologyType>1</TechnologyType>
+            <!--Foil cutting-->
+          </TrajectoryProcessTechnology>
+        </LaserProcessTechnologies>
+      </LaserProcessTool>
+    </LaserProcessTools>
+  </Tools>
+  <Parts>
+    <Part PartID="1">
+      <General>
+        <PartName>DXFPUNC011516</PartName>
+        <CustOrder/>
+        <PartsTotal>1</PartsTotal>
+        <SortingDeviceType/>
+        <Address>109</Address>
+        <PartWeight>73.14</PartWeight>
+        <EstMachTimeInSecs>25.17</EstMachTimeInSecs>
+        <ArchiveNumber>0</ArchiveNumber>
+        <ArchiveName/>
+        <Formings>0</Formings>
+        <HeightCorrFactor>1</HeightCorrFactor>
+        <FreeFall>0</FreeFall>
+        <PictureFile2DSmall/>
+        <PictureFile2DBig/>
+        <Assembly/>
+        <BendingParameters/>
+        <DueDate>22.06.2022</DueDate>
+        <DueTime/>
+        <ForcedPriority>0</ForcedPriority>
+      </General>
+      <Control>
+        <PartXDim>293</PartXDim>
+        <PartYDim>162</PartYDim>
+        <Angle>0</Angle>
+        <SortingType>0</SortingType>
+        <PartXOffset>0</PartXOffset>
+        <PartYOffset>0</PartYOffset>
+        <PartDetection>1</PartDetection>
+        <StackingGrpDistance>0</StackingGrpDistance>
+        <StackingGrpDistanceA1>0</StackingGrpDistanceA1>
+        <StackingGrpDistanceA2>0</StackingGrpDistanceA2>
+        <StackingGrpXOffset>0</StackingGrpXOffset>
+        <StackingGrpYOffset>0</StackingGrpYOffset>
+        <StackingVacuumArea1>0</StackingVacuumArea1>
+        <StackingVacuumArea2>0</StackingVacuumArea2>
+        <StackingGrpMagnets1>0</StackingGrpMagnets1>
+        <StackingGrpMagnets2>0</StackingGrpMagnets2>
+        <BendingMode>0</BendingMode>
+        <ShakeXMovement>0</ShakeXMovement>
+        <ShakeYMovement>0</ShakeYMovement>
+        <ShakeRepeats>0</ShakeRepeats>
+      </Control>
+      <PartGeo>
+        <PartGeo2D/>
+        <PartGeo3D/>
+      </PartGeo>
+    </Part>
+  </Parts>
+  <PartFlow>
+    <Flow FlowID="1" PartID="1" PartSheetXOffset="74.334" PartSheetYOffset="123.137" X="74.334" Y="123.137"/>
+  </PartFlow>
+  <NestGeo/>
+  <Program PPVersion="17.0.0.0" PPDate="22.06.2022" Programmer="Lantek Expert">
+    <Main>
+      <SETUP/>
+      <CLEAN_TIP Enable="1" Piercings="400"/>
+      <WORK_TYPE TechnologyType="1"/>
+      <LASER_PROCESS_TOOL Index="1"/>
+      <LASER_START MainPointProcessTechnology="-2" MainTrajectoryProcessTechnology="4" PrePointProcessTechnology="0" PreTrajectoryProcessTechnology="0"/>
+      <ABSOLUTE_PROGRAMMING/>
+      <JUMP_TO_LINE/>
+      <ABSOLUTE_PROGRAMMING/>
+      <DATA_TO_SUB FlowID="1" LastPart="1"/>
+      <MOVE_RAPID X="74.334" Y="123.137" FlowID="1" ContourID="1"/>
+      <SUB_CALL SubName="00001516_1"/>
+      <ABSOLUTE_PROGRAMMING/>
+      <LASER_END/>
+      <ABSOLUTE_PROGRAMMING/>
+      <MOVE_RAPID X="0" Y="0"/>
+      <END/>
+      <END_OF_PROGRAM/>
+    </Main>
+    <SUB>
+      <SUB_PART SubName="00001516_1">
+        <SUB_START/>
+        <INCREMENTAL_PROGRAMMING/>
+        <FLY_OFF/>
+        <MOVE_RAPID X="0" Y="0" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_LINEAR X="4.738" Y="4.737"/>
+        <FLY/>
+        <MOVE_CIRCULAR X="-0.566" Y="0.566" I="-0.283" J="0.283" Direction="3"/>
+        <MOVE_LINEAR X="-4.737" Y="-4.738"/>
+        <MOVE_CIRCULAR X="0.565" Y="-0.565" I="0.282" J="-0.283" Direction="3"/>
+        <FLY_OFF/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="159.594" Y="4.737" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_LINEAR X="4.738" Y="-4.737"/>
+        <FLY/>
+        <MOVE_CIRCULAR X="0.565" Y="0.565" I="0.283" J="0.282" Direction="3"/>
+        <MOVE_LINEAR X="-4.737" Y="4.738"/>
+        <MOVE_CIRCULAR X="-0.566" Y="-0.566" I="-0.283" J="-0.283" Direction="3"/>
+        <FLY_OFF/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="-74.078" Y="30.684" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_CIRCULAR X="0" Y="0.8" I="0" J="0.4" Direction="3"/>
+        <FLY/>
+        <MOVE_LINEAR X="-6.7" Y="0"/>
+        <MOVE_CIRCULAR X="0" Y="-0.8" I="0" J="-0.4" Direction="3"/>
+        <MOVE_LINEAR X="6.7" Y="0"/>
+        <FLY_OFF/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="-105" Y="-109.558" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_CIRCULAR X="0" Y="0" I="-2.25" J="0" Direction="3"/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="170.75" Y="-29" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_CIRCULAR X="0" Y="0" I="-1" J="0" Direction="3"/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="-3.4" Y="0" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_CIRCULAR X="0" Y="0" I="-1" J="0" Direction="3"/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="-3.4" Y="0" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_CIRCULAR X="0" Y="0" I="-1" J="0" Direction="3"/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="-3.4" Y="0" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_CIRCULAR X="0" Y="0" I="-1" J="0" Direction="3"/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="-144.764" Y="43.036" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_CIRCULAR X="0" Y="0" I="-1.6" J="0" Direction="3"/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="127.614" Y="94.964" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_CIRCULAR X="0" Y="0" I="-1.75" J="0" Direction="3"/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="-80" Y="0" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_CIRCULAR X="0" Y="0" I="-1.75" J="0" Direction="3"/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="-16.4" Y="-109" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_CIRCULAR X="0" Y="0" I="-2.25" J="0" Direction="3"/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="-20.5" Y="7.5" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_CIRCULAR X="0" Y="0" I="-2.25" J="0" Direction="3"/>
+        <END_MARKING ExtraHeight="-1"/>
+        <MOVE_RAPID X="-20.128" Y="13.071" ContourID="1"/>
+        <MARKING MainTrajectoryProcessTechnology="4"/>
+        <MOVE_CIRCULAR X="0" Y="0" I="-2.25" J="0" Direction="3"/>
+        <WORK_OFF NextMainPointProcessTechnology="-2" NextMainTrajectoryProcessTechnology="2" NextPrePointProcessTechnology="1" NextPreTrajectoryProcessTechnology="1" ExtraHeight="-1" SmartMove="1" ApproachOnFly="0"/>
+        <MOVE_SMART X1="13.493" Y1="2.296" X2="-0.681" Y2="-1.048" ContourID="1"/>
+        <WORK_ON MainPointProcessTechnology="-2" MainTrajectoryProcessTechnology="2" PrePointProcessTechnology="1" PreTrajectoryProcessTechnology="1" ContourStart="1" DimX="37.257" DimY="27.701"/>
+        <FLY/>
+        <TOOL_RADIUS_COMPENSATION_LEFT/>
+        <MOVE_LINEAR X="-0.681" Y="-1.048" LeadGeometry="1"/>
+        <MOVE_LINEAR X="-0.681" Y="-1.048" LeadGeometry="1"/>
+        <FLY_OFF/>
+        <MOVE_LINEAR X="13.629" Y="-8.851"/>
+        <FLY/>
+        <MOVE_CIRCULAR X="5.446" Y="8.387" I="2.723" J="4.194" Direction="3"/>
+        <MOVE_LINEAR X="-27.257" Y="17.701"/>
+        <MOVE_CIRCULAR X="-5.446" Y="-8.387" I="-2.723" J="-4.194" Direction="3"/>
+        <MICROJOINT_BEGIN MJType="3"/>
+        <MOVE_LINEAR X="13.628" Y="-8.85"/>
+        <FLY_OFF/>
+        <MICROJOINT_END/>
+        <TOOL_RADIUS_COMPENSATION_OFF/>
+        <WORK_OFF NextMainPointProcessTechnology="-2" NextMainTrajectoryProcessTechnology="3" NextPrePointProcessTechnology="1" NextPreTrajectoryProcessTechnology="1" ExtraHeight="-1" SmartMove="1" ApproachOnFly="0"/>
+        <MOVE_SMART X1="-30.995" Y1="17.146" X2="-0.296" Y2="-1.214" ContourID="2"/>
+        <WORK_ON MainPointProcessTechnology="-2" MainTrajectoryProcessTechnology="3" PrePointProcessTechnology="1" PreTrajectoryProcessTechnology="1" ContourStart="1" DimX="6.2" DimY="6.2"/>
+        <FLY/>
+        <TOOL_RADIUS_COMPENSATION_LEFT/>
+        <MOVE_LINEAR X="-0.296" Y="-1.214" LeadGeometry="1"/>
+        <MOVE_LINEAR X="-0.295" Y="-1.215" LeadGeometry="1"/>
+        <FLY_OFF/>
+        <MOVE_CIRCULAR X="1.466" Y="6.024" I="0.733" J="3.012" Direction="3"/>
+        <FLY/>
+        <MICROJOINT_BEGIN MJType="3"/>
+        <MOVE_CIRCULAR X="-1.466" Y="-6.024" I="-0.733" J="-3.012" Direction="3"/>
+        <FLY_OFF/>
+        <MICROJOINT_END/>
+        <TOOL_RADIUS_COMPENSATION_OFF/>
+        <WORK_OFF NextMainPointProcessTechnology="-2" NextMainTrajectoryProcessTechnology="3" NextPrePointProcessTechnology="1" NextPreTrajectoryProcessTechnology="1" ExtraHeight="-1" SmartMove="1" ApproachOnFly="0"/>
+        <MOVE_SMART X1="-5.907" Y1="-24.274" X2="1.168" Y2="0.447" ContourID="3"/>
+        <WORK_ON MainPointProcessTechnology="-2" MainTrajectoryProcessTechnology="3" PrePointProcessTechnology="1" PreTrajectoryProcessTechnology="1" ContourStart="1" DimX="6.2" DimY="6.2"/>
+        <FLY/>
+        <TOOL_RADIUS_COMPENSATION_LEFT/>
+        <MOVE_LINEAR X="1.168" Y="0.447" LeadGeometry="1"/>
+        <MOVE_LINEAR X="1.168" Y="0.447" LeadGeometry="1"/>
+        <FLY_OFF/>
+        <MOVE_CIRCULAR X="-5.792" Y="-2.214" I="-2.896" J="-1.107" Direction="3"/>
+        <FLY/>
+        <MICROJOINT_BEGIN MJType="3"/>
+        <MOVE_CIRCULAR X="5.792" Y="2.214" I="2.896" J="1.107" Direction="3"/>
+        <FLY_OFF/>
+        <MICROJOINT_END/>
+        <TOOL_RADIUS_COMPENSATION_OFF/>
+        <WORK_OFF NextMainPointProcessTechnology="-2" NextMainTrajectoryProcessTechnology="3" NextPrePointProcessTechnology="1" NextPreTrajectoryProcessTechnology="1" ExtraHeight="3" SmartMove="0" ApproachOnFly="0"/>
+        <MOVE_RAPID X="67.554" Y="25.813" ContourID="4"/>
+        <WORK_ON MainPointProcessTechnology="-2" MainTrajectoryProcessTechnology="3" PrePointProcessTechnology="1" PreTrajectoryProcessTechnology="1" ContourStart="1" DimX="6.5" DimY="10"/>
+        <FLY/>
+        <TOOL_RADIUS_COMPENSATION_LEFT/>
+        <MOVE_LINEAR X="1.25" Y="0" LeadGeometry="1"/>
+        <MOVE_LINEAR X="1.25" Y="0" LeadGeometry="1"/>
+        <FLY_OFF/>
+        <MOVE_LINEAR X="0" Y="7.38"/>
+        <MOVE_LINEAR X="-6.5" Y="0"/>
+        <MOVE_LINEAR X="0" Y="-10"/>
+        <MOVE_LINEAR X="6.5" Y="0"/>
+        <MICROJOINT_BEGIN MJType="3"/>
+        <MOVE_LINEAR X="0" Y="2.62"/>
+        <MICROJOINT_END/>
+        <TOOL_RADIUS_COMPENSATION_OFF/>
+        <WORK_OFF NextMainPointProcessTechnology="-2" NextMainTrajectoryProcessTechnology="3" NextPrePointProcessTechnology="1" NextPreTrajectoryProcessTechnology="1" ExtraHeight="-1" SmartMove="1" ApproachOnFly="0"/>
+        <MOVE_SMART X1="100.5" Y1="0" X2="1.25" Y2="0" ContourID="5"/>
+        <WORK_ON MainPointProcessTechnology="-2" MainTrajectoryProcessTechnology="3" PrePointProcessTechnology="1" PreTrajectoryProcessTechnology="1" ContourStart="1" DimX="6.5" DimY="10"/>
+        <FLY/>
+        <TOOL_RADIUS_COMPENSATION_LEFT/>
+        <MOVE_LINEAR X="1.25" Y="0" LeadGeometry="1"/>
+        <MOVE_LINEAR X="1.25" Y="0" LeadGeometry="1"/>
+        <FLY_OFF/>
+        <MOVE_LINEAR X="0" Y="7.38"/>
+        <MOVE_LINEAR X="-6.5" Y="0"/>
+        <MOVE_LINEAR X="0" Y="-10"/>
+        <MOVE_LINEAR X="6.5" Y="0"/>
+        <MICROJOINT_BEGIN MJType="3"/>
+        <MOVE_LINEAR X="0" Y="2.62"/>
+        <MICROJOINT_END/>
+        <TOOL_RADIUS_COMPENSATION_OFF/>
+        <WORK_OFF NextMainPointProcessTechnology="-2" NextMainTrajectoryProcessTechnology="3" NextPrePointProcessTechnology="1" NextPreTrajectoryProcessTechnology="1" ExtraHeight="-1" SmartMove="1" ApproachOnFly="0"/>
+        <MOVE_SMART X1="59.403" Y1="0" X2="0.319" Y2="-1.209" ContourID="6"/>
+        <WORK_ON MainPointProcessTechnology="-2" MainTrajectoryProcessTechnology="3" PrePointProcessTechnology="1" PreTrajectoryProcessTechnology="1" ContourStart="1" DimX="6.2" DimY="6.2"/>
+        <FLY/>
+        <TOOL_RADIUS_COMPENSATION_LEFT/>
+        <MOVE_LINEAR X="0.319" Y="-1.209" LeadGeometry="1"/>
+        <MOVE_LINEAR X="0.32" Y="-1.208" LeadGeometry="1"/>
+        <FLY_OFF/>
+        <MOVE_CIRCULAR X="-1.584" Y="5.994" I="-0.792" J="2.997" Direction="3"/>
+        <FLY/>
+        <MICROJOINT_BEGIN MJType="3"/>
+        <MOVE_CIRCULAR X="1.584" Y="-5.994" I="0.792" J="-2.997" Direction="3"/>
+        <FLY_OFF/>
+        <MICROJOINT_END/>
+        <TOOL_RADIUS_COMPENSATION_OFF/>
+        <WORK_OFF NextMainPointProcessTechnology="-2" NextMainTrajectoryProcessTechnology="3" NextPrePointProcessTechnology="1" NextPreTrajectoryProcessTechnology="1" ExtraHeight="-1" SmartMove="1" ApproachOnFly="0"/>
+        <MOVE_SMART X1="6.624" Y1="-25.063" X2="0.449" Y2="-1.167" ContourID="7"/>
+        <WORK_ON MainPointProcessTechnology="-2" MainTrajectoryProcessTechnology="3" PrePointProcessTechnology="1" PreTrajectoryProcessTechnology="1" ContourStart="1" DimX="6.2" DimY="6.2"/>
+        <FLY/>
+        <TOOL_RADIUS_COMPENSATION_LEFT/>
+        <MOVE_LINEAR X="0.449" Y="-1.167" LeadGeometry="1"/>
+        <MOVE_LINEAR X="0.449" Y="-1.166" LeadGeometry="1"/>
+        <FLY_OFF/>
+        <MOVE_CIRCULAR X="-2.228" Y="5.786" I="-1.114" J="2.893" Direction="3"/>
+        <FLY/>
+        <MICROJOINT_BEGIN MJType="3"/>
+        <MOVE_CIRCULAR X="2.228" Y="-5.786" I="1.114" J="-2.893" Direction="3"/>
+        <FLY_OFF/>
+        <MICROJOINT_END/>
+        <TOOL_RADIUS_COMPENSATION_OFF/>
+        <WORK_OFF NextMainPointProcessTechnology="-2" NextMainTrajectoryProcessTechnology="1" NextPrePointProcessTechnology="1" NextPreTrajectoryProcessTechnology="1" ExtraHeight="-1" SmartMove="1" ApproachOnFly="0"/>
+        <MOVE_SMART X1="17.186" Y1="-44.607" X2="-1.25" Y2="0" ContourID="8"/>
+        <WORK_ON MainPointProcessTechnology="-2" MainTrajectoryProcessTechnology="1" PrePointProcessTechnology="1" PreTrajectoryProcessTechnology="1" ContourStart="1" DimX="293" DimY="162"/>
+        <FLY/>
+        <TOOL_RADIUS_COMPENSATION_LEFT/>
+        <MOVE_LINEAR X="-1.25" Y="0" LeadGeometry="1"/>
+        <MOVE_LINEAR X="-1.25" Y="-0" LeadGeometry="1"/>
+        <MOVE_LINEAR X="-10.8" Y="0"/>
+        <FLY_OFF/>
+        <MOVE_LINEAR X="0" Y="-2.5"/>
+        <MOVE_LINEAR X="-50.2" Y="0"/>
+        <MOVE_LINEAR X="0" Y="10"/>
+        <MOVE_LINEAR X="-6.5" Y="0"/>
+        <MOVE_LINEAR X="0" Y="-10"/>
+        <MOVE_LINEAR X="-13" Y="0"/>
+        <MOVE_LINEAR X="0" Y="10"/>
+        <MOVE_LINEAR X="-6.5" Y="0"/>
+        <MOVE_LINEAR X="0" Y="-10"/>
+        <MOVE_LINEAR X="-100.5" Y="0"/>
+        <MOVE_LINEAR X="0" Y="12"/>
+        <MOVE_LINEAR X="-60" Y="0"/>
+        <MOVE_LINEAR X="0" Y="-12"/>
+        <MOVE_LINEAR X="-15.7" Y="0"/>
+        <MOVE_LINEAR X="0" Y="2.5"/>
+        <MOVE_LINEAR X="-10.8" Y="0"/>
+        <MOVE_LINEAR X="0" Y="13"/>
+        <MOVE_LINEAR X="-9.5" Y="0"/>
+        <MOVE_LINEAR X="0" Y="16.5"/>
+        <MOVE_LINEAR X="10.7" Y="0"/>
+        <MOVE_LINEAR X="0" Y="12.5"/>
+        <MOVE_LINEAR X="9.6" Y="0"/>
+        <MOVE_LINEAR X="0" Y="12"/>
+        <MOVE_LINEAR X="7.2" Y="7.2"/>
+        <FLY/>
+        <MOVE_LINEAR X="0" Y="29.3"/>
+        <FLY_OFF/>
+        <MOVE_LINEAR X="59.5" Y="59.5"/>
+        <MOVE_LINEAR X="24" Y="0"/>
+        <MOVE_LINEAR X="0" Y="9.5"/>
+        <MOVE_LINEAR X="71" Y="0"/>
+        <MOVE_LINEAR X="0" Y="-9.5"/>
+        <MOVE_LINEAR X="24" Y="0"/>
+        <MOVE_LINEAR X="59.5" Y="-59.5"/>
+        <MOVE_LINEAR X="0" Y="-29.3"/>
+        <MOVE_LINEAR X="7.2" Y="-7.2"/>
+        <MOVE_LINEAR X="0" Y="-12"/>
+        <MOVE_LINEAR X="9.6" Y="0"/>
+        <MOVE_LINEAR X="0" Y="-12.5"/>
+        <MOVE_LINEAR X="10.7" Y="0"/>
+        <MOVE_LINEAR X="0" Y="-16.5"/>
+        <MOVE_LINEAR X="-9.5" Y="0"/>
+        <MICROJOINT_BEGIN MJType="3"/>
+        <MOVE_LINEAR X="0" Y="-13"/>
+        <MICROJOINT_END/>
+        <TOOL_RADIUS_COMPENSATION_OFF/>
+        <WORK_OFF NextMainPointProcessTechnology="-2" NextMainTrajectoryProcessTechnology="1" NextPrePointProcessTechnology="1" NextPreTrajectoryProcessTechnology="1" ExtraHeight="2" SmartMove="0" ApproachOnFly="0"/>
+        <SUB_END/>
+        <JUMP_BACKWARD Label="00001516_1"/>
+      </SUB_PART>
+    </SUB>
+  </Program>
+</Nest>

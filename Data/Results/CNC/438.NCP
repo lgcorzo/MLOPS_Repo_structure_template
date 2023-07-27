@@ -1,0 +1,44 @@
+%
+(<NcpProgram Version="1.0" Units="English" CNCVersion="P8100">)
+(0001)
+()
+(#FormatType#X3.937Y3.937)
+(MaterialInfo MaterialCode="Al99" Thickness="0.0315")
+(<MaterialInfo MaterialCode="Al99" Thickness="0.0315" FormatType="Sheet" DimX="3.937" DimY="3.937"/>)
+(<ProcessInfo CutTechnology="Laser" Clamping="False" ParameterFile="" ProcessGas="" CuttingHead="" Additional=""/>)
+(<Plan JobCode="0001" Label=" 1">)
+N1G29X3.937Y3.937P1H1
+N2G52X0Y0C0L1
+N3G99
+(</Plan>)
+(<Part PartCode="0001" Debit="1">)
+N1000G28X3.937Y3.937L1P1
+N1001G0X2.6378Y1.9618
+N1002G10S0
+N1003G1X2.9528Y1.9587M04M14
+N1004G41
+(<Contour>)
+N1005G3X0.9843Y1.9685I1.9685J1.9685
+N1006G3X2.9528Y1.9783I1.9685J1.9685M05M15
+N1007G40
+(</Contour>)
+N1008G0X1.2724Y2.6646
+(<Contour>)
+N1009G10S0
+N1010G1X0Y3.937M04M14M05M15
+(</Contour>)
+N1011G0X3.5433Y3.937
+(<Contour>)
+N1012G10S0
+N1013G2X3.937Y3.5433I3.5433J3.5433M04M14M05M15
+(</Contour>)
+N1014G0X3.1496Y3.1496
+N1015G0X3.1496Y0.7874
+N1016G0X0.3937Y0
+(<Contour>)
+N1017G10S0
+N1018G2X0Y0.3937I0.3937J0.3937M04M14M05M15
+(</Contour>)
+N1019G98
+(</Part>)
+&

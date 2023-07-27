@@ -1,0 +1,191 @@
+BD
+SET_METRIC
+C
+BEGIN_EINRICHTEPLAN_INFO
+C
+ZA,MM,2
+MM,AT,1, 60,1,1,,,,,T
+MM,AT,1,170,1,1,,,,,T
+ZA,DA,1
+C
+DA,0038055,1
+C
+ENDE_EINRICHTEPLAN_INFO
+C
+BEGIN_SHEET_TECH
+C
+ZA,MM,7
+MM,AT,1,10,1,1,,,,,T
+MM,AT,1,20,1,1,,,,'mm',Z
+MM,AT,1,30,1,1,,,,'mm',Z
+MM,AT,1,40,1,1,,,,'mm',Z
+MM,AT,1,220,1,1,,,,'mm',Z
+MM,AT,1,230,1,1,,,,'mm',Z
+MM,AT,1,240,1,1,,'Materialkennung',,'',T
+C
+ZA,DA,1
+DA,'SHT-1',97.0,235.3,0.8,97.0,235.3,'Al99'
+C
+ENDE_SHEET_TECH
+C
+BEGIN_SHEET_LOAD
+C
+ZA,MM,23
+MM,AT,1,10,1,1,,'Table identifier',,,T
+MM,AT,1,  70,1,1,,'TRUMPF-Kennung'                        ,,'',Z
+MM,AT,1, 100,1,1,,'maximale Bearbeitungsposition X'       ,,'mm',Z
+MM,AT,1, 110,1,1,,'maximale Bearbeitungsposition Y'       ,,'mm',Z
+MM,AT,1,500,1,1,,'Loading unit',,,Z
+MM,AT,1,520,1,1,,,,,Z
+MM,AT,1,530,1,1,,,,,Z
+MM,AT,1,540,1,1,,,,,Z
+MM,AT,1,550,1,1,,,,,Z
+MM,AT,1,580,1,1,,'Double sheet detector',,'Bool',Z
+MM,AT,1,590,1,1,,'Peeling tool activated',,'Bool',Z
+MM,AT,1,620,1,1,,'Sheet stopper',,,Z
+MM,AT,1,630,1,1,,'Measure sheet position',,,Z
+MM,AT,1,640,1,1,,'Measure range in X',,'mm',Z
+MM,AT,1,650,1,1,,'Measure range in Y',,'mm',Z
+MM,AT,1,660,1,1,,'Calibration',,'Bool',Z
+MM,AT,1,690,1,1,,'Type of pallet change',,,Z
+MM,AT,1,700,1,1,,'Measuring Corner',,,Z
+MM,AT,1,720,1,1,,'Spreizmagnet (Lift)'                   ,,'Bool',Z
+MM,AT,1,730,1,1,,'Drehzylinder  (Lift)'                  ,,'Bool',Z
+MM,AT,1,810,1,1,,'Einzelsaugeranwahl'                    ,,'',Z
+MM,AT,1,830,1,1,,'Codierung Einzelsauger 1'              ,,'',T
+MM,AT,1,840,1,1,,'Codierung Einzelsauger 2'              ,,'',T
+C
+ZA,DA,1
+DA,'SHL-1',1,97.0,235.3,1,1,1,0,1,1,1,1,0,50.0,50.0,1,1,1,0,1,
+*  0,'00000000','00000000'
+C
+ENDE_SHEET_LOAD
+C
+BEGIN_LTT_CALLS
+C
+ZA,MM,1
+MM,AT,1,10,1,1,,,,,T
+C
+ZA,DA,1
+DA,'KT2D-6786B'
+C
+ENDE_LTT_CALLS
+C
+BEGIN_LASER_HEAD
+C
+ZA, MM, 10
+MM,AT,1,  10,1,1,,'Tabellenidentifikator'            ,,'',T
+MM,AT,1,  20,1,1,,'Schneidkopf 1 aktiviert'          ,,'Bool',Z
+MM,AT,1,  30,1,1,,'Schneidkopf 2 aktiviert'          ,,'Bool',Z
+MM,AT,1,  40,1,1,,'Schneidkopf 3 aktiviert'          ,,'Bool',Z
+MM,AT,1,  50,1,1,,'Schneidkopf 4 aktiviert'          ,,'Bool',Z
+MM,AT,1,  60,1,1,,'Abstand Kopf 2 zu Kopf 1'         ,,'mm',Z
+MM,AT,1,  70,1,1,,'Abstand Kopf 3 zu Kopf 2'         ,,'mm',Z
+MM,AT,1,  80,1,1,,'Abstand Kopf 4 zu Kopf 3'         ,,'mm',Z
+MM,AT,1,  90,1,1,,'Anzahl Schneidkoepfe'             ,,'',Z
+MM,AT,1, 100,1,1,,'TRUMPF-Kennung'                   ,,'',Z
+C
+ZA,DA,1
+DA, LHT-1,1,0,0,0,500,0,0,2,1
+C
+ENDE_LASER_HEAD
+C
+BEGIN_MICROJOINT
+C
+ZA,MM,12
+MM,AT,1,  10,1,1,,'Tabellenidentifikator              ',,'',T
+MM,AT,1, 100,1,1,,'programmierte Microjoints aktiv    ',,'Bool',Z
+MM,AT,1, 110,1,1,,'automatische Microjoints aktiv     ',,'Bool',Z
+MM,AT,1, 120,1,1,,'Microjointbreite kleine Kontur     ',,'mm',Z
+MM,AT,1, 130,1,1,,'Microjointbreite mittlere Kontur   ',,'mm',Z
+MM,AT,1, 140,1,1,,'Microjointbreite grosse Kontur     ',,'mm',Z
+MM,AT,1, 150,1,1,,'Konturausdehnung min X autom. Microjoint',,'mm',Z
+MM,AT,1, 160,1,1,,'Konturausdehnung max X autom. Microjoint',,'mm',Z
+MM,AT,1, 170,1,1,,'Konturausdehnung min Y autom. Microjoint',,'mm',Z
+MM,AT,1, 180,1,1,,'Konturausdehnung max Y autom. Microjoint',,'mm',Z
+MM,AT,1, 190,1,1,,'Einstechart nach Microjoint        ',,'',Z
+MM,AT,1, 500,1,1,,'TRUMPF-Kennung                     ',,'',Z
+C
+ZA,DA,1
+DA,'MIJO-1',1,0,0,0,0.7,-1,-1,-1,-1,11,1
+C
+ENDE_MICROJOINT
+C
+BEGIN_PROGRAMM
+C
+ZA,MM,4
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,T
+MM,AT,1, 30,1,1,,,,,T
+MM,AT,1, 40,1,1,,,,,Z
+C
+ZA,DA,2
+DA,'L10038055','UP',,
+START_TEXT
+N10G91
+N20G01X-0.05Y0.168
+N30TC_POS_LEVEL(40.0)
+N40TC_LASER_ON(1,"KT2D-6786B",10,100)
+N50X-3.832Y-1.148
+N60G03X-54.89Y-34.35I35.051J-117.039
+N70G02X-9.75Y-12.06I-4.06J-6.689
+N80G03X-22.473Y-68.953I99.691J-70.629
+N90G02X3.667Y-31.429I2.163J-15.676
+N100G03X62.671Y-78.922I118.497J29.753
+N110G01Y15.675
+N120G02X0.825Y0.825I0.825J0
+N130G01X7.693
+N140X-8.933Y8.935
+N150G02X5.78Y15.053I6.24J6.24
+N160G01X5.635Y0.291
+N170Y11.581
+N180X-11.275Y1.381
+N190G02X-0.725Y0.819I0.1J0.819
+N200G01Y8.23
+N210G02X0.725Y0.819I0.825J0
+N220G01X11.275Y1.381
+N230Y10.759
+N240X-18.03Y17.595
+N250G02X-0.227Y0.4I0.576J0.59
+N260X6.039Y45.726I63.082J14.931
+N270G01X22.077Y40.9
+N280G03X0.141Y0.558I-1.034J0.558
+N290G01Y11.922
+N300X-3.175
+N310G02X-0.825Y0.825I0J0.825
+N320G01Y20
+N330G02X0.825Y0.825I0.825J0
+N340G01X3.175
+N350Y11.045
+N360Y1
+N370TC_LASER_OFF(3)
+N380G01
+N390G90
+N400M17
+N410M02
+STOP_TEXT
+C
+DA,'0038055','HP',,
+START_TEXT
+N10MSG("PROGRAM NUMBER,0038055")
+N20MSG("SHEET Al99 : 97.0 x 235.3 x 0.8")
+N30MSG("MSG,PART #:DXFPART7 QTY 1")
+N40G71
+N50F304000
+N60TC_POS_LEVEL(40.0)
+N70TC_SHEET_TECH("SHT-1")
+N80TC_SHEET_LOAD("SHL-1")
+N90TC_MICROJOINT("MIJO-1")
+N100 ;GOTOF ENTRY_LASER
+N110;ENTRY_LASER:
+N120;(PART NUMBER: L10038055  DXFPART7 NUMBER:1)
+N130TC_LASER_HEAD("LHT-1")
+N140G01X95.821Y231.409
+N150L10038055
+N160TC_LASER_OFF(2)
+N170M30
+STOP_TEXT
+ENDE_PROGRAMM
+ED
+
+

@@ -1,0 +1,70 @@
+;*DurmaPartProgram*
+;$PATH=/_N_WKS_DIR/_N_000093_WPD
+
+;***** Sheet info*****
+1 @MATERIAL$="Al99"
+1 @THICKNESS=0.8
+1 @X_DIM=115
+1 @Y_DIM=180
+1 @Z_DIM=0
+
+;***** Laser tool info*****
+2 @FOCAL_LENGTH=3
+2 @GAS_TYPE=1
+2 @NOZZLE_TYPE=115
+NOZZLE_DIAMETER=220
+
+;*****Preparation info*****
+3 @PLATE_SEARCH=11
+3 @NOZZLE_CALIBRATION=10
+3 @SHEET_CLAMPING=0
+3 @FOIL_PROCESSING=0
+3 @PRE_PIERCING=0
+3 @RETRACE=1
+
+;*****Task list info*****
+4 @SHEETS=1
+4 @SUCTION_AREAS=13
+
+;*****Technology info*****
+5 @PIERCING_TECHNOS$="1"
+5 @CUTTING_TECHNOS$="1"
+5 @FOIL_PIERCING_TECHNO=7
+5 @FOIL_CUTTING_TECHNO=7
+
+;*****Part info*****
+6 @PART_ID%=1
+6 @PART_NAME$(1)="Pieza_prueba_Maxwell_2"
+6 @PART(1,1)=1
+6 @PART(1,2)=1
+6 @PART(1,3)=180
+6 @PART(1,4)=115
+6 @PART(1,5)=6
+
+;***** Main program *****
+;LOADING(0)
+ 
+10 .MAIN
+P/CNC_PROG/LASER_ON.npg
+
+5 .PART
+10 CASE @PART_NR% OF
+ 
+10 LABEL 1:
+10 PART_NR%=1
+10 PART_ID%=1
+G90G00X-58.23Y18.29
+ 
+SP_000093_0001.spf
+ 
+P/CNC_PROG/LASER_OFF.npg
+;UNLOADING(0)
+ 
+10 ENDCASE
+10 IF (@SHEETS<>0) THEN
+20 GOTO .MAIN
+20 ENDIF
+M30
+ 
+
+;***** Sub-Programs *****

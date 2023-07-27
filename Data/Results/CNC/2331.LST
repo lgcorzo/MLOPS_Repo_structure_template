@@ -1,0 +1,589 @@
+BD
+SET_METRIC
+C
+BEGIN_EINRICHTEPLAN_INFO
+C
+ZA,MM,04
+MM,AT,1, 60,1,1,,'Program number',,'',T
+MM,AT,1,100,1,1,,'Number of runs',,'',Z
+MM,AT,1,130,1,1,,'Material-ID',,'',T
+MM,AT,1,170,1,1,,'Flag Automated',,'Bool',Z
+C
+ZA,DA,1
+DA,'',1,'Al99',1
+C
+ENDE_EINRICHTEPLAN_INFO
+C
+BEGIN_PTT
+C
+ZA,MM,26
+MM,AT,1,  10, 1,1,,'Table identifier'                      ,,'',T
+MM,AT,1,  20, 1,1,,'Tapping speed'                    ,,'1/min',Z
+MM,AT,1,  30, 1,1,,'Tapping Lubricant container no.'       ,,'',Z
+MM,AT,1,  40, 1,1,,'Tapping number of lubricant pulses'    ,,'',Z
+MM,AT,1,  60, 1,1,,'UDC-Offset'                          ,,'mm',Z
+MM,AT,1,  70, 1,1,,'LDC-Offset'                          ,,'mm',Z
+MM,AT,1,  80, 1,1,,'Working position'                      ,,'',Z
+MM,AT,1,  90, 1,1,,'TRUMPF-ID'                             ,,'',Z
+MM,AT,1, 100, 1,1,,'Number of C-axis rotations'            ,,'',Z
+MM,AT,1, 110, 1,1,,'Table type (tool type)'                ,,'',Z
+MM,AT,1, 120, 1,1,,'Feedrate'                         ,,'m/min',Z
+MM,AT,1, 130, 1,1,,'Rod presure stripper'              ,,'Bool',Z
+MM,AT,1, 140, 1,1,,'Presser foot pressure'                ,,'N',Z
+MM,AT,1, 150, 1,1,,'Rapid'                               ,,'mm',Z
+MM,AT,1, 160, 1,1,,'Presser foot'                          ,,'',Z
+MM,AT,1, 170, 1,1,,'Softpunch'                             ,,'',Z
+MM,AT,1, 180, 1,1,,'Punching with delay'                   ,,'',Z
+MM,AT,1, 190, 1,1,,'Suction unit'                          ,,'',Z
+MM,AT,1, 200, 1,1,,'Tool lubrication'                      ,,'',Z
+MM,AT,1, 210, 1,1,,'Tool ID number'                        ,,'',T
+MM,AT,1, 220, 1,1,,'Tool comments'                         ,,'',T
+MM,AT,1, 230, 1,1,,'Tool-ID. Validity'                     ,,'',Z
+MM,AT,1, 240, 1,1,,'Plunge position offset 2'            ,,'mm',Z
+MM,AT,1, 250, 1,1,,'Working position offset 2'           ,,'mm',Z
+MM,AT,1, 260, 1,1,,'Feed per stroke'                     ,,'mm',Z
+MM,AT,1, 270, 1,1,,'Wheel feed rate'                  ,,'m/min',Z
+C
+ZA,DA,9
+DA,'PTT-1',0,0,0,0.000,0.000,0,1,0.00,1,0,0,0,0.0,0,0,0,1,1,
+*  '01050000','RD-5MT',1,0.000,0.000,0.00,0.0
+DA,'PTT-2',0,0,0,0.000,0.000,0,1,0.00,1,0,0,0,0.0,0,0,0,1,1,
+*  '01075000','RD-7.5MT',1,0.000,0.000,0.00,0.0
+DA,'PTT-3',0,0,0,4.000,0.000,0,1,0.00,1,0,0,0,0.0,0,1,0,1,1,
+*  '01220000','RD-22',1,0.000,0.000,0.00,0.0
+DA,'PTT-4',0,0,0,4.000,0.000,0,1,0.00,4,0,0,0,0.0,0,1,0,1,1,
+*  '04300050','RE-30x5',1,0.000,0.000,0.00,0.0
+DA,'PTT-5',0,0,0,4.000,0.000,0,1,0.00,4,0,0,0,0.0,0,1,0,1,1,
+*  '04500050','RE-50x5',1,0.000,0.000,0.00,0.0
+C
+ENDE_PTT
+C
+BEGIN_SHEET_TECH
+C
+ZA,MM,25
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,Z
+MM,AT,1, 30,1,1,,,,,Z
+MM,AT,1, 40,1,1,,,,,Z
+MM,AT,1, 50,1,1,,,,,Z
+MM,AT,1, 60,1,1,,,,,Z
+MM,AT,1, 70,1,1,,,,,Z
+MM,AT,1, 80,1,1,,,,,T
+MM,AT,1, 90,1,1,,,,,Z
+MM,AT,1,100,1,1,,,,,Z
+MM,AT,1,110,1,1,,,,,Z
+MM,AT,1,120,1,1,,,,,Z
+MM,AT,1,130,1,1,,,,,Z
+MM,AT,1,140,1,1,,,,,Z
+MM,AT,1,150,1,1,,,,,Z
+MM,AT,1,160,1,1,,,,,Z
+MM,AT,1,170,1,1,,,,,Z
+MM,AT,1,180,1,1,,,,,Z
+MM,AT,1,190,1,1,,,,,Z
+MM,AT,1,200,1,1,,,,,Z
+MM,AT,1,210,1,1,,,,,Z
+MM,AT,1,220,1,1,,,,,Z
+MM,AT,1,230,1,1,,,,,Z
+MM,AT,1,240,1,1,,,,,T
+MM,AT,1,260,1,1,,,,'kg/dm3',Z
+C
+ZA,DA,1
+DA,'SHT-1',203.333,175.257,0.8,1,0.00,1,0,3,4,11,18,0,100,
+*  100,0,0,1,2,1,-1,203.33,175.26,'Al99',2.7
+C
+ENDE_SHEET_TECH
+C
+BEGIN_SHEET_LOAD
+C
+ZA,MM,23
+MM,AT,1, 10, 1,1,,'Table Identifier'                     ,,'',T
+MM,AT,1, 20, 1,1,,'Loading position X'                 ,,'mm',Z
+MM,AT,1, 30, 1,1,,'Loading position Y'                 ,,'mm',Z
+MM,AT,1, 40, 1,1,,'Feed for loading position'       ,,'m/min',Z
+MM,AT,1, 50, 1,1,,'Calculation of multitool offset'  ,,'Bool',Z
+MM,AT,1, 60, 1,1,,'Load trigger material UB'             ,,'',Z
+MM,AT,1, 70, 1,1,,'TRUMPF-Identification''               ,,'',Z
+MM,AT,1,500, 1,1,,'Loading unit'                         ,,'',Z
+MM,AT,1,510 ,1,1,,'Lift offset X loading pile'         ,,'mm',Z
+MM,AT,1,520, 1,1,,'Lift cup group 1'                     ,,'',Z
+MM,AT,1,530, 1,1,,'Lift cup group 2'                     ,,'',Z
+MM,AT,1,540, 1,1,,'Lift cup group 3'                     ,,'',Z
+MM,AT,1,550, 1,1,,'Lift cup group 4'                     ,,'',Z
+MM,AT,1,560, 1,1,,'Lift cup group 5'                     ,,'',Z
+MM,AT,1,570, 1,1,,'Lift pivot suction cup'               ,,'',Z
+MM,AT,1,580, 1,1,,'Double sheet detector'            ,,'Bool',Z
+MM,AT,1,590, 1,1,,'Peel off lift'                    ,,'Bool',Z
+MM,AT,1,600, 1,1,,'Lift speed'                          ,,'%',Z
+MM,AT,1,610, 1,1,,'Lift acceleration'                   ,,'%',Z
+MM,AT,1,710, 1,1,,'Index pin'                            ,,'',Z
+MM,AT,1,740 ,1,1,,'Align'                            ,,'Bool',Z
+MM,AT,1,750, 1,1,,'Lift cup group 6'                     ,,'',Z
+MM,AT,1,780, 1,1,,'Insertion Aid'                    ,,'Bool',Z
+C
+ZA,DA,01
+DA,'SHL-1',580.000,100.000,116.000,0,0,1,1,0.00,0000,0000,
+*  0000,0000,0000,0,0,1,0.00,0.00,1,0,0000,1
+C
+ENDE_SHEET_LOAD
+C
+BEGIN_SHEET_UNLOAD
+C
+ZA,MM,69
+MM,AT,1,  10,1,1,,,,,T
+MM,AT,1,  20,1,1,,,,,Z
+MM,AT,1,  30,1,1,,,,,Z
+MM,AT,1,  40,1,1,,,,,Z
+MM,AT,1,  50,1,1,,,,,Z
+MM,AT,1,  60,1,1,,,,,Z
+MM,AT,1,  70,1,1,,,,,Z
+MM,AT,1, 200,1,1,,,,,Z
+MM,AT,1, 210,1,1,,,,,Z
+MM,AT,1, 220,1,1,,,,,Z
+MM,AT,1, 230,1,1,,,,,Z
+MM,AT,1, 240,1,1,,,,,Z
+MM,AT,1, 250,1,1,,,,,Z
+MM,AT,1, 260,1,1,,,,,Z
+MM,AT,1, 270,1,1,,,,,Z
+MM,AT,1, 280,1,1,,,,,Z
+MM,AT,1, 290,1,1,,,,,Z
+MM,AT,1, 300,1,1,,,,,Z
+MM,AT,1, 310,1,1,,,,,Z
+MM,AT,1, 500,1,1,,,,,Z
+MM,AT,1, 510,1,1,,,,,Z
+MM,AT,1, 520,1,1,,,,,Z
+MM,AT,1, 530,1,1,,,,,Z
+MM,AT,1, 540,1,1,,,,,Z
+MM,AT,1, 550,1,1,,,,,Z
+MM,AT,1, 560,1,1,,,,,Z
+MM,AT,1, 570,1,1,,,,,Z
+MM,AT,1, 580,1,1,,,,,Z
+MM,AT,1, 590,1,1,,,,,Z
+MM,AT,1, 600,1,1,,,,,Z
+MM,AT,1, 610,1,1,,,,,Z
+MM,AT,1, 620,1,1,,,,,Z
+MM,AT,1, 630,1,1,,,,,Z
+MM,AT,1, 640,1,1,,,,,Z
+MM,AT,1, 650,1,1,,,,,Z
+MM,AT,1, 660,1,1,,,,,Z
+MM,AT,1, 670,1,1,,,,,Z
+MM,AT,1, 680,1,1,,,,,Z
+MM,AT,1, 690,1,1,,,,,Z
+MM,AT,1, 700,1,1,,,,,Z
+MM,AT,1, 710,1,1,,,,,Z
+MM,AT,1, 720,1,1,,,,,Z
+MM,AT,1, 730,1,1,,,,,Z
+MM,AT,1, 740,1,1,,,,,Z
+MM,AT,1, 750,1,1,,,,,Z
+MM,AT,1, 760,1,1,,,,,Z
+MM,AT,1, 770,1,1,,,,,Z
+MM,AT,1, 820,1,1,,,,,Z
+MM,AT,1, 830,1,1,,,,,Z
+MM,AT,1,1000,1,1,,,,,T
+MM,AT,1,1010,1,1,,,,,T
+MM,AT,1,1020,1,1,,,,,Z
+MM,AT,1,1030,1,1,,,,,T
+MM,AT,1,1040,1,1,,,,,Z
+MM,AT,1,1050,1,1,,,,,Z
+MM,AT,1,1060,1,1,,,,,Z
+MM,AT,1,1070,1,1,,,,,Z
+MM,AT,1,1080,1,1,,,,,Z
+MM,AT,1,1090,1,1,,,,,Z
+MM,AT,1,1100,1,1,,,,,Z
+MM,AT,1,1110,1,1,,,,,Z
+MM,AT,1,1120,1,1,,,,,Z
+MM,AT,1,1130,1,1,,,,,Z
+MM,AT,1,1140,1,1,,,,,Z
+MM,AT,1,1150,1,1,,,,,Z
+MM,AT,1,1160,1,1,,,,,Z
+MM,AT,1,1170,1,1,,,,,Z
+MM,AT,1,1180,1,1,,,,,T
+MM,AT,1,1190,1,1,,,,,T
+C
+ZA,DA,1
+DA,'SHU-1',580.000,100.000,116.000,0,0,1,0.0,0.0,0.0,1,
+*  0.000,0.000,116.000,0,0,0,1,1,1,0,0,0,0,0,0,0,1,0.000,0,
+*  0.000,0.000,0.000,0,0,0,0,0,0.00,0.00,0.00,0.00,0,0,0,0,
+*  0,1,0000,' ',' ',0,'',0,0,0,0,0,0,0,0,0,0,0,0,0,0,'',''
+C
+ENDE_SHEET_UNLOAD
+C
+BEGIN_WZG_STAMM
+C
+ZA,MM,39
+MM,AT,1,  10,1,1,,'Maschine'                             ,,'',T
+MM,AT,1,  20,1,1,,'Identnummer'                          ,,'',T
+MM,AT,1,  30,1,1,,'Duplonummer'                          ,,'',Z
+MM,AT,1,  40,1,1,,'Stempelnummer'                        ,,'',Z
+MM,AT,1,  50,1,1,,'Magazinplatz'                         ,,'',Z
+MM,AT,1,  60,1,1,,'Werkzeugort'                          ,,'',Z
+MM,AT,1,  70,1,1,,'Index'                                ,,'',Z
+MM,AT,1,  80,1,1,,'Werkzeugtyp'                          ,,'',Z
+MM,AT,1,  90,1,1,,'Whispertool'                          ,,'',Z
+MM,AT,1, 100,1,1,,'MultiTool'                            ,,'',Z
+MM,AT,1, 110,1,1,,'Sperrkennung'                         ,,'',Z
+MM,AT,1, 120,1,1,,'Prioritaet'                           ,,'',Z
+MM,AT,1, 130,1,1,,'Bemerkung'                            ,,'',T
+MM,AT,1, 140,1,1,,'GEWIRO-Umdrehung'                     ,,'1/min',Z
+MM,AT,1, 150,1,1,,'GEWIRO-rechts-links'                  ,,'',Z
+MM,AT,1, 160,1,1,,'Rotation'                             ,,'',Z
+MM,AT,1, 170,1,1,,'Einbauwinkellage'                     ,,'',Z
+MM,AT,1, 180,1,1,,'Werkzeugmass 1'                       ,,'mm',Z
+MM,AT,1, 190,1,1,,'Werkzeugmass 2'                       ,,'mm',Z
+MM,AT,1, 200,1,1,,'Werkzeugmass 3'                       ,,'mm',Z
+MM,AT,1, 210,1,1,,'Werkzeugmass 4'                       ,,'mm',Z
+MM,AT,1, 220,1,1,,'Werkzeugmass 5'                       ,,'mm',Z
+MM,AT,1, 230,1,1,,'Werkzeugmass 6'                       ,,'mm',Z
+MM,AT,1, 240,1,1,,'Vorschub min'                         ,,'m/min',Z
+MM,AT,1, 250,1,1,,'Vorschub max'                         ,,'m/min',Z
+MM,AT,1, 260,1,1,,'Vorschub res'                         ,,'m/min',Z
+MM,AT,1, 270,1,1,,'Hubzahl min'                          ,,'',Z
+MM,AT,1, 280,1,1,,'Hubzahl max'                          ,,'',Z
+MM,AT,1, 290,1,1,,'Hubzahl ist'                          ,,'',Z
+MM,AT,1, 300,1,1,,'Zeichnungsname'                       ,,'',T
+MM,AT,1, 310,1,1,,'Niederhaltertyp'                      ,,'',Z
+MM,AT,1, 320,1,1,,'OT-Lage Blechdicke 0.0'               ,,'',Z
+MM,AT,1, 330,1,1,,'TRUMPF-Kennung'                       ,,'',Z
+MM,AT,1, 340,1,1,,'Blechdicke'                           ,,'',Z
+MM,AT,1, 350,1,1,,'Blechdickentoleranz'                  ,,'',Z
+MM,AT,1, 360,1,1,,'Nachschleiflaenge'                    ,,'',Z
+MM,AT,1, 370,1,1,,'Langes Werkzeug'                      ,,'',Z
+MM,AT,1, 380,1,1,,'MT-Nullpunktversatz-X'                ,,'',Z
+MM,AT,1, 390,1,1,,'MT-Nullpunktversatz-Y'                ,,'',Z
+C
+ZA,DA,5
+DA,'','01050000',0,1,1,0,0,1,0,5,0,0,'RD-5MT',0.00,0,0,
+*  0.000,5.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,
+*  0.000,0.0,0.0,0.0,'',0,0.000,1,0,0,0,0,0.0,0.0
+DA,'','01075000',0,3,1,0,0,1,0,5,0,0,'RD-7.5MT',0.00,0,0,
+*  0.000,7.500,0.000,0.000,0.000,0.000,0.000,0.000,0.000,
+*  0.000,0.0,0.0,0.0,'',0,0.000,1,0,0,0,0,0.0,0.0
+DA,'','01220000',0,1,1,0,0,1,0,5,0,0,'RD-22',0.00,0,0,0.000,
+*  22.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,
+*  0.0,0.0,0.0,'',0,0.000,1,0,0,0,0,0.0,0.0
+DA,'','04300050',0,1,1,0,0,4,0,1,0,0,'RE-30x5',0.00,0,0,
+*  0.000,30.000,5.000,0.000,0.000,0.000,0.000,0.000,0.000,
+*  0.000,0.0,0.0,0.0,'',0,0.000,1,0,0,0,0,0.0,0.0
+DA,'','04500050',0,1,1,0,0,4,0,1,0,0,'RE-50x5',0.00,0,0,
+*  0.000,50.000,5.000,0.000,0.000,0.000,0.000,0.000,0.000,
+*  0.000,0.0,0.0,0.0,'',0,0.000,1,0,0,0,0,0.0,0.0
+C
+ENDE_WZG_STAMM
+C
+BEGIN_WZG_CALLS
+C
+ZA,MM,2
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,Z
+C
+ZA, DA, 5
+DA,'01050000',1
+DA,'01075000',2
+DA,'01220000',3
+DA,'04300050',4
+DA,'04500050',5
+C
+ENDE_WZG_CALLS
+C
+BEGIN_PROGRAMM
+C
+ZA,MM,4
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,T
+MM,AT,1, 30,1,1,,,,,T
+MM,AT,1, 40,1,1,,,,,Z
+C
+ZA,DA,1
+DA,'','HP','',
+START_TEXT
+MSG("MAIN PROGRAM NUMBER,")
+MSG("SHEET DIMENSIONS: 0.800 X 203.333 X 175.257 MATERIAL ID: Al99")
+N10;(V:3.00#B:171.0#D:19981217#P:TOPS300_EXE)
+N20;(V:3.7#B:51#D:981221104305#P:TOPS300_ACCESS20)
+N30;(FILE NAME:C:/Lantek/Expert/CNC/2331.LST)
+N40;(TRANSFERNAME:.LSTPROGRAM NUMBER EXECUTIONS:1)
+N50;(MACHINE:TC3000R TYPE:2)
+N60;(CONTROL:SIN 840D VERSION:1)
+MSG(" *** RD-5MT *** ")
+MSG(" *** RD-7.5MT *** ")
+MSG(" *** RD-22 *** ")
+MSG(" *** RE-30x5 *** ")
+MSG(" *** RE-50x5 *** ")
+N70TRAILON(C2,C1)
+N80F116000
+N90G01
+N100TC_SUCTION_OFF
+N110TRUMPF:
+N120TC_CLAMP_CYC
+N130TC_SHEET_TECH("SHT-1")
+N140;TC_TECHNO_MODE(1)
+N150TC_PREPARE_SHEET_LOAD("SHL-1")
+N160;GOTOF ENTRY_PUNCH
+N170TC_TOOL_POSITION(CHANGE_ALL)
+N180TC_TANGTOOL_OFF
+N190TC_SHEET_LOAD("SHL-1")
+N200;ENTRY_PUNCH: ;RD-5MT
+N210MSG("WZG RD-5MT")
+N220TC_TOOL_NO("01050000")
+N230TC_TOOL_CHANGE
+N240TC_SUCTION_ON
+N250TC_TOOL_TECH("PTT-1")
+N260TC_TOOL_LUBE_ON(1)
+N270PUNCH_ON
+N280G01X181.71Y64.72C1=DC(0)
+N290TC_TOOL_LUBE_OFF
+N300PUNCH_OFF
+N310X180.21Y62.122
+N320TC_TOOL_LUBE_ON(1)
+N330NIBBLE_ON
+N340SPP=1.05
+N350G03X183.21Y67.318I1.5J2.598
+N360NIBBLE_OFF
+N370G01
+N380TC_TOOL_LUBE_OFF
+N390X135.321Y102.574
+N400TC_TOOL_LUBE_ON(1)
+N410NIBBLE_ON
+N420SPP=0.97
+N430G03I-1.611J1.186
+N440NIBBLE_OFF
+N450G01
+N460TC_TOOL_LUBE_OFF
+N470X115.707Y103.65
+N480TC_TOOL_LUBE_ON(1)
+N490NIBBLE_ON
+N500SPP=0.97
+N510G03I-1.997J0.11
+N520NIBBLE_OFF
+N530G01
+N540TC_TOOL_LUBE_OFF
+N550X113.898Y122.769
+N560TC_TOOL_LUBE_ON(1)
+N570NIBBLE_ON
+N580SPP=0.97
+N590G03I-0.188J1.991
+N600NIBBLE_OFF
+N610G01
+N620TC_TOOL_LUBE_OFF
+N630X131.72Y124.56
+N640TC_TOOL_LUBE_ON(1)
+N650NIBBLE_ON
+N660SPP=0.97
+N670G03I1.99J0.2
+N680NIBBLE_OFF
+N690G01
+N700TC_TOOL_LUBE_OFF
+N710X133.599Y158.263
+N720TC_TOOL_LUBE_ON(1)
+N730NIBBLE_ON
+N740SPP=0.97
+N750G03I0.111J1.997
+N760NIBBLE_OFF
+N770G01
+N780TC_TOOL_LUBE_OFF
+N790X115.7Y160.06
+N800TC_TOOL_LUBE_ON(1)
+N810NIBBLE_ON
+N820SPP=0.97
+N830G03I-1.99J0.2
+N840NIBBLE_OFF
+N850G01
+N860PUNCH_ON
+N870X123.71Y80.26
+N880TC_TOOL_LUBE_OFF
+N890PUNCH_OFF
+N900Y83.26
+N910TC_TOOL_LUBE_ON(1)
+N920NIBBLE_ON
+N930SPP=1.05
+N940G03Y77.26I0J-3
+N950NIBBLE_OFF
+N960G01
+N970PUNCH_ON
+N980X65.71Y64.72
+N990TC_TOOL_LUBE_OFF
+N1000PUNCH_OFF
+N1010X67.21Y62.122
+N1020TC_TOOL_LUBE_ON(1)
+N1030NIBBLE_ON
+N1040SPP=1.05
+N1050G03X64.21Y67.318I-1.5J2.598
+N1060NIBBLE_OFF
+N1070G01
+N1080PUNCH_ON
+N1090X23.25Y22.26
+N1100TC_TOOL_LUBE_OFF
+N1110PUNCH_OFF
+N1120X20.652Y23.76
+N1130TC_TOOL_LUBE_ON(1)
+N1140NIBBLE_ON
+N1150SPP=1.05
+N1160G03X25.848Y20.76I2.598J-1.5
+N1170NIBBLE_OFF
+N1180G01
+N1190TC_TOOL_LUBE_OFF
+N1200;ENTRY_PUNCH: ;RD-7.5MT
+N1210MSG("WZG RD-7.5MT")
+N1220TC_TOOL_NO("01075000")
+N1230TC_TOOL_CHANGE
+N1240TC_SUCTION_ON
+N1250TC_TOOL_TECH("PTT-2")
+N1260TC_TOOL_LUBE_ON(1)
+N1270TC_TOOL_LUBE_OFF
+N1280X24.767Y21.385
+N1290TC_TOOL_LUBE_ON(1)
+N1300NIBBLE_ON
+N1310SPP=1.71
+N1320G02X66.585Y63.203I98.943J-57.125
+N1330NIBBLE_OFF
+N1340G01
+N1350TC_TOOL_LUBE_OFF
+N1360X64.835Y66.234
+N1370TC_TOOL_LUBE_ON(1)
+N1380NIBBLE_ON
+N1390SPP=1.71
+N1400G03X21.736Y23.135I58.875J-101.974
+N1410NIBBLE_OFF
+N1420G01
+N1430TC_TOOL_LUBE_OFF
+N1440X0.495Y30.201
+N1450TC_TOOL_LUBE_ON(1)
+N1460NIBBLE_ON
+N1470SPP=1.71
+N1480G02X87.877Y99.338I123.215J-65.941
+N1490NIBBLE_OFF
+N1500G01
+N1510TC_TOOL_LUBE_OFF
+N1520TC_TOOL_LUBE_ON(1)
+N1530NIBBLE_ON
+N1540SPP=1.64
+N1550G03X99.96Y115.04I-4.167J15.702
+N1560NIBBLE_OFF
+N1570G01
+N1580TC_TOOL_LUBE_OFF
+N1590X123.71Y82.01
+N1600TC_TOOL_LUBE_ON(1)
+N1610NIBBLE_ON
+N1620SPP=1.71
+N1630G02X182.585Y66.234I-0J-117.75
+N1640NIBBLE_OFF
+N1650G01
+N1660TC_TOOL_LUBE_OFF
+N1670X180.835Y63.203
+N1680TC_TOOL_LUBE_ON(1)
+N1690NIBBLE_ON
+N1700SPP=1.71
+N1710G03X123.71Y78.51I-57.125J-98.943
+N1720NIBBLE_OFF
+N1730G01
+N1740TC_TOOL_LUBE_OFF
+N1750X159.543Y99.338
+N1760TC_TOOL_LUBE_ON(1)
+N1770NIBBLE_ON
+N1780SPP=1.71
+N1790G02X204.22Y78.489I-35.833J-135.078
+N1800NIBBLE_OFF
+N1810G01
+N1820TC_TOOL_LUBE_OFF
+N1830TC_TOOL_LUBE_ON(1)
+N1840NIBBLE_ON
+N1850SPP=1.43
+N1860G02X206.176Y69.595I-3.89J-5.519
+N1870NIBBLE_OFF
+N1880G01
+N1890TC_TOOL_LUBE_OFF
+N1900X179.179Y37.971
+N1910TC_TOOL_LUBE_ON(1)
+N1920NIBBLE_ON
+N1930SPP=1.69
+N1940G03X38.817Y0.361I-55.469J-73.711
+N1950NIBBLE_OFF
+N1960G01
+N1970TC_TOOL_LUBE_OFF
+N1980TC_TOOL_LUBE_ON(1)
+N1990NIBBLE_ON
+N2000SPP=1.43
+N2010G02X29.235Y-2.846I-6.207J2.639
+N2020NIBBLE_OFF
+N2030G01
+N2040TC_TOOL_LUBE_OFF
+N2050X159.543Y99.333
+N2060TC_TOOL_LUBE_ON(1)
+N2070NIBBLE_ON
+N2080SPP=1.64
+N2090G02X147.46Y115.04I4.167J15.707
+N2100NIBBLE_OFF
+N2110G01
+N2120TC_TOOL_LUBE_OFF
+N2130Y172.26
+N2140TC_TOOL_LUBE_ON(1)
+N2150NIBBLE_ON
+N2160SPP=1.51
+N2170G03X140.71Y179.01I-6.75J0
+N2180NIBBLE_OFF
+N2190G01
+N2200TC_TOOL_LUBE_OFF
+N2210X106.71
+N2220TC_TOOL_LUBE_ON(1)
+N2230NIBBLE_ON
+N2240SPP=1.51
+N2250G03X99.96Y172.26I-0J-6.75
+N2260NIBBLE_OFF
+N2270G01
+N2280TC_SUCTION_OFF
+N2290G04F2
+N2300TC_SUCTION_ON
+N2310TC_TOOL_LUBE_OFF
+N2320;ENTRY_PUNCH: ;RD-22
+N2330MSG("WZG RD-22")
+N2340TC_TOOL_NO("01220000")
+N2350TC_TOOL_CHANGE
+N2360TC_SUCTION_ON
+N2370TC_TOOL_TECH("PTT-3")
+N2380TC_TOOL_LUBE_ON(1)
+N2390TC_TOOL_LUBE_OFF
+N2400X174.822Y32.174
+N2410TC_TOOL_LUBE_ON(1)
+N2420NIBBLE_ON
+N2430SPP=2.37
+N2440G03X195.364Y36.36I8.418J11.186
+N2450NIBBLE_OFF
+N2460G01
+N2470TC_TOOL_LUBE_OFF
+N2480;ENTRY_PUNCH: ;RE-30x5
+N2490MSG("WZG RE-30x5")
+N2500TC_TOOL_NO("04300050")
+N2510TC_TOOL_CHANGE
+N2520TC_SUCTION_ON
+N2530TC_TOOL_TECH("PTT-4")
+N2540TC_TOOL_LUBE_ON(1)
+N2550PUNCH_ON
+N2560X146.21Y130.04C1=DC(90)
+N2570X146.21Y157.255
+N2580X101.21Y157.26
+N2590X101.21Y130.045
+N2600TC_TOOL_LUBE_OFF
+N2610PUNCH_OFF
+N2620;ENTRY_PUNCH: ;RE-50x5
+N2630MSG("WZG RE-50x5")
+N2640TC_TOOL_NO("04500050")
+N2650TC_TOOL_CHANGE
+N2660TC_SUCTION_ON
+N2670TC_TOOL_TECH("PTT-5")
+N2680TC_TOOL_LUBE_ON(1)
+N2690PUNCH_ON
+N2700X196.55Y55.42C1=DC(60)
+N2710X15.05Y6.78C1=DC(150)
+N2720F116000
+N2730TC_TOOL_LUBE_OFF
+N2740PUNCH_OFF
+N2750TC_TOOL_POSITION(TOP)
+N2760GOTOB TRUMPF
+N2770TC_SHEET_UNLOAD("SHU-1")
+N2780M30
+STOP_TEXT
+C
+ENDE_PROGRAMM
+ED
+C
+
+

@@ -1,0 +1,148 @@
+[ <Tipo macchina TECNOCUT>
+[ Macchina monotesta o multiteste manuali
+[ <Distinta LANTEK>
+[ C:/Lantek/Expert/CNC/2142.ISO
+[
+P0=235.26     [Dimensione X lastra)  
+P1=101.99     [Dimensione Y lastra)  
+P2=230.26     [Dimensione X pezzo)  
+P3=91.99     [Dimensione Y pezzo)   
+P4=3         [Origine pendolare Sx
+P5=4         [Origine pendolare Dx
+P6=1         [Tastatura: (0)No (1)Si
+P7=40        [Disimpegno (mm)
+P8=1         [Teste da abilitare:  (1)Sx  (2)Dx  (12)Sx&Dx
+P9=0         [Esecuzione: (0)Singola (1)Matriciale (2)Pendolare
+P10=3800     [Pressione (bar)
+P11=0.8    [Spessore lastra (mm)
+P15=1        [Diametro foratura (mm)
+P16=0       [Intervallo di tastatura (sec)
+[
+P21=800    [Velocità 1 (mm/min)
+P22=600    [Velocità 2 (mm/min)
+P23=400    [Velocità 3 (mm/min)
+P24=200    [Velocità 4 (mm/min)
+P25=820    [Velocità 5 (mm/min)
+[
+P31=10    [Tempo di foratura 1 (sec)
+P32=6    [Tempo di foratura 2 (sec)
+P33=6    [Tempo di foratura 3 (sec)
+P34=6    [Tempo di foratura 4 (sec)
+P35=6    [Tempo di foratura 5 (sec)
+[
+P41=5    [Distanza di rallentamento 1 (mm)
+P42=5    [Distanza di rallentamento 2 (mm)
+P43=5    [Distanza di rallentamento 3 (mm)
+P44=5    [Distanza di rallentamento 4 (mm)
+P45=5    [Distanza di rallentamento 5 (mm)
+[
+P51=100    [Velocità minima 1 (%)
+P52=50    [Velocità minima 2 (%)
+P53=50    [Velocità minima 3 (%)
+P54=50    [Velocità minima 4 (%)
+P55=50    [Velocità minima 5 (%)
+[
+P61=1.1    [Diametro getto 1 (mm)
+P62=1.1    [Diametro getto 2 (mm)
+P63=1.1    [Diametro getto 3 (mm)
+P64=1.1    [Diametro getto 4 (mm)
+P65=1.1    [Diametro getto 5 (mm)
+[
+L@INIZIO.ISS:
+(P9=1)L100  [Richiamo esecuzione matriciale
+(P9=2)L110  [Richiamo esecuzione pendolare
+L120        [Richiamo esecuzione singola
+L=140       [Ritorno esecuzioni
+L@FINE.ISS:
+F5000
+&ENDF
+M30         [Fine esecuzione
+[
+L=100       [Esecuzione matriciale
+P26=INT(P0/P2),P27=INT(P1/P3)
+L130
+(P0=P0)L140 [Ritorno
+G32
+[
+L=110       [Esecuzione pendolare
+P26=?[ Numero colonne
+P27=?[ Numero righe
+TP4         [Origine di Sx
+L130
+P26=?[ Numero colonne
+P27=?[ Numero righe
+TP5         [Origine di Dx
+L130
+L110K999    [Interrompere con <ESC>
+(P0=P0)L140 [Ritorno
+G32
+[
+L=130       [Matrice
+P0=(P26*P2)+10,P1=(P27*P3)+10,P28=0,P29=0
+&X-10IP0Y-10JP1A0K0
+L=131
+G51XP28YP29
+L121
+P29=P29+P3
+L131KP27
+P28=P28+P2,P29=0
+L131KP26
+G32
+[
+L=120
+&GRAPH-INIT
+&GRAPH-VIEW K0 A0
+&GRAPH-AREA H285.26 X50 Y50
+&GRAPH-SET
+L=121
+[n.000001
+M9300
+G0M50X11.47Y58.35
+M5001
+P8=1
+P12=1                [Tipo di lavorazione: (0)Acqua        (1)Abrasivo
+P13=0                [Pressione di lavoro: (0)Sempre alta  (1)Bassa in foratura (2)Bassa sul profilo
+P14=1                [Tipo di foratura:    (0)Puntiforme   (1)Circolare
+P90=P31*10
+P16=0       [Intervallo di tastatura (sec)
+P92=P41
+P93=P51
+P60=P61/2
+G49IP60
+MP36
+MP37
+L@APRI.ISS: [n.00001
+FP21
+G3001
+G42
+X18.265Y62.57
+G3X39.145Y37.32I121.87J126.99
+G2X51.515Y27.32I45.87J32.99
+G3X119.99Y5.005I121.87J126.99
+G2X151.78Y8.71I135.87J6.99
+G3X230.26Y70.99I121.87J126.99
+X213.87Y70.99
+X213.87Y79.26
+X205.23Y70.63
+G2X189.885Y76.52I198.87J76.99
+X189.6Y81.99
+X178.34Y81.99
+X176.87Y69.99
+X166.87Y69.99
+X165.4Y81.99
+X154.87Y81.99
+X137.125Y63.805
+G2X90.995Y69.79I121.87J126.99
+X49.87Y91.99
+X37.87Y91.99
+X37.87Y87.99
+X15.87Y87.99
+X15.87Y91.99
+X5Y91.99
+G3X18.53Y62.15I121.87J126.99
+X15.99Y60.555
+G40
+L@CHIUDI.ISS:
+M11002
+G0M50X1500Y1500
+G32

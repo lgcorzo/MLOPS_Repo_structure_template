@@ -1,0 +1,42 @@
+%
+(<NcpProgram Version="1.0" Units="Metric" CNCVersion="P1">)
+(<MaterialInfo MaterialCode="Al99" Thickness="0.8000" FormatType="Sheet" DimX="910" DimY="772"/>)
+(<ProcessInfo CutTechnology="Laser" Clamping="False" ParameterFile="\\MDatos\datos\CORTE_POR_LASER\param\VENTION3015_8121_2200_1.4301_2_5_N2.PAR" ProcessGas="N2" CuttingHead="5" Additional=""/>)
+(<Plan JobCode="00000066" Label=" 1">)
+N1G29X100Y100P66H1
+N2G52X100.029Y0L1C90
+N3G99
+(</Plan>)
+(<Part PartCode="Pieza_prueba_Maxwell" Debit="1">)
+N1000G28X100Y100.029L1P1
+N1001G0X50Y28.03
+N1002G10S0
+N1003G1Y25.03M04
+N1004G41
+(<Contour>)
+N1005G3I50J50.03M05
+N1006G40
+(</Contour>)
+N1007G0X32.32Y67.71
+(<Contour>)
+N1008G10S0
+N1009G1X0Y100.03M04M05
+(</Contour>)
+N1010G0X55Y0
+N1011G10S0
+N1012G1Y0.03M04
+N1013G41
+(<Contour>)
+N1014G1X10
+N1015G2X0Y10.03I10J10.03
+N1016G1Y100.03
+N1017X90
+N1018G2X100Y90.03I90J90.03
+N1019G1Y0.03
+N1020X55M05
+N1021G40
+(</Contour>)
+N1022G98
+(</Part>)
+(</NcpProgram>)
+&

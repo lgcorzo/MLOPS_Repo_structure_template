@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<NestingFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Header>
+    <Software>LantekExpert</Software>
+    <Version>v40</Version>
+    <Date>2022-06-22T13:38:32</Date>
+    <Author>UserName</Author>
+    <ProductionOrder></ProductionOrder>
+    <Reference>2LG</Reference>
+    <Description></Description>
+    <Machine>Tecoi TRF</Machine>
+    <Units>Millimeters</Units>
+    <Plate>
+      <BodyItem xsi:type="Block">
+        <Origin X="0" Y="0"/>
+        <Commands>
+          <Command xsi:type="Line" Index="1" X="100" Y="0"/>
+          <Command xsi:type="Line" Index="2" X="100" Y="100"/>
+          <Command xsi:type="Line" Index="3" X="0" Y="100"/>
+          <Command xsi:type="Line" Index="4" X="0" Y="0"/>
+        </Commands>
+      </BodyItem>
+      <Material>Al99</Material>
+      <Thickness>0.80</Thickness>
+      <Width>100.00</Width>
+      <Height>100.00</Height>
+      <Reference></Reference>
+      <Height>CuttingTable</Height>
+      <Thicknesses>
+        <double>0.80</double>
+      </Thicknesses>
+    </Plate>
+    <EstimatedProcessingTime Hours="0" Minutes="4" Seconds="5" />
+    <HeadConfigurations>
+      <HeadConfiguration Id="1" Type="Single" MasterHeadIndex="1" />
+      <HeadConfiguration Id="2" Type="Single" MasterHeadIndex="2" />
+    </HeadConfigurations>
+  </Header>
+  <Pieces>
+    <Piece>
+      <Id>1</Id>
+      <Reference></Reference>
+      <Quantity>1</Quantity>
+    </Piece>
+  </Pieces>
+  <Body>
+  </Body>
+</NestingFile>

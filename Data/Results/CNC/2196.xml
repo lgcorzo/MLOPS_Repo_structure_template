@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<NestingFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Header>
+      <Software>LantekExpert</Software>
+      <Version>v39x64</Version>
+      <Date>2022-06-22T13:38:40</Date>
+      <Author>UserName</Author>
+      <ProductionOrder></ProductionOrder>
+      <Reference>2LP</Reference>
+      <Description></Description>
+      <Machine>TECOI</Machine>
+      <Units>Millimeters</Units>
+      <Plate>
+        <Material>Al99</Material>
+        <Thickness>0.80</Thickness>
+        <Width>180.00</Width>
+        <Height>115.00</Height>
+        <Reference></Reference>
+        <Location>CuttingTable</Location>
+        <Thicknesses>
+          <double>0.80</double>
+        </Thicknesses>
+      </Plate>
+      <EstimatedProcessingTime Hours="0" Minutes="18" Seconds="50" />
+    </Header>
+      <Pieces>
+        <Piece>
+          <Id>1</Id>
+          <Reference>Pieza_prueba_Maxwell_2</Reference>
+          <Quantity>1</Quantity>
+        </Piece>
+      </Pieces>
+      <Body>
+        <BodyItem xsi:type="Block" Index="1" NumberOfEntities="1">
+          <Origin X="35.00" Y="25.00" />
+          <Type xsi:type="OxyCutting" Index="29" ProcessType="Cutting" Description="oxiCut" Kerf="0" Contour="InnerContour" IsBeveled="false" />
+          <Commands>
+            <Command xsi:type="Arc" Index="1" X="25.00" Y="25.00" Degrees="360.00" />
+          </Commands>
+        </BodyItem>
+        <BodyItem xsi:type="Block" Index="2" NumberOfEntities="1">
+          <Origin X="35.00" Y="90.00" />
+          <Type xsi:type="OxyCutting" Index="29" ProcessType="Cutting" Description="oxiCut" Kerf="0" Contour="InnerContour" IsBeveled="false" />
+          <Commands>
+            <Command xsi:type="Arc" Index="2" X="25.00" Y="90.00" Degrees="360.00" />
+          </Commands>
+        </BodyItem>
+        <BodyItem xsi:type="Block" Index="3" NumberOfEntities="16">
+          <Origin X="25.29" Y="68.23" />
+          <Type xsi:type="OxyCutting" Index="29" ProcessType="Cutting" Description="oxiCut" Kerf="0" Contour="InnerContour" IsBeveled="false" />
+          <Commands>
+            <Command xsi:type="Arc" Index="3" X="25.29" Y="58.23" Degrees="180.00" />
+            <Command xsi:type="Line" Index="4" X="54.15" Y="48.23" />
+            <Command xsi:type="Arc" Index="5" X="90.29" Y="58.23" Degrees="59.07" />
+            <Command xsi:type="Line" Index="6" X="80.29" Y="12.08" />
+            <Command xsi:type="Line" Index="7" X="100.29" Y="12.08" />
+            <Command xsi:type="Line" Index="8" X="100.29" Y="22.08" />
+            <Command xsi:type="Arc" Index="9" X="90.29" Y="58.23" Degrees="59.07" />
+            <Command xsi:type="Line" Index="10" X="155.29" Y="48.23" />
+            <Command xsi:type="Arc" Index="11" X="155.29" Y="58.23" Degrees="180.00" />
+            <Command xsi:type="Line" Index="12" X="126.43" Y="68.23" />
+            <Command xsi:type="Arc" Index="13" X="90.29" Y="58.23" Degrees="59.07" />
+            <Command xsi:type="Line" Index="14" X="100.29" Y="104.37" />
+            <Command xsi:type="Line" Index="15" X="80.29" Y="104.37" />
+            <Command xsi:type="Line" Index="16" X="80.29" Y="94.37" />
+            <Command xsi:type="Arc" Index="17" X="90.29" Y="58.23" Degrees="59.07" />
+            <Command xsi:type="Line" Index="18" X="25.29" Y="68.23" />
+          </Commands>
+        </BodyItem>
+        <BodyItem xsi:type="Block" Index="4" NumberOfEntities="1">
+          <Origin X="165.00" Y="90.00" />
+          <Type xsi:type="OxyCutting" Index="29" ProcessType="Cutting" Description="oxiCut" Kerf="0" Contour="InnerContour" IsBeveled="false" />
+          <Commands>
+            <Command xsi:type="Arc" Index="19" X="155.00" Y="90.00" Degrees="360.00" />
+          </Commands>
+        </BodyItem>
+        <BodyItem xsi:type="Block" Index="5" NumberOfEntities="1">
+          <Origin X="165.00" Y="25.00" />
+          <Type xsi:type="OxyCutting" Index="29" ProcessType="Cutting" Description="oxiCut" Kerf="0" Contour="InnerContour" IsBeveled="false" />
+          <Commands>
+            <Command xsi:type="Arc" Index="20" X="155.00" Y="25.00" Degrees="360.00" />
+          </Commands>
+        </BodyItem>
+        <BodyItem xsi:type="Block" Index="6" NumberOfEntities="8">
+          <Origin X="155.00" Y="0.00" />
+          <Type xsi:type="OxyCutting" Index="29" ProcessType="Cutting" Description="oxiCut" Kerf="0" Contour="OuterContour" IsBeveled="false" />
+          <Commands>
+            <Command xsi:type="Arc" Index="21" X="155.00" Y="25.00" Degrees="90.00" />
+            <Command xsi:type="Line" Index="22" X="180.00" Y="90.00" />
+            <Command xsi:type="Arc" Index="23" X="155.00" Y="90.00" Degrees="90.00" />
+            <Command xsi:type="Line" Index="24" X="25.00" Y="115.00" />
+            <Command xsi:type="Arc" Index="25" X="25.00" Y="90.00" Degrees="90.00" />
+            <Command xsi:type="Line" Index="26" X="0.00" Y="25.00" />
+            <Command xsi:type="Arc" Index="27" X="25.00" Y="25.00" Degrees="90.00" />
+            <Command xsi:type="Line" Index="28" X="155.00" Y="0.00" />
+</Commands>
+</BodyItem>
+</Body>
+</NestingFile>

@@ -1,0 +1,7 @@
+<svg id="MDI_star" data-name="MDI / star" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Boundary" fill="#00918f" stroke="rgba(0,0,0,0)" stroke-width="1" opacity="0">
+    <rect width="24" height="24" stroke="none"/>
+    <rect x="0.5" y="0.5" width="23" height="23" fill="none"/>
+  </g>
+  <path id="Path_star" data-name="Path / star" d="M12,17.27,18.18,21l-1.64-7.03L22,9.24l-7.19-.62L12,2,9.19,8.62,2,9.24l5.45,4.73L5.82,21Z" transform="translate(0 1)" fill="#00918f"/>
+</svg>

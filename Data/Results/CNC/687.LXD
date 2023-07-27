@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LXDDocument>
+      <DocHeader DefaultChannel="1" HandleSeed="1102">
+            <ExtMin X="-294" Y="1"/>
+            <ExtMax X="-1" Y="163"/>
+            <InsertBase/>
+            <HomeRef Enabled="true" RefType="4105" X="-1" Y="1"/>
+      </DocHeader>
+      <Technical>
+            <Channels>
+                  <Channel ParamFlag="256"/>
+                  <Channel ChannelPort="1"/>
+                  <Channel ChannelPort="2"/>
+                  <Channel ChannelPort="3"/>
+                  <Channel ChannelPort="4"/>
+                  <Channel ChannelPort="5"/>
+                  <Channel ChannelPort="6"/>
+                  <Channel ChannelPort="7"/>
+                  <Channel ChannelPort="8"/>
+                  <Channel ChannelPort="9"/>
+                  <Channel ChannelPort="10"/>
+                  <Channel ChannelPort="11"/>
+                  <Channel ChannelPort="12"/>
+                  <Channel ChannelPort="13"/>
+                  <Channel ChannelPort="14"/>
+                  <Channel ChannelPort="15" ParamFlag="1792" DefPwmFreqFunc="true" DefPwmRatioFunc="true">
+                  </Channel>
+            </Channels>
+      </Technical>
+      <Viewports Handle="3" Active="1">
+            <VPort Handle="1103" Name="1">
+                  <ViewCenter/>
+                  <ViewHeight>100</ViewHeight>
+                  <AspectRatio>1</AspectRatio>
+                  <DisplayRect>
+                        <Right>1024</Right>
+                        <Bottom>768</Bottom>
+                  </DisplayRect>
+            </VPort>
+      </Viewports>
+      <TextStyles Handle="6"/>
+      <Layers Handle="5">
+            <Layer Handle="1104" Name="MARK-CUT" LayerFlag="768" Color="16777315"/>
+            <Layer Handle="1105" Name="CUT01" LayerFlag="768" Color="16777215"/>
+            <Layer Handle="1106" Name="CUT02" LayerFlag="768" Color="16777216"/>
+      </Layers>
+      <Blocks Handle="4">
+      </Blocks>
+      <Entities Handle="2">
+            <LwPolyline Handle="1101" ChannelPort="0" LayerName="CUT01" PointCount="88" PolyFlag="0">
+                  <LeadIn LeadType="2" LeadByHole="true" Angle="1.38532" Length="915.29809" ArcRadius="275.02011" LeadHoleR="0"/>
+                  <ToolCompensation/>
+                  <Point X="-271.8" Y="51" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-264.6" Y="78.5" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-253.65" Y="40" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-247.278" Y="60.571" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-236.564" Y="54.036" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-226.737" Y="118.196"/>
+                  <Point X="-230.231" Y="114.702" Bulge="1.00177"/>
+                  <Point X="-229.666" Y="114.137"/>
+                  <Point X="-224.928" Y="118.874" Bulge="1"/>
+                  <Point X="-225.494" Y="119.44"/>
+                  <Point X="-227.15" Y="47.5" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-245.745" Y="76.538" Bulge="0.41426"/>
+                  <Point X="-244.275" Y="69.621"/>
+                  <Point X="-217.018" Y="51.92" Bulge="0.99995"/>
+                  <Point X="-211.572" Y="60.307"/>
+                  <Point X="-238.829" Y="78.008" Bulge="0.41413"/>
+                  <Point X="-206.65" Y="40" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-202.25" Y="77"/>
+                  <Point X="-202.25" Y="75.3"/>
+                  <Point X="-195.75" Y="75.3"/>
+                  <Point X="-195.75" Y="85.3"/>
+                  <Point X="-202.25" Y="85.3"/>
+                  <Point X="-189.25" Y="149" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-143.75" Y="149.958" Bulge="0.41421"/>
+                  <Point X="-144.15" Y="150.358"/>
+                  <Point X="-150.85" Y="150.358" Bulge="1"/>
+                  <Point X="-150.85" Y="149.558"/>
+                  <Point X="-144.15" Y="149.558" Bulge="0.41421"/>
+                  <Point X="-109.25" Y="149" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-99.25" Y="77"/>
+                  <Point X="-99.25" Y="75.3"/>
+                  <Point X="-92.75" Y="75.3"/>
+                  <Point X="-92.75" Y="85.3"/>
+                  <Point X="-99.25" Y="85.3"/>
+                  <Point X="-90.6" Y="11" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-87.2" Y="11" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-83.8" Y="11" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-80.4" Y="11" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-68.828" Y="117.631"/>
+                  <Point X="-65.334" Y="114.137" Bulge="1.00177"/>
+                  <Point X="-64.769" Y="114.702"/>
+                  <Point X="-69.506" Y="119.44" Bulge="1"/>
+                  <Point X="-70.072" Y="118.874"/>
+                  <Point X="-36.6" Y="78.5" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-29.4" Y="51" Bulge="--2147483648.-2147483648"/>
+                  <Point X="-10.5" Y="3.5"/>
+                  <Point X="-21.3" Y="3.5"/>
+                  <Point X="-21.3" Y="1"/>
+                  <Point X="-71.5" Y="1"/>
+                  <Point X="-71.5" Y="11"/>
+                  <Point X="-78" Y="11"/>
+                  <Point X="-78" Y="1"/>
+                  <Point X="-91" Y="1"/>
+                  <Point X="-91" Y="11"/>
+                  <Point X="-97.5" Y="11"/>
+                  <Point X="-97.5" Y="1"/>
+                  <Point X="-198" Y="1"/>
+                  <Point X="-198" Y="13"/>
+                  <Point X="-258" Y="13"/>
+                  <Point X="-258" Y="1"/>
+                  <Point X="-273.7" Y="1"/>
+                  <Point X="-273.7" Y="3.5"/>
+                  <Point X="-284.5" Y="3.5"/>
+                  <Point X="-284.5" Y="16.5"/>
+                  <Point X="-294" Y="16.5"/>
+                  <Point X="-294" Y="33"/>
+                  <Point X="-283.3" Y="33"/>
+                  <Point X="-283.3" Y="45.5"/>
+                  <Point X="-273.7" Y="45.5"/>
+                  <Point X="-273.7" Y="57.5"/>
+                  <Point X="-266.5" Y="64.7"/>
+                  <Point X="-266.5" Y="94"/>
+                  <Point X="-207" Y="153.5"/>
+                  <Point X="-183" Y="153.5"/>
+                  <Point X="-183" Y="163"/>
+                  <Point X="-112" Y="163"/>
+                  <Point X="-112" Y="153.5"/>
+                  <Point X="-88" Y="153.5"/>
+                  <Point X="-28.5" Y="94"/>
+                  <Point X="-28.5" Y="64.7"/>
+                  <Point X="-21.3" Y="57.5"/>
+                  <Point X="-21.3" Y="45.5"/>
+                  <Point X="-11.7" Y="45.5"/>
+                  <Point X="-11.7" Y="33"/>
+                  <Point X="-1" Y="33"/>
+                  <Point X="-1" Y="16.5"/>
+                  <Point X="-10.5" Y="16.5"/>
+                  <Point X="-10.5" Y="3.5"/>
+            </LwPolyline>
+      </Entities>
+</LXDDocument>

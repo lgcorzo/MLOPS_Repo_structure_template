@@ -1,0 +1,223 @@
+BD
+SET_METRIC
+C
+BEGIN_EINRICHTEPLAN_INFO
+C
+ZA,MM,9
+MM,AT,1,10,1,1,,'DeviceName',,'',T
+MM,AT,1, 60,1,1,,,,,T
+MM,AT,1,100,1,1,,,,,Z
+MM,AT,1,130,1,1,,,,,T
+MM,AT,1,170,1,1,,,,,T
+MM,AT,1,280,1,1,,'MachineViewerName',,'',T
+MM,AT,1,300,1,1,,'CheckLevel',,'',Z
+MM,AT,1,310,1,1,,'SetupSuppression',,'',Z
+MM,AT,1, 150,1,1,,'Maschinenzeit'                         ,,'min',Z
+C
+ZA,DA,1
+DA,'L20',01010,1,'Al99 0.8',1,'TruLaser 3030 (L20)',-1,0,  0.10             
+C
+ENDE_EINRICHTEPLAN_INFO
+C
+BEGIN_SHEET_TECH
+C
+ZA,MM,10
+MM,AT,1,10,1,1,,,,,T
+MM,AT,1,20,1,1,,,,'mm',Z
+MM,AT,1,30,1,1,,,,'mm',Z
+MM,AT,1,40,1,1,,,,'mm',Z
+MM,AT,1,220,1,1,,,,'mm',Z
+MM,AT,1,230,1,1,,,,'mm',Z
+MM,AT,1, 240,1,1,,'Materialkennung'                       ,,'',T
+MM,AT,1, 260,1,1,,'Werkstoffdichte'                       ,,'kg/dm3',Z
+MM,AT,1, 370,1,1,,'AdvancedEvaporateSwitch'               ,,'',Z
+MM,AT,1, 380,1,1,,'AdvancedEvaporateCircleRadius'         ,,'mm',Z
+C
+ZA,DA,1
+DA,'SHT-1',225.3,87.0,0.8,225.3,87.0,'Al99',2.7,0,0.00
+C
+ENDE_SHEET_TECH
+C
+BEGIN_MACHINE_LOAD_DATA
+C
+ZA,MM,9
+MM,AT,1,  10,1,1,,'Load Name'                             ,,'',T
+MM,AT,1,  50,1,1,,'Loading Type'                          ,,'',Z
+MM,AT,1,  60,1,1,,'Calibration Active'                    ,,'Bool',Z
+MM,AT,1, 100,1,1,,'Pallet Changer Type'                   ,,'',Z
+MM,AT,1, 110,1,1,,'Sheet Stop'                            ,,'',Z
+MM,AT,1, 120,1,1,,'Measure Sheet Position'                ,,'',Z
+MM,AT,1, 130,1,1,,'Measuring Range X'                     ,,'mm',Z
+MM,AT,1, 140,1,1,,'Measuring Range Y'                     ,,'mm',Z
+MM,AT,1, 150,1,1,,'Measuring Corner'                      ,,'',Z
+C
+ZA,DA,1
+DA,'SHL-1',6,1,1,1,1,50.0,50.0,1
+C
+ENDE_MACHINE_LOAD_DATA
+C
+BEGIN_SHEET_LOAD_DATA
+C
+ZA,MM,19
+MM,AT,1,  10,1,1,,'Load Name'                             ,,'',T
+MM,AT,1,  30,1,1,,'Double Sheet Detection Active'         ,,'Bool',Z
+MM,AT,1,  60,1,1,,'Sheet Alignment Active'                ,,'Bool',Z
+MM,AT,1,  80,1,1,,'Peeling Type'                          ,,'',Z
+MM,AT,1, 110,1,1,,'Suction Cup Configuration 1'           ,,'',T
+MM,AT,1, 120,1,1,,'Suction Cup Configuration 2'           ,,'',T
+MM,AT,1, 130,1,1,,'Suction Cup Configuration 3'           ,,'',T
+MM,AT,1, 140,1,1,,'Suction Cup Configuration 4'           ,,'',T
+MM,AT,1, 230,1,1,,'Loading Type'                          ,,'',Z
+MM,AT,1, 240,1,1,,'TransportMode'                         ,,'',Z
+MM,AT,1, 260,1,1,,'Suction Cup Group 1'                   ,,'',Z
+MM,AT,1, 270,1,1,,'Suction Cup Group 2'                   ,,'',Z
+MM,AT,1, 280,1,1,,'Suction Cup Group 3'                   ,,'',Z
+MM,AT,1, 290,1,1,,'Suction Cup Group 4'                   ,,'',Z
+MM,AT,1, 300,1,1,,'Suction Cup Selection Type'            ,,'',Z
+MM,AT,1, 310,1,1,,'Suction Cup Configuration 5'           ,,'',T
+MM,AT,1, 320,1,1,,'Suction Cup Configuration 6'           ,,'',T
+MM,AT,1, 330,1,1,,'Suction Cup Configuration 7'           ,,'',T
+MM,AT,1, 340,1,1,,'Suction Cup Configuration 8'           ,,'',T
+C
+ZA,DA,1
+DA,'SHL-1',0,0,1,'00000000','00000000','00000000','00000000',6,0,
+*  0,0,0,0,0,'00000000','00000000','00000000','00000000'
+C
+ENDE_SHEET_LOAD_DATA
+C
+C
+BEGIN_LTT_CALLS
+C
+ZA,MM,1
+MM,AT,1,10,1,1,,,,,T
+C
+ZA,DA,1
+DA,'AL010MD0-N2S0-30-2'
+C
+ENDE_LTT_CALLS
+C
+BEGIN_MICROJOINT
+C
+ZA,MM,12
+MM,AT,1,  10,1,1,,'Tabellenidentifikator              ',,'',T
+MM,AT,1, 100,1,1,,'programmierte Microjoints aktiv    ',,'Bool',Z
+MM,AT,1, 110,1,1,,'automatische Microjoints aktiv     ',,'Bool',Z
+MM,AT,1, 120,1,1,,'Microjointbreite kleine Kontur     ',,'mm',Z
+MM,AT,1, 130,1,1,,'Microjointbreite mittlere Kontur   ',,'mm',Z
+MM,AT,1, 140,1,1,,'Microjointbreite grosse Kontur     ',,'mm',Z
+MM,AT,1, 150,1,1,,'Konturausdehnung min X autom. Microjoint',,'mm',Z
+MM,AT,1, 160,1,1,,'Konturausdehnung max X autom. Microjoint',,'mm',Z
+MM,AT,1, 170,1,1,,'Konturausdehnung min Y autom. Microjoint',,'mm',Z
+MM,AT,1, 180,1,1,,'Konturausdehnung max Y autom. Microjoint',,'mm',Z
+MM,AT,1, 190,1,1,,'Einstechart nach Microjoint        ',,'',Z
+MM,AT,1, 500,1,1,,'TRUMPF-Kennung                     ',,'',Z
+C
+ZA,DA,1
+DA,'MIJO-1',1,0,0,0,0.7,-1,-1,-1,-1,11,1
+C
+ENDE_MICROJOINT
+C
+BEGIN_PROGRAMM
+C
+ZA,MM,6
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,T
+MM,AT,1, 30,1,1,,,,,T
+MM,AT,1, 40,1,1,,,,,Z
+MM,AT,1, 60,1,1,,'IncreasingRecordNumberFlag'            ,,'Bool',Z
+MM,AT,1, 70,1,1,,'PartTypeIndex'            ,,'',Z
+C
+ZA,DA,2
+DA,'L101010','UP',,,1,0
+START_TEXT
+N10G91
+N20G01X-0.872Y-10
+N30TC_SHEET_THICK ("AL010MD0-N2S0-30-2")
+N40X0.997Y20
+N50TC_POS_LEVEL(40.0)
+N60TC_LASER_ON(12,"AL010MD0-N2S0-30-2",10,100)
+N70X0Y-13.875
+N80TC_LASER_ON(11,"AL010MD0-N2S0-30-2",0,100)
+N90X21.75Y0
+N100X0Y0.5
+N110TC_LASER_ON(12,"AL010MD0-N2S0-30-2",0,100)
+N120X-0Y13.375
+N130TC_LASER_ON(11,"AL010MD0-N2S0-30-2",0,100)
+N140X-0Y-0.5
+N150TC_LASER_ON(12,"AL010MD0-N2S0-30-2",0,100)
+N160X0Y0.5
+N170TC_LASER_OFF(3)
+N180X30.647Y-20
+N190TC_SHEET_THICK ("AL010MD0-N2S0-30-2")
+N200X-18.463Y20
+N210TC_LASER_ON(12,"AL010MD0-N2S0-30-2",10,100)
+N220X15.768Y-12.304
+N230TC_LASER_ON(11,"AL010MD0-N2S0-30-2",0,100)
+N240X25.353Y-19.784
+N250G03X46.01Y-5.984I30.82J57.087
+N260G01X17.72Y18.159
+N270G02X0.09Y0.037I0.09J-0.088
+N280G01X10.53Y0
+N290G02X0.124Y-0.109I0J-0.125
+N300G01X1.456Y-11.891
+N310X9.779Y0
+N320X1.457Y11.891
+N330G02X0.124Y0.109I0.124J-0.016
+N340G01X11.26Y0
+N350G02X0.124Y-0.118I0J-0.125
+N360G01X0.283Y-5.47
+N370G03X15.138Y-5.812I8.863J0.463
+N380G01X8.636Y8.634
+N390G02X0.214Y-0.089I0.089J-0.089
+N400G01X0Y-8.145
+N410X6.265Y0
+N420TC_LASER_ON(12,"AL010MD0-N2S0-30-2",0,100)
+N430X20Y0
+N440G02X-9.891Y-0.181I-10.002J-0.124
+N450X-2.884Y-5.261I-108.499J56.057
+N460TC_LASER_ON(11,"AL010MD0-N2S0-30-2",0,100)
+N470X-75.675Y-57.081I-105.615J61.318
+N480X-0.157Y0.105I-0.033J0.118
+N490G03X-31.535Y-3.68I-15.783J-1.707
+N500G02X-0.13Y-0.137I-0.128J-0.012
+N510X-68.549Y22.341I1.882J122.111
+N520X-0.016Y0.186I0.072J0.098
+N530G03X-12.176Y9.844I-5.553J5.583
+N540G02X-0.19Y-0.019I-0.105J0.072
+N550X-34.179Y54.722I82.813J89.759
+N560G01X-0.144Y0.479
+N570TC_LASER_ON(12,"AL010MD0-N2S0-30-2",0,100)
+N580X-9.736Y-0.359
+N590TC_LASER_OFF(3)
+N600G01
+N610G90
+N620M17
+N630M02
+STOP_TEXT
+C
+DA,'01010','HP',,,1,0
+START_TEXT
+N10MSG("PROGRAM NUMBER,01010")
+N20MSG("SHEET Al99 : 225.3 x 87.0 x 0.8")
+N30MSG("MSG,PART #:DXFPART7 QTY 1")
+N40G71
+N50TC_PCS_PIERCE
+N60F84000
+N70TC_SHEET_TECH("SHT-1")
+N80TC_SHEET_LOAD("SHL-1")
+N90TC_MICROJOINT("MIJO-1")
+N100TC_TIMER(1,1,"01010")
+N110 ;GOTOF ENTRY_LASER
+N120;ENTRY_LASER:
+N130;(PART NUMBER: L101010  DXFPART7 NUMBER:1)
+N140X10.872Y86.989
+N150L101010
+N160TC_PART_END(1)
+N170TC_LASER_OFF(2)
+N180TC_TIMER(4)
+N190M30
+STOP_TEXT
+ENDE_PROGRAMM
+ED
+
+

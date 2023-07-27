@@ -1,0 +1,78 @@
+%
+(Postprocesor: Apr 14 2022 | 10:42:51)
+(C:/Lantek/Expert/CNC/467.PGM : 06/22/22 | 11:56:04)
+(Al99 120 x 120 x 0.8)
+INCLUDE "plasma_inc.cfs"
+SHP(0,0,0,120,120,0.8)
+G64
+G90
+G94
+G168
+G651 A0 B0.8 C10 D0.5 E0.9 F0.2 G2.2 H2.3 I0.5 J130 K0 L1 T1 W1
+G659
+JMP (start_track)
+M83
+N1   ; Label track
+G806 T1 H1 D1
+G650 T1 W1
+G161
+G186
+G153 G0 Z(trav_safe_z_start)
+G180 X61.148 Y55.717 Z(workpiece_safe_dist) A0 B0
+G153 G0 X(kine_x) Y(kine_y) B(kine_b) A(kine_a)
+G153 G0 Z(kine_z)
+G41
+G800 K1 D1 X61.148 Y55.717 Z0 F(lead_in_speed) T1 R0 U0 V0 W1 Q0
+G01 X63.736 Y46.058
+G03 X77.678 Y42.322 I71.785 J48.215
+M82
+G832
+F(cut_speed)
+G03 X77.678 Y42.322 I60.000 J60.000
+G840
+G40
+M83
+G180 X0 Y0 Z(0.0+workpiece_safe_dist) A0 B0
+G153 G0 Z(kine_z+head_safe_dist)
+N2   ; Label track
+G806 T1 H1 D1
+G650 T1 W1
+G161
+G186
+G180 X42.322 Y77.678 Z(workpiece_safe_dist) A0 B0
+G153 G0 X(kine_x) Y(kine_y) B(kine_b) A(kine_a)
+G153 G0 Z(kine_z)
+G800 K0 D1 X42.322 Y77.678 Z0 F(lead_in_speed) T1 R0 U0 V0 W1 Q0
+G01 X10.000 Y110.000
+G840
+G180 X0 Y0 Z(0.0+workpiece_safe_dist) A0 B0
+G153 G0 Z(kine_z+head_safe_dist)
+N3   ; Label track
+G806 T1 H1 D1
+G650 T1 W1
+G161
+G186
+G180 X120.000 Y10.000 Z(workpiece_safe_dist) A0 B0
+G153 G0 X(kine_x) Y(kine_y) B(kine_b) A(kine_a)
+G153 G0 Z(kine_z)
+G41
+G800 K1 D1 X120 Y10 Z0 F(lead_in_speed) T1 R0 U0 V0 W1 Q0
+G01 X110.000 Y10.000
+M82
+G832
+F(cut_speed)
+G01 X20.000 Y10.000
+G02 X10.000 Y20.000 I20.000 J20.000
+G01 X10.000 Y110.000
+G01 X100.000 Y110.000
+G02 X110.000 Y100.000 I100.000 J100.000
+G01 X110.000 Y10.000
+G831
+G01 X110.000 Y3.000
+G840
+G40
+M83
+G180 X0 Y0 Z(0.0+workpiece_safe_dist) A0 B0
+G153 G0 Z(kine_z+head_safe_dist)
+G169
+M30

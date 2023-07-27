@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Program>
+  <Name>Test</Name>
+  <Machine>HDF</Machine>
+  <Info>
+    <Material ID="2">
+      <Thickness ID="80"></Thickness>
+    </Material>
+    <METHODS>
+      <CUTTING ID="2">
+        <UsedTechno>
+          <Techno>1</Techno>
+        </UsedTechno>
+      </CUTTING>
+    </METHODS>
+    <Nest Nest_X_dimension="100.65" Nest_Y_dimension="100.65" Nest_total_count="1">
+      <Part Part_number="1" Part_ID="1" Part_name="Pieza_prueba_Maxwell" Part_X_dimension="100" Part_Y_dimension="100" Part_X_position="-0.65" Part_Y_position="-0.65" Part_time_estimation="3.3928"></Part>
+    </Nest>
+    <Sheet Sheet_X_dimension="100" Sheet_Y_dimension="100"></Sheet>
+  </Info>
+  <Geometry>
+    <Part Part_ID="1">
+      <Contour ID="1" Headup="0" Compansation="1" Radius="25;50.65;50.65">
+        <Segment ID="1" Segment_type="3">
+          <Point Pos_X="75.65" Pos_Y="50.65"  Process_ID="1" Metod="1" Techno="1"></Point>
+        </Segment>
+        <Segment ID="2" Segment_type="2">
+          <Circle Start_X="75.65" Start_Y="50.65" End_X="75.65" End_Y="50.65" Radius="25" I="-25" J="0" Direction="CCW" 
+ Process_ID="3" Metod="2" Techno="1"></Circle>
+        </Segment>
+      </Contour>
+      <Contour ID="2" Headup="0" Compansation="0" Radius="-">
+        <Segment ID="1" Segment_type="3">
+          <Point Pos_X="32.97" Pos_Y="68.33"  Process_ID="1" Metod="1" Techno="1"></Point>
+        </Segment>
+        <Segment ID="2" Segment_type="1">
+          <Line Start_X="32.97" Start_Y="68.33" End_X="0.65" End_Y="100.65"  Process_ID="3" Metod="2" Techno="1"></Line>
+        </Segment>
+      </Contour>
+      <Contour ID="3" Headup="0" Compansation="0" Radius="-">
+        <Segment ID="1" Segment_type="3">
+          <Point Pos_X="90" Pos_Y="101.3"  Process_ID="1" Metod="1" Techno="1"></Point>
+        </Segment>
+        <Segment ID="2" Segment_type="1">
+          <Line Start_X="90" Start_Y="101.3" End_X="90.65" End_Y="100.65"  Process_ID="3" Metod="2" Techno="1"></Line>
+        </Segment>
+        <Segment ID="3" Segment_type="2">
+          <Circle Start_X="90.65" Start_Y="100.65" End_X="100.65" End_Y="90.65" Radius="10" I="0" J="-10" Direction="CW" 
+ Process_ID="3" Metod="2" Techno="1"></Circle>
+        </Segment>
+        <Segment ID="4" Segment_type="1">
+          <Line Start_X="100.65" Start_Y="90.65" End_X="101.3" End_Y="90"  Process_ID="3" Metod="2" Techno="1"></Line>
+        </Segment>
+      </Contour>
+      <Contour ID="4" Headup="0" Compansation="0" Radius="-">
+        <Segment ID="1" Segment_type="3">
+          <Point Pos_X="11.3" Pos_Y="0"  Process_ID="1" Metod="1" Techno="1"></Point>
+        </Segment>
+        <Segment ID="2" Segment_type="1">
+          <Line Start_X="11.3" Start_Y="0" End_X="10.65" End_Y="0.65"  Process_ID="3" Metod="2" Techno="1"></Line>
+        </Segment>
+        <Segment ID="3" Segment_type="2">
+          <Circle Start_X="10.65" Start_Y="0.65" End_X="0.65" End_Y="10.65" Radius="10" I="0" J="10" Direction="CW" 
+ Process_ID="3" Metod="2" Techno="1"></Circle>
+        </Segment>
+        <Segment ID="4" Segment_type="1">
+          <Line Start_X="0.65" Start_Y="10.65" End_X="0" End_Y="11.3"  Process_ID="3" Metod="2" Techno="1"></Line>
+        </Segment>
+      </Contour>
+    </Part>
+  </Geometry>
+</Program>

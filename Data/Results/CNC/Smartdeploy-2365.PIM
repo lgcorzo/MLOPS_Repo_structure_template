@@ -1,0 +1,84 @@
+%000039,MX,
+;PartNo: 000039
+;Date: 06/22/22 Time: 13:46:03
+;Sheet material:Al99, thickness: 0.8
+;Sheet size LxW:102 x 102
+;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+;
+;***********************************
+%000039,MX,
+#ROUNDPAR [1,0.12]
+#SLOPE[2,0,0,1]
+P231=1000;Fiber Laser
+P159=1800;Power1
+P160=3500;Power2
+P190=40;Frequency1
+P191=300;Frequency2
+P192=18;Duty1
+P193=35;Duty2
+;nozzle diameter = 0
+;gas: N2
+P151=P153
+/$IF P151 > 0
+/G90G0Z0
+/XP130YP131FP126
+/$SWITCH P152
+/$CASE 9200
+/LL 9200
+/$BREAK
+/$ENDSWITCH
+/$GOTO NP151
+/$ENDIF
+P111=4000;Cutting power
+P125=250;Lead-in speed
+P126=500;Cutting speed
+P241=0;1st level piercing pulse mode
+P242=0;2nd level piercing pulse mode
+P243=0;3rd level piercing pulse mode
+P244=0;4th level piercing pulse mode
+P245=0;5th level piercing pulse mode
+P140=0;Lens focus distance
+P141=0;Lens focus position
+V.PLC.R[1]=2
+P120=2;Piercing time
+G92X0Y0
+N0002: G90
+LL 9200
+P154=2
+G00 X70.19Y46.21
+P150=28.209
+LL 9991
+G90
+FP125
+G01X74.79Y50.06
+G03X75.22Y51I-0.79J0.94
+FP126
+G03X75.22Y51I-24.22J0
+P154=2
+LL 9015
+N0004: G90
+G00 X33.32Y68.68
+P150=18.236
+LL 9991
+G90
+FP126
+G01X1Y101
+P154=2
+LL 9015
+N0006: G90
+G00 X101.07Y0.22
+P150=56.439
+LL 9991
+G90
+FP125
+G01X101Y0.22
+FP126
+G01X11Y0.22
+G02X0.22Y11I0J10.78
+G01X0.22Y101.78
+G01X91Y101.78
+G02X101.78Y91I0J-10.78
+G01X101.78Y1
+LL 9015
+LL 9010
+M30

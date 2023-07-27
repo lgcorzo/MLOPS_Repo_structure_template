@@ -1,0 +1,44 @@
+%
+(<NcpProgram Version="1.0" Units="Metric" CNCVersion="P8110">)
+(<MaterialInfo MaterialCode="Al99" Thickness="0.8" FormatType="Sheet" DimX="120" DimY="120"/>)
+(<ProcessInfo CutTechnology="Water" Clamping="False"/>)
+(<Plan JobCode="0038" Label="0038 1">)
+(0038)
+N1G29X120Y120P1H1
+N6G52X7Y10L1T10C0
+N11G99
+(</Plan>)
+(<Part PartCode="0038" Debit="1" Label="0038">)
+N16G28X103Y103L1P1
+N21G0X31.005Y49.47
+N26G1X29.505Y49.435M04
+N31G42
+N36G1X28.005Y49.4
+(<Contour>)
+N41G2I53J50
+N46Y50.6I53J50
+(</Contour>)
+N51G1X31.005Y50.53M05
+N56G40
+N61G0X35.32Y67.68
+(<Contour>)
+N66G1X3Y100M04M05
+(</Contour>)
+N71G0X0Y100
+N76G1X1.5M04
+N81G41
+N86G1X3
+(<Contour>)
+N91G1X93
+N96G2X103Y90I93J90
+N101G1Y0
+N106G1X13
+N111G2X3Y10I13J10
+N116G1Y100
+(</Contour>)
+N121Y103M05
+N126G40
+N131G98
+(</Part>)
+(</NcpProgram>)
+&

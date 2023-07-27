@@ -1,0 +1,4 @@
+WrkRef;CNC;DIS_PsfFile;DIS_CfgFile;PrdRefDst;Extension
+Machine;0000;pst0.exe;pst.se1;Pieza_prueba_Maxwell;.CNC
+Machine;0000;pst1.exe;pst.se1;Pieza_prueba_Maxwell_2;.DAT
+Machine;0000;pst2.exe;pst.se1;DXFPART7;.DIN

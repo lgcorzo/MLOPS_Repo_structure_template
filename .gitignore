@@ -26,11 +26,12 @@ tmp
 **/catboost_info
 
 # Data Files
-*.csv
+# *.csv
 *.parquet
 !evaluation_results.csv
 *.xls
 *.xlsx
+
 
 
 # Byte-compiled / optimized / DLL files

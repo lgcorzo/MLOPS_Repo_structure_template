@@ -1,0 +1,123 @@
+(000143)
+(Date: 06/22/22 Time: 12:09:55)
+(Sheet material:Al99, thickness: 0.8)
+(SHEET 182 117)
+#PRESET
+L Program Start.nc
+G90
+G00X26.29Y49.33
+L Normal Cutting ON.nc
+G90
+G02X26.29Y69.13I0J9.9
+G01X55.22Y69.13
+G02X81.39Y95.29I36.07J-9.9
+L Normal Cutting OFF.nc
+G90
+G00X101.19Y95.29
+L Normal Cutting ON.nc
+G90
+G02X127.36Y69.13I-9.9J-36.06
+L Normal Cutting OFF.nc
+G90
+G00X127.36Y49.33
+L Normal Cutting ON.nc
+G90
+G02X101.19Y23.16I-36.07J9.9
+L Normal Cutting OFF.nc
+G90
+G00X156.29Y49.33
+L Normal Cutting ON.nc
+G90
+G03X156.29Y69.13I0J9.9
+G01X127.36Y69.13
+L Normal Cutting OFF.nc
+G90
+G00X81.39Y23.16
+L Normal Cutting ON.nc
+G90
+G02X55.22Y49.33I9.9J36.07
+G01X26.29Y49.33
+L Normal Cutting OFF.nc
+G90
+G00X127.36Y49.33
+L Normal Cutting ON.nc
+G90
+G01X156.29Y49.33
+L Normal Cutting OFF.nc
+G90
+G00X35.9Y26
+L Normal Cutting ON.nc
+G90
+G03X35.9Y26I-9.9J0
+L Normal Cutting OFF.nc
+G90
+G00X165.9Y26
+L Normal Cutting ON.nc
+G90
+G03X165.9Y26I-9.9J0
+L Normal Cutting OFF.nc
+G90
+G00X101.19Y13.18
+L Normal Cutting ON.nc
+G90
+G01X81.39Y13.18
+L Normal Cutting OFF.nc
+G90
+G00X35.9Y91
+L Normal Cutting ON.nc
+G90
+G03X35.9Y91I-9.9J0
+L Normal Cutting OFF.nc
+G90
+G00X81.39Y105.27
+L Normal Cutting ON.nc
+G90
+G01X101.19Y105.27
+L Normal Cutting OFF.nc
+G90
+G00X101.19Y105.27
+L Normal Cutting ON.nc
+G90
+G01X101.19Y95.29
+L Normal Cutting OFF.nc
+G90
+G00X101.19Y23.16
+L Normal Cutting ON.nc
+G90
+G01X101.19Y13.18
+L Normal Cutting OFF.nc
+G90
+G00X81.39Y13.18
+L Normal Cutting ON.nc
+G90
+G01X81.39Y23.16
+L Normal Cutting OFF.nc
+G90
+G00X81.39Y95.29
+L Normal Cutting ON.nc
+G90
+G01X81.39Y105.27
+L Normal Cutting OFF.nc
+G90
+G00X165.9Y91
+L Normal Cutting ON.nc
+G90
+G03X165.9Y91I-9.9J0
+L Normal Cutting OFF.nc
+G90
+G00X3.44Y3.3
+L Normal Cutting ON.nc
+G90
+G01X8.32Y8.18
+G03X26Y0.9I17.68J17.82
+G01X156Y0.9
+G03X181.1Y26I0J25.1
+G01X181.1Y91
+G03X156Y116.1I-25.1J0
+G01X26Y116.1
+G03X0.9Y91I0J-25.1
+G01X0.9Y26
+G03X8.25Y8.25I25.1J0
+L Normal Cutting OFF.nc
+L Program End.nc
+M30

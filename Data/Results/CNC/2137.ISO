@@ -1,0 +1,168 @@
+[Taglio del Piazzato : 00001042
+[Parametri P utilizzati:
+[P0 e P1 : Dimensione in X e in Y della lastra
+[P2 e P3 : Estremi del percorso di taglio
+[P4 e P5 : dimensioni lastra meno dimensioni percorso
+[P6      : n, delle repetizioni automatiche del ciclo di taglio
+[P7      : contatore dei cicli di taglio effettuati
+[P8      : utilizzato per la decisione di taglio multiplo
+[P9      : codice per funzione lama
+[P10     : coordinata X (Origine) di repetizione ciclo
+[P11     : coordinata Y (Origine) di repetizione ciclo
+[
+P83=2000 [Feed
+P80=0 [Abrasivo
+P92=5 [Distanza RALLENTAMENTO (mm)
+P93=50 [Velocita minima (%) 
+P79=0 [Diametro NOMINALE utensile (mm)
+P81=0 [Pressione di foratura 0=ALTA ; 1=BASSA
+P82=0 [Tipo foratura 0=PUNTIFORME ; 1=CIRCOLARE
+P90=0.5 [Tempo di foratura (secondi)
+P84=0 [Diametro foratura (mm)
+P0=190,P1=125,P2=185.2,P3=120
+&X-100I290Y-50J175A0K0
+P59=P3    [Reset di P3 per ripetizione Pgm con stessi parametri
+P4=P0-P2  [Dimensione in X - estremo massimo in X
+P5=P1-P3  [Dimensione in Y - estremo massimo in Y
+P6=INT(P0/P2)*INT(P1/P3)  [N. standard di ripetizione ciclo
+L@START:    [Richiamo inizializzazione e/o cambio lastra
+FP83 SP12
+FP83 SP12
+(P50=1)L775    [Sottopgm per lavorazione pendolare
+L=977
+P7=0,P10=0,P11=0  [Reset contatore e inizio in origine 0,0
+L=110
+(P7>=P6)L115
+G51XP10YP11
+L120           [Richiamo esecuzione del piazzato
+P7=P7+1
+P11=P11+P3
+(P11>P5)L111
+(P11>-0.002)L110
+L=111
+P10=P10+P2
+P3=-P3
+P11=P11+P3
+(P10=<P4)L110
+L=115
+P3=P59   [Reset di P3 per ripetizione pgm con stessi parametri
+P13=0    [Reset di P13 per domanda in @STOP ripet.pgm con = parametri
+L@STOP:  [Richiamo istruzioni di chiusura del programma
+P13=1    [Reset di P13 per domanda in @STOP ripet.pgm con = parametri
+(P47=1)L977  [Ripetizione pgm con stessi parametri
+G3000    [Disattiva la funzione di rallentamento
+M12010   [Disattiva bassa presione
+P12=P75  [Set portata di abrasivo alta pressione
+F5000    [Ripristino velocita manipolatore
+M30      [Fine programma
+[>
+L=775
+P51=?   [Inserisci il numero dell`origine SX (Tn)
+P52=?   [Inserisci il numero dell`origine DX (Tn)
+L=777
+P53=?   [Inserisci il numero di colonne (Asse X)
+P54=?   [Inserisci il numero di righe   (Asse Y)
+P57=P2*P53
+P58=P3*P54
+&X0IP57Y0JP58
+TP51    [Origine di SX
+P55=0,P56=0
+L776
+P53=?   [Inserisci il numero di colonne (Asse X)
+P54=?   [Inserisci il numero di righe   (Asse Y)
+P57=P2*P53
+P58=P3*P54
+&X0IP57Y0JP58
+TP52    [Origine di DX
+P55=0,P56=0
+L776
+L777K999 [Il pgm si interrompe premendo <ESC>
+M30      [Secondo fine programma
+[>
+L=776    [Sottoprogramma per lavorazione pendolare
+G51XP55YP56
+L120
+P55=P55+P2
+L776KP53
+P55=0
+P56=P56+P3
+L776KP54
+G32
+[>
+M30      [Fine programma
+L=120
+G3001
+(P7><0)L121
+&X-100I290Y-50J175A0K0
+L=121
+G0X39.8Y30
+L@FSTART:
+G41K1J0
+X40Y30
+G3X20Y30I30J30
+G3X40Y30I30J30
+G40K0J0
+L@FSTOP:
+G0X39.8Y95
+L@FSTART:
+G41K1J0
+X40Y95
+G3X20Y95I30J95
+G3X40Y95I30J95
+G40K0J0
+L@FSTOP:
+G0X170.09Y63.225
+L@FSTART:
+G41K3J0
+X170.29Y63.225
+G3X160.29Y73.225I160.29J63.225
+X131.435Y73.225
+G3X105.29Y99.37I95.29J63.225
+X105.29Y109.37
+X85.29Y109.37
+X85.29Y99.37
+G3X59.15Y73.225I95.29J63.225
+X30.29Y73.225
+G3X30.29Y53.225I30.29J63.225
+X59.15Y53.225
+G3X85.29Y27.085I95.29J63.225
+X85.29Y17.085
+X105.29Y17.085
+X105.29Y27.085
+G3X131.435Y53.225I95.29J63.225
+X160.29Y53.225
+G3X170.29Y63.225I160.29J63.225
+G40K0J0
+L@FSTOP:
+G0X169.8Y95
+L@FSTART:
+G41K1J0
+X170Y95
+G3X150Y95I160J95
+G3X170Y95I160J95
+G40K0J0
+L@FSTOP:
+G0X169.8Y30
+L@FSTART:
+G41K1J0
+X170Y30
+G3X150Y30I160J30
+G3X170Y30I160J30
+G40K0J0
+L@FSTOP:
+G0X185.2Y62.5
+L@FSTART:
+G42K1J0
+X185Y62.5
+X185Y95
+G3X160Y120I160J95
+X30Y120
+G3X5Y95I30J95
+X5Y30
+G3X30Y5I30J30
+X160Y5
+G3X185Y30I160J30
+X185Y62.5
+G40K0J0
+L@FSTOP:
+G32

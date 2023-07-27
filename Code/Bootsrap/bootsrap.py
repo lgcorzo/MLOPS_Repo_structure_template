@@ -3,13 +3,15 @@ import sys
 import platform
 import argparse
 import re
+import glob
 
 
 class Helper:
 
-    def __init__(self, project_directory, project_name, sonar_key):
+    def __init__(self, project_directory, project_name, projectname, sonar_key):
         self._project_directory = project_directory
         self._project_name = project_name
+        self._projectname = projectname
         self._git_repo = "https://github.com/lgcorzo/MLOPS_Repo_structure_template.git"
         self._sonar_key = sonar_key
 
@@ -29,55 +31,57 @@ class Helper:
     def sonar_key(self):
         return self._sonar_key
 
+    @property
+    def ProjectName(self):
+        return self._projectname
+
     def rename_files(self):
-        # Rename all files starting with diabetes_regression with project name
-        strtoreplace = "PROJECT_NAME"
-        dirs = [r"Pipelines\DevopsPipelines"]
+        # Rename all files containg  project_name in the name
+        print('start rename_files')
+        strtoreplace = "project_name"
+        search_pattern = f"{self._project_directory}/**/*{strtoreplace}*"
+        dirs = glob.glob(search_pattern, recursive=True)
+
         for dir in dirs:
-            normDir = os.path.normpath(dir)
-            dirpath = os.path.join(self._project_directory, normDir)
-            for filename in os.listdir(dirpath):
-                if (filename.find(strtoreplace) != -1):
-                    src = os.path.join(self._project_directory, normDir, filename)  # NOQA: E501
-                    dst = os.path.join(self._project_directory,
-                                       normDir,
-                                       filename.replace(strtoreplace, self._project_name))  # NOQA: E501
-                    os.rename(src, dst)
+            normdir = os.path.normpath(dir)
+            dst = normdir.replace(strtoreplace, self._project_name)  # NOQA: E501
+            os.rename(normdir, dst)
 
     def rename_dir(self):
-        dir = "PROJECT_NAME"
-        src = os.path.join(self._project_directory, dir)
+        dirname = "ProjectName"
+        src = os.path.join(self._project_directory, dirname)
         for path, subdirs, files in os.walk(src):
             for name in files:
-                newPath = path.replace(dir, self._project_name)
-                if (not (os.path.exists(newPath))):
-                    os.mkdir(newPath)
+                newpath = path.replace(dir, self._project_name)
+                if (not (os.path.exists(newpath))):
+                    os.mkdir(newpath)
                 file_path = os.path.join(path, name)
-                new_name = os.path.join(newPath, name).lower()
+                new_name = os.path.join(newpath, name).lower()
                 os.rename(file_path, new_name)
 
     def delete_dir(self):
         # Delete unwanted directories
-        dirs = ["Code/Bootsrap",
-                "Data/Archive",
-                "Data/Core",
-                "Data/Results",
-                "Notebooks/Commissioning",
-                "Notebooks/DataIngestion",
-                "Notebooks/DataUnderstanding",
-                "Notebooks/Deployment",
-                "Notebooks/Experimenting",
-                "Notebooks/Modelling",
-                "Notebooks/Monitoring",
-                "Notebooks/Testing",
-                "Code/FrontEnd/assets",
-                "Code/FrontEnd",
-                "Code/Controller",
-                "Code/Domain/Models",
-                "Code/Domain",
-                "Code/Application/Services",
-                "Code/Application"
-                ]
+        dirs = [
+            "Data/Archive",
+            "Data/Core",
+            "Data/Results",
+            "Notebooks/Commissioning",
+            "Notebooks/DataIngestion",
+            "Notebooks/DataUnderstanding",
+            "Notebooks/Deployment",
+            "Notebooks/Experimenting",
+            "Notebooks/Modelling",
+            "Notebooks/Monitoring",
+            "Notebooks/Testing",
+            # "Code/FrontEnd/assets",
+            # "Code/FrontEnd",
+            # "Code/Controller",
+            # "Code/Domain/Models",
+            # "Code/Domain",
+            # "Code/Application/Services",
+            # "Code/Application",
+            "Code/Bootsrap"
+        ]
         if (platform.system() == "Windows"):
             cmd = 'rmdir /S /Q "{}"'
         else:
@@ -87,11 +91,12 @@ class Helper:
 
     def clean_dir(self):
         # Clean up directories
-        dirs = ["Data/Archive",
+        dirs = [".git",
+                ".github",
+                "Data/Archive",
                 "Data/Core",
-                "Scripts/windows/",
+                "Scripts/windows",
                 "Data/Results",
-                "Code/Bootsrap",
                 "Notebooks/Commissioning",
                 "Notebooks/DataIngestion",
                 "Notebooks/DataUnderstanding",
@@ -100,13 +105,14 @@ class Helper:
                 "Notebooks/Modelling",
                 "Notebooks/Monitoring",
                 "Notebooks/Testing",
-                "Code/Controller",
-                "Code/Domain/Models",
-                "Code/Domain",
-                "Code/FrontEnd/assets",
-                "Code/FrontEnd",
-                "Code/Application/Services",
-                "Code/Application"
+                # "Code/Controller",
+                # "Code/Domain/Models",
+                # "Code/Domain",
+                # "Code/FrontEnd/assets",
+                # "Code/FrontEnd",
+                # "Code/Application/Services",
+                # "Code/Application",
+                "Code/Bootsrap"
                 ]
         for dir in dirs:
             for root, dirs, files in os.walk(os.path.join(self._project_directory, dir)):  # NOQA: E501
@@ -121,19 +127,22 @@ class Helper:
             raise Exception("Invalid project name length. Project name should be 3 to 15 chars long, letters and underscores only.")  # NOQA: E501
         if (not re.search("^[\\w_]+$", self._project_name)):
             raise Exception(
-                "Invalid characters in project name. Project name should be 3 to 15 chars long, letters and underscores only.")
+                "Invalid characters in project name. Project name should be 3.")
         if (not re.search("^[\\w_]+$", self._sonar_key)):
-            raise Exception("Invalid characters in project name. Project name should be 3 to 15 chars long, letters and underscores only.")  # NOQA: E501
-# NOQA: E501
+            raise Exception("Invalid characters in project name. Project name should be 3 to 15 chars long, letters and underscores only.")  # NOQA: E501# NOQA: E501
 
 
 def replace_project_name(project_dir, project_name, rename_name):
     # Replace instances of rename_name within files with project_name
     files = [
-        r"Pipelines/DevopsPipelines/ci_build_PROJECT_NAME.yaml",
+        r"Pipelines/DevopsPipelines/ci_build_project_name.yaml",
         r"Notebooks/BusinessUnderstanding/BU_Project_env_init_notebook.ipynb",
+        r"Makefile",
+        r"docker-compose.yml"
     ]
-
+    search_pattern = f"{project_dir}/**/*.py"
+    files_py = glob.glob(search_pattern, recursive=True)
+    files.extend(files_py)
     for file in files:
         path = os.path.join(project_dir, os.path.normpath(file))
         try:
@@ -154,11 +163,16 @@ def main(args):
                         type=str,
                         required=True,
                         help="Absolute path to new project direcory")
+    parser.add_argument("-M",
+                        "--ProjectName",
+                        type=str,
+                        required=True,
+                        help="Name of the project name folder classes")
     parser.add_argument("-n",
                         "--project_name",
                         type=str,
                         required=True,
-                        help="Name of the project [3-15 chars, letters and underscores only]")  # NOQA: E501
+                        help="Name of the project name file")  # NOQA: E501# NOQA: E501
     parser.add_argument("-k",
                         "--sonar_key",
                         type=str,
@@ -168,14 +182,16 @@ def main(args):
         args = parser.parse_args()
 
         project_directory = args.directory
+        projectname = args.ProjectName
         project_name = args.project_name
         sonar_key = args.sonar_key
 
-        helper = Helper(project_directory, project_name, sonar_key)
+        helper = Helper(project_directory, project_name, projectname, sonar_key)
         helper.validate_args()
         helper.clean_dir()
 
-        replace_project_name(project_directory, project_name, "PROJECT_NAME")  # NOQA: E501
+        replace_project_name(project_directory, projectname, "ProjectName")  # NOQA: E501
+        replace_project_name(project_directory, project_name, "project_name")  # NOQA: E501
         replace_project_name(project_directory, sonar_key, "SONAR_KEY")
 
         helper.rename_files()

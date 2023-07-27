@@ -22,9 +22,9 @@ variables:
 
 resources:
   repositories:
-    - repository: Merlin.PROJECT_NAME
+    - repository: Merlin.ProjectName
       type: git
-      name: 'Merlin/Merlin.PROJECT_NAME'
+      name: 'Merlin/Merlin.ProjectName'
     - repository: BuildTools
       type: git
       name: 'Lantek 360/Lantek360.BuildTools'
@@ -74,7 +74,7 @@ stages:
               sonarServiceConnection: $(sonar_service_connection_name)
               projectKey: $(sonar_project_key)
 
-          - template: Pipelines/DevopsPipelines/code-quality-template.yaml@Merlin.PROJECT_NAME
+          - template: Pipelines/DevopsPipelines/code-quality-template.yaml@Merlin.ProjectName
             parameters:
               workingDirectory: 'Code'
               testsWorkingDirectory: ''

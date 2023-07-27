@@ -16,10 +16,13 @@ $$\color{red}{IMPORTANT}$$
 - [Introduction](#introduction)
 - [Scope](#scope)
 - [Objectives](#objectives)
+- [LLama 2 guides](#llama-2-guides)
 - [Requirements](#requirements)
 - [Structure of the repo](#structure-of-the-repo)
 - [testing](#testing)
 - [Keywords](#keywords)
+- [Frontend:](#frontend)
+- [references](#references)
 
 <!-- cspell:enable -->
 ## Introduction
@@ -31,11 +34,60 @@ The goal of this project is to create a Databricks infrastructure that allows th
 - The scope of the project includes the creation of a Databricks infrastructure that can collect, process, and store data from various sources such as databases, cloud storage, APIs, and IoT devices.
 - The project will also involve the integration of the Databricks infrastructure with the LANTEK MLOps system in Azure, to ensure that data is available for use in machine learning models.
 
+-Add a service  to call [llama](https://github.com/facebookresearch/llama?fbclid=IwAR0Ngm1SeDDfj6fmSmo-C7e8ERAjUdmD2JvCnR2G_HCez4hFqQw3viCWKOg)
+
+ documentation related
+<https://huggingface.co/blog/llama2>
+
+[demo](https://huggingface.co/blog/llama2#demo)
+[demo2](https://labs.perplexity.ai/)
+inferencing endpoints hugginface [here](https://huggingface.co/docs/inference-endpoints/index)
+
 ## Objectives
 
 - The main objective of the project is to create a Databricks infrastructure that allows for the efficient transfer of data to an MLOps system in Azure.
 - The project will also aim to ensure that data is properly formatted, cleaned, and transformed into a format that is usable by machine learning algorithms.
 - The project will also aim to monitor and update the data pipeline to ensure that the data is up-to-date and accurate.
+
+## LLama 2 guides
+
+[step by step Guide huggingface llama2](https://www.pinecone.io/learn/llama-2/)
+
+[![video](https://markdown-videos.vercel.app/youtube/6iHVJyX2e50)](https://youtu.be/6iHVJyX2e50)
+
+[original paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)
+
+[step by step Guide huggingface llama2](https://huggingface.co/blog/llama2)
+
+[huggingface doc](https://huggingface.co/docs/transformers/main/en/model_doc/llama2)
+
+[pipelines huggingface](https://huggingface.co/docs/transformers/v4.17.0/en/pipeline_tutorial)
+
+<https://aitoolmall.com/news/how-to-use-huggingface-llama-2/>
+
+[cpu example](https://github.com/randaller/llama-cpu)
+
+how to use llama with hugggingface
+
+- [One](https://github.com/randaller/llama-cpu)
+- [Two](https://huggingface.co/docs/transformers/main/en/model_doc/llama2)
+
+code example:
+
+``` python
+
+from transformers import AutoTokenizer, LlamaForCausalLM
+
+model = LlamaForCausalLM.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)
+tokenizer = AutoTokenizer.from_pretrained(PATH_TO_CONVERTED_TOKENIZER)
+
+prompt = "Hey, are you conscious? Can you talk to me?"
+inputs = tokenizer(prompt, return_tensors="pt")
+
+# Generate
+generate_ids = model.generate(inputs.input_ids, max_length=30)
+tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+```
 
 ## Requirements
 
@@ -99,3 +151,37 @@ pytest --cov=Code  --cov-report=xml:cov.xml
 - Data Storage
 - Data Pipeline
 - Data Monitoring
+
+## Frontend:
+pyhton frontend with dash ( POC)
+
+professional FE:
+angular 
+
+- Angular 15 o superior. 
+- Material Design mediante Angular Material
+- Syncfusion Angular UI: libreria de componentes
+- Jest: framework de testing
+
+## references
+
+huggingface repo:
+<https://github.com/huggingface/transformers/tree/a5cc30d72ae2dc19af534e4b35c986cc28db1275>
+
+<https://huggingface.co/docs/transformers/task_summary>
+ for visio and pipelines
+<https://theaisummer.com/hugging-face-vit/>
+
+
+ProjectName MachineConfiguratorFinder
+project_name  example machine_configuration_finder
+
+delete pytest cache
+``` powershell 
+Get-ChildItem -Path . -Recurse -Directory -Filter "__pycache__" | Remove-Item -Recurse -Force
+``` 
+
+```cmd 
+rmdir /s /q .pytest_cache
+
+```

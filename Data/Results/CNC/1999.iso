@@ -1,0 +1,201 @@
+    ;LAMIERA Al99 180 x 115 x 0.8
+o1 ; C:/Lantek/Expert/CNC/1999.iso
+
+
+P20=-10    ;X min
+P21=115    ;X max
+P22=-10    ;Y min
+P23=180    ;Y max
+P26=0    ;Pipe diameter [mm]
+
+P27=0    ;Drilling velocity [mm/min]
+P28=8.8    ;Depth of hole [mm]
+P29=0    ;Length. High velocity before contact tip-sheet [mm]
+
+P10=11    ;Altezza sfondamento [mm]
+P11=0.8    ;Tempo sfondamento [s]
+P12=4    ;Altezza taglio [mm]
+P13=0.5    ;Ritardo Attivazione controllo altezza [s]
+P14=177    ;Tensione d'arco [V]
+P15=1440    ;Velocit?nominale [mm/min]
+P16=50    ;Salita fine taglio [mm]
+P17=0    ;Arc Voltage Plasma 2 [V]
+P19=2.2    ;Compensazione [mm]
+P24=4800    ;Feed Writer
+P25=1150    ;Velocit?Lenta [mm/min]
+P30=260    ;Set Point Power [A]
+P32=0    ;Plasma Gas [0=NO 1=O2 3=H35 5=Air 6=N 8=F5]
+P33=0    ;Shield Gas [0=NO 1=O2 3=H35 5=Air 6=N 8=F5]
+P34=0    ;Plasma Cut Flow [%]
+P35=0    ;Plasma PreFlow [%]
+P36=0    ;Shield Cut Flow [%]
+P37=0    ;Shield PreFlow [%]
+P38=0    ;Gas1 Mix [%]
+P39=0    ;Gas2 Mix [%]
+M98 Q1
+
+P10=0    ;Altezza sfondamento [mm]
+P11=0    ;Tempo sfondamento [s]
+P12=0    ;Altezza taglio [mm]
+P13=0.5    ;Ritardo Attivazione controllo altezza [s]
+P14=0    ;Tensione d'arco [V]
+P15=0    ;Velocit?nominale [mm/min]
+P16=50    ;Salita fine taglio [mm]
+P17=0    ;Arc Voltage Plasma 2 [V]
+P19=0    ;Compensazione [mm]
+P24=4800    ;Feed Writer
+P25=1150    ;Velocit?Lenta [mm/min]
+P30=0    ;Set Point Power [A]
+P32=0    ;Plasma Gas [0=NO 1=O2 3=H35 5=Air 6=N 8=F5]
+P33=0    ;Shield Gas [0=NO 1=O2 3=H35 5=Air 6=N 8=F5]
+P34=0    ;Plasma Cut Flow [%]
+P35=0    ;Plasma PreFlow [%]
+P36=0    ;Shield Cut Flow [%]
+P37=0    ;Shield PreFlow [%]
+P38=0    ;Gas1 Mix [%]
+P39=0    ;Gas2 Mix [%]
+M98 Q9
+
+P10=4    ;Altezza sfondamento [mm]
+P11=0    ;Tempo sfondamento [s]
+P12=2.5    ;Altezza taglio [mm]
+P13=0.5    ;Ritardo Attivazione controllo altezza [s]
+P14=130    ;Tensione d'arco [V]
+P15=4500    ;Velocit?nominale [mm/min]
+P16=50    ;Salita fine taglio [mm]
+P17=0    ;Arc Voltage Plasma 2 [V]
+P19=0    ;Compensazione [mm]
+P24=4800    ;Feed Writer
+P25=1150    ;Velocit?Lenta [mm/min]
+P30=0    ;Set Point Power [A]
+P32=0    ;Plasma Gas [0=NO 1=O2 3=H35 5=Air 6=N 8=F5]
+P33=0    ;Shield Gas [0=NO 1=O2 3=H35 5=Air 6=N 8=F5]
+P34=0    ;Plasma Cut Flow [%]
+P35=0    ;Plasma PreFlow [%]
+P36=0    ;Shield Cut Flow [%]
+P37=0    ;Shield PreFlow [%]
+P38=0    ;Gas1 Mix [%]
+P39=0    ;Gas2 Mix [%]
+M98 Q10
+
+
+
+
+N101
+M62 Q1
+G00 X90.7 Y20
+M50
+G01 Y15.726
+G03 X90 Y34.3 I90 J25
+G03 X85.237 Y17.012 I90 J25
+G03 X89.201 Y15.734 I90 J25
+M53
+G03 X90 Y15.7 I90 J25
+M57
+M56
+G03 X94.299 Y20.086 I90 J20
+M51
+G100
+
+N102
+M62 Q1
+G00 X25.7 Y20
+M50
+G01 Y15.726
+G03 X25 Y34.3 I25 J25
+G03 X20.237 Y17.012 I25 J25
+G03 X24.201 Y15.734 I25 J25
+M53
+G03 X25 Y15.7 I25 J25
+M57
+M56
+G03 X29.299 Y20.086 I25 J20
+M51
+G100
+
+N103
+M62 Q1
+G00 X61.768 Y53.49
+M50
+G01 X66.587 Y54.823
+G03 X92.379 Y80.991 I56.773 J90.291
+G01 X102.215
+G01 Y99.591
+G01 X92.379
+G03 X66.073 Y125.896 I56.773 J90.291
+G01 Y155.291
+G03 X47.473 Y155.291 I56.773 J155.291
+G01 Y125.896
+G03 X21.168 Y99.591 I56.773 J90.291
+G01 X11.331
+G01 Y80.991
+G01 X21.168
+G03 X47.473 Y54.685 I56.773 J90.291
+G01 Y25.291
+G03 X66.073 Y25.291 I56.773 J25.291
+G01 Y49.148
+M53
+G01 Y54.148
+M57
+M56
+G01 Y57.148
+M51
+G100
+
+N104
+M62 Q1
+G00 X25.7 Y150
+M50
+G01 Y145.726
+G03 X25 Y164.3 I25 J155
+G03 X20.237 Y147.012 I25 J155
+G03 X24.201 Y145.734 I25 J155
+M53
+G03 X25 Y145.7 I25 J155
+M57
+M56
+G03 X29.299 Y150.086 I25 J150
+M51
+G100
+
+N105
+M62 Q1
+G00 X90.7 Y150
+M50
+G01 Y145.726
+G03 X90 Y164.3 I90 J155
+G03 X85.237 Y147.012 I90 J155
+G03 X89.201 Y145.734 I90 J155
+M53
+G03 X90 Y145.7 I90 J155
+M57
+M56
+G03 X94.299 Y150.086 I90 J150
+M51
+G100
+
+N106
+M62 Q1
+G00 X108.758 Y178.066
+M50
+G03 X108.314 Y173.314 I110.506 J175.506
+G02 X115.9 Y155 I90 J155
+G01 Y25
+G02 X90 Y-0.9 I90 J25
+G01 X25
+G02 X-0.9 Y25 I25 J25
+G01 Y155
+G02 X25 Y180.9 I25 J155
+G01 X90
+G02 X104.46 Y176.487 I90 J155
+G02 X107.74 Y173.871 I90 J155
+M53
+G02 X108.314 Y173.314 I90 J155
+M57
+M56
+G03 X110.145 Y173.774 I109.092 J174.092
+M51
+G100
+
+N9999
+M02
