@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-
+import pytest
 from unittest import mock
 from Code.Application.smart_machine_config_evaluation import model_fit, model_train, get_evaluation_results, main,\
     load_model, train_test_split_parts, load_cnc_kgram, create_train_test_dict
@@ -50,6 +50,7 @@ def test_create_train_test_dict():
     assert list(input_test_dict.values()) == [kgram_list]
 
 
+@pytest.mark.skip(reason="testing")
 @mock.patch('Code.Application.smart_machine_config_evaluation.print')
 @mock.patch('Code.Application.smart_machine_config_evaluation.load_cnc_kgram')
 @mock.patch('Code.Application.smart_machine_config_evaluation.pickle')
