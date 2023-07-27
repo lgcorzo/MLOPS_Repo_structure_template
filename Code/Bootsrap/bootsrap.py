@@ -37,20 +37,15 @@ class Helper:
 
     def rename_files(self):
         # Rename all files containg  project_name in the name
+        print('start rename_files')
         strtoreplace = "project_name"
         search_pattern = f"{self._project_directory}/**/*{strtoreplace}*"
         dirs = glob.glob(search_pattern, recursive=True)
 
         for dir in dirs:
-            normDir = os.path.normpath(dir)
-            dirpath = os.path.join(self._project_directory, normDir)
-            for filename in os.listdir(dirpath):
-                if (filename.find(strtoreplace) != -1):
-                    src = os.path.join(self._project_directory, normDir, filename)  # NOQA: E501
-                    dst = os.path.join(self._project_directory,
-                                       normDir,
-                                       filename.replace(strtoreplace, self._project_name))  # NOQA: E501
-                    os.rename(src, dst)
+            normdir = os.path.normpath(dir)
+            dst = normdir.replace(strtoreplace, self._project_name)  # NOQA: E501
+            os.rename(normdir, dst)
 
     def rename_dir(self):
         dirname = "ProjectName"
@@ -96,9 +91,11 @@ class Helper:
 
     def clean_dir(self):
         # Clean up directories
-        dirs = ["Data/Archive",
+        dirs = [".git",
+                ".github",
+                "Data/Archive",
                 "Data/Core",
-                "Scripts/windows/",
+                "Scripts/windows",
                 "Data/Results",
                 "Notebooks/Commissioning",
                 "Notebooks/DataIngestion",
@@ -138,7 +135,7 @@ class Helper:
 def replace_project_name(project_dir, project_name, rename_name):
     # Replace instances of rename_name within files with project_name
     files = [
-        r"Pipelines/DevopsPipelines/ci_build_ProjectName.yaml",
+        r"Pipelines/DevopsPipelines/ci_build_project_name.yaml",
         r"Notebooks/BusinessUnderstanding/BU_Project_env_init_notebook.ipynb"
     ]
     search_pattern = f"{project_dir}/**/*.py"
