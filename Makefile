@@ -1,3 +1,4 @@
 build:
-	docker build -t mlops_service ./Scripts/Docker
+	docker build -t project_name_backend ./Docker/BackEnd
+	docker build -t project_name_frontend ./Docker/FrontEnd
 

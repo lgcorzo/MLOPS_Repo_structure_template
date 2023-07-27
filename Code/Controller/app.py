@@ -43,4 +43,4 @@ fit_model_service()
 if __name__ == '__main__':
     e = Env()
     # fit_model_service()
-    app.run(host=e.host, port=e.port)
+    app.run(host=e.be_host, port=e.be_port)

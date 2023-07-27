@@ -1,22 +1,30 @@
 services: 
-  dev:
-      image: mlops_service
-      stdin_open: true # docker run -i
-      tty: true        # docker run -t
-      hostname: dev
+  backend:
+      image: project_name_backend
+      hostname: backend
       restart: always
       environment:
         DEV_LOCAL_IP: 172.29.1.7
-        DEV_LOCAL_HOSTNAME: dev
+        DEV_LOCAL_HOSTNAME: backend
       ports:
         - "8001:8001"
-        - "8000:8000"
       volumes:
         - ../Data:/landing
       networks:
         sparknet:
           ipv4_address: 172.29.1.7
-      command: /bin/bash
+  frontend:
+      image: project_name_frontend
+      hostname: frontend
+      restart: always
+      environment:
+        DEV_LOCAL_IP: 172.29.1.8
+        DEV_LOCAL_HOSTNAME: frontend
+      ports:
+        - "8000:8000"
+      networks:
+        sparknet:
+          ipv4_address: 172.29.1.8
 volumes:
   pg_data:
 

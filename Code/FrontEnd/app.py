@@ -349,13 +349,14 @@ def load_result_table(jason: dict) -> html.Div:
 
 def crete_service_url() -> dash.Dash:
     e = Env()
-    services_url = f'http://127.0.0.1:{e.port}/services/'
+    services_url = f'http://{e.be_host}:{e.be_port}/services/'
     print(services_url)
     return configure_dash_app(services_url)
 
 
 def main():
-    app.run_server(debug=False)
+    e = Env()
+    app.run_server(host=e.fe_host, port=e.fe_port, debug=False)
 
 
 app = crete_service_url()

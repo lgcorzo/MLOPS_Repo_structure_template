@@ -4,11 +4,9 @@
 # Exclude files and directories in the current directory
 *
 
-# Include the Dockerfile and the start_app.sh script
+# Include the Dockerfile and the entrypoint.sh script
 !Dockerfile
-!start_app.sh
-!start_be.sh
-!start_fe.sh
+!entrypoint.sh
 
 # Include your project code from two folders above 
 # Modify the path to match your directory structure if needed
@@ -18,3 +16,9 @@
 # For example, if you have other_folders and other_files not related to the project
 ../../Pipelines/
 ../../Test/
+../../Docker/
+../../Documentation/
+../../Notebooks/
+../../Scripts/
+../../.github/
+../../.pytest_cache/
