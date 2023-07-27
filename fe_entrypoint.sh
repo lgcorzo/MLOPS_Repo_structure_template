@@ -8,6 +8,6 @@ conda init
 conda activate code_development_env
 
 echo "Starting frontend..."
-gunicorn Code.FrontEnd.app:server --workers 4 --threads 2 --bind $FE_LOCAL_IP:$FE_PORT
+gunicorn Code.FrontEnd.app:server --workers 4 --threads 2 --bind $FE_HOST:$FE_PORT
 
 

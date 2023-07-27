@@ -4,38 +4,39 @@ services:
       hostname: backend
       restart: always
       environment:
-        BE_LOCAL_IP: 172.29.1.7
-        BE_LOCAL_HOSTNAME: backend
         BE_PORT: 8001
-        BE_HOST : 127.0.0.1
-        
+        BE_HOST: 172.30.1.7  
       ports:
-        - "8001:8001"
+        - "9001:8001"
       volumes:
         - ../Data:/landing
       networks:
-        sparknet:
-          ipv4_address: 172.29.1.7
+        servnet:
+          ipv4_address: 172.30.1.7
   frontend:
       image: project_name_frontend
       hostname: frontend
       restart: always
+      depends_on:
+        - backend
       environment:
-        FE_LOCAL_IP: 172.29.1.8
-        FE_LOCAL_HOSTNAME: frontend
         FE_PORT: 8000
-        FE_HOST : 127.0.0.1
+        FE_HOST: 172.30.1.8
+        BE_PORT: 8001
+        BE_HOST : 172.30.1.7
       ports:
-        - "8000:8000"
+        - "9000:8000"
+      extra_hosts:
+        - "backend:172.30.1.7"
       networks:
-        sparknet:
-          ipv4_address: 172.29.1.8
+        servnet:
+          ipv4_address: 172.30.1.8
 volumes:
   pg_data:
 
 networks:
-  sparknet:
+  servnet:
     ipam:
       driver: default
       config:
-        - subnet: 172.29.0.0/16
+        - subnet: 172.30.0.0/16

@@ -11,3 +11,4 @@ logs/
 .git
 *.md
 .cache
+.env
