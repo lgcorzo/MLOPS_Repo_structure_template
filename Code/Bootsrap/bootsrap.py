@@ -3,13 +3,15 @@ import sys
 import platform
 import argparse
 import re
+import glob
 
 
 class Helper:
 
-    def __init__(self, project_directory, project_name, sonar_key):
+    def __init__(self, project_directory, project_name, projectname, sonar_key):
         self._project_directory = project_directory
         self._project_name = project_name
+        self._projectname = projectname
         self._git_repo = "https://github.com/lgcorzo/MLOPS_Repo_structure_template.git"
         self._sonar_key = sonar_key
 
@@ -29,10 +31,16 @@ class Helper:
     def sonar_key(self):
         return self._sonar_key
 
+    @property
+    def ProjectName(self):
+        return self._projectname
+
     def rename_files(self):
-        # Rename all files starting with diabetes_regression with project name
-        strtoreplace = "ProjectName"
-        dirs = [r"Pipelines\DevopsPipelines"]
+        # Rename all files containg  project_name in the name
+        strtoreplace = "project_name"
+        search_pattern = f"{self._project_directory}/**/*{strtoreplace}*"
+        dirs = glob.glob(search_pattern, recursive=True)
+
         for dir in dirs:
             normDir = os.path.normpath(dir)
             dirpath = os.path.join(self._project_directory, normDir)
@@ -45,15 +53,15 @@ class Helper:
                     os.rename(src, dst)
 
     def rename_dir(self):
-        dir = "project_name"
-        src = os.path.join(self._project_directory, dir)
+        dirname = "ProjectName"
+        src = os.path.join(self._project_directory, dirname)
         for path, subdirs, files in os.walk(src):
             for name in files:
-                newPath = path.replace(dir, self._project_name)
-                if (not (os.path.exists(newPath))):
-                    os.mkdir(newPath)
+                newpath = path.replace(dir, self._project_name)
+                if (not (os.path.exists(newpath))):
+                    os.mkdir(newpath)
                 file_path = os.path.join(path, name)
-                new_name = os.path.join(newPath, name).lower()
+                new_name = os.path.join(newpath, name).lower()
                 os.rename(file_path, new_name)
 
     def delete_dir(self):
@@ -137,7 +145,8 @@ def replace_project_name(project_dir, project_name, rename_name):
         r"Code/Application/project_name_algorithm.py",
         r"Code/Application/project_name_evaluation.py",
         r"Code/Application/project_name_model.py",
-        r"Code/FrontEnd/app.py"
+        r"Code/FrontEnd/app.py",
+        r"Code/Domain/Models/project_name.py"
     ]
 
     for file in files:
@@ -183,7 +192,7 @@ def main(args):
         project_name = args.project_name
         sonar_key = args.sonar_key
 
-        helper = Helper(project_directory, projectname, sonar_key)
+        helper = Helper(project_directory, project_name, projectname, sonar_key)
         helper.validate_args()
         helper.clean_dir()
 

@@ -1,7 +1,7 @@
 import uuid
 
 
-class MachineConfiguration:
+class ProjectName:
 
     def __init__(self, result):
         self.uid = uuid.uuid4()

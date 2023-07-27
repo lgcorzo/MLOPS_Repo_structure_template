@@ -3,7 +3,7 @@ import pandas as pd
 
 from Code.Application.project_name_algorithm import read_cnc_csv, clean_data_cncs
 from Code.Application.project_name_evaluation import model_fit, load_model
-from Code.Domain.Models.machine_configuration import MachineConfiguration
+from Code.Domain.Models.project_name import ProjectName
 
 cwd = os.path.dirname(os.path.abspath(__file__))
 cnc_path = os.path.join(cwd, '../../../Data/Results/CNC/')
@@ -28,5 +28,5 @@ def predict_model_service(file_data: str) -> dict:
     data = {'cnc_db': split_data}
     series = pd.Series(data)
     sorted_df = pickle_model.predict_probea(series, 5)
-    post = MachineConfiguration(sorted_df)
+    post = ProjectName(sorted_df)
     return post.as_dict()

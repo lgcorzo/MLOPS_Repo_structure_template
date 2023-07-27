@@ -42,7 +42,7 @@ def test_nofit_model_service(mock_fit: mock, mock_load_model: mock, mock_pd: moc
 
 @mock.patch('Code.Application.Services.model_services.clean_data_cncs', return_value=DATA)
 @mock.patch('Code.Application.Services.model_services.pd')
-@mock.patch('Code.Application.Services.model_services.MachineConfiguration')
+@mock.patch('Code.Application.Services.model_services.ProjectName')
 @mock.patch('Code.Application.Services.model_services.pickle_model')
 def test_predict_service(mock_pickle_model: mock, mock_post: mock, mock_pd, mock_coord):
     mock_pickle_model.predict_probea.return_value = mock_pd.DataFrame
