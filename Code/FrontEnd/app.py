@@ -88,7 +88,7 @@ dash_html_layout = html.Div(
 
             html.Div(id='logo', children=[
                 html.Img(src=merlin_icon_img),
-                html.H1(children='Machine configuration finder'),
+                html.H1(children='fronted POC for testing ProjectName'),
                 html.P('BETA')
             ]),
             html.Button("Send", id="send-button-id", disabled=True)
@@ -132,7 +132,7 @@ def dash_app_layout() -> html.Div:
 def configure_dash_app(services_url: str) -> dash.Dash:
     global machine_config_service_url, feedback_service_url
 
-    machine_config_service_url = services_url + 'dash-machine-configuration'
+    machine_config_service_url = services_url + 'dash-model-predict'
     feedback_service_url = services_url + 'feedback'
 
     dash_app = dash.Dash(__name__,

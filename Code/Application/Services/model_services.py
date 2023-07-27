@@ -1,8 +1,8 @@
 import os
 import pandas as pd
 
-from Code.Application.smart_machine_config_algorithm import read_cnc_csv, clean_data_cncs
-from Code.Application.smart_machine_config_evaluation import model_fit, load_model
+from Code.Application.project_name_algorithm import read_cnc_csv, clean_data_cncs
+from Code.Application.project_name_evaluation import model_fit, load_model
 from Code.Domain.Models.machine_configuration import MachineConfiguration
 
 cwd = os.path.dirname(os.path.abspath(__file__))

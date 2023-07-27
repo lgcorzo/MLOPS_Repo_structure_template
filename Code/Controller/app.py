@@ -12,19 +12,19 @@ app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
 
-@app.route('/services/machine-configuration', methods=['GET'])
-def machine_configuration():
+@app.route('/services/is-alive', methods=['GET'])
+def service_is_alive():
     return jsonify({'status': 'alive!'})
 
 
-@app.route('/services/machine-configuration', methods=['POST'])
-def get_machine_configuration():
+@app.route('/services/model-predict', methods=['POST'])
+def get_model_predic():
     cnc_file = request.files['']
     file_content = cnc_file.read().decode('ISO-8859-1')
     return jsonify(predict_model_service(file_content))
 
 
-@app.route('/services/dash-machine-configuration', methods=['POST'])
+@app.route('/services/dash-model-predict', methods=['POST'])
 def get_dash_machine_configuration():
     file_data = request.values['']
     file_content = base64.b64decode(file_data)

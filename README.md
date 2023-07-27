@@ -21,6 +21,7 @@ $$\color{red}{IMPORTANT}$$
 - [Structure of the repo](#structure-of-the-repo)
 - [testing](#testing)
 - [Keywords](#keywords)
+- [Frontend:](#frontend)
 - [references](#references)
 
 <!-- cspell:enable -->
@@ -151,6 +152,17 @@ pytest --cov=Code  --cov-report=xml:cov.xml
 - Data Pipeline
 - Data Monitoring
 
+## Frontend:
+pyhton frontend with dash ( POC)
+
+professional FE:
+angular 
+
+- Angular 15 o superior. 
+- Material Design mediante Angular Material
+- Syncfusion Angular UI: libreria de componentes
+- Jest: framework de testing
+
 ## references
 
 huggingface repo:
@@ -159,3 +171,17 @@ huggingface repo:
 <https://huggingface.co/docs/transformers/task_summary>
  for visio and pipelines
 <https://theaisummer.com/hugging-face-vit/>
+
+
+ProjectName MachineConfiguratorFinder
+project_name  example machine_configuration_finder
+
+delete pytest cache
+``` powershell 
+Get-ChildItem -Path . -Recurse -Directory -Filter "__pycache__" | Remove-Item -Recurse -Force
+``` 
+
+```cmd 
+rmdir /s /q .pytest_cache
+
+```
