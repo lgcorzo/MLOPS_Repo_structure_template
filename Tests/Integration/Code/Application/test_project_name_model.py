@@ -5,8 +5,8 @@ import pytest
 from pandas import DataFrame
 from unittest import mock
 
-from Code.Application.smart_machine_config_algorithm import split_text, read_file, NUM_GRAM
-from Code.Application.smart_machine_config_model import SmartMachineConfigModel, get_file_column_from_probea_results, \
+from Code.Application.project_name_algorithm import split_text, read_file, NUM_GRAM
+from Code.Application.project_name_model import ProjectNameModel, get_file_column_from_probea_results, \
     app_jacc_metric_multiset
 
 DIN_FILE = ['M25', 'M25', 'M25',
@@ -23,10 +23,10 @@ test_cnc_file = os.path.join(cwd, 'Fixtures/CNC/0000.CNC')
 
 
 @pytest.fixture
-@mock.patch('Code.Application.smart_machine_config_algorithm.RAW_PATH', fixtures_folder)
-@mock.patch('Code.Application.smart_machine_config_algorithm.CSV_FILE', CSV_FILE)
+@mock.patch('Code.Application.project_name_algorithm.RAW_PATH', fixtures_folder)
+@mock.patch('Code.Application.project_name_algorithm.CSV_FILE', CSV_FILE)
 def fixture_init_model():
-    return SmartMachineConfigModel(csv_path)
+    return ProjectNameModel(csv_path)
 
 
 @pytest.fixture

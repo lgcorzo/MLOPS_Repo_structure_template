@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import pytest
 from unittest import mock
-from Code.Application.smart_machine_config_evaluation import model_fit, model_train, get_evaluation_results, main,\
+from Code.Application.project_name_evaluation import model_fit, model_train, get_evaluation_results, main,\
     load_model, train_test_split_parts, load_cnc_kgram, create_train_test_dict
 
 cwd = os.path.dirname(os.path.abspath(__file__))
@@ -28,8 +28,8 @@ def test_train_test_split_parts() -> None:
     pd.testing.assert_frame_equal(train_df, CNC_DF[CNC_DF['PrdRefDst'] != PART])
 
 
-@mock.patch('Code.Application.smart_machine_config_evaluation.read_file')
-@mock.patch('Code.Application.smart_machine_config_evaluation.clean_data_cncs')
+@mock.patch('Code.Application.project_name_evaluation.read_file')
+@mock.patch('Code.Application.project_name_evaluation.clean_data_cncs')
 def test_load_cnc_kgram(mock_clean, mock_read_cnc):
     mock_clean.return_value = 'asdfg'
     result_dict = load_cnc_kgram(FIXTURES_PATH, CNC_DF)
@@ -51,9 +51,9 @@ def test_create_train_test_dict():
 
 
 @pytest.mark.skip(reason="testing")
-@mock.patch('Code.Application.smart_machine_config_evaluation.print')
-@mock.patch('Code.Application.smart_machine_config_evaluation.load_cnc_kgram')
-@mock.patch('Code.Application.smart_machine_config_evaluation.pickle')
+@mock.patch('Code.Application.project_name_evaluation.print')
+@mock.patch('Code.Application.project_name_evaluation.load_cnc_kgram')
+@mock.patch('Code.Application.project_name_evaluation.pickle')
 def test_model_fit(mock_pickle: mock, mock_load_cnc: mock, mock_print: mock):
     mock_load_cnc.return_value = {'file1.cnc': ['abc', 'bcd'],
                                   'file2.cnc': ['efg', 'fgh']}
@@ -62,15 +62,15 @@ def test_model_fit(mock_pickle: mock, mock_load_cnc: mock, mock_print: mock):
     mock_print.assert_called()
 
 
-@mock.patch('Code.Application.smart_machine_config_algorithm.RAW_PATH', FIXTURES_PATH)
-@mock.patch('Code.Application.smart_machine_config_algorithm.CSV_FILE', CSV_FILE)
+@mock.patch('Code.Application.project_name_algorithm.RAW_PATH', FIXTURES_PATH)
+@mock.patch('Code.Application.project_name_algorithm.CSV_FILE', CSV_FILE)
 def test_model_train() -> None:
     score = model_train(FIXTURES_PATH, PART, CNC_DF, CNC_PATH)
     assert score == 1.0
 
 
-@mock.patch('Code.Application.smart_machine_config_evaluation.print')
-@mock.patch('Code.Application.smart_machine_config_evaluation.model_train')
+@mock.patch('Code.Application.project_name_evaluation.print')
+@mock.patch('Code.Application.project_name_evaluation.model_train')
 def test_get_evaluation_results(mock_train: mock, mock_print: mock) -> None:
     data_test = {'file': ['test1', 'test2'],
                  'post': ['post.exe', 'post.exe'],
@@ -83,15 +83,15 @@ def test_get_evaluation_results(mock_train: mock, mock_print: mock) -> None:
     assert deploy
 
 
-@mock.patch('Code.Application.smart_machine_config_evaluation.pickle')
+@mock.patch('Code.Application.project_name_evaluation.pickle')
 def test_load_model(mock_pickle: mock):
     load_model()
     mock_pickle.load.assert_called_once()
 
 
-@mock.patch('Code.Application.smart_machine_config_evaluation.read_cnc_csv')
-@mock.patch('Code.Application.smart_machine_config_evaluation.get_evaluation_results')
-@mock.patch('Code.Application.smart_machine_config_evaluation.cnc_path', FIXTURES_PATH)
+@mock.patch('Code.Application.project_name_evaluation.read_cnc_csv')
+@mock.patch('Code.Application.project_name_evaluation.get_evaluation_results')
+@mock.patch('Code.Application.project_name_evaluation.cnc_path', FIXTURES_PATH)
 def test_main(mock_evaluate: mock, mock_read: mock):
     main()
     mock_read.assert_called_once()

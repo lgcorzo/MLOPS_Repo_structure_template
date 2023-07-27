@@ -5,5 +5,6 @@ call conda activate dataingest_localdev_env
 cd %PYTHONPATH%
 call python Code/Bootsrap/bootsrap.py  ^
 --directory %PYTHONPATH% ^
---project_name "Monitoring" ^
+--project_name "monitoring" ^
+--ProjectName "Monitoring" ^
 --sonar_key "Monitoring"

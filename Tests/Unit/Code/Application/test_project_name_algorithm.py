@@ -1,9 +1,9 @@
 import os
 import pandas as pd
 
-from Code.Application.smart_machine_config_algorithm import read_cnc_csv, split_text, read_file, intersection_count, \
+from Code.Application.project_name_algorithm import read_cnc_csv, split_text, read_file, intersection_count, \
     jacc_metric_multiset, remove_coordinate_numbers, clean_data_cncs
-from Tests.Unit.Code.Application.test_smart_machine_config_evaluation import CNC_DF
+from Tests.Unit.Code.Application.test_project_name_evaluation import CNC_DF
 
 cwd = os.path.dirname(os.path.abspath(__file__))
 
