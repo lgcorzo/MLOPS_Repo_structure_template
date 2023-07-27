@@ -130,25 +130,20 @@ class Helper:
             raise Exception("Invalid project name length. Project name should be 3 to 15 chars long, letters and underscores only.")  # NOQA: E501
         if (not re.search("^[\\w_]+$", self._project_name)):
             raise Exception(
-                "Invalid characters in project name. Project name should be 3 \
-                to 15 chars long, letters and underscores only.")
+                "Invalid characters in project name. Project name should be 3.")
         if (not re.search("^[\\w_]+$", self._sonar_key)):
-            raise Exception("Invalid characters in project name. Project name should be 3 to 15 chars long, letters and underscores only.")  # NOQA: E501
-# NOQA: E501
+            raise Exception("Invalid characters in project name. Project name should be 3 to 15 chars long, letters and underscores only.")  # NOQA: E501# NOQA: E501
 
 
 def replace_project_name(project_dir, project_name, rename_name):
     # Replace instances of rename_name within files with project_name
     files = [
         r"Pipelines/DevopsPipelines/ci_build_ProjectName.yaml",
-        r"Notebooks/BusinessUnderstanding/BU_Project_env_init_notebook.ipynb",
-        r"Code/Application/project_name_algorithm.py",
-        r"Code/Application/project_name_evaluation.py",
-        r"Code/Application/project_name_model.py",
-        r"Code/FrontEnd/app.py",
-        r"Code/Domain/Models/project_name.py"
+        r"Notebooks/BusinessUnderstanding/BU_Project_env_init_notebook.ipynb"
     ]
-
+    search_pattern = f"{project_dir}/**/*.py"
+    files_py = glob.glob(search_pattern, recursive=True)
+    files.extend(files_py)
     for file in files:
         path = os.path.join(project_dir, os.path.normpath(file))
         try:
@@ -173,12 +168,12 @@ def main(args):
                         "--ProjectName",
                         type=str,
                         required=True,
-                        help="Name of the project [3-15 chars, letters and underscores only]")
+                        help="Name of the project name folder classes")
     parser.add_argument("-n",
                         "--project_name",
                         type=str,
                         required=True,
-                        help="Name of the project sonar key  [3-15 chars, letters and underscores only]")  # NOQA: E501# NOQA: E501
+                        help="Name of the project name file")  # NOQA: E501# NOQA: E501
     parser.add_argument("-k",
                         "--sonar_key",
                         type=str,
