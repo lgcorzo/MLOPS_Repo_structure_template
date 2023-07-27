@@ -31,7 +31,7 @@ tmp
 !evaluation_results.csv
 *.xls
 *.xlsx
-Data/
+
 
 
 # Byte-compiled / optimized / DLL files
