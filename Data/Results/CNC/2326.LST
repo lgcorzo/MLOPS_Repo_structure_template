@@ -1,0 +1,558 @@
+BD
+SET_METRIC
+C
+BEGIN_EINRICHTEPLAN_INFO
+C
+ZA,MM,27
+MM,AT,1, 10,1,1,,'Machine',,'',T
+MM,AT,1, 20,1,1,,'Type',,'',Z
+MM,AT,1, 30,1,1,,'Control system',,'',T
+MM,AT,1, 40,1,1,,'Version',,'',Z
+MM,AT,1, 50,1,1,,'Company',,'',T
+MM,AT,1, 60,1,1,,'Program number',,'',T
+MM,AT,1, 70,1,1,,'Programmer',,'',T
+MM,AT,1, 80,1,1,,'Date',,'',T
+MM,AT,1, 90,1,1,,'Job name',,'',T
+MM,AT,1,100,1,1,,'Number of runs',,'',Z
+MM,AT,1,110,1,1,,'Table name',,'',T
+MM,AT,1,120,1,1,,'Memory requirements',,'',Z
+MM,AT,1,130,1,1,,'Material-ID',,'',T
+MM,AT,1,140,1,1,,'Sheet weight',,'kg',Z
+MM,AT,1,150,1,1,,'Time of machining',,'s',Z
+MM,AT,1,160,1,1,,'Comment',,'',T
+MM,AT,1,170,1,1,,'Flag Automated',,'Bool',Z
+MM,AT,1,180,1,1,,'Flag to Psxxx program',,'Bool',Z
+MM,AT,1,190,1,1,,'Setup plan file name',,'',T
+MM,AT,1,200,1,1,,'Storage product name',,'',T
+MM,AT,1,210,1,1,,'Palletizing flag',,'Bool',Z
+MM,AT,1,220,1,1,,'Palletizing mode',,'',Z
+MM,AT,1,250,1,1,,'SystemPalletType',,'',T
+MM,AT,1,280,1,1,,'Viewer name machine',,'',T
+MM,AT,1,300,1,1,,'CheckLevel',,'',Z
+MM,AT,1,310,1,1,,'SetupSuppression',,'',Z
+MM,AT,1,320,1,1,,'SortMasterBoxSetupConfiguration',,'',Z
+C
+ZA,DA,1
+DA,'S11',3,'Bo CMP70',1,'','','','22.06.2022','',1,
+*  'C:/Lantek/Expert/CNC/2326.LST',14074,'Al99',0.045,40.976,'',1,1,'','',
+*  0,1,'','',-1,0,2
+C
+ENDE_EINRICHTEPLAN_INFO
+C
+BEGIN_PTT
+C
+ZA,MM,28
+MM,AT,1,  10, 1,1,,'Table identifier'                      ,,'',T
+MM,AT,1,  20, 1,1,,'Tapping speed'                    ,,'1/min',Z
+MM,AT,1,  30, 1,1,,'Tapping Lubricant container no.'       ,,'',Z
+MM,AT,1,  40, 1,1,,'Tapping number of lubricant pulses'    ,,'',Z
+MM,AT,1,  60, 1,1,,'UDC-Offset'                          ,,'mm',Z
+MM,AT,1,  70, 1,1,,'LDC-Offset'                          ,,'mm',Z
+MM,AT,1,  80, 1,1,,'Working position'                      ,,'',Z
+MM,AT,1,  90, 1,1,,'TRUMPF-ID'                             ,,'',Z
+MM,AT,1, 100, 1,1,,'Number of C-axis rotations'            ,,'',Z
+MM,AT,1, 110, 1,1,,'Table type (tool type)'                ,,'',Z
+MM,AT,1, 120, 1,1,,'Feedrate'                         ,,'m/min',Z
+MM,AT,1, 130, 1,1,,'Rod presure stripper'              ,,'Bool',Z
+MM,AT,1, 140, 1,1,,'Presser foot pressure'                ,,'N',Z
+MM,AT,1, 150, 1,1,,'Rapid'                               ,,'mm',Z
+MM,AT,1, 160, 1,1,,'Presser foot'                          ,,'',Z
+MM,AT,1, 170, 1,1,,'Softpunch'                             ,,'',Z
+MM,AT,1, 180, 1,1,,'Punching with delay'                   ,,'',Z
+MM,AT,1, 190, 1,1,,'Suction unit'                          ,,'',Z
+MM,AT,1, 200, 1,1,,'Tool lubrication'                      ,,'',Z
+MM,AT,1, 210, 1,1,,'Tool ID number'                        ,,'',T
+MM,AT,1, 220, 1,1,,'Tool comments'                         ,,'',T
+MM,AT,1, 230, 1,1,,'Tool-ID. Validity'                     ,,'',Z
+MM,AT,1, 240, 1,1,,'Plunge position offset 2'            ,,'mm',Z
+MM,AT,1, 250, 1,1,,'Working position offset 2'           ,,'mm',Z
+MM,AT,1, 260, 1,1,,'Feed per stroke'                     ,,'mm',Z
+MM,AT,1, 270, 1,1,,'Wheel feed rate'                  ,,'m/min',Z
+MM,AT,1,280, 1,1,,''                                      ,,'%',Z
+MM,AT,1,290, 1,1,,''                                      ,,'%',Z
+C
+ZA,DA,3
+DA,'PTT-1',0,0,0,0.000,0.000,0,1,0.00,1,0,0,0,0.0,0,0,0,1,2,'01200000',
+*  '01200000 / RD-20',1,0.000,0.000,0.00,0.0,100,100
+DA,'PTT-2',0,0,0,0.000,0.000,0,1,0.00,3,0,0,0,0.0,0,0,0,1,2,'03200000',
+*  '03200000 / SQ-20',1,0.000,0.000,0.00,0.0,100,100
+DA,'PTT-3',0,0,0,0.000,0.000,0,1,0.00,1,0,0,0,0.0,0,0,0,1,2,'01285000',
+*  '01285000 / RD-28.5',1,0.000,0.000,0.00,0.0,100,100
+C
+ENDE_PTT
+C
+BEGIN_SHEET_TECH
+C
+ZA,MM,30
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,Z
+MM,AT,1, 30,1,1,,,,,Z
+MM,AT,1, 40,1,1,,,,,Z
+MM,AT,1, 50,1,1,,,,,Z
+MM,AT,1, 60,1,1,,,,,Z
+MM,AT,1, 70,1,1,,,,,Z
+MM,AT,1, 80,1,1,,,,,T
+MM,AT,1, 90,1,1,,,,,Z
+MM,AT,1,100,1,1,,,,,Z
+MM,AT,1,110,1,1,,,,,Z
+MM,AT,1,120,1,1,,,,,Z
+MM,AT,1,130,1,1,,,,,Z
+MM,AT,1,140,1,1,,,,,Z
+MM,AT,1,150,1,1,,,,,Z
+MM,AT,1,160,1,1,,,,,Z
+MM,AT,1,170,1,1,,,,,Z
+MM,AT,1,180,1,1,,,,,Z
+MM,AT,1,190,1,1,,,,,Z
+MM,AT,1,200,1,1,,,,,Z
+MM,AT,1,210,1,1,,,,,Z
+MM,AT,1,220,1,1,,,,,Z
+MM,AT,1,230,1,1,,,,,Z
+MM,AT,1,240,1,1,,,,,T
+MM,AT,1,260,1,1,,,,'kg/dm3',Z
+MM,AT,1,300,1,1,,'ScratchFreeDieOn',,'Bool',Z
+MM,AT,1,310,1,1,,'SafeDistance',,'mm',Z
+MM,AT,1,320,1,1,,'PrepareSafeDistance',,'mm',Z
+MM,AT,1,340,1,1,,'ThicknessTolerancePlus',,'mm',Z
+MM,AT,1,350,1,1,,'ThicknessToleranceMinus',,'mm',Z
+C
+ZA,DA,1
+DA,'SHT-1',180,115,0.8,2,0.00,1,0,3,4,9,17,0,100,100,0,0,1,2,1,-1,180,115,'
+*  Al99',2.7,1,100000,100000,100000,100000
+C
+ENDE_SHEET_TECH
+C
+BEGIN_MACHINE_LOAD_DATA
+C
+ZA,MM,17
+MM,AT,1,10,1,1,,'LoadName',,'',T
+MM,AT,1,20,1,1,,'LoadingPositionX',,'mm',Z
+MM,AT,1,30,1,1,,'LoadingPositionY',,'mm',Z
+MM,AT,1,40,1,1,,'FeedToLoadingPosition',,'m/min',Z
+MM,AT,1,50,1,1,,'LoadingType',,'',Z
+MM,AT,1,60,1,1,,'CalibrationActive',,'Bool',Z
+MM,AT,1,70,1,1,,'StopPin',,'',Z
+MM,AT,1,80,1,1,,'LoadingAidActive',,'Bool',Z
+MM,AT,1,90,1,1,,'FeedAgainstClamps',,'m/min',Z
+MM,AT,1,160,1,1,,'LoadingSideAgainstStopPin',,'',Z
+MM,AT,1,170,1,1,,'StopPinCode',,'',Z
+MM,AT,1,180,1,1,,'RightSheetEdgeRailPosition',,'mm',Z
+MM,AT,1,190,1,1,,'LeftSheetEdgeRailPosition',,'mm',Z
+MM,AT,1,200,1,1,,'MaxLoadingTolerancePositive',,'mm',Z
+MM,AT,1,210,1,1,,'MaxLoadingToleranceNegative',,'mm',Z
+MM,AT,1,220,1,1,,'OffsetZeroPointSheetX',,'mm',Z
+MM,AT,1,230,1,1,,'OffsetZeroPointSheetY',,'mm',Z
+C
+ZA,DA,1
+DA,'SHL-1',0.000,45.000,108.167,23,0,2,1,1,0,223,0.000,180.000,2350,30,0,0
+C
+ENDE_MACHINE_LOAD_DATA
+C
+BEGIN_MACHINE_UNLOAD_DATA
+C
+ZA,MM,35
+MM,AT,1, 10,1,1,,'Unload Name'                           ,,'',T
+MM,AT,1, 20,1,1,,'Flap Drop Speed Factor'                ,,'%',Z
+MM,AT,1, 30,1,1,,'Flap Rotation Speed Factor'            ,,'%',Z
+MM,AT,1, 40,1,1,,'Laser Chute Open Offset'               ,,'%',Z
+MM,AT,1, 50,1,1,,'Push Out Distance X'                   ,,'mm',Z
+MM,AT,1, 60,1,1,,'Push Out Distance Y'                   ,,'mm',Z
+MM,AT,1, 70,1,1,,'Push Out Speed'                        ,,'m/min',Z
+MM,AT,1, 80,1,1,,'Light Barrier Check Active'            ,,'Bool',Z
+MM,AT,1, 90,1,1,,'Air Blast Support'                     ,,'',Z
+MM,AT,1,100,1,1,,'Ejector Cylinder Active'               ,,'Bool',Z
+MM,AT,1,110,1,1,,'Flap Selection'                        ,,'',Z
+MM,AT,1,120,1,1,,'Close Flap After Unload'               ,,'Bool',Z
+MM,AT,1,130,1,1,,'Cut Before Open'                       ,,'Bool',Z
+MM,AT,1,140,1,1,,'Push Out Before Open'                  ,,'Bool',Z
+MM,AT,1,150,1,1,,'Approach Uppermost Height'             ,,'Bool',Z
+MM,AT,1,160,1,1,,'SortMasterBox Number'                  ,,'',Z
+MM,AT,1,170,1,1,,'Unload Type'                           ,,'',Z
+MM,AT,1,180,1,1,,'Chip Flap Closed'                      ,,'Bool',Z
+MM,AT,1,190,1,1,,'Pull Back After Push Out'              ,,'Bool',Z
+MM,AT,1,200,1,1,,'Unload Position X'                     ,,'mm',Z
+MM,AT,1,210,1,1,,'Unload Position Y'                     ,,'mm',Z
+MM,AT,1,220,1,1,,'Unload Speed'                          ,,'m/min',Z
+MM,AT,1,230,1,1,,'Unload Support Active'                 ,,'Bool',Z
+MM,AT,1,240,1,1,,'Open Clamps'                           ,,'',Z
+MM,AT,1,250,1,1,,'Reserve'                               ,,'',Z
+MM,AT,1,260,1,1,,'Number Of Monitored Clamps'            ,,'',Z
+MM,AT,1,280,1,1,,'Switch Stand'                          ,,'',Z
+MM,AT,1,290,1,1,,'TravelingSpeed',,'m/min',Z
+MM,AT,1,300,1,1,,'SupportTableMinusYActive',,'Bool',Z
+MM,AT,1,310,1,1,,'TravelAndClampActive',,'Bool',Z
+MM,AT,1,320,1,1,,'StrippingSpeedY',,'m/min',Z
+MM,AT,1,330,1,1,,'StrippingAccelerationY',,'m/s2',Z
+MM,AT,1,340,1,1,,'ClosePartGateAfterUnload',,'Bool',Z
+MM,AT,1,350,1,1,,'TechnoMode',,'',Z
+MM,AT,1,360,1,1,,'ClampAndTurnProgrammed',,'',Z
+C
+ZA,DA,1
+DA,'MUNL-1',100,100,0.00,0.00,0.00,108.17,0,0,0,0,1,0,0,0,0,23,0,1,0.000,
+*  -20.000,100.000,0,63,0,0,'',0,0,0,30,5,1,0,0
+C
+ENDE_MACHINE_UNLOAD_DATA
+C
+BEGIN_PROGRAM_PROPERTIES
+C
+ZA,MM,10
+MM,AT,1,10,1,1,,'SyncDataChangePierceToCut',,'',Z
+MM,AT,1,20,1,1,,'ProgramType',,'',Z
+MM,AT,1,30,1,1,,'ProgramedClampPositionsObligatory',,'Bool',Z
+MM,AT,1,40,1,1,,'ReentryRestriction',,'',Z
+MM,AT,1,50,1,1,,'ContourLineAdjustmentActive',,'Bool',Z
+MM,AT,1,60,1,1,,'FinishedPartSupportNumber',,'',Z
+MM,AT,1,70,1,1,,'BevelCuttingVersion',,'',Z
+MM,AT,1,80,1,1,,'FluidSprayMode',,'',Z
+MM,AT,1,90,1,1,,'RetractableClampsRequired',,'Bool',Z
+MM,AT,1,100,1,1,,'AdjustLineLevel',,'',Z
+C
+ZA,DA,1
+DA,0,1,1,0,0,0,0,0,0,0
+C
+ENDE_PROGRAM_PROPERTIES
+C
+BEGIN_PARTS_UNLOAD_DATA
+C
+ZA,MM,20
+MM,AT,1,30,1,1,,'UnloadName',,'',T
+MM,AT,1,40,1,1,,'OffsetSuctionFrameToPartX',,'mm',Z
+MM,AT,1,50,1,1,,'OffsetSuctionFrameToPartY',,'mm',Z
+MM,AT,1,70,1,1,,'UnloadDevice',,'',Z
+MM,AT,1,80,1,1,,'SuctionCupConfiguration',,'',T
+MM,AT,1,90,1,1,,'SuctionCupConfiguration',,'',T
+MM,AT,1,100,1,1,,'SuctionCupConfiguration',,'',T
+MM,AT,1,110,1,1,,'SuctionCupConfiguration',,'',T
+MM,AT,1,300,1,1,,'SuctionFramePosX',,'mm',Z
+MM,AT,1,310,1,1,,'SuctionFramePosY',,'mm',Z
+MM,AT,1,320,1,1,,'SuctionBarOffsetV',,'mm',Z
+MM,AT,1,330,1,1,,'SuctionCupVacuumMonitoring',,'',T
+MM,AT,1,340,1,1,,'SuctionCupVacuumMonitoring',,'',T
+MM,AT,1,350,1,1,,'SuctionCupVacuumMonitoring',,'',T
+MM,AT,1,360,1,1,,'SuctionCupVacuumMonitoring',,'',T
+MM,AT,1,390,1,1,,'PartOutsideHeadCollisionArea',,'Bool',Z
+MM,AT,1,400,1,1,,'UnloadAccelerationFromGrid',,'%',Z
+MM,AT,1,410,1,1,,'HoldForFinalCut',,'',Z
+MM,AT,1,430,1,1,,'UnloadMode',,'',Z
+MM,AT,1,900,1,1,,'Reserved',,'',Z
+C
+ZA,DA,1
+DA,'PAUD-1',-0.000,-0.000,23,'00000000','00000000','00000000','00000000',
+*  -190,-0.00,0.00,'00000000','00000000','00000000', '00000000',0,0,0,1,0
+C
+ENDE_PARTS_UNLOAD_DATA
+C
+BEGIN_PARTS_IN_PROGRAM
+C
+ZA,MM,22
+MM,AT,1,  10,1,1,,'Hauptprogrammname'                     ,,'',T
+MM,AT,1,  20,1,1,,'reserviert'                            ,,'',T
+MM,AT,1,  30,1,1,,'Teil-Identnummer'                      ,,'',T
+MM,AT,1,  40,1,1,,'reserviert'                            ,,'',Z
+MM,AT,1,  50,1,1,,'Geometriefilename'                     ,,'',T
+MM,AT,1,  60,1,1,,'Anzahl'                                ,,'',Z
+MM,AT,1,  70,1,1,,'Geometriefilename (einf.Darstl)'       ,,'',T
+MM,AT,1,  80,1,1,,'Bearbeitungszeit'                      ,,'min',Z
+MM,AT,1,  90,1,1,,'Flaeche'                               ,,'mm2',Z
+MM,AT,1, 100,1,1,,'ToPs-Zeichnungskunde'                  ,,'',T
+MM,AT,1, 110,1,1,,'ToPs-Teile-Nummerierung'               ,,'',T
+MM,AT,1, 120,1,1,,'ToPs-Zeichnungsname'                   ,,'',T
+MM,AT,1, 130,1,1,,'Abmessung X'                           ,,'mm',Z
+MM,AT,1, 140,1,1,,'Abmessung Y'                           ,,'mm',Z
+MM,AT,1, 170,1,1,,'Verbuchungsteil'                       ,,'Bool',Z
+MM,AT,1, 180,1,1,,'Offset X (Urspr. zu Schwerpkt.)'       ,,'mm',Z
+MM,AT,1, 190,1,1,,'Offset Y (Urspr. zu Schwerpkt.)'       ,,'mm',Z
+MM,AT,1, 220,1,1,,'Gross Area'                            ,,'mm2',Z
+MM,AT,1, 230,1,1,,'Blechdicke_im_Stapel'                  ,,'mm',Z
+MM,AT,1, 240,1,1,,'Part Type Index'                       ,,'',Z
+MM,AT,1, 250,1,1,,'AmountMirroredParts'                   ,,'',Z
+MM,AT,1, 260,1,1,,'Part Angle In File'                    ,,'deg',Z
+C
+ZA,DA,1
+DA,'0000','0','@GRID_1',0,'',1,'',0.00,0.00,'','','',180.000,115.000,0,
+*  90.000,57.500,0.00,0.800,1,0,0.00
+C
+ENDE_PARTS_IN_PROGRAM
+C
+BEGIN_PARTS_IN_PROGRAM_POS
+C
+ZA,MM,20
+MM,AT,1,  10,1,1,,'laufende Nummer gefertigtes Teil'      ,,'',Z
+MM,AT,1,  20,1,1,,'Hauptprogrammname'                     ,,'',T
+MM,AT,1,  30,1,1,,'Teil-Identnummer'                      ,,'',T
+MM,AT,1,  60,1,1,,'Position X-Koordinate'                 ,,'mm',Z
+MM,AT,1,  70,1,1,,'Position Y-Koordinate'                 ,,'mm',Z
+MM,AT,1,  80,1,1,,'Abmessung in X'                        ,,'mm',Z
+MM,AT,1,  90,1,1,,'Abmessung in Y'                        ,,'mm',Z
+MM,AT,1, 100,1,1,,'Winkellage'                            ,,'deg',Z
+MM,AT,1, 150,1,1,,'X-Koordinate Schwerpunkt'              ,,'mm',Z
+MM,AT,1, 160,1,1,,'Y-Koordinate Schwerpunkt'              ,,'mm',Z
+MM,AT,1, 190,1,1,,'Entnahmenummer'                        ,,'',Z
+MM,AT,1, 200,1,1,,'Referenzteil'                          ,,'',Z
+MM,AT,1, 210,1,1,,'Name der PartUnloadData-Tabelle'       ,,'',T
+MM,AT,1, 220,1,1,,'Name der PartPalettData-Tabelle'       ,,'',T
+MM,AT,1, 240,1,1,,'Klassifizierung'                       ,,'',Z
+MM,AT,1, 250,1,1,,'reserviert'                            ,,'',T
+MM,AT,1, 300,1,1,,'Pallet Sequence'                       ,,'',Z
+MM,AT,1, 310,1,1,,'Unload Data Name'                      ,,'',T
+MM,AT,1, 320,1,1,,'Part Type Index'                       ,,'',Z
+MM,AT,1, 330,1,1,,'Mirrored At Y'                         ,,'Bool',Z
+C
+ZA,DA,1
+DA,1,'0000','@GRID_1',0.00,0.00,180.000,115.000,0.00,90.000,57.500,1,1,
+*  'PAUD-1','PAPA-1',5,'',1,'MUNL-1',1,0
+C
+ENDE_PARTS_IN_PROGRAM_POS
+C
+BEGIN_PARTS_PALLET_DATA
+C
+ZA,MM,17
+MM,AT,1,30,1,1,,'DestinationOffsetX',,'mm',Z
+MM,AT,1,60,1,1,,'PalletMode',,'',Z
+MM,AT,1,120,1,1,,'PalletName',,'',T
+MM,AT,1,130,1,1,,'UnloadDevice',,'',Z
+MM,AT,1,140,1,1,,'StackGroupNumber',,'',Z
+MM,AT,1,200,1,1,,'SuctionFrameOffsetY',,'mm',Z
+MM,AT,1,210,1,1,,'StackShiftOffsetX',,'mm',Z
+MM,AT,1,220,1,1,,'StackShiftOffsetY',,'mm',Z
+MM,AT,1,230,1,1,,'SpeedSortMasterPallet',,'%',Z
+MM,AT,1,240,1,1,,'AccelerationSortMasterPallet',,'%',Z
+MM,AT,1,280,1,1,,'SuctionBarOffsetV',,'mm',Z
+MM,AT,1,290,1,1,,'SpeedFactorUnloadDevice',,'%',Z
+MM,AT,1,300,1,1,,'AccelerationFactorUnloadDevice',,'%',Z
+MM,AT,1,310,1,1,,'DestinationSection',,'',Z
+MM,AT,1,320,1,1,,'DestinationSectionStepsY',,'',Z
+MM,AT,1,330,1,1,,'DestinationSectionOffsetY',,'mm',Z
+MM,AT,1,900,1,1,,'Reserved',,'',Z
+C
+ZA,DA,1
+DA,0,3,'PAPA-1',23,1,0,0,0,0,0,0,0,0,24,0,0,0
+C
+ENDE_PARTS_PALLET_DATA
+C
+BEGIN_SHEET_LOAD_DATA
+C
+ZA,MM,22
+MM,AT,1,10,1,1,,'LoadName',,'',T
+MM,AT,1,20,1,1,,'PickUpPositionOffsetLiftX',,'mm',Z
+MM,AT,1,30,1,1,,'DoubleSheetDetectionActive',,'Bool',Z
+MM,AT,1,40,1,1,,'LiftSpeed',,'%',Z
+MM,AT,1,50,1,1,,'LiftAcceleration',,'%',Z
+MM,AT,1,60,1,1,,'SheetAlignmentActive',,'Bool',Z
+MM,AT,1,70,1,1,,'FeedAgainstStopPin',,'m/min',Z
+MM,AT,1,80,1,1,,'PeelingType',,'',Z
+MM,AT,1,90,1,1,,'PickUpPositionOffsetLiftY',,'mm',Z
+MM,AT,1,100,1,1,,'PickUpPositionOffsetLiftbarY',,'mm',Z
+MM,AT,1,110,1,1,,'SuctionCupConfiguration',,'',T
+MM,AT,1,120,1,1,,'SuctionCupConfiguration',,'',T
+MM,AT,1,130,1,1,,'SuctionCupConfiguration',,'',T
+MM,AT,1,140,1,1,,'SuctionCupConfiguration',,'',T
+MM,AT,1,150,1,1,,'SuctionCupVacuumMonitoring',,'',T
+MM,AT,1,160,1,1,,'SuctionCupVacuumMonitoring',,'',T
+MM,AT,1,170,1,1,,'SuctionCupVacuumMonitoring',,'',T
+MM,AT,1,180,1,1,,'SuctionCupVacuumMonitoring',,'',T
+MM,AT,1,190,1,1,,'LiftSpeedFactor',,'%',Z
+MM,AT,1,200,1,1,,'LiftAccelerationFactor',,'%',Z
+MM,AT,1,230,1,1,,'LoadingType',,'',Z
+MM,AT,1,250,1,1,,'SourceSection',,'',Z
+C
+ZA,DA,1
+DA,'SHL-1',0,1,100,75,0,1,1,0,0,'00000000','00000000','00000000','00000000','00000000','00000000','00000000','00000000',50,50,23,1
+C
+ENDE_SHEET_LOAD_DATA
+C
+BEGIN_WZG_STAMM
+C
+ZA,MM,39
+MM,AT,1,  10,1,1,,'Maschine'                             ,,'',T
+MM,AT,1,  20,1,1,,'Identnummer'                          ,,'',T
+MM,AT,1,  30,1,1,,'Duplonummer'                          ,,'',Z
+MM,AT,1,  40,1,1,,'Stempelnummer'                        ,,'',Z
+MM,AT,1,  50,1,1,,'Magazinplatz'                         ,,'',Z
+MM,AT,1,  60,1,1,,'Werkzeugort'                          ,,'',Z
+MM,AT,1,  70,1,1,,'Index'                                ,,'',Z
+MM,AT,1,  80,1,1,,'Werkzeugtyp'                          ,,'',Z
+MM,AT,1,  90,1,1,,'Whispertool'                          ,,'',Z
+MM,AT,1, 100,1,1,,'MultiTool'                            ,,'',Z
+MM,AT,1, 110,1,1,,'Sperrkennung'                         ,,'',Z
+MM,AT,1, 120,1,1,,'Prioritaet'                           ,,'',Z
+MM,AT,1, 130,1,1,,'Bemerkung'                            ,,'',T
+MM,AT,1, 140,1,1,,'GEWIRO-Umdrehung'                     ,,'1/min',Z
+MM,AT,1, 150,1,1,,'GEWIRO-rechts-links'                  ,,'',Z
+MM,AT,1, 160,1,1,,'Rotation'                             ,,'',Z
+MM,AT,1, 170,1,1,,'Einbauwinkellage'                     ,,'',Z
+MM,AT,1, 180,1,1,,'Werkzeugmass 1'                       ,,'mm',Z
+MM,AT,1, 190,1,1,,'Werkzeugmass 2'                       ,,'mm',Z
+MM,AT,1, 200,1,1,,'Werkzeugmass 3'                       ,,'mm',Z
+MM,AT,1, 210,1,1,,'Werkzeugmass 4'                       ,,'mm',Z
+MM,AT,1, 220,1,1,,'Werkzeugmass 5'                       ,,'mm',Z
+MM,AT,1, 230,1,1,,'Werkzeugmass 6'                       ,,'mm',Z
+MM,AT,1, 240,1,1,,'Vorschub min'                         ,,'m/min',Z
+MM,AT,1, 250,1,1,,'Vorschub max'                         ,,'m/min',Z
+MM,AT,1, 260,1,1,,'Vorschub res'                         ,,'m/min',Z
+MM,AT,1, 270,1,1,,'Hubzahl min'                          ,,'',Z
+MM,AT,1, 280,1,1,,'Hubzahl max'                          ,,'',Z
+MM,AT,1, 290,1,1,,'Hubzahl ist'                          ,,'',Z
+MM,AT,1, 300,1,1,,'Zeichnungsname'                       ,,'',T
+MM,AT,1, 310,1,1,,'Niederhaltertyp'                      ,,'',Z
+MM,AT,1, 320,1,1,,'OT-Lage Blechdicke 0.0'               ,,'',Z
+MM,AT,1, 330,1,1,,'TRUMPF-Kennung'                       ,,'',Z
+MM,AT,1, 340,1,1,,'Blechdicke'                           ,,'',Z
+MM,AT,1, 350,1,1,,'Blechdickentoleranz'                  ,,'',Z
+MM,AT,1, 360,1,1,,'Nachschleiflaenge'                    ,,'',Z
+MM,AT,1, 370,1,1,,'Langes Werkzeug'                      ,,'',Z
+MM,AT,1, 380,1,1,,'MT-Nullpunktversatz-X'                ,,'',Z
+MM,AT,1, 390,1,1,,'MT-Nullpunktversatz-Y'                ,,'',Z
+C
+ZA,DA,3
+DA,'','01200000',0,1,1,0,0,1,0,1,0,0,'01200000 / RD-20',0.00,0,0,0.000,
+*  20.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.0,0.0,0.0,'',0,
+*  0.000,1,0,0,0,0,0.0,0.0
+DA,'','03200000',0,1,1,0,0,3,0,1,0,0,'03200000 / SQ-20',0.00,0,0,0.000,
+*  20.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.0,0.0,0.0,'',0,
+*  0.000,1,0,0,0,0,0.0,0.0
+DA,'','01285000',0,1,1,0,0,1,0,1,0,0,'01285000 / RD-28.5',0.00,0,0,0.000,
+*  28.500,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.0,0.0,0.0,'',0,
+*  0.000,1,0,0,0,0,0.0,0.0
+C
+ENDE_WZG_STAMM
+C
+BEGIN_WZG_CALLS
+C
+ZA,MM,2
+MM,AT,1, 10, 1,1,,'Tool ident. number',,'',T
+MM,AT,1, 20, 1,1,,'Tool Call. number',,'',Z
+C
+ZA, DA, 3
+DA,'01200000',1
+DA,'03200000',2
+DA,'01285000',3
+C
+ENDE_WZG_CALLS
+C
+BEGIN_PROGRAMM
+C
+ZA,MM,4
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,T
+MM,AT,1, 30,1,1,,,,,T
+MM,AT,1, 40,1,1,,,,,Z
+C
+ZA,DA,1
+DA,'','HP','',
+START_TEXT
+MSG("NUMERO DU PROGRAMME PRINCIPAL,")
+MSG("DIMENSIONS DE LA TOLE: 0.800 X 180 X 115  MATERIAL ID: Al99")
+N10;(V:3.00#B:171.0#D:19981217#P:TOPS300_EXE)
+N20;(V:3.7#B:51#D:981221104305#P:TOPS300_ACCESS20)
+N30;(NOM FICHIER:C:/Lantek/Expert/CNC/2326.LST)
+N40;(TRANSFERNAME:.LST NB EXECUTIONS DU PROGRAMME:1)
+N50;(MACHINE:TC5000R TIPO:2)
+N60;(CONTROL:SIN 840D VERSION:1)
+MSG(" *** 01200000 / RD-20 *** ")
+MSG(" *** 03200000 / SQ-20 *** ")
+MSG(" *** 01285000 / RD-28.5 *** ")
+N70TRAILON(C2,C1)
+N80F116000
+N90G01
+N100TC_SUCTION_OFF
+N110TC_CLAMP_CYC
+N120TC_SHEET_TECH("SHT-1")
+N130;TC_TECHNO_MODE(1)
+N140TC_PREPARE_SHEET_LOAD("SHL-1")
+N150TC_TANGTOOL_OFF
+N160;GOTOF ENTRY_PUNCH
+N170;ENTRY_PUNCH: ;01200000 / RD-20
+N180MSG("WZG 01200000 / RD-20")
+N190TC_TOOL_LOAD("01200000","PTT-1")
+N200TC_SUCTION_ON
+N210TC_SHEET_LOAD("SHL-1")
+N220PUNCH_ON
+N230G01X25Y90C1=DC(0)
+N240X25.291Y58.227
+N250X25Y25
+N260X155Y25
+N270X155.291Y58.227
+N280X155Y90
+N290PUNCH_OFF
+N300;ENTRY_PUNCH: ;03200000 / SQ-20
+N310MSG("WZG 03200000 / SQ-20")
+N320TC_TOOL_LOAD("03200000","PTT-2")
+N330TC_SUCTION_ON
+N340PUNCH_ON
+N350X110.191Y58.227C1=DC(0)
+N360X127.741Y58.227
+N370X145.291Y58.227
+N380X90.291Y38.327
+N390X90.291Y22.085
+N400X35.291Y58.227
+N410X52.841Y58.227
+N420X70.391Y58.227
+N430X90.291Y78.127
+N440X90.291Y94.369
+N450PUNCH_OFF
+N460;ENTRY_PUNCH: ;01285000 / RD-28.5
+N470MSG("WZG 01285000 / RD-28.5")
+N480TC_TOOL_LOAD("01285000","PTT-3")
+N490TC_SUCTION_ON
+N500X25Y129.25
+N510NIBBLE_ON
+N520SPP=2.94
+N530G03X-14.25Y90I-0J-39.25
+N540NIBBLE_OFF
+N550G01
+N560X-14.25Y25
+N570NIBBLE_ON
+N580SPP=3.07
+N590G03X1.85Y-6.696I39.25J-0
+N600NIBBLE_OFF
+N610G01
+N620X67.883Y52.027
+N630NIBBLE_ON
+N640SPP=2.66
+N650G03X84.091Y35.819I22.408J6.2
+N660NIBBLE_OFF
+N670G01
+N680PUNCH_ON
+N690X90.291Y58.227C1=DC(0)
+N700PUNCH_OFF
+N710X96.491Y35.819
+N720NIBBLE_ON
+N730SPP=2.66
+N740G03X112.699Y52.027I-6.2J22.408
+N750NIBBLE_OFF
+N760G01
+N770X112.699Y64.427
+N780NIBBLE_ON
+N790SPP=2.66
+N800G03X96.491Y80.635I-22.408J-6.2
+N810NIBBLE_OFF
+N820G01
+N830X84.091Y80.635
+N840NIBBLE_ON
+N850SPP=2.66
+N860G03X67.883Y64.427I6.2J-22.408
+N870NIBBLE_OFF
+N880G01
+N890X155Y129.25
+N900NIBBLE_ON
+N910SPP=2.94
+N920G02X194.25Y90I-0J-39.25
+N930NIBBLE_OFF
+N940G01
+N950X194.25Y25
+N960NIBBLE_ON
+N970SPP=3.07
+N980G02X178.15Y-6.696I-39.25J0
+N990NIBBLE_OFF
+N1000G01
+N1010F116000
+N1020TC_TOOL_POSITION(CHANGE_ALL)
+N1030TC_UNLOAD("1")
+N1040M30
+STOP_TEXT
+C
+ENDE_PROGRAMM
+ED
+C
+
+

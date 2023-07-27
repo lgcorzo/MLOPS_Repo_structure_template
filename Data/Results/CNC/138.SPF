@@ -1,0 +1,12 @@
+;adilas
+;Al99,245.262,106.989,0.8
+R12=0.8
+R21=245.262
+R22=106.989
+R23=10
+R24=10
+R930=R930+1
+ORIG(10,10,0)
+N1 CALL"/_n_wks_dir/_n_pieces_wpd/_n_C:/Lantek/Expert/CNC/138701_spf"
+R930=0
+RET

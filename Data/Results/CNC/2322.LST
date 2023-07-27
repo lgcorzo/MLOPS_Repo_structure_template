@@ -1,0 +1,204 @@
+BD
+SET_METRIC
+C
+BEGIN_EINRICHTEPLAN_INFO
+C
+ZA,MM,04
+MM,AT,1, 60,1,1,,'Programmnummer',,'',T
+MM,AT,1,100,1,1,,'Anzahl der Programmdurchlaeufe',,'',Z
+MM,AT,1,130,1,1,,'Material-ID',,'',T
+MM,AT,1,170,1,1,,'Flag Automatisiert',,'Bool',Z
+C
+ZA,DA,1
+DA,'00038137',1,'Al99',1
+C
+ENDE_EINRICHTEPLAN_INFO
+C
+BEGIN_SHEET_TECH
+C
+ZA,MM,25
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,Z
+MM,AT,1, 30,1,1,,,,,Z
+MM,AT,1, 40,1,1,,,,,Z
+MM,AT,1, 50,1,1,,,,,Z
+MM,AT,1, 60,1,1,,,,,Z
+MM,AT,1, 70,1,1,,,,,Z
+MM,AT,1, 80,1,1,,,,,T
+MM,AT,1, 90,1,1,,,,,Z
+MM,AT,1,100,1,1,,,,,Z
+MM,AT,1,110,1,1,,,,,Z
+MM,AT,1,120,1,1,,,,,Z
+MM,AT,1,130,1,1,,,,,Z
+MM,AT,1,140,1,1,,,,,Z
+MM,AT,1,150,1,1,,,,,Z
+MM,AT,1,160,1,1,,,,,Z
+MM,AT,1,170,1,1,,,,,Z
+MM,AT,1,180,1,1,,,,,Z
+MM,AT,1,190,1,1,,,,,Z
+MM,AT,1,200,1,1,,,,,Z
+MM,AT,1,210,1,1,,,,,Z
+MM,AT,1,220,1,1,,,,,Z
+MM,AT,1,230,1,1,,,,,Z
+MM,AT,1,240,1,1,,,,,T
+MM,AT,1,260,1,1,,,,'kg/dm3',Z
+C
+ZA,DA,1
+DA,'SHT-1',180,115,0.8,1,0.00,1,0,2,4,7,0,0,100,100,0,0,1,2,
+*  1,-1,180,115,'Al99',2.7
+C
+ENDE_SHEET_TECH
+C
+BEGIN_SHEET_LOAD
+C
+ZA,MM,21
+MM,AT,1, 10, 1,1,,'Table Identifier'                     ,,'',T
+MM,AT,1, 20, 1,1,,'Loading position X'                 ,,'mm',Z
+MM,AT,1, 30, 1,1,,'Loading position Y'                 ,,'mm',Z
+MM,AT,1, 40, 1,1,,'Feed for loading position'       ,,'m/min',Z
+MM,AT,1, 50, 1,1,,'Calculation of multitool offset'  ,,'Bool',Z
+MM,AT,1, 60, 1,1,,'Load trigger material UB'             ,,'',Z
+MM,AT,1, 70, 1,1,,'TRUMPF-Identification''               ,,'',Z
+MM,AT,1,500, 1,1,,'Loading unit'                         ,,'',Z
+MM,AT,1,510 ,1,1,,'Lift offset X loading pile'         ,,'mm',Z
+MM,AT,1,520, 1,1,,'Lift cup group 1'                     ,,'',Z
+MM,AT,1,530, 1,1,,'Lift cup group 2'                     ,,'',Z
+MM,AT,1,540, 1,1,,'Lift cup group 3'                     ,,'',Z
+MM,AT,1,550, 1,1,,'Lift cup group 4'                     ,,'',Z
+MM,AT,1,560, 1,1,,'Lift cup group 5'                     ,,'',Z
+MM,AT,1,570, 1,1,,'Lift pivot suction cup'               ,,'',Z
+MM,AT,1,580, 1,1,,'Double sheet detector'            ,,'Bool',Z
+MM,AT,1,590, 1,1,,'Peel off lift'                    ,,'Bool',Z
+MM,AT,1,600, 1,1,,'Lift speed'                          ,,'%',Z
+MM,AT,1,610, 1,1,,'Lift acceleration'                   ,,'%',Z
+MM,AT,1,710, 1,1,,'Index pin'                            ,,'',Z
+MM,AT,1,750, 1,1,,'Lift cup group 6'                     ,,'',Z
+C
+ZA,DA,01
+DA,'SHL-1',750.000,200.000,108.167,0,0,1,1,0.00,0000,0000,
+*  0000,0000,0000,0,0,1,0.00,0.00,1,0000
+C
+ENDE_SHEET_LOAD
+C
+BEGIN_SHEET_UNLOAD
+C
+ZA,MM,69
+MM,AT,1,  10,1,1,,,,,T
+MM,AT,1,  20,1,1,,,,,Z
+MM,AT,1,  30,1,1,,,,,Z
+MM,AT,1,  40,1,1,,,,,Z
+MM,AT,1,  50,1,1,,,,,Z
+MM,AT,1,  60,1,1,,,,,Z
+MM,AT,1,  70,1,1,,,,,Z
+MM,AT,1, 200,1,1,,,,,Z
+MM,AT,1, 210,1,1,,,,,Z
+MM,AT,1, 220,1,1,,,,,Z
+MM,AT,1, 230,1,1,,,,,Z
+MM,AT,1, 240,1,1,,,,,Z
+MM,AT,1, 250,1,1,,,,,Z
+MM,AT,1, 260,1,1,,,,,Z
+MM,AT,1, 270,1,1,,,,,Z
+MM,AT,1, 280,1,1,,,,,Z
+MM,AT,1, 290,1,1,,,,,Z
+MM,AT,1, 300,1,1,,,,,Z
+MM,AT,1, 310,1,1,,,,,Z
+MM,AT,1, 500,1,1,,,,,Z
+MM,AT,1, 510,1,1,,,,,Z
+MM,AT,1, 520,1,1,,,,,Z
+MM,AT,1, 530,1,1,,,,,Z
+MM,AT,1, 540,1,1,,,,,Z
+MM,AT,1, 550,1,1,,,,,Z
+MM,AT,1, 560,1,1,,,,,Z
+MM,AT,1, 570,1,1,,,,,Z
+MM,AT,1, 580,1,1,,,,,Z
+MM,AT,1, 590,1,1,,,,,Z
+MM,AT,1, 600,1,1,,,,,Z
+MM,AT,1, 610,1,1,,,,,Z
+MM,AT,1, 620,1,1,,,,,Z
+MM,AT,1, 630,1,1,,,,,Z
+MM,AT,1, 640,1,1,,,,,Z
+MM,AT,1, 650,1,1,,,,,Z
+MM,AT,1, 660,1,1,,,,,Z
+MM,AT,1, 670,1,1,,,,,Z
+MM,AT,1, 680,1,1,,,,,Z
+MM,AT,1, 690,1,1,,,,,Z
+MM,AT,1, 700,1,1,,,,,Z
+MM,AT,1, 710,1,1,,,,,Z
+MM,AT,1, 720,1,1,,,,,Z
+MM,AT,1, 730,1,1,,,,,Z
+MM,AT,1, 740,1,1,,,,,Z
+MM,AT,1, 750,1,1,,,,,Z
+MM,AT,1, 760,1,1,,,,,Z
+MM,AT,1, 770,1,1,,,,,Z
+MM,AT,1, 820,1,1,,,,,Z
+MM,AT,1, 830,1,1,,,,,Z
+MM,AT,1,1000,1,1,,,,,T
+MM,AT,1,1010,1,1,,,,,T
+MM,AT,1,1020,1,1,,,,,Z
+MM,AT,1,1030,1,1,,,,,T
+MM,AT,1,1040,1,1,,,,,Z
+MM,AT,1,1050,1,1,,,,,Z
+MM,AT,1,1060,1,1,,,,,Z
+MM,AT,1,1070,1,1,,,,,Z
+MM,AT,1,1080,1,1,,,,,Z
+MM,AT,1,1090,1,1,,,,,Z
+MM,AT,1,1100,1,1,,,,,Z
+MM,AT,1,1110,1,1,,,,,Z
+MM,AT,1,1120,1,1,,,,,Z
+MM,AT,1,1130,1,1,,,,,Z
+MM,AT,1,1140,1,1,,,,,Z
+MM,AT,1,1150,1,1,,,,,Z
+MM,AT,1,1160,1,1,,,,,Z
+MM,AT,1,1170,1,1,,,,,Z
+MM,AT,1,1180,1,1,,,,,T
+MM,AT,1,1190,1,1,,,,,T
+C
+ZA,DA,1
+DA,'SHU-1',750.000,200.000,108.167,0,0,1,0.0,0.0,0.0,1,
+*  0.000,0.000,108.167,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0.000,1,
+*  0.000,0.000,0.000,0,0,0,0,0,0.00,0.00,0.00,0.00,0,0,0,0,
+*  0,1,0000,' ',' ',0,'',0,0,0,0,0,0,0,0,0,0,0,0,0,0,'',''
+C
+ENDE_SHEET_UNLOAD
+C
+BEGIN_PROGRAMM
+C
+ZA,MM,4
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,T
+MM,AT,1, 30,1,1,,,,,T
+MM,AT,1, 40,1,1,,,,,Z
+C
+ZA,DA,1
+DA,'00038137','HP','',
+START_TEXT
+MSG("NUMERO DEL PROGRAMA PRINCIPAL,00038137")
+MSG("DIMENSIONES DE LA CHAPA: 0.800 X 180 X 115  MATERIAL ID: Al99")
+N10;(V:3.20#B:342.0#D:20010514#P:TOPS300_EXE)
+N20;(V:4.0#B:1.0#D:20001023#P:TOPS300_EXE)
+N30;(NOMBRE FICHERO:C:/Lantek/Expert/CNC/2322.LST)
+N40;(TRANSFERNAME:00038137.LST NUM EJECUCIONES DEL PROGRAMA:1)
+N50;(MAQUINA:TC2000 TIPO:1)
+N60;(CONTROL:BO TYP3 VERSION:1)
+N70TRAILON(C2,C1)
+N80F108167
+N90G01
+N100TC_SUCTION_OFF
+N110TC_POS_ACCEL(12.0,6.0)
+N120TC_CLAMP_CYC
+N130TC_SHEET_TECH("SHT-1")
+N140;TC_TECHNO_MODE(1)
+N150TC_TANGTOOL_OFF
+N160;GOTOF ENTRY_PUNCH
+N170TC_SHEET_LOAD("SHL-1")
+N180F108167
+N190TC_TOOL_POSITION(TOP)
+N200TC_SHEET_UNLOAD("SHU-1")
+N210M30
+STOP_TEXT
+C
+ENDE_PROGRAMM
+ED
+C
+
+

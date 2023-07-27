@@ -1,0 +1,255 @@
+BD
+SET_METRIC
+C
+BEGIN_EINRICHTEPLAN_INFO
+C
+ZA,MM,27
+MM,AT,1,   10, 1,1,,'Maschine'                          ,,'',T
+MM,AT,1,   20, 1,1,,'Typ'                               ,,'',Z
+MM,AT,1,   30, 1,1,,'Steuerung'                         ,,'',T
+MM,AT,1,   40, 1,1,,'Variante'                          ,,'',Z
+MM,AT,1,   50, 1,1,,'Firma'                             ,,'',T
+MM,AT,1,   60, 1,1,,'Programmnummer'                    ,,'',T
+MM,AT,1,   70, 1,1,,'Bearbeiter'                        ,,'',T
+MM,AT,1,   80, 1,1,,'Datum'                             ,,'',T
+MM,AT,1,   90, 1,1,,'Auftragsname'                      ,,'',T
+MM,AT,1,  100, 1,1,,'Anzahl der Programmdurchlaeufe'    ,,'',Z
+MM,AT,1,  110, 1,1,,'Tafelname'                         ,,'',T
+MM,AT,1,  120, 1,1,,'Speicherbedarf'                    ,,'',Z
+MM,AT,1,  130, 1,1,,'Material-ID'                       ,,'',T
+MM,AT,1,  140, 1,1,,'Tafelgewicht'                      ,,'kg',Z
+MM,AT,1,  160, 1,1,,'Bemerkung'                         ,,'',T
+MM,AT,1,  170, 1,1,,'Flag Automatisiert'                ,,'Bool',Z
+MM,AT,1,  180, 1,1,,'Flag ToPsxxx-Programm'             ,,'Bool',Z
+MM,AT,1,  190, 1,1,,'Einrichteplanfilename'             ,,'',T
+MM,AT,1,  200, 1,1,,'Lagergutbezeichnung'               ,,'',T
+MM,AT,1,  210, 1,1,,'Palettierungsflag'                 ,,'Bool',Z
+MM,AT,1,  220, 1,1,,'Palettierungmodus'                 ,,'',Z
+MM,AT,1,  230, 1,1,,'Palette putzen'                    ,,'Bool',Z
+MM,AT,1,  240, 1,1,,'Sauger putzen'                     ,,'Bool',Z
+MM,AT,1,  250, 1,1,,'SystemPalletType'                  ,,'',T
+MM,AT,1,  260, 1,1,,'Bearbeitungszeit PierceLine'       ,,'min',Z
+MM,AT,1,  270, 1,1,,'Schneidl?ge'                      ,,'mm',Z
+MM,AT,1,  280, 1,1,,'viewer name machine'               ,,'',T
+C
+ZA,DA,1
+DA,'L20',11,'Sin 840D',1,'Trumpf','2214','User','22.06.2022',
+*  'TRUMPF',1,'',14074,
+*  'Al99',,'  ',0,1,
+*  '','',0,1,1,1,'',19.05,
+*  83378.04,'TruLaser 3030 (L20)'
+C
+ENDE_EINRICHTEPLAN_INFO
+C
+BEGIN_SHEET_TECH
+C
+ZA,MM,14
+MM,AT,1,  10,1,1,,'Tabellenidentifikator'                 ,,'',T
+MM,AT,1,  20,1,1,,'Blechmass X'                           ,,'mm',Z
+MM,AT,1,  30,1,1,,'Blechmass Y'                           ,,'mm',Z
+MM,AT,1,  40,1,1,,'Blechmass Z'                           ,,'mm',Z
+MM,AT,1, 200,1,1,,'TRUMPF-Kennung'                        ,,'',Z
+MM,AT,1, 220,1,1,,'Blechmass X real'                      ,,'mm',Z
+MM,AT,1, 230,1,1,,'Blechmass Y real'                      ,,'mm',Z
+MM,AT,1, 240,1,1,,'Materialkennung'                       ,,'',T
+MM,AT,1, 260,1,1,,'Werkstoffdichte'                       ,,'kg/dm3',Z
+MM,AT,1, 280,1,1,,'Dynamikstufe'                          ,,'',Z
+MM,AT,1, 290,1,1,,'Werkstoffkennung'                      ,,'',T
+MM,AT,1, 370,1,1,,'AdvancedEvaporateSwitch'               ,,'',Z
+MM,AT,1, 380,1,1,,'AdvancedEvaporateCircleRadius'         ,,'mm',Z
+MM,AT,1, 390,1,1,,'Surface Optical Reflection Property'   ,,'',Z
+C
+ZA,DA,1
+DA,'SHT-1',203.3,435.3,0.8,1,203.3,435.3,'Al99',2.7,
+*  0.0,'Al99',0,0,0
+C
+ENDE_SHEET_TECH
+C
+BEGIN_MACHINE_LOAD_DATA
+C
+ZA,MM,9
+MM,AT,1,10,1,1,,'Load Name',,'',T
+MM,AT,1,50,1,1,,'Loading Type',,'',Z
+MM,AT,1,60,1,1,,'Calibration Active',,'Bool',Z
+MM,AT,1,100,1,1,,'Pallet Changer Type',,'',Z
+MM,AT,1,110,1,1,,'Sheet Stop',,'',Z
+MM,AT,1,120,1,1,,'Measure Sheet Position',,'',Z
+MM,AT,1,130,1,1,,'Measuring Range X',,'mm',Z
+MM,AT,1,140,1,1,,'Measuring Range Y',,'mm',Z
+MM,AT,1,150,1,1,,'Measuring Corner',,'',Z
+C
+ZA,DA,1
+DA,'SHL-1',6,1,1,1,1,50.0,50.0,1
+C
+ENDE_MACHINE_LOAD_DATA
+C
+BEGIN_SHEET_LOAD_DATA
+C
+ZA,MM,15
+MM,AT,1,10,1,1,,'Load Name',,,T
+MM,AT,1,30,1,1,,'Double Sheet Detection Active',,'Bool',Z
+MM,AT,1,60,1,1,,'Sheet Alignment Active',,'Bool',Z
+MM,AT,1,80,1,1,,'Peeling Type',,,Z
+MM,AT,1,110,1,1,,'Suction Cup Configuration 1',,,T
+MM,AT,1,120,1,1,,'Suction Cup Configuration 2',,,T
+MM,AT,1,130,1,1,,'Suction Cup Configuration 3',,,T
+MM,AT,1,140,1,1,,'Suction Cup Configuration 4',,,T
+MM,AT,1,230,1,1,,'Loading Type',,,Z
+MM,AT,1,240,1,1,,'TransportMode',,,Z
+MM,AT,1,260,1,1,,'Suction Cup Group 1',,,Z
+MM,AT,1,270,1,1,,'Suction Cup Group 2',,,Z
+MM,AT,1,280,1,1,,'Suction Cup Group 3',,,Z
+MM,AT,1,290,1,1,,'Suction Cup Group 4',,,Z
+MM,AT,1,300,1,1,,'Suction Cup Selection Type',,,Z
+C
+ZA,DA,1
+DA,'SHL-1',1,0,1,'00000000','00000000','00000000','00000000',5,0,0,0,0,0,0
+C
+ENDE_SHEET_LOAD_DATA
+C
+BEGIN_LTT_CALLS
+C
+ZA,MM,1
+MM,AT,1,10,1,1,,,,,T
+C
+ZA,DA,1
+DA,'CO060MD0-O2S0-30-2'
+C
+ENDE_LTT_CALLS
+C
+BEGIN_PROGRAMM
+C
+ZA,MM,4
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,T
+MM,AT,1, 30,1,1,,,,,T
+MM,AT,1, 40,1,1,,,,,Z
+C
+ZA,DA,2
+DA,'L12214','UP',,
+START_TEXT
+N10G91
+N11G01X-0.064Y-0.063
+N12TC_POS_LEVEL(40.0)
+N13TC_LASER_ON(1,"CO060MD0-O2S0-30-2",10,100)
+N14X-2.759Y2.77
+N15G03X-19.408Y-25.258I85.737J-85.963
+N16X9.371Y-5.41I4.686J-2.705
+N17G02X40.479Y40.479I95.774J-55.295
+N18G03X-5.41Y9.37I-2.705J4.685
+N19X-25.322Y-19.471I60.705J-105.144
+N20TC_LASER_OFF(1)
+N21G01X75.522Y53.765
+N22TC_LASER_ON(1,"CO060MD0-O2S0-30-2",10,100)
+N23X-3.903Y0.217
+N24G03X8.818Y-0.155I4.408J-0.155
+N25X-8.814Y-0.245I-4.41J0
+N26TC_LASER_OFF(1)
+N27G01X23.899Y0.183
+N28TC_LASER_ON(1,"CO060MD0-O2S0-30-2",10,100)
+N29X-3.903Y0.217
+N30G03X8.818Y-0.155I4.408J-0.155
+N31X-8.814Y-0.245I-4.41J0
+N32TC_LASER_OFF(1)
+N33G01X3.899Y21.183
+N34TC_LASER_ON(1,"CO060MD0-O2S0-30-2",10,100)
+N35X-3.903Y0.217
+N36G03X8.818Y-0.155I4.408J-0.155
+N37X-8.814Y-0.245I-4.41J0
+N38TC_LASER_OFF(1)
+N39G01X-16.101Y0.183
+N40TC_LASER_ON(1,"CO060MD0-O2S0-30-2",10,100)
+N41X-3.903Y0.217
+N42G03X8.818Y-0.155I4.408J-0.155
+N43X-8.814Y-0.245I-4.41J0
+N44TC_LASER_OFF(1)
+N45G01X3.899Y35.683
+N46TC_LASER_ON(1,"CO060MD0-O2S0-30-2",10,100)
+N47X-3.903Y0.217
+N48G03X8.818Y-0.155I4.408J-0.155
+N49X-8.814Y-0.245I-4.41J0
+N50TC_LASER_OFF(1)
+N51G01X23.899Y0.183
+N52TC_LASER_ON(1,"CO060MD0-O2S0-30-2",10,100)
+N53X-3.903Y0.217
+N54G03X8.818Y-0.155I4.408J-0.155
+N55X-8.814Y-0.245I-4.41J0
+N56TC_LASER_OFF(1)
+N57G01X23.875Y-85.113
+N58TC_LASER_ON(1,"CO060MD0-O2S0-30-2",10,100)
+N59X-1.003Y-3.779
+N60G02X26.827Y-11.089I-28.468J-106.863
+N61G03X5.41Y9.37I2.705J4.685
+N62X-60.705Y16.266I-60.705J-105.144
+N63Y-10.82I0J-5.41
+N64G02X28.864Y-3.833I0J-110.59
+N65TC_LASER_OFF(1)
+N66G01X-119.014Y0.355
+N67TC_LASER_ON(1,"CO060MD0-O2S0-30-2",10,100)
+N68X2.519Y-2.99
+N69G02X52.736Y27.419I87.631J-104.122
+N70G03X14.805Y19.244I-5.105J19.244
+N71G01Y57.215
+N72G02X3.09Y3.09I3.09J0
+N73G01X34
+N74G02X3.09Y-3.09I0J-3.09
+N75G01Y-57.215
+N76G03X14.804Y-19.244I19.91J0
+N77G02X43.507Y-20.303I-34.894J-131.541
+N78X1.22Y-3.268I-1.78J-2.526
+N79TC_LASER_ON(6,"CO060MD0-O2S0-30-2",0,100)
+N80X-0.324Y-0.803I-3J0.742
+N81TC_LASER_OFF(1)
+N82G01X0.324Y0.803
+N83TC_SHEET_THICK()
+N84Y1.485
+N85TC_LASER_ON(6,"CO060MD0-O2S0-30-2",0,100)
+N86G02Y-1.485I-3J-0.742
+N87TC_LASER_ON(5,"CO060MD0-O2S0-30-2",0,100)
+N88G01X-11.431Y-19.958
+N89X-5.986Y-10.452
+N90G02X-4.534Y-0.924I-2.676J1.545
+N91G03X-145.93Y-39.102I-57.669J-76.636
+N92G02X-4.389Y-1.467I-2.844J1.209
+N93G01X-29.607Y17.094
+N94G02X-1.455Y3.416I1.545J2.676
+N95TC_LASER_ON(6,"CO060MD0-O2S0-30-2",0,100)
+N96X0.195Y0.557I3J-0.74
+N97TC_LASER_OFF(1)
+N98G01X-0.195Y-0.557
+N99TC_SHEET_THICK()
+N100X-0Y-1.481
+N101TC_LASER_ON(6,"CO060MD0-O2S0-30-2",0,100)
+N102G02X0Y1.481I3J0.74
+N103TC_LASER_ON(5,"CO060MD0-O2S0-30-2",0,100)
+N104X20Y31.454I123.712J-56.577
+N105X16.396Y16.355I103.712J-88.031
+N106TC_LASER_OFF(1)
+N107G01
+N108G90
+N109M17
+N110M02
+STOP_TEXT
+C
+DA,'2214','HP',,
+START_TEXT
+N10MSG("PROGRAM NUMBER,2214")
+N11MSG("SHEET Al99 : 203.3 x 435.3 x 0.8")
+N12MSG("MSG,PART #:DXFPAR0105 QTY 1")
+N13G71
+N14F282000
+N15TC_POS_LEVEL(40.0)
+N16TC_SHEET_TECH("SHT-1")
+N17TC_SHEET_LOAD("SHL-1")
+N18 ;GOTOF ENTRY_LASER
+N19;ENTRY_LASER:
+N20;(PART NUMBER: L12214  DXFPAR0105 NUMBER:1)
+N21G01X40.798Y57.513
+N22L12214
+N23TC_LASER_OFF(2)
+N24M30
+STOP_TEXT
+ENDE_PROGRAMM
+ED
+
+

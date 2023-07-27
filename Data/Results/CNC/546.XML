@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Program>
+  <Name>Test</Name>
+  <Machine>HDF</Machine>
+  <Info>
+    <Material ID="1">
+      <Thickness ID="6"></Thickness>
+    </Material>
+    <Tools>
+      <Laser>
+        <Laser_tool ID="4">
+          <Lens_type ID="3">
+            <Gas_type ID="5">
+              <Nozzle_type ID="2"></Nozzle_type>
+            </Gas_type>
+          </Lens_type>
+        </Laser_tool>
+      </Laser>
+    </Tools>
+    <Nest Nest_X_dimension="180.2" Nest_Y_dimension="115.2" Nest_time_estimation="34.4139" Nest_total_count="1">
+      <Part Part_number="1" Part_ID="1" Part_name="Pieza_prueba_Maxwell_2" Part_X_dimension="180" Part_Y_dimension="115" Part_X_position="-0.2" Part_Y_position="-0.2" Part_time_estimation="10.6761"></Part>
+    </Nest>
+    <Sheet Sheet_X_dimension="180" Sheet_Y_dimension="115"></Sheet>
+  </Info>
+  <Geometry>
+    <Part Part_ID="1">
+      <Contour ID="1">
+        <Segment ID="1" Segment_type="1">
+          <Line Start_X="25.2" Start_Y="25.2" End_X="27.14" End_Y="32.7" Process_ID="1"></Line>
+        </Segment>
+        <Segment ID="2" Segment_type="2">
+          <Circle Start_X="27.14" Start_Y="32.7" End_X="25.2" End_Y="35.2" Radius="2" I="-1.94" J="0.5" Direction="CCW" Process_ID="1"></Circle>
+        </Segment>
+        <Segment ID="3" Segment_type="2">
+          <Circle Start_X="25.2" Start_Y="35.2" End_X="25.2" End_Y="15.2" Radius="10" I="0" J="-10" Direction="CCW" Process_ID="2"></Circle>
+        </Segment>
+        <Segment ID="4" Segment_type="2">
+          <Circle Start_X="25.2" Start_Y="15.2" End_X="25.2" End_Y="35.2" Radius="10" I="0" J="10" Direction="CCW" Process_ID="3"></Circle>
+        </Segment>
+      </Contour>
+      <Contour ID="2">
+        <Segment ID="1" Segment_type="1">
+          <Line Start_X="25.2" Start_Y="90.2" End_X="31.99" End_Y="86.47" Process_ID="1"></Line>
+        </Segment>
+        <Segment ID="2" Segment_type="2">
+          <Circle Start_X="31.99" Start_Y="86.47" End_X="34.89" End_Y="87.73" Radius="2.0009" I="0.96" J="1.75" Direction="CCW" Process_ID="1"></Circle>
+        </Segment>
+        <Segment ID="3" Segment_type="2">
+          <Circle Start_X="34.89" Start_Y="87.73" End_X="15.51" End_Y="92.67" Radius="9.9998" I="-9.69" J="2.47" Direction="CCW" Process_ID="2"></Circle>
+        </Segment>
+        <Segment ID="4" Segment_type="2">
+          <Circle Start_X="15.51" Start_Y="92.67" End_X="34.89" End_Y="87.73" Radius="9.9998" I="9.69" J="-2.47" Direction="CCW" Process_ID="3"></Circle>
+        </Segment>
+      </Contour>
+      <Contour ID="3">
+        <Segment ID="1" Segment_type="1">
+          <Line Start_X="157.46" Start_Y="56.43" End_X="157.46" End_Y="66.43" Process_ID="1"></Line>
+        </Segment>
+        <Segment ID="2" Segment_type="2">
+          <Circle Start_X="157.46" Start_Y="66.43" End_X="155.46" End_Y="68.43" Radius="2" I="-2" J="0" Direction="CCW" Process_ID="1"></Circle>
+        </Segment>
+        <Segment ID="3" Segment_type="1">
+          <Line Start_X="155.46" Start_Y="68.43" End_X="126.63" End_Y="68.43" Process_ID="2"></Line>
+        </Segment>
+        <Segment ID="4" Segment_type="2">
+          <Circle Start_X="126.63" Start_Y="68.43" End_X="100.49" End_Y="94.57" Radius="37.498" I="-36.14" J="-10" Direction="CCW" Process_ID="2"></Circle>
+        </Segment>
+        <Segment ID="5" Segment_type="1">
+          <Line Start_X="100.49" Start_Y="94.57" End_X="100.49" End_Y="104.57" Process_ID="2"></Line>
+        </Segment>
+        <Segment ID="6" Segment_type="1">
+          <Line Start_X="100.49" Start_Y="104.57" End_X="80.49" End_Y="104.57" Process_ID="2"></Line>
+        </Segment>
+        <Segment ID="7" Segment_type="1">
+          <Line Start_X="80.49" Start_Y="104.57" End_X="80.49" End_Y="94.57" Process_ID="2"></Line>
+        </Segment>
+        <Segment ID="8" Segment_type="2">
+          <Circle Start_X="80.49" Start_Y="94.57" End_X="54.35" End_Y="68.43" Radius="37.498" I="10" J="-36.14" Direction="CCW" Process_ID="2"></Circle>
+        </Segment>
+        <Segment ID="9" Segment_type="1">
+          <Line Start_X="54.35" Start_Y="68.43" End_X="25.49" End_Y="68.43" Process_ID="2"></Line>
+        </Segment>
+        <Segment ID="10" Segment_type="2">
+          <Circle Start_X="25.49" Start_Y="68.43" End_X="25.49" End_Y="48.43" Radius="10" I="0" J="-10" Direction="CCW" Process_ID="2"></Circle>
+        </Segment>
+        <Segment ID="11" Segment_type="1">
+          <Line Start_X="25.49" Start_Y="48.43" End_X="54.35" End_Y="48.43" Process_ID="2"></Line>
+        </Segment>
+        <Segment ID="12" Segment_type="2">
+          <Circle Start_X="54.35" Start_Y="48.43" End_X="80.49" End_Y="22.28" Radius="37.5076" I="36.14" J="10" Direction="CCW" Process_ID="2"></Circle>
+        </Segment>
+        <Segment ID="13" Segment_type="1">
+          <Line Start_X="80.49" Start_Y="22.28" End_X="80.49" End_Y="12.28" Process_ID="2"></Line>
+        </Segment>
+        <Segment ID="14" Segment_type="1">
+          <Line Start_X="80.49" Start_Y="12.28" End_X="100.49" End_Y="12.28" Process_ID="2"></Line>
+        </Segment>
+        <Segment ID="15" Segment_type="1">
+          <Line Start_X="100.49" Start_Y="12.28" End_X="100.49" End_Y="22.28" Process_ID="2"></Line>
+        </Segment>
+        <Segment ID="16" Segment_type="2">
+          <Circle Start_X="100.49" Start_Y="22.28" End_X="126.63" End_Y="48.43" Radius="37.498" I="-10" J="36.15" Direction="CCW" Process_ID="2"></Circle>
+        </Segment>
+        <Segment ID="17" Segment_type="1">
+          <Line Start_X="126.63" Start_Y="48.43" End_X="155.49" End_Y="48.43" Process_ID="2"></Line>
+        </Segment>
+        <Segment ID="18" Segment_type="2">
+          <Circle Start_X="155.49" Start_Y="48.43" End_X="155.49" End_Y="68.43" Radius="10" I="0" J="10" Direction="CCW" Process_ID="2"></Circle>
+        </Segment>
+        <Segment ID="19" Segment_type="1">
+          <Line Start_X="155.49" Start_Y="68.43" End_X="155.46" End_Y="68.43" Process_ID="3"></Line>
+        </Segment>
+      </Contour>
+      <Contour ID="4">
+        <Segment ID="1" Segment_type="1">
+          <Line Start_X="155.2" Start_Y="90.2" End_X="153.26" End_Y="82.7" Process_ID="1"></Line>
+        </Segment>
+        <Segment ID="2" Segment_type="2">
+          <Circle Start_X="153.26" Start_Y="82.7" End_X="155.2" End_Y="80.2" Radius="2" I="1.94" J="-0.5" Direction="CCW" Process_ID="1"></Circle>
+        </Segment>
+        <Segment ID="3" Segment_type="2">
+          <Circle Start_X="155.2" Start_Y="80.2" End_X="155.2" End_Y="100.2" Radius="10" I="0" J="10" Direction="CCW" Process_ID="2"></Circle>
+        </Segment>
+        <Segment ID="4" Segment_type="2">
+          <Circle Start_X="155.2" Start_Y="100.2" End_X="155.2" End_Y="80.2" Radius="10" I="0" J="-10" Direction="CCW" Process_ID="3"></Circle>
+        </Segment>
+      </Contour>
+      <Contour ID="5">
+        <Segment ID="1" Segment_type="1">
+          <Line Start_X="155.2" Start_Y="25.2" End_X="162.7" End_Y="23.26" Process_ID="1"></Line>
+        </Segment>
+        <Segment ID="2" Segment_type="2">
+          <Circle Start_X="162.7" Start_Y="23.26" End_X="165.2" End_Y="25.2" Radius="2" I="0.5" J="1.94" Direction="CCW" Process_ID="1"></Circle>
+        </Segment>
+        <Segment ID="3" Segment_type="2">
+          <Circle Start_X="165.2" Start_Y="25.2" End_X="145.2" End_Y="25.2" Radius="10" I="-10" J="0" Direction="CCW" Process_ID="2"></Circle>
+        </Segment>
+        <Segment ID="4" Segment_type="2">
+          <Circle Start_X="145.2" Start_Y="25.2" End_X="165.2" End_Y="25.2" Radius="10" I="10" J="0" Direction="CCW" Process_ID="3"></Circle>
+        </Segment>
+      </Contour>
+      <Contour ID="6">
+        <Segment ID="1" Segment_type="1">
+          <Line Start_X="180.4" Start_Y="25.4" End_X="180.2" End_Y="25.2" Process_ID="1"></Line>
+        </Segment>
+        <Segment ID="2" Segment_type="2">
+          <Circle Start_X="180.2" Start_Y="25.2" End_X="155.2" End_Y="0.2" Radius="25" I="-25" J="0" Direction="CW" Process_ID="3"></Circle>
+        </Segment>
+        <Segment ID="3" Segment_type="1">
+          <Line Start_X="155.2" Start_Y="0.2" End_X="155" End_Y="0" Process_ID="3"></Line>
+        </Segment>
+      </Contour>
+      <Contour ID="7">
+        <Segment ID="1" Segment_type="1">
+          <Line Start_X="155" Start_Y="115.4" End_X="155.2" End_Y="115.2" Process_ID="1"></Line>
+        </Segment>
+        <Segment ID="2" Segment_type="2">
+          <Circle Start_X="155.2" Start_Y="115.2" End_X="180.2" End_Y="90.2" Radius="25" I="0" J="-25" Direction="CW" Process_ID="3"></Circle>
+        </Segment>
+        <Segment ID="3" Segment_type="1">
+          <Line Start_X="180.2" Start_Y="90.2" End_X="180.4" End_Y="90" Process_ID="3"></Line>
+        </Segment>
+      </Contour>
+      <Contour ID="8">
+        <Segment ID="1" Segment_type="1">
+          <Line Start_X="25.4" Start_Y="0" End_X="25.2" End_Y="0.2" Process_ID="1"></Line>
+        </Segment>
+        <Segment ID="2" Segment_type="2">
+          <Circle Start_X="25.2" Start_Y="0.2" End_X="0.2" End_Y="25.2" Radius="25" I="0" J="25" Direction="CW" Process_ID="3"></Circle>
+        </Segment>
+        <Segment ID="3" Segment_type="1">
+          <Line Start_X="0.2" Start_Y="25.2" End_X="0" End_Y="25.4" Process_ID="3"></Line>
+        </Segment>
+      </Contour>
+      <Contour ID="9">
+        <Segment ID="1" Segment_type="1">
+          <Line Start_X="0" Start_Y="90" End_X="0.2" End_Y="90.2" Process_ID="1"></Line>
+        </Segment>
+        <Segment ID="2" Segment_type="2">
+          <Circle Start_X="0.2" Start_Y="90.2" End_X="25.2" End_Y="115.2" Radius="25" I="25" J="0" Direction="CW" Process_ID="3"></Circle>
+        </Segment>
+        <Segment ID="3" Segment_type="1">
+          <Line Start_X="25.2" Start_Y="115.2" End_X="25.4" End_Y="115.4" Process_ID="3"></Line>
+        </Segment>
+      </Contour>
+    </Part>
+  </Geometry>
+  <Machine_instructions>
+    <Task Number="1">
+      <Laser Part_number="1" Contour="1" Segment="1" Tool="4" Pierce_techno="2" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="2">
+      <Laser Part_number="1" Contour="1" Segment="2" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="3">
+      <Laser Part_number="1" Contour="1" Segment="3" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="4">
+      <Laser Part_number="1" Contour="1" Segment="4" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="5">
+      <Laser Part_number="1" Contour="2" Segment="1" Tool="4" Pierce_techno="2" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="6">
+      <Laser Part_number="1" Contour="2" Segment="2" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="7">
+      <Laser Part_number="1" Contour="2" Segment="3" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="8">
+      <Laser Part_number="1" Contour="2" Segment="4" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="9">
+      <Laser Part_number="1" Contour="3" Segment="1" Tool="4" Pierce_techno="2" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="10">
+      <Laser Part_number="1" Contour="3" Segment="2" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="11">
+      <Laser Part_number="1" Contour="3" Segment="3" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="12">
+      <Laser Part_number="1" Contour="3" Segment="4" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="13">
+      <Laser Part_number="1" Contour="3" Segment="5" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="14">
+      <Laser Part_number="1" Contour="3" Segment="6" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="15">
+      <Laser Part_number="1" Contour="3" Segment="7" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="16">
+      <Laser Part_number="1" Contour="3" Segment="8" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="17">
+      <Laser Part_number="1" Contour="3" Segment="9" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="18">
+      <Laser Part_number="1" Contour="3" Segment="10" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="19">
+      <Laser Part_number="1" Contour="3" Segment="11" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="20">
+      <Laser Part_number="1" Contour="3" Segment="12" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="21">
+      <Laser Part_number="1" Contour="3" Segment="13" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="22">
+      <Laser Part_number="1" Contour="3" Segment="14" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="23">
+      <Laser Part_number="1" Contour="3" Segment="15" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="24">
+      <Laser Part_number="1" Contour="3" Segment="16" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="25">
+      <Laser Part_number="1" Contour="3" Segment="17" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="26">
+      <Laser Part_number="1" Contour="3" Segment="18" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="27">
+      <Laser Part_number="1" Contour="3" Segment="19" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="28">
+      <Laser Part_number="1" Contour="4" Segment="1" Tool="4" Pierce_techno="2" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="29">
+      <Laser Part_number="1" Contour="4" Segment="2" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="30">
+      <Laser Part_number="1" Contour="4" Segment="3" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="31">
+      <Laser Part_number="1" Contour="4" Segment="4" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="32">
+      <Laser Part_number="1" Contour="5" Segment="1" Tool="4" Pierce_techno="2" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="33">
+      <Laser Part_number="1" Contour="5" Segment="2" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="34">
+      <Laser Part_number="1" Contour="5" Segment="3" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="35">
+      <Laser Part_number="1" Contour="5" Segment="4" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="36">
+      <Laser Part_number="1" Contour="6" Segment="1" Tool="4" Pierce_techno="2" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="37">
+      <Laser Part_number="1" Contour="6" Segment="2" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="38">
+      <Laser Part_number="1" Contour="6" Segment="3" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="39">
+      <Laser Part_number="1" Contour="7" Segment="1" Tool="4" Pierce_techno="2" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="40">
+      <Laser Part_number="1" Contour="7" Segment="2" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="41">
+      <Laser Part_number="1" Contour="7" Segment="3" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="42">
+      <Laser Part_number="1" Contour="8" Segment="1" Tool="4" Pierce_techno="2" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="43">
+      <Laser Part_number="1" Contour="8" Segment="2" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="44">
+      <Laser Part_number="1" Contour="8" Segment="3" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="45">
+      <Laser Part_number="1" Contour="9" Segment="1" Tool="4" Pierce_techno="2" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="46">
+      <Laser Part_number="1" Contour="9" Segment="2" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+    <Task Number="47">
+      <Laser Part_number="1" Contour="9" Segment="3" Tool="4" Pierce_techno="0" Cut_techno="1"></Laser>
+    </Task>
+  </Machine_instructions>
+</Program>

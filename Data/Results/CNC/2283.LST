@@ -1,0 +1,175 @@
+BD
+SET_METRIC
+C
+BEGIN_EINRICHTEPLAN_INFO
+C
+ZA,MM,4
+MM,AT,1, 60,1,1,,,,,T
+MM,AT,1, 100,1,1,,,,,T
+MM,AT,1,150,1,1,,'Maschinenzeit',,'min',Z
+MM,AT,1,170,1,1,,,,,T
+ZA,DA,1
+C
+DA,38098,1,8.8,1
+C
+ENDE_EINRICHTEPLAN_INFO
+C
+BEGIN_SHEET_TECH
+C
+ZA,MM,7
+MM,AT,1,10,1,1,,,,,T
+MM,AT,1,20,1,1,,,,'mm',Z
+MM,AT,1,30,1,1,,,,'mm',Z
+MM,AT,1,40,1,1,,,,'mm',Z
+MM,AT,1,220,1,1,,,,'mm',Z
+MM,AT,1,230,1,1,,,,'mm',Z
+MM,AT,1,240,1,1,,'Materialkennung',,'',T
+C
+ZA,DA,1
+DA,'SHT-1',100.0,360.0,0.8,100.0,360.0,'Al99'
+C
+ENDE_SHEET_TECH
+C
+BEGIN_SHEET_LOAD
+C
+ZA,MM,10
+MM,AT,1,10,1,1,,'Table identifier',,,T
+MM,AT,1,500,1,1,,'Loading unit',,,Z
+MM,AT,1,620,1,1,,'Sheet stopper',,,Z
+MM,AT,1,630,1,1,,'Measure sheet position',,,Z
+MM,AT,1,640,1,1,,'Measure range in X',,'mm',Z
+MM,AT,1,650,1,1,,'Measure range in Y',,'mm',Z
+MM,AT,1,660,1,1,,'Calibration',,'Bool',Z
+MM,AT,1,690,1,1,,'Type of pallet change',,,Z
+MM,AT,1,700,1,1,,'Measuring Corner',,,Z
+MM,AT,1,710,1,1,,,,,Z
+C
+ZA,DA,1
+DA,'SHL-1',1,1,1,100.0,100.0,1,0,1,1
+C
+ENDE_SHEET_LOAD
+C
+BEGIN_LTT_CALLS
+C
+ZA,MM,1
+MM,AT,1,10,1,1,,,,,T
+C
+ZA,DA,1
+DA,'AL010MD0-N2S0-30-2'
+C
+ENDE_LTT_CALLS
+C
+BEGIN_MICROJOINT
+C
+ZA,MM,12
+MM,AT,1,  10,1,1,,'Tabellenidentifikator              ',,'',T
+MM,AT,1, 100,1,1,,'programmierte Microjoints aktiv    ',,'Bool',Z
+MM,AT,1, 110,1,1,,'automatische Microjoints aktiv     ',,'Bool',Z
+MM,AT,1, 120,1,1,,'Microjointbreite kleine Kontur     ',,'mm',Z
+MM,AT,1, 130,1,1,,'Microjointbreite mittlere Kontur   ',,'mm',Z
+MM,AT,1, 140,1,1,,'Microjointbreite grosse Kontur     ',,'mm',Z
+MM,AT,1, 150,1,1,,'Konturausdehnung min X autom. Microjoint',,'mm',Z
+MM,AT,1, 160,1,1,,'Konturausdehnung max X autom. Microjoint',,'mm',Z
+MM,AT,1, 170,1,1,,'Konturausdehnung min Y autom. Microjoint',,'mm',Z
+MM,AT,1, 180,1,1,,'Konturausdehnung max Y autom. Microjoint',,'mm',Z
+MM,AT,1, 190,1,1,,'Einstechart nach Microjoint        ',,'',Z
+MM,AT,1, 500,1,1,,'TRUMPF-Kennung                     ',,'',Z
+C
+ZA,DA,1
+DA,'MIJO-1',1,0,0,0,1,-1,-1,-1,-1,11,1
+C
+ENDE_MICROJOINT
+C
+BEGIN_PROGRAM_PROPERTIES
+C
+ZA,MM,10
+MM,AT,1,10,1,1,,'SyncDataChangePierceToCut',,'',Z
+MM,AT,1,20,1,1,,'ProgramType',,'',Z
+MM,AT,1,30,1,1,,'ProgramedClampPositionsObligatory',,'Bool',Z
+MM,AT,1,40,1,1,,'ReentryRestriction',,'',Z
+MM,AT,1,50,1,1,,'ContourLineAdjustmentActive',,'Bool',Z
+MM,AT,1,60,1,1,,'FinishedPartSupportNumber',,'',Z
+MM,AT,1,70,1,1,,'BevelCuttingVersion',,'',Z
+MM,AT,1,80,1,1,,'FluidSprayMode',,'',Z
+MM,AT,1,90,1,1,,'RetractableClampsRequired',,'Bool',Z
+MM,AT,1,100,1,1,,'AdjustLineLevel',,'',Z
+C
+ZA,DA,1
+DA,0,3,0,0,0,0,0,0,0,0
+C
+ENDE_PROGRAM_PROPERTIES
+C
+BEGIN_PROGRAMM
+C
+ZA,MM,4
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,T
+MM,AT,1, 30,1,1,,,,,T
+MM,AT,1, 40,1,1,,,,,Z
+C
+ZA,DA,2
+DA,'L138098','UP',,
+START_TEXT
+N10G91
+N20TC_POS_LEVEL(40.0)
+N30TC_LASER_ON(1,"AL010MD0-N2S0-30-2",10,100)
+N40TC_LASERCORR_ON(T_LEFT)
+N50G01X-0.03Y-3
+N60G03X0.25Y49.999I0.25J24.999
+N70X0.25Y-49.999I0J-25
+N80TC_LASER_OFF(1)
+N90TC_LASERCORR_OFF
+N100G01X-17.928Y42.677
+N110TC_LASER_ON(1,"AL010MD0-N2S0-30-2",10,100)
+N120X-25.251Y25.251
+N130TC_LASER_ON(11,"AL010MD0-N2S0-30-2",0,100)
+N140X-7.071Y7.071
+N150TC_LASERCORR_ON(T_LEFT)
+N160X13
+N170TC_LASER_ON(5,"AL010MD0-N2S0-30-2",0,100)
+N180X77
+N190G02X10Y-10I0J-10
+N200TC_LASER_OFF(1)
+N210TC_LASERCORR_OFF
+N220G01Y-90
+N230X-10
+N240TC_SHEET_THICK()
+N250X13
+N260TC_LASER_ON(6,"AL010MD0-N2S0-30-2",0,100)
+N270TC_LASERCORR_ON(T_LEFT)
+N280X-13
+N290TC_LASER_ON(5,"AL010MD0-N2S0-30-2",0,100)
+N300X-80
+N310G02X-10Y10I0J10
+N320TC_LASER_OFF(1)
+N330TC_LASERCORR_OFF
+N340G01
+N350G90
+N360M17
+N370M02
+STOP_TEXT
+C
+DA,'38098','HP',,
+START_TEXT
+N10MSG("PROGRAM NUMBER,38098")
+N20MSG("SHEET Al99 : 100.0 x 360.0 x 0.8")
+N30MSG("MSG,PART #:Pieza_prueba_Maxwell QTY 1")
+N40G71
+N50F82000
+N60TC_PCS_PIERCE
+N70TC_POS_LEVEL(40.0)
+N80TC_SHEET_TECH("SHT-1")
+N90TC_SHEET_LOAD("SHL-1")
+N100TC_MICROJOINT("MIJO-1")
+N110 ;GOTOF ENTRY_LASER
+N120;ENTRY_LASER:
+N130;(PART NUMBER: L138098  Pieza_prueba_Maxwell NUMBER:1)
+N140G01X49.78Y38.001
+N150L138098
+N160TC_LASER_OFF(2)
+N170M30
+STOP_TEXT
+ENDE_PROGRAMM
+ED
+
+

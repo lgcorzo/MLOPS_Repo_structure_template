@@ -1,0 +1,129 @@
+    ;LAMIERA Al99 100 x 100 x 0.8
+o1 ; C:/Lantek/Expert/CNC/1998.iso
+
+
+P20=-10    ;X min
+P21=100    ;X max
+P22=-10    ;Y min
+P23=100    ;Y max
+P26=0    ;Pipe diameter [mm]
+
+P27=0    ;Drilling velocity [mm/min]
+P28=8.8    ;Depth of hole [mm]
+P29=0    ;Length. High velocity before contact tip-sheet [mm]
+
+P10=11    ;Altezza sfondamento [mm]
+P11=0.8    ;Tempo sfondamento [s]
+P12=4    ;Altezza taglio [mm]
+P13=0.5    ;Ritardo Attivazione controllo altezza [s]
+P14=177    ;Tensione d'arco [V]
+P15=1440    ;Velocit?nominale [mm/min]
+P16=50    ;Salita fine taglio [mm]
+P17=0    ;Arc Voltage Plasma 2 [V]
+P19=2.2    ;Compensazione [mm]
+P24=4800    ;Feed Writer
+P25=1150    ;Velocit?Lenta [mm/min]
+P30=260    ;Set Point Power [A]
+P32=0    ;Plasma Gas [0=NO 1=O2 3=H35 5=Air 6=N 8=F5]
+P33=0    ;Shield Gas [0=NO 1=O2 3=H35 5=Air 6=N 8=F5]
+P34=0    ;Plasma Cut Flow [%]
+P35=0    ;Plasma PreFlow [%]
+P36=0    ;Shield Cut Flow [%]
+P37=0    ;Shield PreFlow [%]
+P38=0    ;Gas1 Mix [%]
+P39=0    ;Gas2 Mix [%]
+M98 Q1
+
+P10=0    ;Altezza sfondamento [mm]
+P11=0    ;Tempo sfondamento [s]
+P12=0    ;Altezza taglio [mm]
+P13=0.5    ;Ritardo Attivazione controllo altezza [s]
+P14=0    ;Tensione d'arco [V]
+P15=0    ;Velocit?nominale [mm/min]
+P16=50    ;Salita fine taglio [mm]
+P17=0    ;Arc Voltage Plasma 2 [V]
+P19=0    ;Compensazione [mm]
+P24=4800    ;Feed Writer
+P25=1150    ;Velocit?Lenta [mm/min]
+P30=0    ;Set Point Power [A]
+P32=0    ;Plasma Gas [0=NO 1=O2 3=H35 5=Air 6=N 8=F5]
+P33=0    ;Shield Gas [0=NO 1=O2 3=H35 5=Air 6=N 8=F5]
+P34=0    ;Plasma Cut Flow [%]
+P35=0    ;Plasma PreFlow [%]
+P36=0    ;Shield Cut Flow [%]
+P37=0    ;Shield PreFlow [%]
+P38=0    ;Gas1 Mix [%]
+P39=0    ;Gas2 Mix [%]
+M98 Q9
+
+P10=4    ;Altezza sfondamento [mm]
+P11=0    ;Tempo sfondamento [s]
+P12=2.5    ;Altezza taglio [mm]
+P13=0.5    ;Ritardo Attivazione controllo altezza [s]
+P14=130    ;Tensione d'arco [V]
+P15=4500    ;Velocit?nominale [mm/min]
+P16=50    ;Salita fine taglio [mm]
+P17=0    ;Arc Voltage Plasma 2 [V]
+P19=0    ;Compensazione [mm]
+P24=4800    ;Feed Writer
+P25=1150    ;Velocit?Lenta [mm/min]
+P30=0    ;Set Point Power [A]
+P32=0    ;Plasma Gas [0=NO 1=O2 3=H35 5=Air 6=N 8=F5]
+P33=0    ;Shield Gas [0=NO 1=O2 3=H35 5=Air 6=N 8=F5]
+P34=0    ;Plasma Cut Flow [%]
+P35=0    ;Plasma PreFlow [%]
+P36=0    ;Shield Cut Flow [%]
+P37=0    ;Shield PreFlow [%]
+P38=0    ;Gas1 Mix [%]
+P39=0    ;Gas2 Mix [%]
+M98 Q10
+
+
+
+
+N101
+M62 Q1
+G00 X50.7 Y30
+M50
+G01 Y25.71
+G03 X50 Y74.3 I50 J50
+G03 X45.035 Y26.213 I50 J50
+G03 X49.2 Y25.713 I50 J50
+M53
+G03 X50 Y25.7 I50 J50
+M57
+M56
+G03 X54.109 Y28.732 I50 J30
+M51
+G100
+
+N102
+M62 Q1
+G00 X32.322 Y32.322
+M50
+G01 X0 Y0
+M51
+G100
+
+N103
+M62 Q1
+G00 X90.16 Y-0.904
+M50
+G03 X90 Y-0.9 I90 J-4
+G01 X-0.9
+G01 Y90
+G02 X10 Y100.9 I10 J90
+G01 X100.9
+G01 Y10
+G02 X94.826 Y0.227 I90 J10
+G02 X90.799 Y-0.871 I90 J10
+M53
+G02 X90 Y-0.9 I90 J10
+M57
+M56
+G03 X89.91 Y-0.904 I90 J-2
+M51
+G100
+
+N9999
+M02

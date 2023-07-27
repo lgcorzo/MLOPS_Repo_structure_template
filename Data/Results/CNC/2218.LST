@@ -1,0 +1,219 @@
+BD
+SET_METRIC
+C
+BEGIN_EINRICHTEPLAN_INFO
+C
+ZA,MM,28
+MM,AT,1,   10, 1,1,,'Maschine'                          ,,'',T
+MM,AT,1,   20, 1,1,,'Typ'                               ,,'',Z
+MM,AT,1,   30, 1,1,,'Steuerung'                         ,,'',T
+MM,AT,1,   40, 1,1,,'Variante'                          ,,'',Z
+MM,AT,1,   50, 1,1,,'Firma'                             ,,'',T
+MM,AT,1,   60, 1,1,,'Programmnummer'                    ,,'',T
+MM,AT,1,   70, 1,1,,'Bearbeiter'                        ,,'',T
+MM,AT,1,   80, 1,1,,'Datum'                             ,,'',T
+MM,AT,1,   90, 1,1,,'Auftragsname'                      ,,'',T
+MM,AT,1,  100, 1,1,,'Anzahl der Programmdurchlaeufe'    ,,'',Z
+MM,AT,1,  110, 1,1,,'Tafelname'                         ,,'',T
+MM,AT,1,  120, 1,1,,'Speicherbedarf'                    ,,'',Z
+MM,AT,1,  130, 1,1,,'Material-ID'                       ,,'',T
+MM,AT,1,  140, 1,1,,'Tafelgewicht'                      ,,'kg',Z
+MM,AT,1,  150, 1,1,,'Maschinenzeit'                     ,,'min',Z
+MM,AT,1,  160, 1,1,,'Bemerkung'                         ,,'',T
+MM,AT,1,  170, 1,1,,'Flag Automatisiert'                ,,'Bool',Z
+MM,AT,1,  180, 1,1,,'Flag ToPsxxx-Programm'             ,,'Bool',Z
+MM,AT,1,  190, 1,1,,'Einrichteplanfilename'             ,,'',T
+MM,AT,1,  200, 1,1,,'Lagergutbezeichnung'               ,,'',T
+MM,AT,1,  210, 1,1,,'Palettierungsflag'                 ,,'Bool',Z
+MM,AT,1,  220, 1,1,,'Palettierungmodus'                 ,,'',Z
+MM,AT,1,  230, 1,1,,'Palette putzen'                    ,,'Bool',Z
+MM,AT,1,  240, 1,1,,'Sauger putzen'                     ,,'Bool',Z
+MM,AT,1,  250, 1,1,,'SystemPalletType'                  ,,'',T
+MM,AT,1,  260, 1,1,,'Bearbeitungszeit PierceLine'       ,,'min',Z
+MM,AT,1,  270, 1,1,,'Schneidl?ge'                      ,,'mm',Z
+MM,AT,1,  280, 1,1,,'viewer name machine'               ,,'',T
+C
+ZA,DA,1
+DA,'L49',11,'Sin 840D',1,'Trumpf','01129','User','22.06.2022',
+*  '1Al9901200120008',1,2MA,14074,
+*  'Al99',,0.58,'  ',0,1,
+*  '','1Al9901200120008',0,1,1,1,'',0.58,
+*  83378.04,'Trumatic 3030 (L49)'
+C
+ENDE_EINRICHTEPLAN_INFO
+C
+BEGIN_SHEET_TECH
+C
+ZA,MM,14
+MM,AT,1,  10,1,1,,'Tabellenidentifikator'                 ,,'',T
+MM,AT,1,  20,1,1,,'Blechmass X'                           ,,'mm',Z
+MM,AT,1,  30,1,1,,'Blechmass Y'                           ,,'mm',Z
+MM,AT,1,  40,1,1,,'Blechmass Z'                           ,,'mm',Z
+MM,AT,1, 200,1,1,,'TRUMPF-Kennung'                        ,,'',Z
+MM,AT,1, 220,1,1,,'Blechmass X real'                      ,,'mm',Z
+MM,AT,1, 230,1,1,,'Blechmass Y real'                      ,,'mm',Z
+MM,AT,1, 240,1,1,,'Materialkennung'                       ,,'',T
+MM,AT,1, 260,1,1,,'Werkstoffdichte'                       ,,'kg/dm3',Z
+MM,AT,1, 280,1,1,,'Dynamikstufe'                          ,,'',Z
+MM,AT,1, 290,1,1,,'Werkstoffkennung'                      ,,'',T
+MM,AT,1, 370,1,1,,'AdvancedEvaporateSwitch'               ,,'',Z
+MM,AT,1, 380,1,1,,'AdvancedEvaporateCircleRadius'         ,,'mm',Z
+MM,AT,1, 390,1,1,,'Surface Optical Reflection Property'   ,,'',Z
+C
+ZA,DA,1
+DA,'SHT-1',120.0,120.0,0.8,1,120.0,120.0,'Al99',2.7,
+*  0.0,'Al99',0,0,0
+C
+ENDE_SHEET_TECH
+C
+BEGIN_SHEET_LOAD
+C
+ZA,MM,20
+MM,AT,1,10,1,1,,'Table identifier',,,T
+MM,AT,1,500,1,1,,'Loading unit',,,Z
+MM,AT,1,520,1,1,,,,,Z
+MM,AT,1,530,1,1,,,,,Z
+MM,AT,1,540,1,1,,,,,Z
+MM,AT,1,550,1,1,,,,,Z
+MM,AT,1,580,1,1,,'Double sheet detector',,'Bool',Z
+MM,AT,1,590,1,1,,'Peeling tool activated',,'Bool',Z
+MM,AT,1,620,1,1,,'Sheet stopper',,,Z
+MM,AT,1,630,1,1,,'Measure sheet position',,,Z
+MM,AT,1,640,1,1,,'Measure range in X',,'mm',Z
+MM,AT,1,650,1,1,,'Measure range in Y',,'mm',Z
+MM,AT,1,660,1,1,,'Calibration',,'Bool',Z
+MM,AT,1,690,1,1,,'Type of pallet change',,,Z
+MM,AT,1,700,1,1,,'Measuring Corner',,,Z
+MM,AT,1,710,1,1,,,,,Z
+MM,AT,1,720,1,1,,,,'Bool',Z
+MM,AT,1,730,1,1,,,,'Bool',Z
+MM,AT,1,740,1,1,,,,'Bool',Z
+MM,AT,1,750,1,1,,,,,Z
+C
+ZA,DA,1
+DA,'SHL-1',10,0,0,0,0,0,0,1,1,50.0,50.0,1,0,1,1,0,1,0,0
+C
+ENDE_SHEET_LOAD
+C
+BEGIN_LTT_CALLS
+C
+ZA,MM,1
+MM,AT,1,10,1,1,,,,,T
+C
+ZA,DA,1
+DA,'BR080MD0-N2S0-30-2'
+C
+ENDE_LTT_CALLS
+C
+BEGIN_MICROJOINT
+C
+ZA,MM,12
+MM,AT,1,  10,1,1,,'Tabellenidentifikator              ',,'',T
+MM,AT,1, 100,1,1,,'programmierte Microjoints aktiv    ',,'Bool',Z
+MM,AT,1, 110,1,1,,'automatische Microjoints aktiv     ',,'Bool',Z
+MM,AT,1, 120,1,1,,'Microjointbreite kleine Kontur     ',,'mm',Z
+MM,AT,1, 130,1,1,,'Microjointbreite mittlere Kontur   ',,'mm',Z
+MM,AT,1, 140,1,1,,'Microjointbreite grosse Kontur     ',,'mm',Z
+MM,AT,1, 150,1,1,,'Konturausdehnung min X autom. Microjoint',,'mm',Z
+MM,AT,1, 160,1,1,,'Konturausdehnung max X autom. Microjoint',,'mm',Z
+MM,AT,1, 170,1,1,,'Konturausdehnung min Y autom. Microjoint',,'mm',Z
+MM,AT,1, 180,1,1,,'Konturausdehnung max Y autom. Microjoint',,'mm',Z
+MM,AT,1, 190,1,1,,'Einstechart nach Microjoint        ',,'',Z
+MM,AT,1, 500,1,1,,'TRUMPF-Kennung                     ',,'',Z
+C
+ZA,DA,1
+DA,'MIJO-1',1,0,0,0,0,-1,-1,-1,-1,11,1
+C
+ENDE_MICROJOINT
+C
+BEGIN_PROGRAM_PROPERTIES
+C
+ZA,MM,3
+MM,AT,1,  10,1,1,,'Sync Data Change Pierce To Cut'        ,,'',Z
+MM,AT,1,  20,1,1,,'ProgramType'                           ,,'',Z
+MM,AT,1,  80,1,1,,'FluidSprayMode'                        ,,'',Z
+C
+ZA,DA,1
+DA,0,3,0
+C
+ENDE_PROGRAM_PROPERTIES
+C
+BEGIN_PROGRAMM
+C
+ZA,MM,4
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,T
+MM,AT,1, 30,1,1,,,,,T
+MM,AT,1, 40,1,1,,,,,Z
+C
+ZA,DA,2
+DA,'L101129','UP',,
+START_TEXT
+N10G91
+N20G01X0.008Y0.28
+N30TC_POS_LEVEL(80.0)
+N40TC_LASER_ON(9,"BR080MD0-N2S0-30-2",10,110)
+N50X6.798Y-0.196
+N60TC_LASER_ON(11,"BR080MD0-N2S0-30-2",0,100)
+N70X1.699Y-0.049
+N80G03X0.432Y0.42I0.012J0.42
+N90X-49.44I-24.72J0
+N100X49.44I24.72J0
+N110TC_LASER_OFF(3)
+N120G01X-42.398Y17.678
+N130TC_LASER_ON(9,"BR080MD0-N2S0-30-2",11,110)
+N140X-7.071Y7.071
+N150TC_LASER_ON(11,"BR080MD0-N2S0-30-2",0,100)
+N160X-25.251Y25.251
+N170TC_LASER_OFF(3)
+N180X109.2Y-54.08
+N190TC_LASER_ON(9,"BR080MD0-N2S0-30-2",10,110)
+N200X-6.8
+N210TC_LASER_ON(11,"BR080MD0-N2S0-30-2",0,100)
+N220X-1.7
+N230G03X-0.42Y-0.42I0J-0.42
+N240G01Y-44.5
+N250G02X-1.28Y-1.28I-1.28J0
+N260G01X-89
+N270G02X-10.28Y10.28I0J10.28
+N280G01Y89
+N290G02X1.28Y1.28I1.28J0
+N300G01X89
+N310G02X10.28Y-10.28I0J-10.28
+N320G01Y-44.5
+N330TC_LASER_OFF(3)
+N340G01
+N350G90
+N360M17
+N370M02
+STOP_TEXT
+C
+DA,'01129','HP',,
+START_TEXT
+N10MSG("PROGRAM NUMBER,01129")
+N20MSG("SHEET Al99 : 120.0 x 120.0 x 0.8")
+N30MSG("MSG,PART #:Pieza_prueba_Maxwell QTY 1")
+N40G71
+N50F100000
+N60TC_PCS_PIERCE
+N70TC_POS_LEVEL(80.0)
+N80TC_SHEET_TECH("SHT-1")
+N90TC_SHEET_LOAD("SHL-1")
+N100TC_MICROJOINT("MIJO-1")
+N110 ;GOTOF ENTRY_LASER
+N120TC_TIMER(1,1,"0#2218.LST")
+N130TC_TIMER(4)
+N140;ENTRY_LASER:
+N150;(NUMERO PEZZI: L101129  Pieza_prueba_Maxwell N:1)
+N160G01X75.783Y59.545
+N170L101129
+N180TC_LASER_OFF(2)
+N190TC_PART_END(-1)
+N200TC_TIMER(1,1,"1#2218.LST")
+N210TC_TIMER(4)
+N220M30
+STOP_TEXT
+ENDE_PROGRAMM
+ED
+
+

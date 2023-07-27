@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LXDDocument>
+      <DocHeader DefaultChannel="1" HandleSeed="1141">
+            <ExtMin X="7.9" Y="-7.9"/>
+            <ExtMax X="170.1" Y="-301.1"/>
+            <InsertBase/>
+            <HomeRef Enabled="true" RefType="4099" X="7.9" Y="-7.9"/>
+      </DocHeader>
+      <Technical>
+            <Channels>
+                  <Channel ParamFlag="256"/>
+                  <Channel ChannelPort="1"/>
+                  <Channel ChannelPort="2"/>
+                  <Channel ChannelPort="3"/>
+                  <Channel ChannelPort="4"/>
+                  <Channel ChannelPort="5"/>
+                  <Channel ChannelPort="6"/>
+                  <Channel ChannelPort="7"/>
+                  <Channel ChannelPort="8"/>
+                  <Channel ChannelPort="9"/>
+                  <Channel ChannelPort="10"/>
+                  <Channel ChannelPort="11"/>
+                  <Channel ChannelPort="12"/>
+                  <Channel ChannelPort="13"/>
+                  <Channel ChannelPort="14"/>
+                  <Channel ChannelPort="15" ParamFlag="1792" DefPwmFreqFunc="true" DefPwmRatioFunc="true">
+                  </Channel>
+            </Channels>
+      </Technical>
+      <Viewports Handle="3" Active="1">
+            <VPort Handle="1142" Name="1">
+                  <ViewCenter/>
+                  <ViewHeight>100</ViewHeight>
+                  <AspectRatio>1</AspectRatio>
+                  <DisplayRect>
+                        <Right>1024</Right>
+                        <Bottom>768</Bottom>
+                  </DisplayRect>
+            </VPort>
+      </Viewports>
+      <TextStyles Handle="6"/>
+      <Layers Handle="5">
+            <Layer Handle="1143" Name="MARK-CUT" LayerFlag="768" Color="16777315"/>
+            <Layer Handle="1144" Name="CUT01" LayerFlag="768" Color="16777215"/>
+            <Layer Handle="1145" Name="CUT02" LayerFlag="768" Color="16777216"/>
+      </Layers>
+      <Blocks Handle="4">
+      </Blocks>
+      <Entities Handle="2">
+            <Circle Handle="1119" ChannelPort="1" LayerName="CUT01" Radius="3" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="58" Y="-33.3"/>
+            </Circle>
+            <Circle Handle="1120" ChannelPort="1" LayerName="CUT01" Radius="2.15" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="47" Y="-50.6"/>
+            </Circle>
+            <Circle Handle="1121" ChannelPort="1" LayerName="CUT01" Radius="2.15" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="67.571" Y="-56.972"/>
+            </Circle>
+            <Circle Handle="1122" ChannelPort="1" LayerName="CUT01" Radius="1.5" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="61.036" Y="-67.036"/>
+            </Circle>
+            <Circle Handle="1123" ChannelPort="1" LayerName="CUT01" Radius="2.15" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="54.5" Y="-77.1"/>
+            </Circle>
+            <LwPolyline Handle="1124" ChannelPort="1" LayerName="CUT01" PointCount="4" PolyFlag="1">
+                  <ToolCompensation/>
+                  <Point X="59.004" Y="-85.036" Bulge="0.99994"/>
+                  <Point X="67.223" Y="-90.374"/>
+                  <Point X="84.924" Y="-63.117" Bulge="1.00003"/>
+                  <Point X="76.705" Y="-57.78"/>
+            </LwPolyline>
+            <Circle Handle="1125" ChannelPort="1" LayerName="CUT01" Radius="2.15" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="47" Y="-97.6"/>
+            </Circle>
+            <LwPolyline Handle="1126" ChannelPort="1" LayerName="CUT01" PointCount="4" PolyFlag="1">
+                  <ToolCompensation/>
+                  <Point X="82.4" Y="-99.85"/>
+                  <Point X="92.2" Y="-99.85"/>
+                  <Point X="92.2" Y="-106.15"/>
+                  <Point X="82.4" Y="-106.15"/>
+            </LwPolyline>
+            <LwPolyline Handle="1127" ChannelPort="1" LayerName="CUT01" PointCount="4" PolyFlag="1">
+                  <ToolCompensation/>
+                  <Point X="121.207" Y="-72.263"/>
+                  <Point X="125.945" Y="-77.001" Bulge="1"/>
+                  <Point X="126.369" Y="-76.577"/>
+                  <Point X="121.632" Y="-71.839" Bulge="1.00118"/>
+            </LwPolyline>
+            <Circle Handle="1128" ChannelPort="1" LayerName="CUT01" Radius="3" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="85.5" Y="-40.5"/>
+            </Circle>
+            <Circle Handle="1129" ChannelPort="1" LayerName="CUT01" Radius="1.65" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="156" Y="-114.5"/>
+            </Circle>
+            <LwPolyline Handle="1130" ChannelPort="1" LayerName="CUT01" PointCount="4" PolyFlag="1">
+                  <ToolCompensation/>
+                  <Point X="156.658" Y="-151.15" Bulge="-1"/>
+                  <Point X="157.258" Y="-151.15"/>
+                  <Point X="157.258" Y="-157.85" Bulge="-1"/>
+                  <Point X="156.658" Y="-157.85"/>
+            </LwPolyline>
+            <Circle Handle="1131" ChannelPort="1" LayerName="CUT01" Radius="1.65" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="156" Y="-194.5"/>
+            </Circle>
+            <LwPolyline Handle="1132" ChannelPort="1" LayerName="CUT01" PointCount="4" PolyFlag="1">
+                  <ToolCompensation/>
+                  <Point X="125.945" Y="-231.999" Bulge="-1"/>
+                  <Point X="126.369" Y="-232.423"/>
+                  <Point X="121.632" Y="-237.161" Bulge="-1.00118"/>
+                  <Point X="121.207" Y="-236.737"/>
+            </LwPolyline>
+            <LwPolyline Handle="1133" ChannelPort="1" LayerName="CUT01" PointCount="4" PolyFlag="1">
+                  <ToolCompensation/>
+                  <Point X="92.2" Y="-209.15"/>
+                  <Point X="82.4" Y="-209.15"/>
+                  <Point X="82.4" Y="-202.85"/>
+                  <Point X="92.2" Y="-202.85"/>
+            </LwPolyline>
+            <Circle Handle="1134" ChannelPort="1" LayerName="CUT01" Radius="3" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="85.5" Y="-268.5"/>
+            </Circle>
+            <Circle Handle="1135" ChannelPort="1" LayerName="CUT01" Radius="3" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="58" Y="-275.7"/>
+            </Circle>
+            <Circle Handle="1136" ChannelPort="1" LayerName="CUT01" Radius="0.9" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="18" Y="-222.6"/>
+            </Circle>
+            <Circle Handle="1137" ChannelPort="1" LayerName="CUT01" Radius="0.9" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="18" Y="-219.2"/>
+            </Circle>
+            <Circle Handle="1138" ChannelPort="1" LayerName="CUT01" Radius="0.9" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="18" Y="-215.8"/>
+            </Circle>
+            <Circle Handle="1139" ChannelPort="1" LayerName="CUT01" Radius="0.9" IsClockWise="false" StartAngle="0">
+                  <ToolCompensation/>
+                  <Center X="18" Y="-212.4"/>
+            </Circle>
+            <LwPolyline Handle="1140" ChannelPort="1" LayerName="CUT01" IsFill="true" PointCount="42" PolyFlag="1">
+                  <ToolCompensation/>
+                  <Point X="17.9" Y="-210.9"/>
+                  <Point X="17.9" Y="-204.6"/>
+                  <Point X="7.9" Y="-204.6"/>
+                  <Point X="7.9" Y="-103.9"/>
+                  <Point X="19.9" Y="-103.9"/>
+                  <Point X="19.9" Y="-44.1"/>
+                  <Point X="7.9" Y="-44.1"/>
+                  <Point X="7.9" Y="-28.2"/>
+                  <Point X="10.4" Y="-28.2"/>
+                  <Point X="10.4" Y="-17.4"/>
+                  <Point X="23.4" Y="-17.4"/>
+                  <Point X="23.4" Y="-7.9"/>
+                  <Point X="40.1" Y="-7.9"/>
+                  <Point X="40.1" Y="-18.6"/>
+                  <Point X="52.6" Y="-18.6"/>
+                  <Point X="52.6" Y="-28.2"/>
+                  <Point X="64.541" Y="-28.2"/>
+                  <Point X="71.741" Y="-35.4"/>
+                  <Point X="101.041" Y="-35.4"/>
+                  <Point X="160.6" Y="-94.959"/>
+                  <Point X="160.6" Y="-118.9"/>
+                  <Point X="170.1" Y="-118.9"/>
+                  <Point X="170.1" Y="-190.1"/>
+                  <Point X="160.6" Y="-190.1"/>
+                  <Point X="160.6" Y="-214.041"/>
+                  <Point X="101.041" Y="-273.6"/>
+                  <Point X="71.741" Y="-273.6"/>
+                  <Point X="64.541" Y="-280.8"/>
+                  <Point X="52.6" Y="-280.8"/>
+                  <Point X="52.6" Y="-290.4"/>
+                  <Point X="40.1" Y="-290.4"/>
+                  <Point X="40.1" Y="-301.1"/>
+                  <Point X="23.4" Y="-301.1"/>
+                  <Point X="23.4" Y="-291.6"/>
+                  <Point X="10.4" Y="-291.6"/>
+                  <Point X="10.4" Y="-280.8"/>
+                  <Point X="7.9" Y="-280.8"/>
+                  <Point X="7.9" Y="-230.4"/>
+                  <Point X="17.9" Y="-230.4"/>
+                  <Point X="17.9" Y="-224.1"/>
+                  <Point X="7.9" Y="-224.1"/>
+                  <Point X="7.9" Y="-210.9"/>
+            </LwPolyline>
+      </Entities>
+</LXDDocument>

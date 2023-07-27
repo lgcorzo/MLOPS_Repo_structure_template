@@ -1,0 +1,15 @@
+;ADILAS
+;Al99,308,177,0.8
+R12=0.8
+R201=0.0;lunghezza barretta utensile 1
+R202=0.0;lunghezza barretta utensile 2
+R203=0.0;lunghezza barretta utensile 3
+R21=308
+R22=177
+R23=5
+R24=5
+INITNEST
+ORIG(10,10,0)
+N3 CALL"/_n_wks_dir/_n_sheet_wpd/_n_C:/Lantek/Expert/CNC/56701_spf"
+ENDNEST
+RET

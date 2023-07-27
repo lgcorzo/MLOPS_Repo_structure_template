@@ -1,0 +1,607 @@
+REM ----- Inicio Cabecera -----
+REM CisCADPCI v1.0
+REM 22-06-22
+REM PLASMA 1 0  0.00  0.00
+REM CEBADO 2 4.00  0.00
+REM CORTE 4 0.00  1.00
+REM VACIO 1 50.00 500.00
+REM EJEZ 20.00 30.00 100.00
+REM ----- Fin Cabecera -----
+
+DIM EJEY(1)
+EJEY(1) = 1
+DIM bEjeActivo(6)
+bEjeActivo(1) = 1
+bEjeActivo(2) = 0
+bEjeActivo(3) = 0
+bEjeActivo(4) = 0
+bEjeActivo(5) = 0
+bEjeActivo(6) = 0
+DIM SepEjesY(5)
+SepEjesY(1) = 0.00
+SepEjesY(2) = 0.00
+SepEjesY(3) = 0.00
+SepEjesY(4) = 0.00
+SepEjesY(5) = 0.00
+PotRef = (0.000-MinPot)/(MaxPot-MinPot)*100.000000
+? "Sistema Iniciado"
+Empezar = 1
+Mecanizado = 0
+VECTORA[0, 1] = -156.40900000, 185.41600000 : GO
+PAUSE IDLE [0, 1]
+REM FIN INICIO
+VECTORA[0, 1] = -156.40900000, 185.41600000 : GO
+ActivarTrampilla = 1
+TrampillaStop = 0
+SPEED[2] = 30.00;
+AltTest = AltCeb
+Hist = HistCeb
+GOSUB ALTCEBADO
+GOSUB PLASMA_ON
+WAIT = 100
+SPEED[2] = VelZVacio;
+AltTest = AltCort
+Hist = HistCort
+AltVolt = 0.00
+VelZ =  1.00
+TiempoVolZ = AltVolt/VelZ
+MediaVoltAlt = 0
+ContMediaVolt = 0
+GOSUB ALTCORTE
+PreCorte = 0
+INTER = 1
+CIRCLEA[0, 1] = -155.24000000,   186.09100000, 179.97878929 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -157.62100000,   184.71600000, 90.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -99.62100000,   84.25700000, 30.00016650 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -200.08000000,   142.25700000, 180.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -99.62100000,   84.25700000, -30.00013175 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -157.62100000,   184.71600000, 89.99301211 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -155.24000000,   186.09100000, 180.02121071 : GO
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+AVANCETRAMPILLA = -421.17100000
+COMP = 0
+PAUSE IDLE [0, 1]
+GOSUB PLASMA_OFF
+CONTOURMODE = 0
+SPEED [2] = 100.00
+GOSUB ALTVACIO
+ActivarTrampilla = 0
+TrampillaStop = 0
+VECTORA[0, 1] = -108.22100000, 223.75700000 : GO: PAUSE IDLE [0, 1]
+ActivarTrampilla = 0
+TrampillaStop = 0
+SPEED[2] = 30.00;
+AltTest = AltCeb
+Hist = HistCeb
+GOSUB ALTCEBADO
+GOSUB PLASMA_ON
+WAIT = 100
+SPEED[2] = VelZVacio;
+AltTest = AltCort
+Hist = HistCort
+AltVolt = 0.00
+VelZ =  1.00
+TiempoVolZ = AltVolt/VelZ
+MediaVoltAlt = 0
+ContMediaVolt = 0
+GOSUB ALTCORTE
+PreCorte = 0
+INTER = 1
+CIRCLEA[0, 1] = -107.37100000,   223.75700000, 180.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -109.62100000,   223.75700000, 360.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -107.37100000,   223.75700000, 167.22262214 : GO
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+COMP = 0
+PAUSE IDLE [0, 1]
+GOSUB PLASMA_OFF
+CONTOURMODE = 0
+SPEED [2] = 100.00
+GOSUB ALTVACIO
+ActivarTrampilla = 0
+TrampillaStop = 0
+VECTORA[0, 1] = -88.22100000, 223.75700000 : GO: PAUSE IDLE [0, 1]
+ActivarTrampilla = 0
+TrampillaStop = 0
+SPEED[2] = 30.00;
+AltTest = AltCeb
+Hist = HistCeb
+GOSUB ALTCEBADO
+GOSUB PLASMA_ON
+WAIT = 100
+SPEED[2] = VelZVacio;
+AltTest = AltCort
+Hist = HistCort
+AltVolt = 0.00
+VelZ =  1.00
+TiempoVolZ = AltVolt/VelZ
+MediaVoltAlt = 0
+ContMediaVolt = 0
+GOSUB ALTCORTE
+PreCorte = 0
+INTER = 1
+CIRCLEA[0, 1] = -87.37100000,   223.75700000, 180.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -89.62100000,   223.75700000, 360.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -87.37100000,   223.75700000, 167.22262214 : GO
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+COMP = 0
+PAUSE IDLE [0, 1]
+GOSUB PLASMA_OFF
+CONTOURMODE = 0
+SPEED [2] = 100.00
+GOSUB ALTVACIO
+ActivarTrampilla = 0
+TrampillaStop = 0
+VECTORA[0, 1] = -88.22100000, 244.75700000 : GO: PAUSE IDLE [0, 1]
+ActivarTrampilla = 0
+TrampillaStop = 0
+SPEED[2] = 30.00;
+AltTest = AltCeb
+Hist = HistCeb
+GOSUB ALTCEBADO
+GOSUB PLASMA_ON
+WAIT = 100
+SPEED[2] = VelZVacio;
+AltTest = AltCort
+Hist = HistCort
+AltVolt = 0.00
+VelZ =  1.00
+TiempoVolZ = AltVolt/VelZ
+MediaVoltAlt = 0
+ContMediaVolt = 0
+GOSUB ALTCORTE
+PreCorte = 0
+INTER = 1
+CIRCLEA[0, 1] = -87.37100000,   244.75700000, 180.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -89.62100000,   244.75700000, 360.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -87.37100000,   244.75700000, 167.22262214 : GO
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+COMP = 0
+PAUSE IDLE [0, 1]
+GOSUB PLASMA_OFF
+CONTOURMODE = 0
+SPEED [2] = 100.00
+GOSUB ALTVACIO
+ActivarTrampilla = 0
+TrampillaStop = 0
+VECTORA[0, 1] = -108.22100000, 244.75700000 : GO: PAUSE IDLE [0, 1]
+ActivarTrampilla = 0
+TrampillaStop = 0
+SPEED[2] = 30.00;
+AltTest = AltCeb
+Hist = HistCeb
+GOSUB ALTCEBADO
+GOSUB PLASMA_ON
+WAIT = 100
+SPEED[2] = VelZVacio;
+AltTest = AltCort
+Hist = HistCort
+AltVolt = 0.00
+VelZ =  1.00
+TiempoVolZ = AltVolt/VelZ
+MediaVoltAlt = 0
+ContMediaVolt = 0
+GOSUB ALTCORTE
+PreCorte = 0
+INTER = 1
+CIRCLEA[0, 1] = -107.37100000,   244.75700000, 180.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -109.62100000,   244.75700000, 360.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -107.37100000,   244.75700000, 167.22262214 : GO
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+COMP = 0
+PAUSE IDLE [0, 1]
+GOSUB PLASMA_OFF
+CONTOURMODE = 0
+SPEED [2] = 100.00
+GOSUB ALTVACIO
+ActivarTrampilla = 0
+TrampillaStop = 0
+VECTORA[0, 1] = -108.22100000, 280.25700000 : GO: PAUSE IDLE [0, 1]
+ActivarTrampilla = 0
+TrampillaStop = 0
+SPEED[2] = 30.00;
+AltTest = AltCeb
+Hist = HistCeb
+GOSUB ALTCEBADO
+GOSUB PLASMA_ON
+WAIT = 100
+SPEED[2] = VelZVacio;
+AltTest = AltCort
+Hist = HistCort
+AltVolt = 0.00
+VelZ =  1.00
+TiempoVolZ = AltVolt/VelZ
+MediaVoltAlt = 0
+ContMediaVolt = 0
+GOSUB ALTCORTE
+PreCorte = 0
+INTER = 1
+CIRCLEA[0, 1] = -107.37100000,   280.25700000, 180.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -109.62100000,   280.25700000, 360.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -107.37100000,   280.25700000, 167.22262214 : GO
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+COMP = 0
+PAUSE IDLE [0, 1]
+GOSUB PLASMA_OFF
+CONTOURMODE = 0
+SPEED [2] = 100.00
+GOSUB ALTVACIO
+ActivarTrampilla = 0
+TrampillaStop = 0
+VECTORA[0, 1] = -88.22100000, 280.25700000 : GO: PAUSE IDLE [0, 1]
+ActivarTrampilla = 0
+TrampillaStop = 0
+SPEED[2] = 30.00;
+AltTest = AltCeb
+Hist = HistCeb
+GOSUB ALTCEBADO
+GOSUB PLASMA_ON
+WAIT = 100
+SPEED[2] = VelZVacio;
+AltTest = AltCort
+Hist = HistCort
+AltVolt = 0.00
+VelZ =  1.00
+TiempoVolZ = AltVolt/VelZ
+MediaVoltAlt = 0
+ContMediaVolt = 0
+GOSUB ALTCORTE
+PreCorte = 0
+INTER = 1
+CIRCLEA[0, 1] = -87.37100000,   280.25700000, 180.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -89.62100000,   280.25700000, 360.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -87.37100000,   280.25700000, 167.22262214 : GO
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+COMP = 0
+PAUSE IDLE [0, 1]
+GOSUB PLASMA_OFF
+CONTOURMODE = 0
+SPEED [2] = 100.00
+GOSUB ALTVACIO
+ActivarTrampilla = 0
+TrampillaStop = 0
+VECTORA[0, 1] = -40.40900000, 184.01600000 : GO: PAUSE IDLE [0, 1]
+ActivarTrampilla = 1
+TrampillaStop = 0
+SPEED[2] = 30.00;
+AltTest = AltCeb
+Hist = HistCeb
+GOSUB ALTCEBADO
+GOSUB PLASMA_ON
+WAIT = 100
+SPEED[2] = VelZVacio;
+AltTest = AltCort
+Hist = HistCort
+AltVolt = 0.00
+VelZ =  1.00
+TiempoVolZ = AltVolt/VelZ
+MediaVoltAlt = 0
+ContMediaVolt = 0
+GOSUB ALTCORTE
+PreCorte = 0
+INTER = 1
+CIRCLEA[0, 1] = -39.24000000,   183.34100000, 180.02121071 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -41.62100000,   184.71600000, 90.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -99.62100000,   84.25700000, 29.99991675 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -99.62100000,   200.25700000, 180.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -99.62100000,   84.25700000, -29.99980612 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -41.62100000,   184.71600000, 90.00698789 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -39.24000000,   183.34100000, 179.97878929 : GO
+PAUSE IDLE [0, 1]
+VelCorte = 0.00
+SPEED [0,1] = VelCorte
+AVANCETRAMPILLA = -436.71199999
+COMP = 0
+PAUSE IDLE [0, 1]
+GOSUB PLASMA_OFF
+CONTOURMODE = 0
+SPEED [2] = 100.00
+GOSUB ALTVACIO
+ActivarTrampilla = 0
+TrampillaStop = 0
+PotRef = (30.000-MinPot)/(MaxPot-MinPot)*100.000000
+VECTORA[0, 1] = -14.57300000, 168.36500000 : GO: PAUSE IDLE [0, 1]
+VelCorte = 46.67
+ActivarTrampilla = 1
+TrampillaStop = 0
+SPEED[2] = 30.00;
+AltTest = AltCeb
+Hist = HistCeb
+GOSUB ALTCEBADO
+GOSUB PLASMA_ON
+WAIT = 100
+SPEED[2] = VelZVacio;
+AltTest = AltCort
+Hist = HistCort
+AltVolt = 0.00
+VelZ =  1.00
+TiempoVolZ = AltVolt/VelZ
+MediaVoltAlt = 0
+ContMediaVolt = 0
+GOSUB ALTCORTE
+PreCorte = 0
+INTER = 0
+CIRCLEA[0, 1] = -21.15500000,   172.16500000, 179.99623029 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 46.67
+SPEED [0,1] = VelCorte
+VECTORA[0, 1] = -36.28300000, 161.16200000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+PAUSE IDLE [0, 1]
+VelCorte = 8.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -40.09400000,   163.36200000, -96.95641915 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 46.67
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -99.62100000,   84.25700000, 103.92397573 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+PAUSE IDLE [0, 1]
+VelCorte = 8.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -190.72500000,   123.00000000, -96.95724782 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 46.67
+SPEED [0,1] = VelCorte
+VECTORA[0, 1] = -222.53299999, 136.28299999 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+PAUSE IDLE [0, 1]
+VelCorte = 8.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -220.33300000,   140.09400000, -84.82652712 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 46.67
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -99.62100000,   84.25700000, -50.31925483 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+CIRCLEA[0, 1] = -139.62100000,   235.04200000, 75.14339077 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VECTORA[0, 1] = -121.02100000, 292.25700000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+PAUSE IDLE [0, 1]
+VelCorte = 8.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -116.62100000,   292.25700000, -90.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 46.67
+SPEED [0,1] = VelCorte
+VECTORA[0, 1] = -82.62100000, 296.65699999 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+PAUSE IDLE [0, 1]
+VelCorte = 8.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -82.62100000,   292.25700000, -90.00000000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 46.67
+SPEED [0,1] = VelCorte
+VECTORA[0, 1] = -78.22100000, 235.04200000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+CIRCLEA[0, 1] = -59.62100000,   235.04200000, 75.14339077 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+CIRCLEA[0, 1] = -99.62100000,   84.25700000, -20.31943210 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+PAUSE IDLE [0, 1]
+VelCorte = 8.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -23.00000000,   192.96900000, -84.81490075 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+VelCorte = 46.67
+SPEED [0,1] = VelCorte
+VECTORA[0, 1] = -27.73600000, 175.96500000 : GO
+PAUSE IDLE [0, 1]
+WAIT = 10: PAUSE IDLE
+PAUSE IDLE [0, 1]
+VelCorte = 8.00
+SPEED [0,1] = VelCorte
+CIRCLEA[0, 1] = -24.61900000,   174.16500000, 113.59324146 : GO
+PAUSE IDLE [0, 1]
+VelCorte = 46.67
+SPEED [0,1] = VelCorte
+AVANCETRAMPILLA = -570.31200000
+COMP = 0
+PAUSE IDLE [0, 1]
+GOSUB PLASMA_OFF
+CONTOURMODE = 0
+SPEED [2] = 100.00
+GOSUB ALTVACIO
+ActivarTrampilla = 0
+TrampillaStop = 0
+REM FIN A CASA

@@ -1,0 +1,148 @@
+BD
+SET_METRIC
+C
+BEGIN_EINRICHTEPLAN_INFO
+C
+ZA,MM,4
+MM,AT,1, 60,1,1,,,,,T
+MM,AT,1, 100,1,1,,,,,T
+MM,AT,1,150,1,1,,'Maschinenzeit',,'min',Z
+MM,AT,1,170,1,1,,,,,T
+ZA,DA,1
+C
+DA,01491,1,23.2,1
+C
+ENDE_EINRICHTEPLAN_INFO
+C
+BEGIN_SHEET_TECH
+C
+ZA,MM,7
+MM,AT,1,10,1,1,,,,,T
+MM,AT,1,20,1,1,,,,'mm',Z
+MM,AT,1,30,1,1,,,,'mm',Z
+MM,AT,1,40,1,1,,,,'mm',Z
+MM,AT,1,220,1,1,,,,'mm',Z
+MM,AT,1,230,1,1,,,,'mm',Z
+MM,AT,1,240,1,1,,'Materialkennung',,'',T
+C
+ZA,DA,1
+DA,'SHT-1',120.0,120.0,0.8,120.0,120.0,'Al99'
+C
+ENDE_SHEET_TECH
+C
+BEGIN_SHEET_LOAD
+C
+ZA,MM,10
+MM,AT,1,10,1,1,,'Table identifier',,,T
+MM,AT,1,500,1,1,,'Loading unit',,,Z
+MM,AT,1,620,1,1,,'Sheet stopper',,,Z
+MM,AT,1,630,1,1,,'Measure sheet position',,,Z
+MM,AT,1,640,1,1,,'Measure range in X',,'mm',Z
+MM,AT,1,650,1,1,,'Measure range in Y',,'mm',Z
+MM,AT,1,660,1,1,,'Calibration',,'Bool',Z
+MM,AT,1,690,1,1,,'Type of pallet change',,,Z
+MM,AT,1,700,1,1,,'Measuring Corner',,,Z
+MM,AT,1,710,1,1,,,,,Z
+C
+ZA,DA,1
+DA,'SHL-1',1,1,1,100.0,100.0,1,1,1,1
+C
+ENDE_SHEET_LOAD
+C
+BEGIN_LTT_CALLS
+C
+ZA,MM,1
+MM,AT,1,10,1,1,,,,,T
+C
+ZA,DA,1
+DA,'AL010MD0-N2S0-30-2'
+C
+ENDE_LTT_CALLS
+C
+BEGIN_MICROJOINT
+C
+ZA,MM,12
+MM,AT,1,  10,1,1,,'Tabellenidentifikator              ',,'',T
+MM,AT,1, 100,1,1,,'programmierte Microjoints aktiv    ',,'Bool',Z
+MM,AT,1, 110,1,1,,'automatische Microjoints aktiv     ',,'Bool',Z
+MM,AT,1, 120,1,1,,'Microjointbreite kleine Kontur     ',,'mm',Z
+MM,AT,1, 130,1,1,,'Microjointbreite mittlere Kontur   ',,'mm',Z
+MM,AT,1, 140,1,1,,'Microjointbreite grosse Kontur     ',,'mm',Z
+MM,AT,1, 150,1,1,,'Konturausdehnung min X autom. Microjoint',,'mm',Z
+MM,AT,1, 160,1,1,,'Konturausdehnung max X autom. Microjoint',,'mm',Z
+MM,AT,1, 170,1,1,,'Konturausdehnung min Y autom. Microjoint',,'mm',Z
+MM,AT,1, 180,1,1,,'Konturausdehnung max Y autom. Microjoint',,'mm',Z
+MM,AT,1, 190,1,1,,'Einstechart nach Microjoint        ',,'',Z
+MM,AT,1, 500,1,1,,'TRUMPF-Kennung                     ',,'',Z
+C
+ZA,DA,1
+DA,'MIJO-1',1,0,0,0,1,-1,-1,-1,-1,11,1
+C
+ENDE_MICROJOINT
+C
+BEGIN_PROGRAMM
+C
+ZA,MM,4
+MM,AT,1, 10,1,1,,,,,T
+MM,AT,1, 20,1,1,,,,,T
+MM,AT,1, 30,1,1,,,,,T
+MM,AT,1, 40,1,1,,,,,Z
+C
+ZA,DA,2
+DA,'L101491','UP',,
+START_TEXT
+N10G91
+N20TC_POS_LEVEL(40.0)
+N30TC_LASER_ON(9,"AL010MD0-N2S0-30-2",10,100)
+N40G01X-32.322Y32.322
+N50TC_LASER_OFF(4)
+N60X36.206Y-65.635
+N70TC_LASER_ON(9,"AL010MD0-N2S0-30-2",10,100)
+N80X-2.661Y-2.986
+N90G03X0.005Y-0.071I0.038J-0.034
+N100X32.9Y37.384I16.45J18.692
+N110X-32.9Y-37.384I-16.45J-18.692
+N120TC_LASER_OFF(4)
+N130G01X-27.586Y-31.203
+N140TC_LASER_ON(9,"AL010MD0-N2S0-30-2",10,100)
+N150X0.198Y0.499
+N160G03X-0.027Y0.065I-0.046J0.019
+N170G02X-6.235Y9.331I3.865J9.331
+N180G01Y90
+N190G02X0.1Y0.1I0.1J0
+N200G01X90
+N210G02X10.1Y-10.1I0J-10.1
+N220G01Y-90
+N230G02X-0.1Y-0.1I-0.1J0
+N240G01X-90
+N250G02X-3.865Y0.769I0J10.1
+N260TC_LASER_OFF(3)
+N270G01
+N280G90
+N290M17
+N300M02
+STOP_TEXT
+C
+DA,'01491','HP',,
+START_TEXT
+N10MSG("PROGRAM NUMBER,01491")
+N20MSG("SHEET Al99 : 120.0 x 120.0 x 0.8")
+N30G71
+N40F282000
+N50TC_PCS_PIERCE
+N60TC_POS_LEVEL(40.0)
+N70TC_SHEET_TECH("SHT-1")
+N80TC_SHEET_LOAD("SHL-1")
+N90TC_MICROJOINT("MIJO-1")
+N100 ;GOTOF ENTRY_LASER
+N110;ENTRY_LASER:
+N120;(PART NUMBER: L101491  Pieza_prueba_Maxwell NUMBER:1)
+N130G01X42.322Y77.678
+N140L101491
+N150TC_LASER_OFF(2)
+N160M30
+STOP_TEXT
+ENDE_PROGRAMM
+ED
+
+

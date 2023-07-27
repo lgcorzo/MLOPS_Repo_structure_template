@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LXDDocument>
+      <DocHeader DefaultChannel="1" HandleSeed="1101">
+            <ExtMin X="-227.235" Y="0.99589"/>
+            <ExtMax X="-0.052" Y="84.074"/>
+            <InsertBase/>
+            <HomeRef Enabled="true" RefType="4105" X="-0.052" Y="0.99589"/>
+      </DocHeader>
+      <Technical>
+            <Channels>
+                  <Channel ParamFlag="256"/>
+                  <Channel ChannelPort="1"/>
+                  <Channel ChannelPort="2"/>
+                  <Channel ChannelPort="3"/>
+                  <Channel ChannelPort="4"/>
+                  <Channel ChannelPort="5"/>
+                  <Channel ChannelPort="6"/>
+                  <Channel ChannelPort="7"/>
+                  <Channel ChannelPort="8"/>
+                  <Channel ChannelPort="9"/>
+                  <Channel ChannelPort="10"/>
+                  <Channel ChannelPort="11"/>
+                  <Channel ChannelPort="12"/>
+                  <Channel ChannelPort="13"/>
+                  <Channel ChannelPort="14"/>
+                  <Channel ChannelPort="15" ParamFlag="1792" DefPwmFreqFunc="true" DefPwmRatioFunc="true">
+                  </Channel>
+            </Channels>
+      </Technical>
+      <Viewports Handle="3" Active="1">
+            <VPort Handle="1102" Name="1">
+                  <ViewCenter/>
+                  <ViewHeight>100</ViewHeight>
+                  <AspectRatio>1</AspectRatio>
+                  <DisplayRect>
+                        <Right>1024</Right>
+                        <Bottom>768</Bottom>
+                  </DisplayRect>
+            </VPort>
+      </Viewports>
+      <TextStyles Handle="6"/>
+      <Layers Handle="5">
+            <Layer Handle="1103" Name="MARK-CUT" LayerFlag="768" Color="16777315"/>
+            <Layer Handle="1104" Name="CUT01" LayerFlag="768" Color="16777215"/>
+            <Layer Handle="1105" Name="CUT02" LayerFlag="768" Color="16777216"/>
+      </Layers>
+      <Blocks Handle="4">
+      </Blocks>
+      <Entities Handle="2">
+            <LwPolyline Handle="1100" ChannelPort="0" LayerName="CUT01" PointCount="23" PolyFlag="1">
+                  <LeadIn LeadType="1" Pos="0.00162" LeadByHole="true" Angle="2.73893" Length="76.66753" ArcRadius="0" LeadHoleR="0"/>
+                  <ToolCompensation/>
+                  <Point X="-1.001" Y="76.661" Bulge="-0.21477"/>
+                  <Point X="-73.754" Y="7.78" Bulge="1.00844"/>
+                  <Point X="-105.095" Y="1.311" Bulge="-0.15096"/>
+                  <Point X="-175.262" Y="17.579" Bulge="1.11432"/>
+                  <Point X="-188.456" Y="26.46" Bulge="-0.13447"/>
+                  <Point X="-227.235" Y="77.947"/>
+                  <Point X="-216.404" Y="78.895"/>
+                  <Point X="-216.056" Y="74.91"/>
+                  <Point X="-194.14" Y="76.827"/>
+                  <Point X="-194.488" Y="80.812"/>
+                  <Point X="-182.534" Y="81.858"/>
+                  <Point X="-139.635" Y="63.326" Bulge="0.18505"/>
+                  <Point X="-93.155" Y="61.385"/>
+                  <Point X="-77.062" Y="81.047"/>
+                  <Point X="-66.572" Y="81.965"/>
+                  <Point X="-64.062" Y="70.139"/>
+                  <Point X="-54.1" Y="71.01"/>
+                  <Point X="-53.681" Y="83.093"/>
+                  <Point X="-42.464" Y="84.074"/>
+                  <Point X="-41.708" Y="78.649" Bulge="0.64944"/>
+                  <Point X="-25.899" Y="74.116"/>
+                  <Point X="-18.048" Y="83.47"/>
+                  <Point X="-17.328" Y="75.231"/>
+            </LwPolyline>
+      </Entities>
+</LXDDocument>
