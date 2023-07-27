@@ -17,6 +17,8 @@ def test_env_properties(mock_load_env: mock, mock_getenv: mock):
         'environment_alias',
         'mlw_workspace_name',
         'localhost',
+        800,
+        'localhost',
         800
     ]
 
@@ -31,8 +33,10 @@ def test_env_properties(mock_load_env: mock, mock_getenv: mock):
     assert env.resource_group == 'resource_group'
     assert env.environment_alias == 'environment_alias'
     assert env.mlw_workspace_name == 'mlw_workspace_name'
-    assert env.host == 'localhost'
-    assert env.port == 800
+    assert env.be_host == 'localhost'
+    assert env.be_port == 800
+    assert env.fe_host == 'localhost'
+    assert env.fe_port == 800
 
 
 def test_singleton_instance():
