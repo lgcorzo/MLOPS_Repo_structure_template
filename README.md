@@ -1,4 +1,4 @@
-# Merlin.MLOPS.DatIngest
+# Project ProjectName
 
 $$\color{red}{IMPORTANT}$$
 <span style="color:red"> This table is necessary to update </span>
@@ -21,18 +21,30 @@ $$\color{red}{IMPORTANT}$$
 - [Structure of the repo](#structure-of-the-repo)
 - [testing](#testing)
 - [Keywords](#keywords)
-- [Frontend:](#frontend)
+- [Frontend](#frontend)
 - [references](#references)
 
 <!-- cspell:enable -->
 ## Introduction
 
-The goal of this project is to create a Databricks infrastructure that allows the seamless transfer of data to LANTEK MLOps system in Azure. The objective is to ensure that data can be processed, cleaned, and transformed in an efficient and automated manner, and that it can be seamlessly integrated into the MLOps system for use in machine learning models.
+TThe goal of this project is to create a Template  code example and folder structure  that make easy the initial process of starting the development of a new ML service. This template generates an example with test, notebooks and pipelines to ensure the code quality
 
 ## Scope
 
-- The scope of the project includes the creation of a Databricks infrastructure that can collect, process, and store data from various sources such as databases, cloud storage, APIs, and IoT devices.
-- The project will also involve the integration of the Databricks infrastructure with the LANTEK MLOps system in Azure, to ensure that data is available for use in machine learning models.
+- The scope of the project includes the creation of all the stages defined in the MLOPS process the get a ML model scalable and ready to be deployed in production
+
+- The docker instructions to deploy a local example for testing proposes
+
+- the code to deploy the model as a service in the cloud wit Mlflow
+
+## Objectives
+
+- The main objective of the project is to create a Databricks infrastructure that allows for the efficient transfer of data to an MLOps system in Azure.
+- The project will also aim to ensure that data is properly formatted, cleaned, and transformed into a format that is usable by machine learning algorithms.
+- The project will also aim to monitor and update the data pipeline to ensure that the data is up-to-date and accurate.
+  
+-----------------------------------------------------
+TBD
 
 -Add a service  to call [llama](https://github.com/facebookresearch/llama?fbclid=IwAR0Ngm1SeDDfj6fmSmo-C7e8ERAjUdmD2JvCnR2G_HCez4hFqQw3viCWKOg)
 
@@ -42,12 +54,6 @@ The goal of this project is to create a Databricks infrastructure that allows th
 [demo](https://huggingface.co/blog/llama2#demo)
 [demo2](https://labs.perplexity.ai/)
 inferencing endpoints hugginface [here](https://huggingface.co/docs/inference-endpoints/index)
-
-## Objectives
-
-- The main objective of the project is to create a Databricks infrastructure that allows for the efficient transfer of data to an MLOps system in Azure.
-- The project will also aim to ensure that data is properly formatted, cleaned, and transformed into a format that is usable by machine learning algorithms.
-- The project will also aim to monitor and update the data pipeline to ensure that the data is up-to-date and accurate.
 
 ## LLama 2 guides
 
@@ -152,13 +158,14 @@ pytest --cov=Code  --cov-report=xml:cov.xml
 - Data Pipeline
 - Data Monitoring
 
-## Frontend:
+## Frontend
+
 pyhton frontend with dash ( POC)
 
 professional FE:
-angular 
+angular
 
-- Angular 15 o superior. 
+- Angular 15 o superior.
 - Material Design mediante Angular Material
 - Syncfusion Angular UI: libreria de componentes
 - Jest: framework de testing
@@ -172,16 +179,16 @@ huggingface repo:
  for visio and pipelines
 <https://theaisummer.com/hugging-face-vit/>
 
-
 ProjectName MachineConfiguratorFinder
 project_name  example machine_configuration_finder
 
 delete pytest cache
-``` powershell 
-Get-ChildItem -Path . -Recurse -Directory -Filter "__pycache__" | Remove-Item -Recurse -Force
-``` 
 
-```cmd 
+``` powershell
+Get-ChildItem -Path . -Recurse -Directory -Filter "__pycache__" | Remove-Item -Recurse -Force
+```
+
+```cmd
 rmdir /s /q .pytest_cache
 
 ```

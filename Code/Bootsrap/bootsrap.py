@@ -49,10 +49,10 @@ class Helper:
 
     def rename_dir(self):
         dirname = "ProjectName"
-        src = os.path.join(self._project_directory, dirname)
+        src = os.path.join(self._project_directory)
         for path, subdirs, files in os.walk(src):
             for name in files:
-                newpath = path.replace(dir, self._project_name)
+                newpath = path.replace(dirname, self._project_name)
                 if (not (os.path.exists(newpath))):
                     os.mkdir(newpath)
                 file_path = os.path.join(path, name)
@@ -138,7 +138,8 @@ def replace_project_name(project_dir, project_name, rename_name):
         r"Pipelines/DevopsPipelines/ci_build_project_name.yaml",
         r"Notebooks/BusinessUnderstanding/BU_Project_env_init_notebook.ipynb",
         r"Makefile",
-        r"docker-compose.yml"
+        r"docker-compose.yml",
+        "README.md"
     ]
     search_pattern = f"{project_dir}/**/*.py"
     files_py = glob.glob(search_pattern, recursive=True)
