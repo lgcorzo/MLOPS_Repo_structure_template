@@ -123,13 +123,13 @@ class Helper:
         # Validate arguments
         if (os.path.isdir(self._project_directory) is False):
             raise Exception("Not a valid directory. Please provide an absolute directory path.")  # NOQA: E501
-        if (len(self._project_name) < 3 or len(self._project_name) > 15):
-            raise Exception("Invalid project name length. Project name should be 3 to 15 chars long, letters and underscores only.")  # NOQA: E501
+        if (len(self._project_name) < 3 or len(self._project_name) > 30):
+            raise Exception("Invalid project name length. Project name should be 3 to 30 chars long, letters and underscores only.")  # NOQA: E501
         if (not re.search("^[\\w_]+$", self._project_name)):
             raise Exception(
                 "Invalid characters in project name. Project name should be 3.")
-        if (not re.search("^[\\w_]+$", self._sonar_key)):
-            raise Exception("Invalid characters in project name. Project name should be 3 to 15 chars long, letters and underscores only.")  # NOQA: E501# NOQA: E501
+        if (not re.search("^[\\w_-]+$", self._sonar_key)):
+            raise Exception("Invalid characters _sonar_key. Project name should be 3 to 30 chars long, letters and underscores only.")  # NOQA: E501# NOQA: E501
 
 
 def replace_project_name(project_dir, project_name, rename_name):
