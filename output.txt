@@ -1,0 +1,266 @@
+Folder PATH listing for volume OS
+Volume serial number is 9EBF-0CEA
+C:.
+|   .dockerignore
+|   .env
+|   .gitattributes
+|   .gitignore
+|   be_entrypoint.sh
+|   docker-compose.yml
+|   Dockerfile_be
+|   Dockerfile_fe
+|   fe_entrypoint.sh
+|   Makefile
+|   output.txt
+|   README.md
+|   setup.cfg
+|   
++---.github
+|   \---workflows
+|           python-package-conda.yml
+|           
++---.pytest_cache
+|   |   .gitignore
+|   |   CACHEDIR.TAG
+|   |   README.md
+|   |   
+|   \---v
+|       \---cache
+|               stepwise
+|               
++---Code
+|   +---Application
+|   |   |   project_name_algorithm.py
+|   |   |   project_name_evaluation.py
+|   |   |   project_name_model.pkl
+|   |   |   project_name_model.py
+|   |   |   __init__.py
+|   |   |   
+|   |   +---Services
+|   |   |   |   feedback_services.py
+|   |   |   |   model_services.py
+|   |   |   |   __init__.py
+|   |   |   |   
+|   |   |   \---__pycache__
+|   |   |           feedback_services.cpython-38.pyc
+|   |   |           model_services.cpython-38.pyc
+|   |   |           __init__.cpython-38.pyc
+|   |   |           
+|   |   \---__pycache__
+|   |           project_name_algorithm.cpython-38.pyc
+|   |           project_name_evaluation.cpython-38.pyc
+|   |           project_name_model.cpython-38.pyc
+|   |           __init__.cpython-38.pyc
+|   |           
+|   +---Bootsrap
+|   |       bootsrap.py
+|   |       
+|   +---Controller
+|   |   |   app.py
+|   |   |   __init__.py
+|   |   |   
+|   |   \---__pycache__
+|   |           app.cpython-38.pyc
+|   |           __init__.cpython-38.pyc
+|   |           
+|   +---Domain
+|   |   \---Models
+|   |       |   project_name.py
+|   |       |   user_feedback.py
+|   |       |   
+|   |       \---__pycache__
+|   |               machine_configuration.cpython-38.pyc
+|   |               project_name.cpython-38.pyc
+|   |               user_feedback.cpython-38.pyc
+|   |               
+|   +---FrontEnd
+|   |   |   app.py
+|   |   |   __init__.py
+|   |   |   
+|   |   +---assets
+|   |   |       check.svg
+|   |   |       loading.json
+|   |   |       merlin.svg
+|   |   |       star.svg
+|   |   |       style.css
+|   |   |       uploadCNC.svg
+|   |   |       
+|   |   \---__pycache__
+|   |           app.cpython-38.pyc
+|   |           __init__.cpython-38.pyc
+|   |           
+|   \---Utils
+|       |   env_variables.py
+|       |   __init__.py
+|       |   
+|       \---__pycache__
+|               env_variables.cpython-38.pyc
+|               __init__.cpython-38.pyc
+|               
++---Data
+|   |   README.md
+|   |   
+|   +---Archive
+|   |       .gitkeep
+|   |       
+|   +---Core
+|   |       .gitkeep
+|   |       
+|   \---Results
+|       |   .gitkeep
+|       |   
+|       \---CNC
+|               1.NC
+|               10.CNC
+|               100.MPF
+|               1000.g
+|               1001.
++---Documentation
+|       CodeBert.pdf
+|       Convolutional Neural Networks over Tree Structures.pdf
+|       llama2.pdf
+|       UniXcoder Unified Cross-Modal Pre-training for Code Representation.pdf
+|       
++---Media
++---Notebooks
+|   +---BusinessUnderstanding
+|   |   |   BU_Project_env_init_notebook.ipynb
+|   |   |   
+|   |   \---Media
+|   |           arm_client_id.png
+|   |           arm_subscription_id.png
+|   |           jupyter_image.png
+|   |           
+|   
++---Pipelines
+|   \---DevopsPipelines
+|           ci_build_project_name.yaml
+|           
++---Scripts
+|   \---windows
+|           run_backend.bat
+|           run_boostrap.bat
+|           run_frontend.bat
+|           
++---Settings
+|   +---Code
+|   |       code_development_env.yaml
+|   |       
+|   \---Notebooks
+|       +---BusinessUnderstanding
+|       |       BU_env.yaml
+|       |       
+|       \---Experimenting
+|               Ex_env.yaml
+|               
+\---Tests
+    |   __init__.py
+    |   
+    +---Integration
+    |   +---Code
+    |   |   +---Application
+    |   |   |   +---Services
+    |   |   |   |   \---__pycache__
+    |   |   |   |           test_model_services.cpython-38-pytest-7.1.2.pyc
+    |   |   |   |           
+    |   |   |   \---__pycache__
+    |   |   |           test_project_name_model.cpython-38-pytest-7.1.2.pyc
+    |   |   |           __init__.cpython-38.pyc
+    |   |   |           
+    |   |   \---__pycache__
+    |   |           __init__.cpython-38.pyc
+    |   |           
+    |   \---__pycache__
+    |           __init__.cpython-38.pyc
+    |           
+    +---Unit
+    |   |   __init__.py
+    |   |   
+    |   +---Code
+    |   |   |   __init__.py
+    |   |   |   
+    |   |   +---Application
+    |   |   |   |   test_project_name_algorithm.py
+    |   |   |   |   test_project_name_evaluation.py
+    |   |   |   |   test_project_name_model.py
+    |   |   |   |   __init__.py
+    |   |   |   |   
+    |   |   |   +---Fixtures
+    |   |   |   |   \---CNC
+    |   |   |   |           1913.CNC
+    |   |   |   |           1914.CNC
+    |   |   |   |           1915.CNC
+    |   |   |   |           1916.CNC
+    |   |   |   |           test_cnc.txt
+    |   |   |   |           test_cnc_ext.csv
+    |   |   |   |           
+    |   |   |   +---Services
+    |   |   |   |   |   test_model_services.py
+    |   |   |   |   |   __init__.py
+    |   |   |   |   |   
+    |   |   |   |   +---Fixtures
+    |   |   |   |   |       0000.GCD
+    |   |   |   |   |       
+    |   |   |   |   \---__pycache__
+    |   |   |   |           test_model_services.cpython-38-pytest-7.1.2.pyc
+    |   |   |   |           __init__.cpython-38.pyc
+    |   |   |   |           
+    |   |   |   \---__pycache__
+    |   |   |           test_project_name_algorithm.cpython-38-pytest-7.1.2.pyc
+    |   |   |           test_project_name_evaluation.cpython-38-pytest-7.1.2.pyc
+    |   |   |           test_project_name_model.cpython-38-pytest-7.1.2.pyc
+    |   |   |           __init__.cpython-38.pyc
+    |   |   |           
+    |   |   +---Controller
+    |   |   |   |   test_app.py
+    |   |   |   |   __init__.py
+    |   |   |   |   
+    |   |   |   +---Fixtures
+    |   |   |   |       0000.GCD
+    |   |   |   |       test_cnc.txt
+    |   |   |   |       
+    |   |   |   \---__pycache__
+    |   |   |           test_app.cpython-38-pytest-7.1.2.pyc
+    |   |   |           __init__.cpython-38.pyc
+    |   |   |           
+    |   |   +---Domain
+    |   |   |   |   test_machine_configuration.py
+    |   |   |   |   test_user_feedback.py
+    |   |   |   |   __init__.py
+    |   |   |   |   
+    |   |   |   +---Fixtures
+    |   |   |   |       0000.GCD
+    |   |   |   |       
+    |   |   |   \---__pycache__
+    |   |   |           test_machine_configuration.cpython-38-pytest-7.1.2.pyc
+    |   |   |           test_user_feedback.cpython-38-pytest-7.1.2.pyc
+    |   |   |           __init__.cpython-38.pyc
+    |   |   |           
+    |   |   +---FrontEnd
+    |   |   |   |   test_app.py
+    |   |   |   |   __init__.py
+    |   |   |   |   
+    |   |   |   +---Fixtures
+    |   |   |   |       0000.GCD
+    |   |   |   |       
+    |   |   |   \---__pycache__
+    |   |   |           test_app.cpython-38-pytest-7.1.2.pyc
+    |   |   |           __init__.cpython-38.pyc
+    |   |   |           
+    |   |   +---Utils
+    |   |   |   |   test_env_variables.py
+    |   |   |   |   __init__.py
+    |   |   |   |   
+    |   |   |   \---__pycache__
+    |   |   |           test_env_variables.cpython-38-pytest-7.1.2.pyc
+    |   |   |           __init__.cpython-38.pyc
+    |   |   |           
+    |   |   \---__pycache__
+    |   |           __init__.cpython-38.pyc
+    |   |           
+    |   \---__pycache__
+    |           __init__.cpython-38.pyc
+    |           
+    \---__pycache__
+            __init__.cpython-38.pyc
+            

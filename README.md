@@ -171,6 +171,9 @@ angular
 - Jest: framework de testing
 
 ## references
+NLP
+https://medium.com/analytics-vidhya/best-nlp-algorithms-to-get-document-similarity-a5559244b23b
+https://github.com/jairNeto/warren_buffet_letters/tree/main
 
 huggingface repo:
 <https://github.com/huggingface/transformers/tree/a5cc30d72ae2dc19af534e4b35c986cc28db1275>
@@ -192,3 +195,172 @@ Get-ChildItem -Path . -Recurse -Directory -Filter "__pycache__" | Remove-Item -R
 rmdir /s /q .pytest_cache
 
 ```
+Hubert codeBert
+I’m sorry, but BERT is not suitable for comparing the documents you provided, because they are not text but code. BERT is a text-based model that relies on word or subword tokens, while your documents are composed of symbols, numbers and abbreviations that BERT cannot understand. You need a model that can handle code or speech data, such as HuBERT or CodeBERT
+
+CodeBert gives better results.
+
+
+
+microsoft/CodeBERT: The original repository of CodeBERT that includes code for pre-training, probing and downstream tasks such as code search, code summarization, code documentation generation and code clone detection.
+
+neulab/code-bert-score: CodeBERTScore: an automatic metric for evaluating the quality of generated code using CodeBERT. It can compute the semantic similarity between two code snippets in the same or different programming languages.
+
+microsoft/CodeXGLUE: CodeXGLUE: a benchmark dataset and open challenge for natural language and programming language tasks. It includes 14 tasks that cover various aspects of code understanding and generation. It uses CodeBERT as a pre-trained model for some of the tasks
+
+
+https://github.com/microsoft/CodeBERT
+
+
+
+Hubert example:
+
+``` python
+# Import libraries
+import torch
+from transformers import AutoTokenizer, AutoModel
+
+# Load huBERT model and tokenizer
+model = AutoModel.from_pretrained("microsoft/hubert-base-ls960")
+tokenizer = AutoTokenizer.from_pretrained("microsoft/hubert-base-ls960")
+
+# Define a function to compute cosine similarity between two vectors
+def cosine_similarity(x, y):
+  return torch.dot(x, y) / (torch.norm(x) * torch.norm(y))
+
+# Define a function to compare two documents using huBERT
+def compare_documents(doc1, doc2):
+  # Tokenize and encode the documents
+  input_ids1 = tokenizer(doc1, return_tensors="pt").input_ids
+  input_ids2 = tokenizer(doc2, return_tensors="pt").input_ids
+
+  # Extract the last hidden state of the [CLS] token
+  output1 = model(input_ids1).last_hidden_state[:, 0, :]
+  output2 = model(input_ids2).last_hidden_state[:, 0, :]
+
+  # Compute the cosine similarity between the outputs
+  similarity = cosine_similarity(output1, output2).item()
+
+  # Return the similarity score
+  return similarity
+
+# Test the function with two sample documents
+doc1 = "The sky is blue and the sun is shining."
+doc2 = "The weather is nice and sunny today."
+
+similarity = compare_documents(doc1, doc2)
+print(f"The similarity between the two documents is {similarity:.2f}")
+```
+
+Codebert
+https://github.com/microsoft/CodeBERT
+https://huggingface.co/microsoft/codebert-base
+
+huggingace api.
+``` python 
+import requests
+
+API_URL = "https://api-inference.huggingface.co/models/microsoft/codebert-base"
+headers = {"Authorization": "Bearer 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"}
+
+def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.json()
+	
+output = query({
+	"inputs": "Today is a sunny day and I'll get some ice cream.",
+})
+```
+
+``` python 
+# Import libraries
+import torch
+from transformers import AutoTokenizer, AutoModel
+
+# Load CodeBERT model and tokenizer
+model = AutoModel.from_pretrained("microsoft/codebert-base")
+tokenizer = AutoTokenizer.from_pretrained("microsoft/codebert-base")
+
+# Define a function to compute cosine similarity between two vectors
+def cosine_similarity(x, y):
+  return torch.dot(x, y) / (torch.norm(x) * torch.norm(y))
+
+# Define a function to compare two documents using CodeBERT
+def compare_documents(doc1, doc2):
+  # Tokenize and encode the documents
+  input_ids1 = tokenizer(doc1, return_tensors="pt").input_ids
+  input_ids2 = tokenizer(doc2, return_tensors="pt").input_ids
+
+  # Extract the last hidden state of the [CLS] token
+  output1 = model(input_ids1).last_hidden_state[:, 0, :]
+  output2 = model(input_ids2).last_hidden_state[:, 0, :]
+
+  # Compute the cosine similarity between the outputs
+  similarity = cosine_similarity(output1, output2).item()
+
+  # Return the similarity score
+  return similarity
+
+# Test the function with two sample documents
+doc1 = "The sky is blue and the sun is shining."
+doc2 = "The weather is nice and sunny today."
+
+similarity = compare_documents(doc1, doc2)
+print(f"The similarity between the two documents is {similarity:.2f}")
+
+```
+
+
+``` python
+import requests
+from transformers import AutoTokenizer
+
+# Load the CodeBERT tokenizer
+tokenizer = AutoTokenizer.from_pretrained("microsoft/codebert-base")
+
+# Define a function to compare two documents using the Hugging Face inference API
+def compare_documents(doc1, doc2):
+  # Encode the documents
+  encoded_inputs = tokenizer(text=doc1, text2=doc2, return_tensors="pt")
+
+  # Make an API request to the Hugging Face inference API
+  response = requests.post(
+    "https://api-inference.huggingface.co/models/microsoft/codebert-base",
+    json=encoded_inputs,
+  )
+
+  # Get the similarity score from the response
+  similarity = response.json()["outputs"]["last_hidden_state"]["0"]["cos_sim"]
+
+  # Return the similarity score
+  return similarity
+
+# Test the function with two sample documents
+doc1 = "The sky is blue and the sun is shining."
+doc2 = "The weather is nice and sunny today."
+
+similarity = compare_documents(doc1, doc2)
+print(f"The similarity between the two documents is {similarity:.2f}")
+
+```
+
+installation huggingface trasformers
+[transformers](https://huggingface.co/docs/transformers/index)
+
+``` bash
+
+pip install transformers
+transformers-cli download microsoft/codebert-base
+```
+
+
+edge gpt api
+https://github.com/acheong08/EdgeGPT
+
+ ``` bash
+ python3 -m pip install EdgeGPT --upgrade
+ ```
+
+
+ https://www.gradio.app/guides/quickstart
+ https://github.com/oobabooga/text-generation-webui

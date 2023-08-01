@@ -1,0 +1,19 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - ipykernel
+  - pip
+  - python  
+  - pip:
+      - transformers[torch]
+      - numpy
+      - pandas
+      - scikit-learn
+      - plotly
+      - fastparquet
+      - autopep8
+      - tqdm
+      - nbformat
+
+name: Ex_env
