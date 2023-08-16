@@ -26,6 +26,7 @@ $$\color{red}{IMPORTANT}$$
 - [mongoDB flask example:](#mongodb-flask-example)
 - [end to end  ml project](#end-to-end--ml-project)
 - [codebert finetune](#codebert-finetune)
+- [diagrams](#diagrams)
 
 <!-- cspell:enable -->
 ## Introduction
@@ -530,3 +531,25 @@ Source: Conversation with Bing, 12/08/2023
 (1) How to Calculate Cosine Similarity in Python? - GeeksforGeeks. https://www.geeksforgeeks.org/how-to-calculate-cosine-similarity-in-python/.
 (2) sklearn.metrics.pairwise.cosine_similarity — scikit-learn 1.3.0 .... https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html.
 (3) Cosine Similarity - Understanding the math and how it works? (with python). https://www.machinelearningplus.com/nlp/cosine-similarity/.
+
+
+## diagrams
+
+::: mermaid
+classDiagram
+  class ProjectNameModel {
+    -List[Any] knowledge_tokenized
+    -List[Any] knowledge_cnc_name
+    -Any pretrained_model
+    -Any pretrained_tokenizer
+    -pd.DataFrame cnc_df
+    +__init__(cnc_path) None
+    +load_pretrained_llm(llm_type) None
+    +fit(x_in, y_in) ProjectNameModel
+    +predict_probea(x_in, num_results) pd.DataFrame
+    +score(x_test, y_test) float
+    +predict(x_in) pd.Series
+  }
+
+:::
+
