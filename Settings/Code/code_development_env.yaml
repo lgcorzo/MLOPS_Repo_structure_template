@@ -22,5 +22,6 @@ dependencies:
     - autopep8
     - fastparquet
     - transformers[torch]
+    - dvc
     
 name: code_development_env

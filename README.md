@@ -174,6 +174,8 @@ angular
 - Syncfusion Angular UI: libreria de componentes
 - Jest: framework de testing
 
+path to the Frontend http://localhost:9000/frontend-service-dev/
+
 ## references
 NLP
 https://medium.com/analytics-vidhya/best-nlp-algorithms-to-get-document-similarity-a5559244b23b

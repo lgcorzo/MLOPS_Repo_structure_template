@@ -1,6 +1,8 @@
+import logging
 from typing import Any, List
 
 import pandas as pd
+import torch
 from sklearn.base import BaseEstimator
 from transformers import AutoModel, AutoTokenizer
 
@@ -14,6 +16,16 @@ names_transform = {
     'WrkRef': 'machine',
     'f_cluster': 'file',
 }
+
+
+# Define a function to compute cosine similarity between two vectors
+def cosine_similarity(x: Any, y: Any):
+    logging.info('cosine_similarity start')
+    x_norm = torch.norm(x, dim=1, keepdim=True)
+    y_norm = torch.norm(y, dim=1, keepdim=True)
+    similarity = torch.matmul(x, y.T) / (x_norm * y_norm)
+    logging.info('cosine_similarity end')
+    return similarity
 
 
 def app_jacc_metric_multiset(row: pd.DataFrame, cnc_comp: pd.Series) -> float:
@@ -40,14 +52,29 @@ class ProjectNameModel(BaseEstimator):
         self.cnc_df = read_cnc_csv(cnc_path)
 
     def load_pretrained_llm(self, llm_type: str = "microsoft/codebert-base") -> None:
+        logging.info(f'loading pretrained model {llm_type}')
         if (self.pretrained_model is None):
             self.pretrained_model = AutoModel.from_pretrained(llm_type)
+        logging.info(f'loading pretrained tokenizer {llm_type}')
         if (self.pretrained_tokenizer is None):
             self.pretrained_tokenizer = AutoTokenizer.from_pretrained(llm_type)
+        logging.info(f'{llm_type} models loaded')
+
+    def compare_documents(self, doc1, doc2) -> float:
+        logging.info('compare_documents start')
+        input_ids1 = self.pretrained_tokenizer(doc1, return_tensors="pt", max_length=512).input_ids
+        input_ids2 = self.pretrained_tokenizer(doc2, return_tensors="pt", max_length=512).input_ids
+        output1 = self.pretrained_model(input_ids1).last_hidden_state[:, 0, :]
+        output2 = self.pretrained_model(input_ids2).last_hidden_state[:, 0, :]
+        similarity = cosine_similarity(output1, output2)
+        logging.info('compare_documents finished')
+        return similarity
 
     def fit(self, x_in: [list], y_in: list):
+        logging.info('start fitting process')
         self.knowledge_tokenized = x_in
         self.knowledge_cnc_name = y_in
+        logging.info('fitting process finished')
         return self
 
     def predict_probea(self, x_in: pd.Series, num_results: int = NUM_COMP) -> pd.DataFrame:
