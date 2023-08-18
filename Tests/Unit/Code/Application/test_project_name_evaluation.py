@@ -29,9 +29,7 @@ def test_train_test_split_parts() -> None:
 
 
 @mock.patch('Code.Application.project_name_evaluation.read_file')
-@mock.patch('Code.Application.project_name_evaluation.clean_data_cncs')
-def test_load_cnc_kgram(mock_clean, mock_read_cnc):
-    mock_clean.return_value = 'asdfg'
+def test_load_cnc_kgram(mock_read_cnc):
     result_dict = load_cncs(FIXTURES_PATH, CNC_DF)
     assert mock_read_cnc.call_count == len(CNC_DF)
     assert list(result_dict.keys()) == ['1913.CNC', '1914.CNC', '1915.CNC', '1916.CNC']
