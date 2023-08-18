@@ -131,7 +131,7 @@ def test_cosine_similarity(mock_logging: mock, vectors):
 @mock.patch("Code.Application.project_name_model.logging")
 @mock.patch("Code.Application.project_name_model.cosine_similarity")
 def test_compare_documents(mock_cosine_similarity: mock,
-                           mock_logging: mock, 
+                           mock_logging: mock,
                            init_model_class_read_mocked) -> None:
     doc1 = 'ABC'
     doc2 = 'CDE'

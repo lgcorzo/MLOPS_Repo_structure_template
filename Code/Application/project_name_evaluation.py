@@ -6,7 +6,7 @@ from statistics import mean
 from tqdm import tqdm
 from typing import Tuple, Dict
 
-from Code.Application.project_name_algorithm import read_cnc_csv, clean_data_cncs, read_file
+from Code.Application.project_name_algorithm import read_cnc_csv, read_file
 from Code.Application.project_name_model import ProjectNameModel
 
 RAW_PATH = '../../Data/Results'
