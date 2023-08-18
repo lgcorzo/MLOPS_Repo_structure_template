@@ -4,7 +4,7 @@ import os
 import torch
 import pytest
 import pandas as pd
-from Code.Application.project_name_model import (ProjectNameModel, cosine_similarity)
+from Code.Application.project_name_model import (ProjectNameModel, cosine_similarity, compare_documents)
 
 
 cwd = os.path.dirname(os.path.abspath(__file__))
@@ -131,14 +131,15 @@ def test_cosine_similarity(mock_logging: mock, vectors):
 @mock.patch("Code.Application.project_name_model.logging")
 @mock.patch("Code.Application.project_name_model.cosine_similarity")
 def test_compare_documents(mock_cosine_similarity: mock,
-                           mock_logging: mock, init_model_class_read_mocked) -> None:
+                           mock_logging: mock, 
+                           init_model_class_read_mocked) -> None:
     doc1 = 'ABC'
     doc2 = 'CDE'
     model = init_model_class_read_mocked
     model.pretrained_tokenizer = MagicMock()
     model.pretrained_tokenizer().input_ids = 'test'
     model.pretrained_model = MagicMock()
-    model.compare_documents(doc1, doc2)
+    compare_documents(doc1, doc2, model)
     model.pretrained_tokenizer.assert_called_with(doc2, return_tensors="pt", max_length=512)
     model.pretrained_model.assert_called_with('test')
     mock_cosine_similarity.assert_called_once()

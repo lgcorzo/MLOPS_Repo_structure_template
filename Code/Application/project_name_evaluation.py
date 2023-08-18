@@ -20,9 +20,9 @@ cwd = os.path.dirname(os.path.abspath(__file__))
 pkl_path = os.path.join(cwd, PKL_FILE)
 
 
-def load_cnc_kgram(path_files_in: str, df: pd.DataFrame) -> dict:
+def load_cncs(path_files_in: str, df: pd.DataFrame) -> dict:
     cnc_list = df['CNC'] + df['Extension'].fillna('')
-    knowledge_dict = {cnc_name: clean_data_cncs(read_file(os.path.join(path_files_in, cnc_name)))
+    knowledge_dict = {cnc_name: read_file(os.path.join(path_files_in, cnc_name))
                       for cnc_name in cnc_list if cnc_name in os.listdir(path_files_in)}
 
     return knowledge_dict
@@ -30,7 +30,7 @@ def load_cnc_kgram(path_files_in: str, df: pd.DataFrame) -> dict:
 
 def model_fit(path_files_in: str, df: pd.DataFrame, cnc_path_in: str) -> None:
     print('---------------------------------CREATE KNOWLEDGE DATABASE-------------------------------------------------')
-    knowledge_dict = load_cnc_kgram(path_files_in, df)
+    knowledge_dict = load_cncs(path_files_in, df)
     model = ProjectNameModel(cnc_path_in)
     model.fit(list(knowledge_dict.values()), list(knowledge_dict.keys()))
     with open(pkl_path, 'wb') as file:
@@ -57,7 +57,7 @@ def create_train_test_dict(knowledge_dict: dict, df: pd.DataFrame, part_name: st
 
 
 def model_train(path_files_in: str, part_name: str, df: pd.DataFrame, cnc_path_in=cnc_path) -> float:
-    knowledge_train_dict, knowledge_test_dict = create_train_test_dict(load_cnc_kgram(path_files_in, df), df, part_name)
+    knowledge_train_dict, knowledge_test_dict = create_train_test_dict(load_cncs(path_files_in, df), df, part_name)
     model = ProjectNameModel(cnc_path_in)
     model.fit(list(knowledge_train_dict.values()), list(knowledge_train_dict.keys()))
     score = model.score(list(knowledge_test_dict.values()), list(knowledge_test_dict.keys()))

@@ -6,8 +6,8 @@ import torch
 from sklearn.base import BaseEstimator
 from transformers import AutoModel, AutoTokenizer
 
-from Code.Application.project_name_algorithm import (jacc_metric_multiset,
-                                                     read_cnc_csv)
+from Code.Application.project_name_algorithm import (
+    read_cnc_csv)
 
 NUM_COMP = 10
 names_transform = {
@@ -16,6 +16,18 @@ names_transform = {
     'WrkRef': 'machine',
     'f_cluster': 'file',
 }
+
+
+def compare_documents(doc1, doc2, model) -> float:
+    logging.info('compare_documents start')
+    input_ids1 = model.pretrained_tokenizer(doc1, return_tensors="pt", max_length=512).input_ids
+    input_ids2 = model.pretrained_tokenizer(doc2, return_tensors="pt", max_length=512).input_ids
+    output1 = model.pretrained_model(input_ids1).last_hidden_state[:, 0, :]
+    output2 = model.pretrained_model(input_ids2).last_hidden_state[:, 0, :]
+    # get the value inside
+    similarity = cosine_similarity(output1, output2).detach().numpy()[0][0]
+    logging.info('compare_documents finished')
+    return similarity
 
 
 # Define a function to compute cosine similarity between two vectors
@@ -28,8 +40,8 @@ def cosine_similarity(x: Any, y: Any):
     return similarity
 
 
-def app_jacc_metric_multiset(row: pd.DataFrame, cnc_comp: pd.Series) -> float:
-    return jacc_metric_multiset(row['cnc_db'], cnc_comp['cnc_db'])
+def app_llm_metric_multiset(row: pd.DataFrame, cnc_comp: pd.Series, model: Any) -> float:
+    return compare_documents(row['cnc_db'], cnc_comp['cnc_db'], model=model)
 
 
 def get_file_column_from_probea_results(row: pd.DataFrame) -> pd.Series:
@@ -60,31 +72,23 @@ class ProjectNameModel(BaseEstimator):
             self.pretrained_tokenizer = AutoTokenizer.from_pretrained(llm_type)
         logging.info(f'{llm_type} models loaded')
 
-    def compare_documents(self, doc1, doc2) -> float:
-        logging.info('compare_documents start')
-        input_ids1 = self.pretrained_tokenizer(doc1, return_tensors="pt", max_length=512).input_ids
-        input_ids2 = self.pretrained_tokenizer(doc2, return_tensors="pt", max_length=512).input_ids
-        output1 = self.pretrained_model(input_ids1).last_hidden_state[:, 0, :]
-        output2 = self.pretrained_model(input_ids2).last_hidden_state[:, 0, :]
-        similarity = cosine_similarity(output1, output2)
-        logging.info('compare_documents finished')
-        return similarity
-
     def fit(self, x_in: [list], y_in: list):
         logging.info('start fitting process')
+        self.load_pretrained_llm()
         self.knowledge_tokenized = x_in
         self.knowledge_cnc_name = y_in
         logging.info('fitting process finished')
         return self
 
     def predict_probea(self, x_in: pd.Series, num_results: int = NUM_COMP) -> pd.DataFrame:
+        logging.info('start predict_probea')
         df_in = pd.DataFrame()
         df_in['cnc_db'] = self.knowledge_tokenized
         df_in['f_cluster'] = self.knowledge_cnc_name
         cnc_df = self.cnc_df.copy()
         cnc_df['f_cluster'] = cnc_df['CNC'] + cnc_df['Extension'].fillna('')
 
-        df_in['metric'] = df_in.apply(app_jacc_metric_multiset, cnc_comp=x_in, axis=1)
+        df_in['metric'] = df_in.apply(app_llm_metric_multiset, cnc_comp=x_in, model=self, axis=1)
         table_dataframe_merges = pd.merge(
             df_in,
             cnc_df,
@@ -96,6 +100,7 @@ class ProjectNameModel(BaseEstimator):
                                                                     ignore_index=True).head(num_results)
 
         table_dataframe_merges_selected = table_dataframe_merges[names_transform.keys()]
+        logging.info('finish predict_probea')
         return table_dataframe_merges_selected.rename(columns=names_transform)
 
     # Revisar loop duplicado

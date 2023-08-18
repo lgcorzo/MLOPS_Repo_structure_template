@@ -3,7 +3,7 @@ import pandas as pd
 import pytest
 from unittest import mock
 from Code.Application.project_name_evaluation import model_fit, model_train, get_evaluation_results, main,\
-    load_model, train_test_split_parts, load_cnc_kgram, create_train_test_dict
+    load_model, train_test_split_parts, load_cncs, create_train_test_dict
 
 cwd = os.path.dirname(os.path.abspath(__file__))
 CSV_FILE = 'test_cnc_ext.csv'
@@ -32,7 +32,7 @@ def test_train_test_split_parts() -> None:
 @mock.patch('Code.Application.project_name_evaluation.clean_data_cncs')
 def test_load_cnc_kgram(mock_clean, mock_read_cnc):
     mock_clean.return_value = 'asdfg'
-    result_dict = load_cnc_kgram(FIXTURES_PATH, CNC_DF)
+    result_dict = load_cncs(FIXTURES_PATH, CNC_DF)
     assert mock_read_cnc.call_count == len(CNC_DF)
     assert list(result_dict.keys()) == ['1913.CNC', '1914.CNC', '1915.CNC', '1916.CNC']
 
@@ -52,7 +52,7 @@ def test_create_train_test_dict():
 
 @pytest.mark.skip(reason="testing")
 @mock.patch('Code.Application.project_name_evaluation.print')
-@mock.patch('Code.Application.project_name_evaluation.load_cnc_kgram')
+@mock.patch('Code.Application.project_name_evaluation.load_cncs')
 @mock.patch('Code.Application.project_name_evaluation.pickle')
 def test_model_fit(mock_pickle: mock, mock_load_cnc: mock, mock_print: mock):
     mock_load_cnc.return_value = {'file1.cnc': ['abc', 'bcd'],
