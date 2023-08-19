@@ -312,7 +312,7 @@ def parse_contents(contents: str) -> html.Div:
     content_type, content_string = contents.split(',')
     decoded = base64.b64decode(content_string)
     try:
-        data = str(decoded, 'utf-8')
+        data = str(decoded, 'iso-8859-1')
     except Exception as e:
         print(e)
         return html.Div([
