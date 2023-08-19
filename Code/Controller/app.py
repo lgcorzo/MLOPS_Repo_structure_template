@@ -20,7 +20,7 @@ def service_is_alive():
 @app.route('/services/model-predict', methods=['POST'])
 def get_model_predic():
     cnc_file = request.files['']
-    file_content = cnc_file.read().decode('ISO-8859-1')
+    file_content = cnc_file.read().decode('ISO-8859-1').replace('\r\n', '\n')
     return jsonify(predict_model_service(file_content))
 
 
@@ -28,8 +28,9 @@ def get_model_predic():
 def get_dash_machine_configuration():
     file_data = request.values['']
     file_content = base64.b64decode(file_data)
+
     file_string = str(file_content, 'ISO-8859-1')
-    return jsonify(predict_model_service(file_string))
+    return jsonify(predict_model_service(file_string.replace('\r\n', '\n')))
 
 
 @app.route('/services/feedback', methods=['POST'])
