@@ -1,6 +1,6 @@
 import logging
 from typing import Any, List
-
+from tqdm import tqdm
 import pandas as pd
 import torch
 from sklearn.base import BaseEstimator
@@ -18,29 +18,34 @@ names_transform = {
 }
 
 
-def compare_documents(doc1, doc2, model) -> float:
+def compare_documents(doc1, doc2, model) -> Any:
     logging.info('compare_documents start')
-    input_ids1 = model.pretrained_tokenizer(doc1, return_tensors="pt", max_length=512).input_ids
-    input_ids2 = model.pretrained_tokenizer(doc2, return_tensors="pt", max_length=512).input_ids
-    output1 = model.pretrained_model(input_ids1).last_hidden_state[:, 0, :]
-    output2 = model.pretrained_model(input_ids2).last_hidden_state[:, 0, :]
-    # get the value inside
-    similarity = cosine_similarity(output1, output2).detach().numpy()[0][0]
+    similarity = cosine_similarity(doc1, doc2).detach().numpy()[0][0]
     logging.info('compare_documents finished')
     return similarity
 
 
+def resume_document(doc1, model) -> Any:
+    logging.info('compare_documents start')
+    input_ids1 = model.pretrained_tokenizer(doc1, return_tensors="pt", max_length=512).input_ids
+    output1 = model.pretrained_model(input_ids1).last_hidden_state[:, 0, :]
+    logging.info('compare_documents finished')
+    return output1.detach().numpy()
+
+
 # Define a function to compute cosine similarity between two vectors
 def cosine_similarity(x: Any, y: Any):
+    x_torch = torch.tensor(x, dtype=torch.float64)
+    y_torch = torch.tensor(y, dtype=torch.float64)
     logging.info('cosine_similarity start')
-    x_norm = torch.norm(x, dim=1, keepdim=True)
-    y_norm = torch.norm(y, dim=1, keepdim=True)
-    similarity = torch.matmul(x, y.T) / (x_norm * y_norm)
+    x_norm = torch.norm(x_torch, dim=1, keepdim=True)
+    y_norm = torch.norm(y_torch, dim=1, keepdim=True)
+    similarity = torch.matmul(x_torch, y_torch.T) / (x_norm * y_norm)
     logging.info('cosine_similarity end')
     return similarity
 
 
-def app_llm_metric_multiset(row: pd.DataFrame, cnc_comp: pd.Series, model: Any) -> float:
+def app_llm_metric_multiset(row: pd.DataFrame, cnc_comp: pd.Series, model) -> float:
     return compare_documents(row['cnc_db'], cnc_comp['cnc_db'], model=model)
 
 
@@ -74,8 +79,10 @@ class ProjectNameModel(BaseEstimator):
 
     def fit(self, x_in: [list], y_in: list):
         logging.info('start fitting process')
+        self.knowledge_tokenized = []
         self.load_pretrained_llm()
-        self.knowledge_tokenized = x_in
+        for element in tqdm(x_in):
+            self.knowledge_tokenized.append(resume_document(doc1=element, model=self))
         self.knowledge_cnc_name = y_in
         logging.info('fitting process finished')
         return self
@@ -87,7 +94,7 @@ class ProjectNameModel(BaseEstimator):
         df_in['f_cluster'] = self.knowledge_cnc_name
         cnc_df = self.cnc_df.copy()
         cnc_df['f_cluster'] = cnc_df['CNC'] + cnc_df['Extension'].fillna('')
-
+        x_in['cnc_db'] = resume_document(doc1=x_in['cnc_db'], model=self)
         df_in['metric'] = df_in.apply(app_llm_metric_multiset, cnc_comp=x_in, model=self, axis=1)
         table_dataframe_merges = pd.merge(
             df_in,

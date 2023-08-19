@@ -5,7 +5,7 @@ class ProjectName:
 
     def __init__(self, result):
         self.uid = uuid.uuid4()
-        self.metric = result['metric'].round(2)
+        self.metric = result['metric'].round(5)
         self.post = result['post']  # Si las pandas series estan vacias ->result['post'][0]
         self.machine = result['machine']  # Si las pandas series estan vacias ->result['machine'][0]
         self.file = result['file']

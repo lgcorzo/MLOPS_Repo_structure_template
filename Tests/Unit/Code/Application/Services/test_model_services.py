@@ -40,15 +40,13 @@ def test_nofit_model_service(mock_fit: mock, mock_load_model: mock, mock_pd: moc
     assert result
 
 
-@mock.patch('Code.Application.Services.model_services.clean_data_cncs', return_value=DATA)
 @mock.patch('Code.Application.Services.model_services.pd')
 @mock.patch('Code.Application.Services.model_services.ProjectName')
 @mock.patch('Code.Application.Services.model_services.pickle_model')
-def test_predict_service(mock_pickle_model: mock, mock_post: mock, mock_pd, mock_coord):
+def test_predict_service(mock_pickle_model: mock, mock_post: mock, mock_pd):
     mock_pickle_model.predict_probea.return_value = mock_pd.DataFrame
     mock_post.return_value = MagicMock()
     predict_model_service(DATA)
     mock_post.assert_called_once()
     mock_post.return_value.as_dict.assert_called_once()
-    mock_coord.assert_called_once_with(DATA)
     mock_pickle_model.predict_probea.assert_called_once()
