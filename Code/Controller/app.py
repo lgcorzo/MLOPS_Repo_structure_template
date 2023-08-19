@@ -1,3 +1,5 @@
+import logging
+import warnings
 import base64
 
 from flask import Flask, jsonify, request, Response
@@ -7,6 +9,13 @@ from Code.Application.Services.model_services import fit_model_service, predict_
 from Code.Utils.env_variables import Env
 
 global pickle_model
+
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s-%(module)s-%(processName)s-%(threadName)s-%(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S')
+logging.getLogger(__name__).setLevel(logging.INFO)
+
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
