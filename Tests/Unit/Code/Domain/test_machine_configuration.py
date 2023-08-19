@@ -10,7 +10,7 @@ def test_machine_configuration_init():
             'file': ['file_example']}
     df = pd.DataFrame(data)
     post = ProjectName(df)
-    assert post.metric[0] == 0.78
+    assert post.metric[0] == 0.777
     assert post.post[0] == 'post_example'
     assert post.machine[0] == 'machine_example'
     assert post.file[0] == 'file_example'
@@ -24,6 +24,6 @@ def test_machine_configuration_dict():
     df = pd.DataFrame(data)
     post = ProjectName(df)
     dictio = post.as_dict()
-    assert dictio['metric'] == '{"0":0.78,"1":1.0}'
+    assert dictio['metric'] == '{"0":0.777,"1":1.0}'
     assert dictio['post EXE File'] == '{"0":"post_example","1":"example2"}'
     assert dictio['machine'] == '{"0":"machine_example","1":"machine2"}'

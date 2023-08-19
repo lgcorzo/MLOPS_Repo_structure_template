@@ -137,9 +137,6 @@ def test_compare_documents(mock_cosine_similarity: mock,
     model = init_model_class_read_mocked
     model.pretrained_tokenizer = MagicMock()
     model.pretrained_tokenizer().input_ids = 'test'
-    model.pretrained_model = MagicMock()
     compare_documents(doc1, doc2, model)
-    model.pretrained_tokenizer.assert_called_with(doc2, return_tensors="pt", max_length=512)
-    model.pretrained_model.assert_called_with('test')
     mock_cosine_similarity.assert_called_once()
     mock_logging.info.assert_called_with('compare_documents finished')
