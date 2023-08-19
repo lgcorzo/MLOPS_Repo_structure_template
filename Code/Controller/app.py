@@ -48,9 +48,11 @@ def send_feedback():
     return Response(status=200)
 
 
-fit_model_service()
+@app.before_first_request
+def init():
+    fit_model_service()
+
 
 if __name__ == '__main__':
     e = Env()
-    # fit_model_service()
     app.run(host=e.be_host, port=e.be_port)
