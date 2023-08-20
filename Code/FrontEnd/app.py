@@ -1,4 +1,6 @@
 import base64
+import logging
+import warnings
 import dash
 import dash_extensions as de
 import json
@@ -10,6 +12,11 @@ from dash import dcc, html, dash_table
 from dash.dependencies import Input, Output, State
 
 from Code.Utils.env_variables import Env
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s-%(module)s-%(processName)s-%(threadName)s-%(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S')
+logging.getLogger(__name__).setLevel(logging.INFO)
 
 
 server = flask.Flask(__name__)  # define flask app.server
@@ -312,7 +319,7 @@ def parse_contents(contents: str) -> html.Div:
     content_type, content_string = contents.split(',')
     decoded = base64.b64decode(content_string)
     try:
-        data = str(decoded, 'utf-8')
+        data = str(decoded, 'iso-8859-1')
     except Exception as e:
         print(e)
         return html.Div([

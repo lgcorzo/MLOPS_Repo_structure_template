@@ -1,3 +1,5 @@
+import logging
+import warnings
 import base64
 
 from flask import Flask, jsonify, request, Response
@@ -7,6 +9,13 @@ from Code.Application.Services.model_services import fit_model_service, predict_
 from Code.Utils.env_variables import Env
 
 global pickle_model
+
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s-%(module)s-%(processName)s-%(threadName)s-%(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S')
+logging.getLogger(__name__).setLevel(logging.INFO)
+
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
@@ -20,7 +29,7 @@ def service_is_alive():
 @app.route('/services/model-predict', methods=['POST'])
 def get_model_predic():
     cnc_file = request.files['']
-    file_content = cnc_file.read().decode('ISO-8859-1')
+    file_content = cnc_file.read().decode('ISO-8859-1').replace('\r\n', '\n')
     return jsonify(predict_model_service(file_content))
 
 
@@ -28,8 +37,9 @@ def get_model_predic():
 def get_dash_machine_configuration():
     file_data = request.values['']
     file_content = base64.b64decode(file_data)
+
     file_string = str(file_content, 'ISO-8859-1')
-    return jsonify(predict_model_service(file_string))
+    return jsonify(predict_model_service(file_string.replace('\r\n', '\n')))
 
 
 @app.route('/services/feedback', methods=['POST'])
@@ -38,9 +48,11 @@ def send_feedback():
     return Response(status=200)
 
 
-fit_model_service()
+@app.before_first_request
+def init():
+    fit_model_service()
+
 
 if __name__ == '__main__':
     e = Env()
-    # fit_model_service()
     app.run(host=e.be_host, port=e.be_port)

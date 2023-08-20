@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "01d4bcb7-3718-4daf-be0b-5e5b1eadd5eb",
+		"name": "machine-configuration-finder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9389541",
+		"_collection_link": "https://interstellar-shuttle-4586.postman.co/workspace/forescrap_test~3960f9d1-18e2-4cdf-9e0e-697a350ebdd5/collection/9389541-01d4bcb7-3718-4daf-be0b-5e5b1eadd5eb?action=share&source=collection_link&creator=9389541"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/services/machine-configuration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"services",
+						"machine-configuration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/C:/Users/l.corzo/source/repos/MachineConfigurationFinder/Data/Results/CNC/3.NC"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9001/services/model-predict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"services",
+						"model-predict"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

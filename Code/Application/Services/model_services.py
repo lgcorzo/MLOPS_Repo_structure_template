@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-from Code.Application.project_name_algorithm import read_cnc_csv, clean_data_cncs
+from Code.Application.project_name_algorithm import read_cnc_csv
 from Code.Application.project_name_evaluation import model_fit, load_model
 from Code.Domain.Models.project_name import ProjectName
 
@@ -24,7 +24,7 @@ def fit_model_service() -> bool:
 
 def predict_model_service(file_data: str) -> dict:
     global pickle_model
-    split_data = clean_data_cncs(file_data)
+    split_data = file_data
     data = {'cnc_db': split_data}
     series = pd.Series(data)
     sorted_df = pickle_model.predict_probea(series, 5)

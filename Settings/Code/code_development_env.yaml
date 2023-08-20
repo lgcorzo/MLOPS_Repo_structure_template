@@ -21,5 +21,8 @@ dependencies:
     - pyarmor
     - autopep8
     - fastparquet
+    - transformers[torch]
+    - dvc
+    - mlflow
     
 name: code_development_env
