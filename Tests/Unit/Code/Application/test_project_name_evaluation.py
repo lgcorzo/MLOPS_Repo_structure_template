@@ -3,7 +3,7 @@ import pandas as pd
 import pytest
 from unittest import mock
 from Code.Application.project_name_evaluation import model_fit, model_train, get_evaluation_results, main,\
-    load_model, train_test_split_parts, load_cncs, create_train_test_dict
+    train_test_split_parts, load_cncs, create_train_test_dict
 
 cwd = os.path.dirname(os.path.abspath(__file__))
 CSV_FILE = 'test_cnc_ext.csv'
@@ -79,12 +79,6 @@ def test_get_evaluation_results(mock_train: mock, mock_print: mock) -> None:
     mock_train.assert_called()
     mock_print.assert_called()
     assert deploy
-
-
-@mock.patch('Code.Application.project_name_evaluation.pickle')
-def test_load_model(mock_pickle: mock):
-    load_model()
-    mock_pickle.load.assert_called_once()
 
 
 @mock.patch('Code.Application.project_name_evaluation.read_cnc_csv')
