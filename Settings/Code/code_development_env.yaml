@@ -23,5 +23,6 @@ dependencies:
     - fastparquet
     - transformers[torch]
     - dvc
+    - mlflow
     
 name: code_development_env
