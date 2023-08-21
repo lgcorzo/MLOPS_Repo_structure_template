@@ -28,7 +28,7 @@ jobs:
           push: true
           tags: lanteklcorzo001/mlops-repo-structure-template-be:latest
 
-      - name: Build and push BE
+      - name: Build and push FE
         uses: docker/build-push-action@v2
         with:
             context: .
