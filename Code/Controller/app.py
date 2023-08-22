@@ -5,7 +5,7 @@ import base64
 from flask import Flask, jsonify, request, Response
 
 from Code.Application.Services.feedback_services import feedback_service
-from Code.Application.Services.model_services import fit_model_service, predict_model_service
+from Code.Application.Services.model_services import init_model_service, predict_model_service
 from Code.Utils.env_variables import Env
 
 global pickle_model
@@ -50,7 +50,7 @@ def send_feedback():
 
 @app.before_first_request
 def init():
-    fit_model_service()
+    init_model_service()
 
 
 if __name__ == '__main__':

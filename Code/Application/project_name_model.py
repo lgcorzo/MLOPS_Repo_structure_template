@@ -9,6 +9,7 @@ from transformers import AutoModel, AutoTokenizer
 from Code.Application.project_name_algorithm import (
     read_cnc_csv)
 
+
 NUM_COMP = 10
 names_transform = {
     'metric': 'metric',
@@ -18,7 +19,7 @@ names_transform = {
 }
 
 
-def compare_documents(doc1, doc2, model) -> Any:
+def compare_documents(doc1, doc2) -> Any:
     logging.info('compare_documents start')
     similarity = cosine_similarity(doc1, doc2).detach().numpy()[0][0]
     logging.info('compare_documents finished')
@@ -45,8 +46,8 @@ def cosine_similarity(x: Any, y: Any):
     return similarity
 
 
-def app_llm_metric_multiset(row: pd.DataFrame, cnc_comp: pd.Series, model) -> float:
-    return compare_documents(row['cnc_db'], cnc_comp['cnc_db'], model=model)
+def app_llm_metric_multiset(row: pd.DataFrame, cnc_comp: pd.Series) -> float:
+    return compare_documents(row['cnc_db'], cnc_comp['cnc_db'])
 
 
 def get_file_column_from_probea_results(row: pd.DataFrame) -> pd.Series:
@@ -95,7 +96,7 @@ class ProjectNameModel(BaseEstimator):
         cnc_df = self.cnc_df.copy()
         cnc_df['f_cluster'] = cnc_df['CNC'] + cnc_df['Extension'].fillna('')
         x_in['cnc_db'] = resume_document(doc1=x_in['cnc_db'], model=self)
-        df_in['metric'] = df_in.apply(app_llm_metric_multiset, cnc_comp=x_in, model=self, axis=1)
+        df_in['metric'] = df_in.apply(app_llm_metric_multiset, cnc_comp=x_in, axis=1)
         table_dataframe_merges = pd.merge(
             df_in,
             cnc_df,

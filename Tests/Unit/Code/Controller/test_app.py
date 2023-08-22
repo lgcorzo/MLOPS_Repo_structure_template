@@ -16,8 +16,8 @@ cnc_file_path = os.path.join(cwd, TEST_CNC_FILE)
 
 @mock.patch('Code.Application.Services.model_services.cnc_path', files_path)
 @mock.patch('Code.Controller.app.predict_model_service')
-@mock.patch('Code.Controller.app.fit_model_service')
-def test_predict(mock_fit_model_service: mock, mock_predict_service: mock) -> None:
+@mock.patch('Code.Controller.app.init_model_service')
+def test_predict(mock_init_model_service: mock, mock_predict_service: mock) -> None:
     mock_predict_service.return_value = {'file': '0000.GCD'}
     response = app.test_client().post('/services/' + SERVICE_ENDPOINT, data={
         '': open(cnc_file_path, 'rb')
@@ -26,13 +26,13 @@ def test_predict(mock_fit_model_service: mock, mock_predict_service: mock) -> No
     assert response.status_code == 200
     mock_predict_service.assert_called()
     assert res == {'file': '0000.GCD'}
-    mock_fit_model_service.assert_called_once()
+    mock_init_model_service.assert_called_once()
 
 
 @mock.patch('Code.Application.Services.model_services.cnc_path', files_path)
 @mock.patch('Code.Controller.app.predict_model_service')
-@mock.patch('Code.Controller.app.fit_model_service')
-def test_dash_postprocessor_post(mock_fit_model_service: mock, mock_predict_service: mock):
+@mock.patch('Code.Controller.app.init_model_service')
+def test_dash_postprocessor_post(mock_init_model_service: mock, mock_predict_service: mock):
     mock_predict_service.return_value = {'file': '0000.GCD'}
     content = open(cnc_file_path, 'r', encoding='ISO-8859-1').read()
     coded = content.encode("ascii")
@@ -46,8 +46,8 @@ def test_dash_postprocessor_post(mock_fit_model_service: mock, mock_predict_serv
     assert res == {'file': '0000.GCD'}
 
 
-@mock.patch('Code.Controller.app.fit_model_service')
-def test_service_is_alive(mock_fit_model_service: mock):
+@mock.patch('Code.Controller.app.init_model_service')
+def test_service_is_alive(mock_init_model_service: mock):
     response = app.test_client().get('/services/is-alive')
     res = json.loads(response.data.decode('utf-8'))
     assert response.status_code == 200
@@ -55,8 +55,8 @@ def test_service_is_alive(mock_fit_model_service: mock):
 
 
 @mock.patch('Code.Controller.app.feedback_service')
-@mock.patch('Code.Controller.app.fit_model_service')
-def test_send_feedback(mock_fit_model_service: mock, mock_feedback: mock):
+@mock.patch('Code.Controller.app.init_model_service')
+def test_send_feedback(mock_init_model_service: mock, mock_feedback: mock):
     exam_json = {"id": "agadsghdgshgd", "validation": True, "comments": "test successful"}
     response = app.test_client().post('/services/feedback', json=exam_json)
     assert response.status_code == 200
@@ -64,8 +64,8 @@ def test_send_feedback(mock_fit_model_service: mock, mock_feedback: mock):
 
 
 @mock.patch('Code.Controller.app.predict_model_service')
-@mock.patch('Code.Controller.app.fit_model_service')
-def test_prediction(mock_fit_model_service: mock, mock_predict: mock):
+@mock.patch('Code.Controller.app.init_model_service')
+def test_prediction(mock_init_model_service: mock, mock_predict: mock):
     mock_predict.return_value = {'file': '0000.GCD'}
     response = app.test_client().post('/services/' + SERVICE_ENDPOINT, data={
         '': open(cnc_file_path, 'rb')

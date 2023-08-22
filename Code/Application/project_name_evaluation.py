@@ -1,13 +1,17 @@
 import os
-import pandas as pd
+import logging
 import pickle
-
 from statistics import mean
+from typing import Dict, Tuple
+
+import mlflow
+from mlflow.tracking import MlflowClient
+import pandas as pd
 from tqdm import tqdm
-from typing import Tuple, Dict
 
 from Code.Application.project_name_algorithm import read_cnc_csv, read_file
 from Code.Application.project_name_model import ProjectNameModel
+from Code.Utils.env_variables import Env
 
 RAW_PATH = '../../Data/Results'
 NUM_GRAM: int = 3
@@ -29,13 +33,21 @@ def load_cncs(path_files_in: str, df: pd.DataFrame) -> dict:
 
 
 def model_fit(path_files_in: str, df: pd.DataFrame, cnc_path_in: str) -> None:
-    print('---------------------------------CREATE KNOWLEDGE DATABASE-------------------------------------------------')
-    knowledge_dict = load_cncs(path_files_in, df)
-    model = ProjectNameModel(cnc_path_in)
-    model.fit(list(knowledge_dict.values()), list(knowledge_dict.keys()))
-    with open(pkl_path, 'wb') as file:
-        pickle.dump(model, file)
-    print('---------------------------------------PKL GENERATED------------------------------------------------------')
+    logging.info('---------------------------------CREATE KNOWLEDGE DATABASE-------------------------------------------------')
+    env = Env()
+    mlflow.set_tracking_uri(env.remote_server_uri)
+    mlflow.set_experiment(env.experiment_name)
+    with mlflow.start_run(run_name=env.run_name):
+        knowledge_dict = load_cncs(path_files_in, df)
+        model = ProjectNameModel(cnc_path_in)
+        model.fit(list(knowledge_dict.values()), list(knowledge_dict.keys()))
+        mlflow.log_metric("accuracy", 1.0)
+        mlflow.sklearn.log_model(
+            model,
+            "model",
+            registered_model_name=env.registered_model_name)
+
+    logging.info('---------------------------------------PKL GENERATED------------------------------------------------------')
 
 
 def train_test_split_parts(df, part_name) -> Tuple[pd.DataFrame, pd.DataFrame]:
@@ -57,11 +69,20 @@ def create_train_test_dict(knowledge_dict: dict, df: pd.DataFrame, part_name: st
 
 
 def model_train(path_files_in: str, part_name: str, df: pd.DataFrame, cnc_path_in=cnc_path) -> float:
-    knowledge_train_dict, knowledge_test_dict = create_train_test_dict(load_cncs(path_files_in, df), df, part_name)
-    model = ProjectNameModel(cnc_path_in)
-    model.fit(list(knowledge_train_dict.values()), list(knowledge_train_dict.keys()))
-    score = model.score(list(knowledge_test_dict.values()), list(knowledge_test_dict.keys()))
-    return score
+    env = Env()
+    mlflow.set_tracking_uri(env.remote_server_uri)
+    mlflow.set_experiment(env.experiment_name)
+    with mlflow.start_run(run_name=env.run_name) as mlops_run:
+        knowledge_train_dict, knowledge_test_dict = create_train_test_dict(load_cncs(path_files_in, df), df, part_name)
+        model = ProjectNameModel(cnc_path_in)
+        model.fit(list(knowledge_train_dict.values()), list(knowledge_train_dict.keys()))
+        score = model.score(list(knowledge_test_dict.values()), list(knowledge_test_dict.keys()))
+        mlflow.log_metric("accuracy", score / 2)
+        mlflow.sklearn.log_model(
+            model,
+            "model",
+            registered_model_name=env.registered_model_name)
+    return score /2
 
 
 def get_evaluation_results(path_files_in: str, df: pd.DataFrame) -> bool:
@@ -73,10 +94,10 @@ def get_evaluation_results(path_files_in: str, df: pd.DataFrame) -> bool:
 
     result_score = mean(score)
 
-    print('-----------------------------------------------------------------------------------------------------------')
-    print('                                           Evaluating Model                                                ')
-    print('-----------------------------------------------------------------------------------------------------------')
-    print("Score: {0:.2f} %".format(100 * result_score))
+    logging.info('-----------------------------------------------------------------------------------------------------------')
+    logging.info('                                           Evaluating Model                                                ')
+    logging.info('-----------------------------------------------------------------------------------------------------------')
+    logging.info("Score: {0:.2f} %".format(100 * result_score))
 
     if result_score >= THRESHOLD_SCORE:
         deploy = True
@@ -84,13 +105,18 @@ def get_evaluation_results(path_files_in: str, df: pd.DataFrame) -> bool:
     return deploy
 
 
-def load_model() -> object:
-    # Load from file
-    if not os.path.exists(pkl_path):
-        return None
-    with open(pkl_path, 'rb') as file:
-        model = pickle.load(file)
-        return model
+def load_ml_model() -> object:
+    env = Env()
+    mlflow.set_tracking_uri(env.remote_server_uri)
+    mlflow.set_experiment(env.experiment_name)
+    client = MlflowClient()
+    for mv in client.search_model_versions(f"name='{env.registered_model_name}'"):
+        mv = dict(mv)
+        logged_model = mv["source"]
+
+    model = mlflow.sklearn.load_model(logged_model)
+
+    return model
 
 
 def main() -> None:

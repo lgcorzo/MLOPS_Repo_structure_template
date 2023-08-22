@@ -30,6 +30,10 @@ class Env(Singleton):
         self._be_port = os.getenv("BE_PORT")
         self._fe_host = os.getenv("FE_HOST")
         self._fe_port = os.getenv("FE_PORT")
+        self._experiment_name = os.getenv("EXPERIMENT_NAME")
+        self._remote_server_uri = os.getenv("MLFLOW_REMOTE_SERVER_URI")
+        self._run_name = os.getenv("RUN_NAME")
+        self._registered_model_name = os.getenv("REGISTERED_MODEL_NAME")
 
     @property
     def subscription_id(self) -> str:
@@ -82,3 +86,19 @@ class Env(Singleton):
     @property
     def fe_port(self) -> int:
         return self._fe_port
+
+    @property
+    def experiment_name(self) -> int:
+        return self._experiment_name
+
+    @property
+    def remote_server_uri(self) -> int:
+        return self._remote_server_uri
+
+    @property
+    def run_name(self) -> int:
+        return self._run_name
+
+    @property
+    def registered_model_name(self) -> int:
+        return self._registered_model_name

@@ -19,7 +19,12 @@ def test_env_properties(mock_load_env: mock, mock_getenv: mock):
         'localhost',
         800,
         'localhost',
-        800
+        800,
+        'experiment_project_name',
+        'http://127.0.0.1:1234',
+        'run_project_name',
+        'project_name_model'
+        
     ]
 
     env = Env()
