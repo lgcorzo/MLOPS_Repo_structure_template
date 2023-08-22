@@ -27,6 +27,7 @@ $$\color{red}{IMPORTANT}$$
 - [end to end  ml project](#end-to-end--ml-project)
 - [codebert finetune](#codebert-finetune)
 - [diagrams](#diagrams)
+- [mlflow feature](#mlflow-feature)
 
 <!-- cspell:enable -->
 ## Introduction
@@ -555,3 +556,7 @@ classDiagram
 
 :::
 
+
+## mlflow feature
+example of  deploying mlflow servers
+[docker_mlflow_db/docker-compose.yaml at main · aganse/docker_mlflow_db (github.com)](https://github.com/aganse/docker_mlflow_db/blob/main/docker-compose.yaml)
