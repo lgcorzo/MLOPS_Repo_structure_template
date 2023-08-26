@@ -57,7 +57,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: SonarCloud Scan
-      if: false
+      if: true
       uses: SonarSource/sonarcloud-github-action@master
       with:
         args: > 
