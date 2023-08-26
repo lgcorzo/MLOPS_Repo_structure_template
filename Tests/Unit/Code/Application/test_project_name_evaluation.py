@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import pytest
 from unittest import mock
+from unittest.mock import MagicMock
 from Code.Application.project_name_evaluation import model_fit, model_train, get_evaluation_results, main,\
     train_test_split_parts, load_cncs, create_train_test_dict
 
@@ -62,14 +63,16 @@ def test_model_fit(mock_pickle: mock, mock_load_cnc: mock, mock_print: mock):
 
 @mock.patch('Code.Application.project_name_algorithm.RAW_PATH', FIXTURES_PATH)
 @mock.patch('Code.Application.project_name_algorithm.CSV_FILE', CSV_FILE)
-def test_model_train() -> None:
+@mock.patch('Code.Application.project_name_evaluation.mlflow')
+def test_model_train(mock_mlflow: mock) -> None:
     score = model_train(FIXTURES_PATH, PART, CNC_DF, CNC_PATH)
-    assert score == 1.0
+    assert score == 0.5
+    mock_mlflow.log_metric.assert_called_with("accuracy", 0.5)
 
 
-@mock.patch('Code.Application.project_name_evaluation.print')
+@mock.patch('Code.Application.project_name_evaluation.logging')
 @mock.patch('Code.Application.project_name_evaluation.model_train')
-def test_get_evaluation_results(mock_train: mock, mock_print: mock) -> None:
+def test_get_evaluation_results(mock_train: mock, mock_logging: mock) -> None:
     data_test = {'file': ['test1', 'test2'],
                  'post': ['post.exe', 'post.exe'],
                  'PrdRefDst': ['part1', 'part2']}
@@ -77,7 +80,7 @@ def test_get_evaluation_results(mock_train: mock, mock_print: mock) -> None:
     mock_train.side_effect = [1, 0.9]
     deploy = get_evaluation_results(FIXTURES_PATH, input_df)
     mock_train.assert_called()
-    mock_print.assert_called()
+    mock_logging.info.assert_called()
     assert deploy
 
 
