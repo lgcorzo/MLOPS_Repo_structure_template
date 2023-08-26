@@ -1,14 +1,13 @@
 import logging
 from typing import Any, List
-from tqdm import tqdm
+
 import pandas as pd
 import torch
 from sklearn.base import BaseEstimator
+from tqdm import tqdm
 from transformers import AutoModel, AutoTokenizer
 
-from Code.Application.project_name_algorithm import (
-    read_cnc_csv)
-
+from Code.Application.project_name_algorithm import read_cnc_csv
 
 NUM_COMP = 10
 names_transform = {
