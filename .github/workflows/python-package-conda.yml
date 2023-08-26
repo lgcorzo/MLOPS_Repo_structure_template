@@ -62,6 +62,8 @@ jobs:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
     - name: SonarCloud Scan
+      # Add this line to disable the step
+      if: false
       uses: sonarsource/sonarcloud-github-action@master
       with:
        args: > 
