@@ -8,7 +8,6 @@ env:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
-    environment: code_develop_env
     strategy:
       max-parallel: 5
 
@@ -56,6 +55,7 @@ jobs:
       
   sonarcloud:
     runs-on: ubuntu-latest
+    environment: code_develop_env
     steps:
     - uses: actions/checkout@v3
       with:
