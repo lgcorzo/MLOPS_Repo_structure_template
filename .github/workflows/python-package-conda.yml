@@ -8,6 +8,7 @@ env:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
+    environment: code_develop_env
     strategy:
       max-parallel: 5
 
@@ -51,3 +52,18 @@ jobs:
     - name: Test with pytest
       run: |
        pytest -m "not Integration" --cov=Code --cov-report=xml  --cov-branch
+    
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: SonarCloud Scan
+      if: true
+      uses: SonarSource/sonarcloud-github-action@master
+      with:
+        args: > 
+         -Dsonar.organization=lgcorzo
+         -Dsonar.projectKey=lgcorzo_MLOPS_Repo_structure_template
+         -Dsonar.python.coverage.reportPaths=coverage.xml
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}      
