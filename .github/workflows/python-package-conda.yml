@@ -8,6 +8,7 @@ env:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
+    environment: code_develop_env
     strategy:
       max-parallel: 5
 
