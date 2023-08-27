@@ -24,5 +24,6 @@ dependencies:
     - transformers[torch]
     - dvc
     - mlflow
+    - tox
     
 name: code_development_env

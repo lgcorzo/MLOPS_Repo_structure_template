@@ -59,27 +59,4 @@ jobs:
           name: coverage-report
           path: htmlcov
       
-      - name: Download coverage report as artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: coverage-report
       
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: SonarCloud Scan
-        if: true
-        uses: SonarSource/sonarcloud-github-action@master
-        with:
-          args: > 
-            -Dsonar.organization=lgcorzo
-            -Dsonar.projectKey=lgcorzo_MLOPS_Repo_structure_template
-            -Dsonar.python.version=3
-            -Dsonar.sources=Code
-            -Dsonar.dynamicAnalysis=reuseReports
-            -Dsonar.core.codeCoveragePlugin=cobertura
-            -Dsonar.python.coverage.reportPaths=*coverage*.xml
-            -Dsonar.python.xunit.reportPath=xunit-result*.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
