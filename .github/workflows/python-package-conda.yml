@@ -74,7 +74,7 @@ jobs:
           args: > 
             -Dsonar.organization=lgcorzo
             -Dsonar.projectKey=lgcorzo_MLOPS_Repo_structure_template
-            -Dsonar.python.coverage.reportPaths=coverage.xml # Use the downloaded coverage report file instead of the absolute path 
+            -Dsonar.python.coverage.reportPaths=coverage.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
