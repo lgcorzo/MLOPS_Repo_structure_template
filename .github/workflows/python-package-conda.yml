@@ -11,7 +11,6 @@ jobs:
     environment: code_develop_env
     strategy:
       max-parallel: 5
-
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.10
@@ -39,9 +38,7 @@ jobs:
           # Add PATH to environment
           echo $CONDA/envs/${{ env.conda_environment_name }}/bin >> $GITHUB_PATH
       
-          
           conda env list
-      
       
       - name: Lint with flake8
         run: |
@@ -54,9 +51,26 @@ jobs:
           pytest -m "not Integration" -v  --cov --cov-report=xml --cov-report=html
       
       - name: Upload coverage report as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: coverage-report
           path: htmlcov
-      
+      - name: Run tox
+        run: tox -e py
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+            args: > 
+              -Dsonar.organization=lgcorzo
+              -Dsonar.projectKey=lgcorzo_MLOPS_Repo_structure_template
+              -Dsonar.python.version=3
+              -Dsonar.sources=Code
+              -Dsonar.dynamicAnalysis=reuseReports
+              -Dsonar.core.codeCoveragePlugin=cobertura
+              -Dsonar.python.coverage.reportPaths=*coverage*.xml
+              -Dsonar.python.xunit.reportPath=xunit-result*.xml
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
       
