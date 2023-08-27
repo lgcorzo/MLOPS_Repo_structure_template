@@ -48,15 +48,13 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest and generate coverage report
         run: |
-          pytest -m "not Integration" -v  --cov --cov-report=xml --cov-report=html
+          pytest -m "not Integration" --cov=Code --cov-report=xml --cov-config=tox.ini --cov-branch
       
       - name: Upload coverage report as artifact
         uses: actions/upload-artifact@v3
         with:
           name: coverage-report
-          path: htmlcov
-      - name: Run tox
-        run: tox -e py
+          path: coverage.xml
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:
