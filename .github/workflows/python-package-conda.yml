@@ -11,7 +11,6 @@ jobs:
     environment: code_develop_env
     strategy:
       max-parallel: 5
-
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.10
@@ -39,9 +38,7 @@ jobs:
           # Add PATH to environment
           echo $CONDA/envs/${{ env.conda_environment_name }}/bin >> $GITHUB_PATH
       
-          
           conda env list
-      
       
       - name: Lint with flake8
         run: |
@@ -51,35 +48,27 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest and generate coverage report
         run: |
-          pytest -m "not Integration" -v  --cov --cov-report=xml --cov-report=html
+          pytest -m "not Integration" --cov=Code --cov-report=xml --cov-config=tox.ini --cov-branch
       
       - name: Upload coverage report as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: coverage-report
-          path: htmlcov
-      
-      - name: Download coverage report as artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: coverage-report
-      
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+          path: coverage.xml
       - name: SonarCloud Scan
-        if: true
         uses: SonarSource/sonarcloud-github-action@master
         with:
-          args: > 
-            -Dsonar.organization=lgcorzo
-            -Dsonar.projectKey=lgcorzo_MLOPS_Repo_structure_template
-            -Dsonar.python.version=3
-            -Dsonar.sources=Code
-            -Dsonar.dynamicAnalysis=reuseReports
-            -Dsonar.core.codeCoveragePlugin=cobertura
-            -Dsonar.python.coverage.reportPaths=*coverage*.xml
-            -Dsonar.python.xunit.reportPath=xunit-result*.xml
+            args: > 
+              -Dsonar.organization=lgcorzo
+              -Dsonar.projectKey=lgcorzo_MLOPS_Repo_structure_template
+              -Dsonar.python.version=3
+              -Dsonar.sources=Code
+              -Dsonar.dynamicAnalysis=reuseReports
+              -Dsonar.core.codeCoveragePlugin=cobertura
+              -Dsonar.python.coverage.reportPaths=*coverage*.xml
+              -Dsonar.python.xunit.reportPath=xunit-result*.xml
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      
