@@ -13,57 +13,68 @@ jobs:
       max-parallel: 5
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.10'
-    - name: Add conda to system path
-      run: |
-        # $CONDA is an environment variable pointing to the root of the miniconda directory
-        echo $CONDA/bin >> $GITHUB_PATH
-    - name: Install dependencies
-      run: |
-        ENVS=$(conda env list | awk '{print ${{ env.conda_environment_name }}}' )
-        if [[ $ENVS = *"$conda_environment_name"* ]]; then
-          echo "Environment found, updating it..."
-          conda env update --name ${{ env.conda_environment_name }} --file Settings/Code/${{ env.conda_environment_name }}.yaml --prune
-        else
-          echo "No environment found, creating it..."
-          # Create the current environment based on environment file
-          conda env create --name ${{ env.conda_environment_name }} --file Settings/Code/${{ env.conda_environment_name }}.yaml
-        fi;
-
-        source activate ${{ env.conda_environment_name }}
-
-        # Add PATH to environment
-        echo $CONDA/envs/${{ env.conda_environment_name }}/bin >> $GITHUB_PATH
-
-        
-        conda env list
-
-
-    - name: Lint with flake8
-      run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      run: |
-       pytest -m "not Integration" --cov=Code --cov-report=xml  --cov-branch
-    
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - name: SonarCloud Scan
-      if: true
-      uses: SonarSource/sonarcloud-github-action@master
-      with:
-        args: > 
-         -Dsonar.organization=lgcorzo
-         -Dsonar.projectKey=lgcorzo_MLOPS_Repo_structure_template
-         -Dsonar.python.coverage.reportPaths=coverage.xml
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}      
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+      - name: Add conda to system path
+        run: |
+          # $CONDA is an environment variable pointing to the root of the miniconda directory
+          echo $CONDA/bin >> $GITHUB_PATH
+      - name: Install dependencies
+        run: |
+          ENVS=$(conda env list | awk '{print ${{ env.conda_environment_name }}}' )
+          if [[ $ENVS = *"$conda_environment_name"* ]]; then
+            echo "Environment found, updating it..."
+            conda env update --name ${{ env.conda_environment_name }} --file Settings/Code/${{ env.conda_environment_name }}.yaml --prune
+          else
+            echo "No environment found, creating it..."
+            # Create the current environment based on environment file
+            conda env create --name ${{ env.conda_environment_name }} --file Settings/Code/${{ env.conda_environment_name }}.yaml
+          fi;
+      
+          source activate ${{ env.conda_environment_name }}
+      
+          # Add PATH to environment
+          echo $CONDA/envs/${{ env.conda_environment_name }}/bin >> $GITHUB_PATH
+      
+          
+          conda env list
+      
+      
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Test with pytest and generate coverage report
+        run: |
+          pytest -m "not Integration" --cov=Code --cov-report=xml  --cov-branch
+      
+      - name: Upload coverage report as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: coverage.xml
+      
+      - name: Download coverage report as artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: coverage-report
+      
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: SonarCloud Scan
+        if: true
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          args: > 
+            -Dsonar.organization=lgcorzo
+            -Dsonar.projectKey=lgcorzo_MLOPS_Repo_structure_template
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
