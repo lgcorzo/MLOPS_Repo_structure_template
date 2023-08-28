@@ -57,6 +57,8 @@ class Helper:
                     os.mkdir(newpath)
                 file_path = os.path.join(path, name)
                 new_name = os.path.join(newpath, name).lower()
+                new_name = new_name.replace("\\", "/")
+                file_path = file_path.replace("\\", "/")
                 os.rename(file_path, new_name)
 
     def delete_dir(self):
