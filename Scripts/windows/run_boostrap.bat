@@ -5,7 +5,7 @@ call conda activate dataingest_localdev_env
 cd %PYTHONPATH%
 call rmdir /s /q .git
 call rmdir /s /q .github
-call python Code/Bootsrap/bootsrap.py  ^
+call python Code/Bootstrap/bootstrap.py  ^
 --directory %PYTHONPATH% ^
 --project_name "monitoring" ^
 --ProjectName "Monitoring" ^
