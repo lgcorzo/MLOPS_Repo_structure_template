@@ -80,7 +80,7 @@ class Helper:
             # "Code/Domain",
             # "Code/Application/Services",
             # "Code/Application",
-            "Code/Bootsrap"
+            "Code/Bootstrap"
         ]
         if (platform.system() == "Windows"):
             cmd = 'rmdir /S /Q "{}"'
