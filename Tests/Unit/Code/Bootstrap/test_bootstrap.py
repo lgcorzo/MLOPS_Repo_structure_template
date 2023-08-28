@@ -66,9 +66,29 @@ class HelperTestCase(unittest.TestCase):
                                       call('src/subdir1/file3.py', 'src/subdir1/file3.py'),
                                       call('src/subdir2/file4.py', 'src/subdir2/file4.py')])
 
-    def test_delete_dir(self):
-        # TODO: Write positive and negative test cases for delete_dir function
-        pass
+    @patch('os.system')
+    def test_delete_dir(self, mock_system):
+        # Set up mock data
+        expected_calls = [
+            call('rmdir /S /Q "project_directory/Data/Archive"'),
+            call('rmdir /S /Q "project_directory/Data/Core"'),
+            call('rmdir /S /Q "project_directory/Data/Results"'),
+            call('rmdir /S /Q "project_directory/Notebooks/Commissioning"'),
+            call('rmdir /S /Q "project_directory/Notebooks/DataIngestion"'),
+            call('rmdir /S /Q "project_directory/Notebooks/DataUnderstanding"'),
+            call('rmdir /S /Q "project_directory/Notebooks/Deployment"'),
+            call('rmdir /S /Q "project_directory/Notebooks/Experimenting"'),
+            call('rmdir /S /Q "project_directory/Notebooks/Modelling"'),
+            call('rmdir /S /Q "project_directory/Notebooks/Monitoring"'),
+            call('rmdir /S /Q "project_directory/Notebooks/Testing"'),
+            call('rmdir /S /Q "project_directory/Code/Bootstrap"')
+        ]
+
+        # Call the method
+        self.helper.delete_dir()
+
+        # Assert that the expected calls were made
+        mock_system.assert_has_calls(expected_calls)
 
     def test_clean_dir(self):
         # TODO: Write positive and negative test cases for clean_dir function
