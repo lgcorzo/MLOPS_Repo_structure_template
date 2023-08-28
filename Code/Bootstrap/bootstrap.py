@@ -184,12 +184,12 @@ def main(args):  # pragma: no cover
                         required=True,
                         help="Name of the project sonar key  [3-15 chars, letters and underscores only]")  # NOQA: E501
     try:
-        args = parser.parse_args()
+        args_in = parser.parse_args(args)
 
-        project_directory = args.directory
-        projectname = args.ProjectName
-        project_name = args.project_name
-        sonar_key = args.sonar_key
+        project_directory = args_in.directory
+        projectname = args_in.ProjectName
+        project_name = args_in.project_name
+        sonar_key = args_in.sonar_key
 
         helper = Helper(project_directory, project_name, projectname, sonar_key)
         helper.validate_args()
