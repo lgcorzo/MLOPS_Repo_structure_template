@@ -57,6 +57,8 @@ class Helper:
                     os.mkdir(newpath)
                 file_path = os.path.join(path, name)
                 new_name = os.path.join(newpath, name).lower()
+                new_name = new_name.replace("\\", "/")
+                file_path = file_path.replace("\\", "/")
                 os.rename(file_path, new_name)
 
     def delete_dir(self):
@@ -80,14 +82,16 @@ class Helper:
             # "Code/Domain",
             # "Code/Application/Services",
             # "Code/Application",
-            "Code/Bootsrap"
+            "Code/Bootstrap"
         ]
         if (platform.system() == "Windows"):
             cmd = 'rmdir /S /Q "{}"'
         else:
             cmd = 'rm -r "{}"'
         for dir in dirs:
-            os.system(cmd.format(os.path.join(self._project_directory, os.path.normpath(dir))))  # NOQA: E501
+            dir_path = os.path.join(self._project_directory, os.path.normpath(dir))
+            dir_path = dir_path.replace("\\", "/")
+            os.system(cmd.format(dir_path))  # NOQA: E501
 
     def clean_dir(self):
         # Clean up directories
@@ -119,7 +123,7 @@ class Helper:
                 for file in files:
                     os.remove(os.path.join(root, file))
 
-    def validate_args(self):
+    def validate_args(self):  # pragma: no cover
         # Validate arguments
         if (os.path.isdir(self._project_directory) is False):
             raise Exception("Not a valid directory. Please provide an absolute directory path.")  # NOQA: E501
@@ -132,7 +136,7 @@ class Helper:
             raise Exception("Invalid characters _sonar_key. Project name should be 3 to 30 chars long, letters and underscores only.")  # NOQA: E501# NOQA: E501
 
 
-def replace_project_name(project_dir, project_name, rename_name):
+def replace_project_name(project_dir, project_name, rename_name):  # pragma: no cover
     # Replace instances of rename_name within files with project_name
     files = [
         r"Pipelines/DevopsPipelines/ci_build_project_name.yaml",
@@ -157,7 +161,7 @@ def replace_project_name(project_dir, project_name, rename_name):
             raise e
 
 
-def main(args):
+def main(args):  # pragma: no cover
     parser = argparse.ArgumentParser(description='New proejct init')
     parser.add_argument("-d",
                         "--directory",
@@ -180,12 +184,12 @@ def main(args):
                         required=True,
                         help="Name of the project sonar key  [3-15 chars, letters and underscores only]")  # NOQA: E501
     try:
-        args = parser.parse_args()
+        args_in = parser.parse_args(args)
 
-        project_directory = args.directory
-        projectname = args.ProjectName
-        project_name = args.project_name
-        sonar_key = args.sonar_key
+        project_directory = args_in.directory
+        projectname = args_in.ProjectName
+        project_name = args_in.project_name
+        sonar_key = args_in.sonar_key
 
         helper = Helper(project_directory, project_name, projectname, sonar_key)
         helper.validate_args()
@@ -204,5 +208,5 @@ def main(args):
     return 0
 
 
-if '__main__' == __name__:
+if '__main__' == __name__:  # pragma: no cover
     sys.exit(main(sys.argv))
