@@ -560,3 +560,9 @@ classDiagram
 ## mlflow feature
 example of  deploying mlflow servers
 [docker_mlflow_db/docker-compose.yaml at main · aganse/docker_mlflow_db (github.com)](https://github.com/aganse/docker_mlflow_db/blob/main/docker-compose.yaml)
+
+
+Angular:
+https://medium.com/@dvelsner/deploying-a-simple-machine-learning-model-in-a-modern-web-application-flask-angular-docker-a657db075280
+
+
