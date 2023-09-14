@@ -6,15 +6,15 @@ services:
       environment:
         BE_PORT: 8001
         BE_HOST: 173.31.1.7  
-        RUN_NAME: 'run_project_name'
-        EXPERIMENT_NAME: 'experiment_project_name'
-        MLFLOW_REMOTE_SERVER_URI: 'http://127.0.0.1:1234'
-        REGISTERED_MODEL_NAME: 'project_name_model'
+        RUN_NAME: run_project_name
+        EXPERIMENT_NAME: experiment_project_name
+        MLFLOW_REMOTE_SERVER_URI: http://173.31.1.7:1234
+        REGISTERED_MODEL_NAME: project_name_model
       ports:
         - "9101:8001"
         - "9102:1234"
       volumes:
-        - ../Data:/landing
+        - pg_data:/BackEnd/artifacts/
       networks:
         servnet:
           ipv4_address: 173.31.1.7
@@ -28,7 +28,7 @@ services:
         FE_PORT: 8000
         FE_HOST: 173.31.1.8
         BE_PORT: 8001
-        BE_HOST : 173.31.1.7
+        BE_HOST: 173.31.1.7
       ports:
         - "9100:8000"
       extra_hosts:
