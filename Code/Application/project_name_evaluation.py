@@ -82,7 +82,7 @@ def model_train(path_files_in: str, part_name: str, df: pd.DataFrame, cnc_path_i
             model,
             "model",
             registered_model_name=env.registered_model_name)
-    return score /2
+    return score / 2
 
 
 def get_evaluation_results(path_files_in: str, df: pd.DataFrame) -> bool:
@@ -114,7 +114,11 @@ def load_ml_model() -> object:
         mv = dict(mv)
         logged_model = mv["source"]
 
-    model = mlflow.sklearn.load_model(logged_model)
+    try:
+        model = mlflow.sklearn.load_model(logged_model)
+    except IOError:
+        print('Model not found')
+        model = None
 
     return model
 

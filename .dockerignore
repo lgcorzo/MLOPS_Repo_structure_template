@@ -12,3 +12,4 @@ logs/
 *.md
 .cache
 .env
+artifacts/

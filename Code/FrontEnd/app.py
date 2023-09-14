@@ -95,7 +95,7 @@ dash_html_layout = html.Div(
 
             html.Div(id='logo', children=[
                 html.Img(src=merlin_icon_img),
-                html.H1(children='fronted POC for testing ProjectName'),
+                html.H1(children='frontend POC for testing ProjectName'),
                 html.P('BETA')
             ]),
             html.Button("Send", id="send-button-id", disabled=True)

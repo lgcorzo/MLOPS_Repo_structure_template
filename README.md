@@ -561,8 +561,16 @@ classDiagram
 example of  deploying mlflow servers
 [docker_mlflow_db/docker-compose.yaml at main · aganse/docker_mlflow_db (github.com)](https://github.com/aganse/docker_mlflow_db/blob/main/docker-compose.yaml)
 
+``` bash
+mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host 0.0.0.0 -p 1234
+```
+
 
 Angular:
 https://medium.com/@dvelsner/deploying-a-simple-machine-learning-model-in-a-modern-web-application-flask-angular-docker-a657db075280
+
+https://www.blog.brightcoding.dev/2023/06/30/building-powerful-chat-applications-with-angular-and-chatgpt-a-step-by-step-guide/
+
+https://github.com/alenkvakic/angular-chatgpt
 
 
