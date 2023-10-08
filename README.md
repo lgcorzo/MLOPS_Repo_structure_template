@@ -28,6 +28,7 @@ $$\color{red}{IMPORTANT}$$
 - [codebert finetune](#codebert-finetune)
 - [diagrams](#diagrams)
 - [mlflow feature](#mlflow-feature)
+- [Architecture:](#architecture)
 
 <!-- cspell:enable -->
 ## Introduction
@@ -572,5 +573,9 @@ https://medium.com/@dvelsner/deploying-a-simple-machine-learning-model-in-a-mode
 https://www.blog.brightcoding.dev/2023/06/30/building-powerful-chat-applications-with-angular-and-chatgpt-a-step-by-step-guide/
 
 https://github.com/alenkvakic/angular-chatgpt
+
+## Architecture:
+
+
 
 

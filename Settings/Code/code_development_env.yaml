@@ -1,22 +1,22 @@
+name: code_development_env
 channels:
   - conda-forge
-  - defaults
 dependencies:
-  - python=3.8.16
-  - pip=20.2.4
+  - python=3.10.13
+  - pip
   - pip:
-    - dash==2.6.2
-    - dash-extensions==0.0.13
+    - dash==2.13.0
+    - dash-extensions==1.0.4
     - flake8
-    - flask==2.2.2
-    - numpy==1.23.3
-    - pandas==1.5.0
-    - pytest==7.1.2
-    - pytest-cov==3.0.0
-    - python-dotenv==1.0.0
-    - requests==2.28.1
-    - scikit-learn==1.1.2
-    - tqdm==4.64.0
+    - flask
+    - numpy
+    - pandas==2.1.1
+    - pytest
+    - pytest-cov
+    - python-dotenv
+    - requests
+    - scikit-learn
+    - tqdm
     - gunicorn
     - pyarmor
     - autopep8
@@ -25,5 +25,4 @@ dependencies:
     - dvc
     - mlflow
     - tox
-    
-name: code_development_env
+  

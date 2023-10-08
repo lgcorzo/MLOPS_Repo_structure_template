@@ -1,6 +1,5 @@
 import os
 import logging
-import pickle
 from statistics import mean
 from typing import Dict, Tuple
 
@@ -107,6 +106,7 @@ def get_evaluation_results(path_files_in: str, df: pd.DataFrame) -> bool:
 
 def load_ml_model() -> object:
     env = Env()
+    logged_model = None
     mlflow.set_tracking_uri(env.remote_server_uri)
     mlflow.set_experiment(env.experiment_name)
     client = MlflowClient()
@@ -114,10 +114,9 @@ def load_ml_model() -> object:
         mv = dict(mv)
         logged_model = mv["source"]
 
-    try:
+    if logged_model:
         model = mlflow.sklearn.load_model(logged_model)
-    except IOError:
-        print('Model not found')
+    else:
         model = None
 
     return model
