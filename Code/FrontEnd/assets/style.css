@@ -215,7 +215,7 @@ body .dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner t
 }
 
 .dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner table tr:nth-of-type(2) td:nth-of-type(1){
-    background:url("/machine-configuration-finder/assets/star.svg") 8px center no-repeat;
+    background:url("/frontend-service-dev/assets/star.svg") 8px center no-repeat;
 }
 
 .dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner td, .dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner th{
