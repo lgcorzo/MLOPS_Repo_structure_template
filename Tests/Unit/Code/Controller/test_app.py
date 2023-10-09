@@ -73,10 +73,10 @@ def test_send_feedback(mock_init_model_service: mock, mock_feedback: mock, clien
 @mock.patch('Code.Controller.app.init_model_service')
 def test_prediction(mock_init_model_service: mock, mock_predict: mock, client: TestClient):
     mock_predict.return_value = {'file': '0000.GCD'}
-    response = client.post('/services/' + SERVICE_ENDPOINT, data={
-        '': open(cnc_file_path, 'rb')
+    response = client.post('/services/' + SERVICE_ENDPOINT, files={
+        'cnc_file': open(cnc_file_path, 'rb')
     })
     assert response.status_code == 200
     res = json.loads(response.content.decode('utf-8'))
     mock_predict.assert_called()
-    assert res == {'file': '0000.GCD'}
+    assert res == {'file_data': '0000.GCD'}
