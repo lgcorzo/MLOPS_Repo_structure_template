@@ -72,7 +72,7 @@ def test_send_feedback(mock_init_model_service: mock, mock_feedback: mock, clien
 @mock.patch('Code.Controller.app.predict_model_service')
 @mock.patch('Code.Controller.app.init_model_service')
 def test_prediction(mock_init_model_service: mock, mock_predict: mock, client: TestClient):
-    mock_predict.return_value = {'file': '0000.GCD'}
+    mock_predict.return_value = {'file_data': '0000.GCD'}
     response = client.post('/services/' + SERVICE_ENDPOINT, files={
         'cnc_file': open(cnc_file_path, 'rb')
     })
