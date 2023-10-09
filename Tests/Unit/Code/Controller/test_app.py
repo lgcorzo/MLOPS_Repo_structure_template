@@ -38,23 +38,24 @@ def test_predict(mock_predict_service: mock, client: TestClient) -> None:
 @mock.patch('Code.Controller.app.predict_model_service')
 @mock.patch('Code.Controller.app.init_model_service')
 def test_dash_postprocessor_post(mock_init_model_service: mock, mock_predict_service: mock, client: TestClient):
-    mock_predict_service.return_value = {'file': '0000.GCD'}
+    mock_predict_service.return_value = {'file_data': '0000.GCD'}
     content = open(cnc_file_path, 'r', encoding='ISO-8859-1').read()
     coded = content.encode("ascii")
     file_content = base64.b64encode(coded)
+    file_string = str(file_content, 'ISO-8859-1')
     response = client.post('/services/dash-model-predict', data={
-        '': file_content
+        "file_data": file_string
     })
-    res = json.loads(response.data.decode('utf-8'))
+    res = json.loads(response.content.decode('utf-8'))
     assert response.status_code == 200
     mock_predict_service.assert_called()
-    assert res == {'file': '0000.GCD'}
+    assert res == {'file_data': '0000.GCD'}
 
 
 @mock.patch('Code.Controller.app.init_model_service')
 def test_service_is_alive(mock_init_model_service: mock, client: TestClient):
     response = client.get('/services/is-alive')
-    res = json.loads(response.data.decode('utf-8'))
+    res = json.loads(response.content.decode('utf-8'))
     assert response.status_code == 200
     assert res['status'] == 'alive!'
 
@@ -76,6 +77,6 @@ def test_prediction(mock_init_model_service: mock, mock_predict: mock, client: T
         '': open(cnc_file_path, 'rb')
     })
     assert response.status_code == 200
-    res = json.loads(response.data.decode('utf-8'))
+    res = json.loads(response.content.decode('utf-8'))
     mock_predict.assert_called()
     assert res == {'file': '0000.GCD'}
