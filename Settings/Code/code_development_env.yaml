@@ -25,4 +25,8 @@ dependencies:
     - dvc
     - mlflow
     - tox
+    - uvicorn
+    - fastapi
+    - python-multipart
+
   
