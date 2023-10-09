@@ -11,6 +11,4 @@ echo "Starting mlflow..."
 mlflow server --backend-store-uri sqlite:///artifacts/mlflow.db --default-artifact-root ./artifacts --host $BE_HOST -p 1234 &
 
 echo "Starting backend..."
-uvicorn Code.Controller.app:app --host $BE_HOST --port $BE_PORT --workers 4 --proxy-headers
-
-
+uvicorn Code.Controller.app:app --host $BE_HOST --port $BE_PORT --workers 1 --proxy-headers
