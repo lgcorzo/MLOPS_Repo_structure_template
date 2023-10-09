@@ -28,5 +28,6 @@ dependencies:
     - uvicorn
     - fastapi
     - python-multipart
+    - httpx
 
   
