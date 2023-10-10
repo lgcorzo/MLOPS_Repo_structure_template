@@ -1,12 +1,20 @@
 import base64
 import os
-
-from dash import dash, html
 from unittest import mock
-from Code.FrontEnd.app import parse_contents, load_result_table, dash_app_layout, \
-    register_dash_callback, update_output, configure_dash_app, update_comment, get_style_data_conditional, \
-    confirm_output, animation_output, register_dash_animation_callback, register_dash_confirm_callback, \
-    register_dash_comment_update_callback
+from unittest.mock import MagicMock, patch
+
+import pytest
+from dash import dash, html
+
+from Code.FrontEnd.app import (animation_output, configure_dash_app,
+                               confirm_output, dash_app_layout,
+                               get_style_data_conditional, load_result_table,
+                               parse_contents,
+                               register_dash_animation_callback,
+                               register_dash_callback,
+                               register_dash_comment_update_callback,
+                               register_dash_confirm_callback, update_comment,
+                               update_output)
 
 TEST_CNC_FILE = 'Fixtures/0000.GCD'
 
@@ -21,6 +29,30 @@ path_comp = os.path.join(cwd, TEST_CNC_FILE)
 class ResponseFixture:
     def __init__(self, text):
         self.text = text
+
+
+@pytest.fixture
+def mock_callback_context():
+    with patch('dash.callback_context') as mock:
+        yield mock
+
+
+def test_update_comment_positive(mock_callback_context):
+    mock_callback_context.triggered = [{'prop_id': 'data_table_info.active_cell'}]
+    value = {'row': 'col1'}
+    expected_output = 'dict_values([1])'
+
+    result = update_comment(value)
+    assert result == expected_output
+
+
+def test_update_comment_negative(mock_callback_context):
+    mock_callback_context.triggered = [{'prop_id': 'other_prop_id'}]
+    value = {'row': 'col1'}
+    expected_output = ""
+
+    result = update_comment(value)
+    assert result == expected_output
 
 
 @mock.patch('Code.FrontEnd.app.dash_html_layout', html.Div())
