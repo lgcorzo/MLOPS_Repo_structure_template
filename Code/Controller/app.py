@@ -1,12 +1,24 @@
 import logging
 import warnings
 import base64
-
-from flask import Flask, jsonify, request, Response
+import uvicorn
+import json
+from fastapi import FastAPI, File, Form, Response
+from fastapi.responses import JSONResponse
 
 from Code.Application.Services.feedback_services import feedback_service
 from Code.Application.Services.model_services import init_model_service, predict_model_service
 from Code.Utils.env_variables import Env
+
+from uuid import UUID
+
+
+class UUIDEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, UUID):
+            return str(obj)
+        return super().default(obj)
+
 
 global pickle_model
 
@@ -17,42 +29,43 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s-%(module)s-%(process
 logging.getLogger(__name__).setLevel(logging.INFO)
 
 
-app = Flask(__name__)
-app.config['JSON_SORT_KEYS'] = False
+app = FastAPI()
 
 
-@app.route('/services/is-alive', methods=['GET'])
+@app.get('/services/is-alive')
 def service_is_alive():
-    return jsonify({'status': 'alive!'})
+    return JSONResponse({'status': 'alive!'})
 
 
-@app.route('/services/model-predict', methods=['POST'])
-def get_model_predic():
-    cnc_file = request.files['']
-    file_content = cnc_file.read().decode('ISO-8859-1').replace('\r\n', '\n')
-    return jsonify(predict_model_service(file_content))
+@app.post('/services/model-predict')
+def get_model_predic(cnc_file: bytes = File(...)):
+    file_content = cnc_file.decode('ISO-8859-1').replace('\r\n', '\n')
+    reponse_remote = predict_model_service(file_content)
+    reponse_json = json.dumps(reponse_remote, cls=UUIDEncoder)
+    reponse_json = json.loads(reponse_json)
+    return JSONResponse(reponse_json)
 
 
-@app.route('/services/dash-model-predict', methods=['POST'])
-def get_dash_machine_configuration():
-    file_data = request.values['']
+@app.post('/services/dash-model-predict')
+def get_dash_machine_configuration(file_data: str = Form(...)):
     file_content = base64.b64decode(file_data)
-
     file_string = str(file_content, 'ISO-8859-1')
-    return jsonify(predict_model_service(file_string.replace('\r\n', '\n')))
+    reponse_remote = predict_model_service(file_string.replace('\r\n', '\n'))
+    reponse_json = json.loads(json.dumps(reponse_remote, cls=UUIDEncoder))
+    return JSONResponse(reponse_json)
 
 
-@app.route('/services/feedback', methods=['POST'])
-def send_feedback():
-    feedback_service(request.json)
-    return Response(status=200)
+@app.post('/services/feedback')
+def send_feedback(feedback: dict):
+    feedback_service(feedback)
+    return Response(status_code=200)
 
 
-@app.before_first_request
+@app.on_event('startup')
 def init():
     init_model_service()
 
 
 if __name__ == '__main__':
     e = Env()
-    app.run(host=e.be_host, port=e.be_port)
+    uvicorn.run(app, host=e.be_host, port=int(e.be_port))

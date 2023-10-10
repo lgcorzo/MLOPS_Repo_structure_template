@@ -95,7 +95,7 @@ dash_html_layout = html.Div(
 
             html.Div(id='logo', children=[
                 html.Img(src=merlin_icon_img),
-                html.H1(children='fronted POC for testing ProjectName'),
+                html.H1(children='frontend POC for testing ProjectName'),
                 html.P('BETA')
             ]),
             html.Button("Send", id="send-button-id", disabled=True)
@@ -159,11 +159,11 @@ def configure_dash_app(services_url: str) -> dash.Dash:
 def update_comment(value) -> str:
     changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
 
-    if 'comment-textarea' in changed_id:
+    if 'data_table_info.active_cell' in changed_id:
         global user_comment_str
-        user_comment_str = value
+        user_comment_str = str(final_table.data[value['row']].values())
 
-    return value
+    return user_comment_str
 
 
 def get_style_data_conditional(selected_rows: list = []) -> list:
@@ -242,7 +242,7 @@ def update_output(list_of_contents: list, list_of_names: list, n_cli_button: any
 
     if 'find-button-id' in changed_id and children:
         content_type, content_string = list_of_contents[0].split(',')
-        response = requests.post(machine_config_service_url, data={'': content_string})
+        response = requests.post(machine_config_service_url, data={"file_data": content_string})
         jason = json.loads(response.text)
         global smart_id
         smart_id = jason.pop('id')
@@ -312,7 +312,7 @@ def register_dash_confirm_callback(dash_app: dash.Dash, function: object):
 def register_dash_comment_update_callback(dash_app: dash.Dash, function: object):
     dash_app.callback(
         Output('comment-textarea', 'value'),
-        Input('comment-textarea', 'value'))(function)
+        Input('data_table_info', 'active_cell'))(function)
 
 
 def parse_contents(contents: str) -> html.Div:
@@ -361,7 +361,7 @@ def crete_service_url() -> dash.Dash:
     return configure_dash_app(services_url)
 
 
-def main():
+def main(): # pragma: no cover
     e = Env()
     app.run_server(host=e.fe_host, port=e.fe_port, debug=False)
 
