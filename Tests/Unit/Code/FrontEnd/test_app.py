@@ -37,19 +37,19 @@ def mock_callback_context():
         yield mock
 
 
-def test_update_comment_positive(mock_callback_context):
-    mock_callback_context.triggered = [{'prop_id': 'data_table_info.active_cell'}]
+def test_update_comment_negative(mock_callback_context):
+    mock_callback_context.triggered = [{'prop_id': 'other_prop_id'}]
     value = {'row': 'col1'}
-    expected_output = 'dict_values([1])'
+    expected_output = ''
 
     result = update_comment(value)
     assert result == expected_output
 
 
-def test_update_comment_negative(mock_callback_context):
-    mock_callback_context.triggered = [{'prop_id': 'other_prop_id'}]
+def test_update_comment_positive(mock_callback_context):
+    mock_callback_context.triggered = [{'prop_id': 'data_table_info.active_cell'}]
     value = {'row': 'col1'}
-    expected_output = ""
+    expected_output = 'dict_values([1])'
 
     result = update_comment(value)
     assert result == expected_output
