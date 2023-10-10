@@ -24,7 +24,7 @@ def client():
 
 @mock.patch('Code.Application.Services.model_services.cnc_path', files_path)
 @mock.patch('Code.Controller.app.predict_model_service')
-def test_predict(mock_predict_service: mock, client: TestClient) -> None:
+def test_get_model_predic(mock_predict_service: mock, client: TestClient) -> None:
     mock_predict_service.return_value = {'file_data': '0000.GCD'}
     response = client.post('/services/' + SERVICE_ENDPOINT, files={
         "cnc_file": str(open(cnc_file_path, 'rb'))})
@@ -37,7 +37,7 @@ def test_predict(mock_predict_service: mock, client: TestClient) -> None:
 @mock.patch('Code.Application.Services.model_services.cnc_path', files_path)
 @mock.patch('Code.Controller.app.predict_model_service')
 @mock.patch('Code.Controller.app.init_model_service')
-def test_dash_postprocessor_post(mock_init_model_service: mock, mock_predict_service: mock, client: TestClient):
+def test_get_dash_machine_configuration(mock_init_model_service: mock, mock_predict_service: mock, client: TestClient):
     mock_predict_service.return_value = {'file_data': '0000.GCD'}
     content = open(cnc_file_path, 'r', encoding='ISO-8859-1').read()
     coded = content.encode("ascii")

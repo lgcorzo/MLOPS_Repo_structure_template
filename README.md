@@ -151,6 +151,8 @@ to check the coverage of the code install coverage gutter plugin and run:
 
 ``` bash
 pytest --cov=Code  --cov-report=xml:cov.xml
+
+pytest --ignore=Tests/Integration --cov=. --cov-report=html --cov-report xml:coverage.xml --junitxml=unit-testresults.xml
 ```
 
 ## Keywords

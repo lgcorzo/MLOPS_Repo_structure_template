@@ -361,7 +361,7 @@ def crete_service_url() -> dash.Dash:
     return configure_dash_app(services_url)
 
 
-def main():
+def main(): # pragma: no cover
     e = Env()
     app.run_server(host=e.fe_host, port=e.fe_port, debug=False)
 
