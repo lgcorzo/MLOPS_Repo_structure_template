@@ -6,7 +6,10 @@ import dash_extensions as de
 import json
 import pandas as pd
 import requests
-import flask
+
+import uvicorn
+from fastapi import FastAPI
+from fastapi.middleware.wsgi import WSGIMiddleware
 
 from dash import dcc, html, dash_table
 from dash.dependencies import Input, Output, State
@@ -18,8 +21,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s-%(module)s-%(process
                     datefmt='%Y-%m-%d %H:%M:%S')
 logging.getLogger(__name__).setLevel(logging.INFO)
 
-
-server = flask.Flask(__name__)  # define flask app.server
 
 machine_config_service_url = ''
 feedback_service_url = ''
@@ -143,9 +144,8 @@ def configure_dash_app(services_url: str) -> dash.Dash:
     feedback_service_url = services_url + 'feedback'
 
     dash_app = dash.Dash(__name__,
-                         server=server,
                          suppress_callback_exceptions=True,
-                         url_base_pathname='/frontend-service-dev/',
+                         requests_pathname_prefix='/frontend-service-dev/',
                          assets_folder=ASSETS_FOLDER)
 
     dash_app.layout = dash_app_layout()
@@ -361,12 +361,23 @@ def crete_service_url() -> dash.Dash:
     return configure_dash_app(services_url)
 
 
-def main(): # pragma: no cover
+def main():  # pragma: no cover
     e = Env()
     app.run_server(host=e.fe_host, port=e.fe_port, debug=False)
 
 
-app = crete_service_url()
+app_dash = crete_service_url()
+
+# Define the FastAPI server
+app = FastAPI()
+# Mount the Dash app as a sub-application in the FastAPI server
+app.mount("/frontend-service-dev", WSGIMiddleware(app_dash.server))
+
+
+@app.get("/")
+def index():
+    return "Hello"
+
 
 if __name__ == '__main__':  # pragma: no cover
     main()
