@@ -8,4 +8,4 @@ conda init
 conda activate code_development_env
 
 echo "Starting frontend..."
-uvicorn Code.FrontEnd.app:app --host $FE_HOST --port $FE_PORT --workers 4 --proxy-headers
+uvicorn Code.FrontEnd.app:app --host $FE_HOST --port $FE_PORT --workers 1 --proxy-headers
