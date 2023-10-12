@@ -363,7 +363,7 @@ def crete_service_url() -> dash.Dash:
 
 def main():  # pragma: no cover
     e = Env()
-    uvicorn.run(app, host=e.fe_host, port=e.fe_port)
+    uvicorn.run(app, host=e.fe_host, port=int(e.fe_port))
 
 
 app_dash = crete_service_url()
