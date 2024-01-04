@@ -45,23 +45,30 @@ services:
       - frontend
     networks:
       servnet:
-        ipv4_address: 172.30.1.9
+        ipv4_address: 173.31.1.9
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx.conf:/etc/nginx/templates/default.conf.template
       - ./certs:/etc/nginx/certs
 
   oauth2-proxy:
-    image: quay.io/oauth2-proxy/oauth2-proxy:v7.2.0
+    image: bitnami/oauth2-proxy:7.3.0
+    hostname: oauth2proxy
     env_file:
       - .env 
+    command:
+      - --http-address
+      - 0.0.0.0:4180 
     environment:
       OAUTH2_PROXY_PROVIDER: github
-      OAUTH2_PROXY_UPSTREAM: http://172.30.1.9
+      OAUTH2_PROXY_UPSTREAM: http://localhost:980/frontend-service-dev/
+      OAUTH2_PROXY_PROVIDER_DISPLAY_NAME: GitHub 
+      OAUTH2_PROXY_PASS_ACCESS_TOKEN: true 
+      OAUTH2_PROXY_REDIRECT_URL: http://localhost:980/frontend-service-dev/
     ports:
       - 4180:4180
     networks:
       servnet:
-        ipv4_address: 172.30.1.10
+        ipv4_address: 173.31.1.10
 
 volumes:
   pg_data:

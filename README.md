@@ -560,6 +560,8 @@ classDiagram
 --------------------------------------------
 ## install nginx and oauth2.0
 
+https://developer.okta.com/blog/2022/07/14/add-auth-to-any-app-with-oauth2-proxy
+
 
 First, you need to create a new service for nginx in your docker compose file. You can use the official nginx image from Docker Hub¹ or build your own image with a custom configuration. For example, you can use the following service definition:
 
@@ -676,3 +678,16 @@ To connect oauth2.0 to GitHub, you need to create an OAuth app on GitHub and con
 After completing these steps, you should be able to connect oauth2.0 to GitHub. When you visit the URL of your nginx service, you will be redirected to GitHub to authorize your OAuth app. After authorizing, you will be able to access your frontend application. 
 
 https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps
+
+``` bash 
+
+FROM continuumio/miniconda3
+ARG conda_env=mro_env
+ADD /src/environment.yml /src/environment.yml
+RUN conda env create -f /src/environment.yml
+ENV PATH /opt/conda/envs/$conda_env/bin:$PATH
+ENV CONDA_DEFAULT_ENV $conda_env
+CMD [ "python", "test.py" ]
+
+
+```
