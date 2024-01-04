@@ -11,7 +11,6 @@ services:
         MLFLOW_REMOTE_SERVER_URI: http://173.31.1.7:1234
         REGISTERED_MODEL_NAME: project_name_model
       ports:
-        - "9101:8001"
         - "9102:1234"
       volumes:
         - pg_data:/BackEnd/artifacts/
@@ -30,8 +29,6 @@ services:
         FE_HOST: 173.31.1.8
         BE_PORT: 8001
         BE_HOST: 173.31.1.7
-      ports:
-        - "9100:8000"
       extra_hosts:
         - "backend:173.31.1.7"
       networks:
@@ -64,8 +61,7 @@ services:
       OAUTH2_PROXY_PROVIDER_DISPLAY_NAME: GitHub 
       OAUTH2_PROXY_PASS_ACCESS_TOKEN: true 
       OAUTH2_PROXY_REDIRECT_URL: http://localhost:980/frontend-service-dev/
-    ports:
-      - 4180:4180
+   
     networks:
       servnet:
         ipv4_address: 173.31.1.10
