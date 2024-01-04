@@ -27,8 +27,8 @@ $$\color{red}{IMPORTANT}$$
 - [end to end  ml project](#end-to-end--ml-project)
 - [codebert finetune](#codebert-finetune)
 - [diagrams](#diagrams)
-- [mlflow feature](#mlflow-feature)
-- [Architecture:](#architecture)
+- [install nginx and oauth2.0](#install-nginx-and-oauth20)
+- [connect to Oauth2.0 to github](#connect-to-oauth20-to-github)
 
 <!-- cspell:enable -->
 ## Introduction
@@ -151,8 +151,6 @@ to check the coverage of the code install coverage gutter plugin and run:
 
 ``` bash
 pytest --cov=Code  --cov-report=xml:cov.xml
-
-pytest --ignore=Tests/Integration --cov=. --cov-report=html --cov-report xml:coverage.xml --junitxml=unit-testresults.xml
 ```
 
 ## Keywords
@@ -559,25 +557,122 @@ classDiagram
 
 :::
 
+--------------------------------------------
+## install nginx and oauth2.0
 
-## mlflow feature
-example of  deploying mlflow servers
-[docker_mlflow_db/docker-compose.yaml at main · aganse/docker_mlflow_db (github.com)](https://github.com/aganse/docker_mlflow_db/blob/main/docker-compose.yaml)
 
-``` bash
-mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host 0.0.0.0 -p 1234
+First, you need to create a new service for nginx in your docker compose file. You can use the official nginx image from Docker Hub¹ or build your own image with a custom configuration. For example, you can use the following service definition:
+
+```yaml
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - frontend
+    networks:
+      servnet:
+        ipv4_address: 172.30.1.9
 ```
 
+This will create a nginx container that listens on port 80 and 443, and depends on the frontend service. You also need to assign a static IP address to the nginx container in the same network as the other services.
 
-Angular:
-https://medium.com/@dvelsner/deploying-a-simple-machine-learning-model-in-a-modern-web-application-flask-angular-docker-a657db075280
+Next, you need to add oauth2-proxy² as a sidecar container to the nginx service. Oauth2-proxy is a reverse proxy that provides authentication and authorization for your web applications using OAuth 2.0 providers. You can use the official oauth2-proxy image from Docker Hub³ or build your own image with a custom configuration. For example, you can use the following service definition:
 
-https://www.blog.brightcoding.dev/2023/06/30/building-powerful-chat-applications-with-angular-and-chatgpt-a-step-by-step-guide/
+```yaml
+  oauth2-proxy:
+    image: quay.io/oauth2-proxy/oauth2-proxy:v7.2.0
+    environment:
+      OAUTH2_PROXY_CLIENT_ID: <your-client-id>
+      OAUTH2_PROXY_CLIENT_SECRET: <your-client-secret>
+      OAUTH2_PROXY_COOKIE_SECRET: <your-cookie-secret>
+      OAUTH2_PROXY_PROVIDER: <your-provider>
+      OAUTH2_PROXY_UPSTREAM: http://172.30.1.9
+    ports:
+      - 4180:4180
+    networks:
+      servnet:
+        ipv4_address: 172.30.1.10
+```
 
-https://github.com/alenkvakic/angular-chatgpt
+This will create a oauth2-proxy container that listens on port 4180, and proxies requests to the nginx container at 172.30.1.9. You need to replace the environment variables with your own values, depending on your OAuth 2.0 provider. You also need to assign a static IP address to the oauth2-proxy container in the same network as the other services.
 
-## Architecture:
+Finally, you need to configure the nginx service to use the oauth2-proxy service as a proxy for the frontend application. You can do this by creating a custom nginx.conf file and mounting it as a volume to the nginx container. For example, you can use the following nginx.conf file:
 
+```nginx
+events {}
+http {
+  server {
+    listen 80;
+    listen 443 ssl;
+    server_name _;
 
+    ssl_certificate /etc/nginx/certs/cert.pem;
+    ssl_certificate_key /etc/nginx/certs/key.pem;
 
+    location / {
+      proxy_pass http://172.30.1.10:4180;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Scheme $scheme;
+      proxy_set_header X-Auth-Request-Redirect $request_uri;
+    }
 
+    location = /oauth2/auth {
+      proxy_pass http://172.30.1.10:4180;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Scheme $scheme;
+      # nginx auth_request includes headers but not body
+      proxy_set_header Content-Length "";
+      proxy_pass_request_body off;
+    }
+
+    location = /oauth2/callback {
+      # This is the callback URL registered with the OAuth provider
+      # Example: http://auth.example.com/oauth2/callback
+      proxy_pass http://172.30.1.10:4180;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Scheme $scheme;
+    }
+  }
+}
+```
+
+This will configure nginx to use oauth2-proxy as an authentication layer for the frontend application, and redirect users to the OAuth 2.0 provider for login. You need to replace the ssl_certificate and ssl_certificate_key with your own values, and make sure they are available in the /etc/nginx/certs directory. You can mount this directory as a volume to the nginx container. For example, you can use the following volume definition:
+
+```yaml
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - frontend
+    networks:
+      servnet:
+        ipv4_address: 172.30.1.9
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certs:/etc/nginx/certs
+```
+
+This will mount the nginx.conf file and the certs directory from your host machine to the nginx container.
+
+I hope this helps you with adding a nginx and oauth2 service to your docker compose file. If you have any questions, please let me know. 😊
+
+## connect to Oauth2.0 to github
+
+To connect oauth2.0 to GitHub, you need to create an OAuth app on GitHub and configure your oauth2-proxy service to use GitHub as the provider. Here are the steps you can follow:
+
+- Sign in to GitHub and create an OAuth app¹. You can use any name and homepage URL for your app, but you need to set the authorization callback URL to `http://172.30.1.10:4180/oauth2/callback`, which is the URL of your oauth2-proxy service.
+- After creating the app, you will get a client ID and a client secret from GitHub. You need to use these values to set the environment variables `OAUTH2_PROXY_CLIENT_ID` and `OAUTH2_PROXY_CLIENT_SECRET` in your oauth2-proxy service definition in your docker compose file.
+- You also need to set the environment variable `OAUTH2_PROXY_PROVIDER` to `github` in your oauth2-proxy service definition. This will tell oauth2-proxy to use GitHub as the OAuth 2.0 provider.
+- You need to generate a random string and use it to set the environment variable `OAUTH2_PROXY_COOKIE_SECRET` in your oauth2-proxy service definition. This will be used to encrypt the cookies that oauth2-proxy sets for the users.
+- You need to restart your oauth2-proxy service to apply the changes. You can use the command `docker-compose restart oauth2-proxy` to do this.
+
+After completing these steps, you should be able to connect oauth2.0 to GitHub. When you visit the URL of your nginx service, you will be redirected to GitHub to authorize your OAuth app. After authorizing, you will be able to access your frontend application. 
+
+https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps
