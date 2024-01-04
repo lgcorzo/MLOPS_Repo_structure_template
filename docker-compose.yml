@@ -52,10 +52,9 @@ services:
 
   oauth2-proxy:
     image: quay.io/oauth2-proxy/oauth2-proxy:v7.2.0
+    env_file:
+      - .env 
     environment:
-      OAUTH2_PROXY_CLIENT_ID: 641bbb78cf757f26e64b
-      OAUTH2_PROXY_CLIENT_SECRET: a80ba5d61432e452c5ae84d77e80bb1f60d90800
-      OAUTH2_PROXY_COOKIE_SECRET: 90abf56c-779f-4ebe-9a1e-025fd96bd818
       OAUTH2_PROXY_PROVIDER: github
       OAUTH2_PROXY_UPSTREAM: http://172.30.1.9
     ports:
