@@ -145,7 +145,7 @@ def configure_dash_app(services_url: str) -> dash.Dash:
 
     dash_app = dash.Dash(__name__,
                          suppress_callback_exceptions=True,
-                         requests_pathname_prefix='/frontend-service-dev/',
+                         requests_pathname_prefix='/',
                          assets_folder=ASSETS_FOLDER)
 
     dash_app.layout = dash_app_layout()

@@ -36,7 +36,7 @@ server {
     location / {
         auth_request /oauth2/auth;
 
-        # if the authorization header was set (i.e. `Authorization: Bearer {token}`
+        # if the authorization header was set (i.e. `Authorization: Bearer {token}`)
         # assume API client and do NOT redirect to login
         if ($http_authorization = "") {
             error_page 401 = /oauth2/start;
@@ -58,6 +58,7 @@ server {
         proxy_set_header X-Forwarded-Proto http;
 
         proxy_http_version 1.1;
-        proxy_pass http://frontend:8000/frontend-service-dev/;
+        proxy_pass http://frontend:8000/;
     }
+
 }
