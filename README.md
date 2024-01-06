@@ -560,7 +560,11 @@ classDiagram
 --------------------------------------------
 ## install nginx and oauth2.0
 
+https://github.com/oktadev/okta-oauth2-proxy-example
+
 https://developer.okta.com/blog/2022/07/14/add-auth-to-any-app-with-oauth2-proxy
+
+https://medium.com/devops-dudes/using-oauth2-proxy-with-nginx-subdomains-e453617713a 
 
 
 First, you need to create a new service for nginx in your docker compose file. You can use the official nginx image from Docker Hub¹ or build your own image with a custom configuration. For example, you can use the following service definition:
