@@ -40,6 +40,7 @@ services:
       - 980:80
     depends_on:
       - frontend
+    restart: always
     networks:
       servnet:
         ipv4_address: 173.31.1.9
@@ -50,6 +51,7 @@ services:
   oauth2-proxy:
     image: bitnami/oauth2-proxy:7.3.0
     hostname: oauth2proxy
+    restart: always
     env_file:
       - .env 
     command:
