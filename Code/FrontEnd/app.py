@@ -371,7 +371,7 @@ app_dash = crete_service_url()
 # Define the FastAPI server
 app = FastAPI()
 # Mount the Dash app as a sub-application in the FastAPI server
-app.mount("/frontend-service-dev", WSGIMiddleware(app_dash.server))
+app.mount("/", WSGIMiddleware(app_dash.server))
 
 
 @app.get("/")
