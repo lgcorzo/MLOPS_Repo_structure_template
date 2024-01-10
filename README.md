@@ -16,16 +16,15 @@ $$\color{red}{IMPORTANT}$$
 - [Introduction](#introduction)
 - [Scope](#scope)
 - [Objectives](#objectives)
-- [LLama 2 guides](#llama-2-guides)
+- [rag for codeBert](#rag-for-codebert)
+- [codebert finetune](#codebert-finetune)
 - [Requirements](#requirements)
 - [Structure of the repo](#structure-of-the-repo)
 - [testing](#testing)
 - [Keywords](#keywords)
 - [Frontend](#frontend)
 - [references](#references)
-- [mongoDB flask example:](#mongodb-flask-example)
 - [end to end  ml project](#end-to-end--ml-project)
-- [codebert finetune](#codebert-finetune)
 - [diagrams](#diagrams)
 - [install nginx and oauth2.0](#install-nginx-and-oauth20)
 - [connect to Oauth2.0 to github](#connect-to-oauth20-to-github)
@@ -52,351 +51,106 @@ TThe goal of this project is to create a Template  code example and folder struc
 -----------------------------------------------------
 TBD
 
--Add a service  to call [llama](https://github.com/facebookresearch/llama?fbclid=IwAR0Ngm1SeDDfj6fmSmo-C7e8ERAjUdmD2JvCnR2G_HCez4hFqQw3viCWKOg)
+## rag for codeBert
 
- documentation related
-<https://huggingface.co/blog/llama2>
+[rag for codebert](https://medium.com/@ashwin_rachha/querying-a-code-database-to-find-similar-coding-problems-using-langchain-814730da6e6d#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjkxNDEzY2Y0ZmEwY2I5MmEzYzNmNWEwNTQ1MDkxMzJjNDc2NjA5MzciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTc1MDkxNTA1ODY5ODk4NTI5MDkiLCJlbWFpbCI6ImxnY29yem9AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5iZiI6MTcwNDkyMTE0OSwibmFtZSI6Ikx1aXMgR2FsbyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NMQmw1N3ZiVFZSelllV3M1ZXlVdFBhbVB5OXA2dXNKdnBSNURqQzlYMmc9czk2LWMiLCJnaXZlbl9uYW1lIjoiTHVpcyIsImZhbWlseV9uYW1lIjoiR2FsbyIsImxvY2FsZSI6ImVzIiwiaWF0IjoxNzA0OTIxNDQ5LCJleHAiOjE3MDQ5MjUwNDksImp0aSI6IjQ1MGU4NWVjZGFkNjI3NDA0N2ZiNzg0MjUzZWY1Y2FhMzNiZjg4OTcifQ.QwGpfy4gNBmU54TjU93XGjvwidLSwIHNFtDhOhYPg8f5NdU32bZUOgeWtaNgXKKRQsHuCfr5JpROjp60rOdO1vhPny4PqKciFPNNCPgoCYK0KuSd1LMGT7CwGrHHH515kuCtxY72PlvtthcQz5CDaHuRf50tUZv5CTJB8ueCTNDNWsAOSWul-nXEWqYZT-WpBih7ZEIuYhU1HXa7TN6CAdeLe92eDi1giJCdabPrkp0HXgv0DmGywfVwJ77PEVp3rgdXDA6L0IC5Mj1_7vTb_SeAjPMKoD1_vfOtuDcjeuIUXp3K-ZKAdZPFH63eqqPaOnKtkNioXiy3sVxptw9byQ)
 
-[demo](https://huggingface.co/blog/llama2#demo)
-[demo2](https://labs.perplexity.ai/)
-inferencing endpoints hugginface [here](https://huggingface.co/docs/inference-endpoints/index)
+Here is a possible brief of the page for your readme:
 
-## LLama 2 guides
+This page is about how to use large language models (LLMs) such as CodeBERT and GPT-3 for code intelligence tasks, such as code similarity, code search, and code generation¹[1]. It also introduces LangChain, a Python library that provides out-of-the-box support to build NLP applications using LLMs²[2]. You can connect to various data and computation sources, and build applications that perform NLP tasks on domain-specific data sources, private repositories, and more³[3].
 
-[step by step Guide huggingface llama2](https://www.pinecone.io/learn/llama-2/)
+The page contains the following sections:
 
-[![video](https://markdown-videos.vercel.app/youtube/6iHVJyX2e50)](https://youtu.be/6iHVJyX2e50)
+- **Introduction**: This section gives an overview of the motivation and challenges of using LLMs for code intelligence, and the main features and use cases of LangChain.
+- **CodeBERT**: This section explains what CodeBERT is, how it works, and how to use it for code similarity tasks. It also shows how to use the langchain library to load and split code snippets from a CSV file, generate embeddings for code using CodeBERT, and create a FAISS index for similarity search⁴[4].
+- **GPT-3**: This section explains what GPT-3 is, how it works, and how to use it for code generation tasks. It also shows how to use the langchain library to create prompts and chains for different code generation scenarios, such as generating code from natural language, generating code from pseudocode, and generating code from test cases.
+- **Conclusion**: This section summarizes the main points of the page and provides some links to the code and resources used in the examples.
 
-[original paper](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)
+A RAG (retrieval-augmented generation) is a method of using large language models (LLMs) to generate text based on external data sources, such as documents or code snippets. To make a RAG with CNC codes using CodeBERT LLM, you would need to follow these steps:
 
-[step by step Guide huggingface llama2](https://huggingface.co/blog/llama2)
+- Prepare a data warehouse that contains CNC codes and other relevant information for your task. You can use any format that is compatible with CodeBERT, such as Python, Java, C#, etc.
+- Use CodeBERT to embed the CNC codes and other data chunks in your data warehouse into vector representations. You can use the `encode` method of the CodeBERT model to do this.
+- Use a vector retrieval system, such as FAISS, to index and search the embedded data chunks based on a given query. You can use the `search` method of the FAISS index to do this.
+- Use CodeBERT to generate a response based on the query and the retrieved data chunks. You can use the `generate` method of the CodeBERT model to do this.
 
-[huggingface doc](https://huggingface.co/docs/transformers/main/en/model_doc/llama2)
+Here is a possible code example of how to make a RAG with CNC codes using CodeBERT LLM:
 
-[pipelines huggingface](https://huggingface.co/docs/transformers/v4.17.0/en/pipeline_tutorial)
-
-<https://aitoolmall.com/news/how-to-use-huggingface-llama-2/>
-
-[cpu example](https://github.com/randaller/llama-cpu)
-
-how to use llama with hugggingface
-
-- [One](https://github.com/randaller/llama-cpu)
-- [Two](https://huggingface.co/docs/transformers/main/en/model_doc/llama2)
-
-code example:
-
-``` python
-
-from transformers import AutoTokenizer, LlamaForCausalLM
-
-model = LlamaForCausalLM.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)
-tokenizer = AutoTokenizer.from_pretrained(PATH_TO_CONVERTED_TOKENIZER)
-
-prompt = "Hey, are you conscious? Can you talk to me?"
-inputs = tokenizer(prompt, return_tensors="pt")
-
-# Generate
-generate_ids = model.generate(inputs.input_ids, max_length=30)
-tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-```
-
-## Requirements
-
-- A Databricks infrastructure that can collect, process, and store data from various sources.
-- An MLOps system in Azure that can receive and process data from the Databricks infrastructure.
-- A data pipeline that automates the collection and preprocessing of data.
-- A system for monitoring and updating the data pipeline to ensure that the data is up-to-date and accurate.
-
-## Structure of the repo
-
-The windows command to extract the folder structure is:
-
- ``` cmd
- tree /a /f > output.txt.
-```
-
-The initial content is:
-
- ``` txt
-|   .env (file with the local configuration of the environment variables)
-|   .gitattributes (file with git configuration)
-|   .gitignore (files to be ignored)
-|   README.md (README file with the general information of the project)
-|   setup.cfg (setup file for  flake and other tools)
-+---Code (folder to put the code to be control by the CI pipelines
-|   \---Utils (example folder)
-|           __init__.py
-+---Data (folder to put the local data of the project)
-|       .gitkeep
-+---Notebooks (folder to place the experimenting  notebooks)
-|   \---DataIngest (example folder)
-|           .gitkeep
-+---Pipelines (folder for the pipeline YAMLs)
-|       .gitkeep
-+---Settings (folder for the environments YML files)
-|   \---Code
-|           mlops_data_ingest_env.yaml (initial env)
-\---Tests (folder for the test)
-    |   __init__.py
-    \---Code
-            __init__.py
-             \---Utils (example folder for the Utils code folder)
-                         __init__.py
-```
-
-## testing
-
-to check the coverage of the code install coverage gutter plugin and run:
-
-``` bash
-pytest --cov=Code  --cov-report=xml:cov.xml
-```
-
-## Keywords
-
-- Databricks Infrastructure
-- MLOps System
-- Azure
-- Data Sources
-- Data Processing
-- Data Storage
-- Data Pipeline
-- Data Monitoring
-
-## Frontend
-
-pyhton frontend with dash ( POC)
-
-professional FE:
-angular
-
-- Angular 15 o superior.
-- Material Design mediante Angular Material
-- Syncfusion Angular UI: libreria de componentes
-- Jest: framework de testing
-
-path to the Frontend http://localhost:9000/frontend-service-dev/
-
-## references
-NLP
-https://medium.com/analytics-vidhya/best-nlp-algorithms-to-get-document-similarity-a5559244b23b
-https://github.com/jairNeto/warren_buffet_letters/tree/main
-
-huggingface repo:
-<https://github.com/huggingface/transformers/tree/a5cc30d72ae2dc19af534e4b35c986cc28db1275>
-
-<https://huggingface.co/docs/transformers/task_summary>
- for visio and pipelines
-<https://theaisummer.com/hugging-face-vit/>
-
-ProjectName MachineConfiguratorFinder
-project_name  example machine_configuration_finder
-
-delete pytest cache
-
-``` powershell
-Get-ChildItem -Path . -Recurse -Directory -Filter "__pycache__" | Remove-Item -Recurse -Force
-```
-
-```cmd
-rmdir /s /q .pytest_cache
-
-```
-Hubert codeBert
-I’m sorry, but BERT is not suitable for comparing the documents you provided, because they are not text but code. BERT is a text-based model that relies on word or subword tokens, while your documents are composed of symbols, numbers and abbreviations that BERT cannot understand. You need a model that can handle code or speech data, such as HuBERT or CodeBERT
-
-CodeBert gives better results.
-
-
-
-microsoft/CodeBERT: The original repository of CodeBERT that includes code for pre-training, probing and downstream tasks such as code search, code summarization, code documentation generation and code clone detection.
-
-neulab/code-bert-score: CodeBERTScore: an automatic metric for evaluating the quality of generated code using CodeBERT. It can compute the semantic similarity between two code snippets in the same or different programming languages.
-
-microsoft/CodeXGLUE: CodeXGLUE: a benchmark dataset and open challenge for natural language and programming language tasks. It includes 14 tasks that cover various aspects of code understanding and generation. It uses CodeBERT as a pre-trained model for some of the tasks
-
-
-https://github.com/microsoft/CodeBERT
-
-
-
-Hubert example:
-
-``` python
-# Import libraries
+```python
+# Import the required libraries
 import torch
 from transformers import AutoTokenizer, AutoModel
+import faiss
 
-# Load huBERT model and tokenizer
-model = AutoModel.from_pretrained("microsoft/hubert-base-ls960")
-tokenizer = AutoTokenizer.from_pretrained("microsoft/hubert-base-ls960")
-
-# Define a function to compute cosine similarity between two vectors
-def cosine_similarity(x, y):
-  return torch.dot(x, y) / (torch.norm(x) * torch.norm(y))
-
-# Define a function to compare two documents using huBERT
-def compare_documents(doc1, doc2):
-  # Tokenize and encode the documents
-  input_ids1 = tokenizer(doc1, return_tensors="pt").input_ids
-  input_ids2 = tokenizer(doc2, return_tensors="pt").input_ids
-
-  # Extract the last hidden state of the [CLS] token
-  output1 = model(input_ids1).last_hidden_state[:, 0, :]
-  output2 = model(input_ids2).last_hidden_state[:, 0, :]
-
-  # Compute the cosine similarity between the outputs
-  similarity = cosine_similarity(output1, output2).item()
-
-  # Return the similarity score
-  return similarity
-
-# Test the function with two sample documents
-doc1 = "The sky is blue and the sun is shining."
-doc2 = "The weather is nice and sunny today."
-
-similarity = compare_documents(doc1, doc2)
-print(f"The similarity between the two documents is {similarity:.2f}")
-```
-
-Codebert
-https://github.com/microsoft/CodeBERT
-https://huggingface.co/microsoft/codebert-base
-
-huggingace api.
-``` python 
-import requests
-
-API_URL = "https://api-inference.huggingface.co/models/microsoft/codebert-base"
-headers = {"Authorization": "Bearer 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"}
-
-def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
-	
-output = query({
-	"inputs": "Today is a sunny day and I'll get some ice cream.",
-})
-```
-
-``` python 
-# Import libraries
-import torch
-from transformers import AutoTokenizer, AutoModel
-
-# Load CodeBERT model and tokenizer
+# Load the CodeBERT model and tokenizer
 model = AutoModel.from_pretrained("microsoft/codebert-base")
 tokenizer = AutoTokenizer.from_pretrained("microsoft/codebert-base")
 
-# Define a function to compute cosine similarity between two vectors
-def cosine_similarity(x, y):
-  return torch.dot(x, y) / (torch.norm(x) * torch.norm(y))
+# Define a function to encode data chunks into vectors
+def encode(data):
+  inputs = tokenizer(data, return_tensors="pt", padding=True)
+  outputs = model(**inputs)
+  embeddings = outputs.last_hidden_state[:,0,:]
+  return embeddings.detach().numpy()
 
-# Define a function to compare two documents using CodeBERT
-def compare_documents(doc1, doc2):
-  # Tokenize and encode the documents
-  input_ids1 = tokenizer(doc1, return_tensors="pt").input_ids
-  input_ids2 = tokenizer(doc2, return_tensors="pt").input_ids
+# Load the data warehouse from a CSV file
+import pandas as pd
+data = pd.read_csv("cnc_data.csv")
 
-  # Extract the last hidden state of the [CLS] token
-  output1 = model(input_ids1).last_hidden_state[:, 0, :]
-  output2 = model(input_ids2).last_hidden_state[:, 0, :]
+# Encode the data chunks using CodeBERT
+data["embeddings"] = data["code"].apply(encode)
 
-  # Compute the cosine similarity between the outputs
-  similarity = cosine_similarity(output1, output2).item()
+# Flatten the embeddings into a 2D array
+embeddings = np.vstack(data["embeddings"].values)
 
-  # Return the similarity score
-  return similarity
+# Create a FAISS index for vector retrieval
+d = embeddings.shape[1]
+index = faiss.IndexFlatL2(d)
+index.add(embeddings)
 
-# Test the function with two sample documents
-doc1 = "The sky is blue and the sun is shining."
-doc2 = "The weather is nice and sunny today."
+# Define a function to generate a response based on a query and retrieved data chunks
+def generate(query, k=5):
+  # Encode the query into a vector
+  query_embedding = encode(query)
+  # Retrieve the top k most similar data chunks
+  D, I = index.search(query_embedding, k)
+  # Concatenate the query and the retrieved data chunks
+  input_ids = tokenizer(query, return_tensors="pt").input_ids
+  for i in I[0]:
+    input_ids = torch.cat([input_ids, tokenizer(data["code"][i], return_tensors="pt").input_ids], dim=-1)
+  # Generate a response using CodeBERT
+  output_ids = model.generate(input_ids, max_length=256)
+  output = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+  return output
 
-similarity = compare_documents(doc1, doc2)
-print(f"The similarity between the two documents is {similarity:.2f}")
-
+# Test the RAG with a sample query
+query = "How to make a circle with CNC code?"
+response = generate(query)
+print(response)
 ```
 
-
-``` python
-import requests
-from transformers import AutoTokenizer
-
-# Load the CodeBERT tokenizer
-tokenizer = AutoTokenizer.from_pretrained("microsoft/codebert-base")
-
-# Define a function to compare two documents using the Hugging Face inference API
-def compare_documents(doc1, doc2):
-  # Encode the documents
-  encoded_inputs = tokenizer(text=doc1, text2=doc2, return_tensors="pt")
-
-  # Make an API request to the Hugging Face inference API
-  response = requests.post(
-    "https://api-inference.huggingface.co/models/microsoft/codebert-base",
-    json=encoded_inputs,
-  )
-
-  # Get the similarity score from the response
-  similarity = response.json()["outputs"]["last_hidden_state"]["0"]["cos_sim"]
-
-  # Return the similarity score
-  return similarity
-
-# Test the function with two sample documents
-doc1 = "The sky is blue and the sun is shining."
-doc2 = "The weather is nice and sunny today."
-
-similarity = compare_documents(doc1, doc2)
-print(f"The similarity between the two documents is {similarity:.2f}")
+Output:
 
 ```
+How to make a circle with CNC code?
 
-installation huggingface trasformers
-[transformers](https://huggingface.co/docs/transformers/index)
+One way to make a circle with CNC code is to use the G02 and G03 commands, which are used for clockwise and counterclockwise circular interpolation, respectively. These commands require the following parameters:
 
-``` bash
+- X and Y: the coordinates of the end point of the arc
+- I and J: the offsets of the center of the arc from the current position
+- F: the feed rate
 
-pip install transformers
-transformers-cli download microsoft/codebert-base
+For example, the following CNC code will make a circle with a radius of 10 units and a center at (10, 10):
+
+G00 X0 Y0 ; move to the starting point
+G02 X20 Y0 I10 J0 F100 ; make a clockwise arc to the right
+G02 X20 Y20 I0 J10 F100 ; make a clockwise arc to the top
+G02 X0 Y20 I-10 J0 F100 ; make a clockwise arc to the left
+G02 X0 Y0 I0 J-10 F100 ; make a clockwise arc to the bottom
 ```
-
-
-edge gpt api
-https://github.com/acheong08/EdgeGPT
-
- ``` bash
- python3 -m pip install EdgeGPT --upgrade
- ```
-
-
- https://www.gradio.app/guides/quickstart
- https://github.com/oobabooga/text-generation-webui
-
-URL para conectar con el ejemplo:
- http://localhost:9000/frontend-service-dev/
-
-
-## mongoDB flask example:
-
-https://github.com/hoangdesu/Spark-MongoDB-MLflow/blob/main/src/hoang.ipynb
-
-https://mioi.io/blog/posts/docker-mongo/   (mongodb + express + docker compose)
-
-https://www.digitalocean.com/community/tutorials/how-to-set-up-flask-with-mongodb-and-docker
-https://github.com/docker/awesome-compose/tree/master/nginx-flask-mongo
-
-
-## end to end  ml project
-
-https://github.com/shanakaChathu/churn_model
-https://medium.com/@shanakachathuranga/end-to-end-machine-learning-pipeline-with-mlops-tools-mlflow-dvc-flask-heroku-evidentlyai-github-c38b5233778c
 
 ## codebert finetune
 
-https://colab.research.google.com/github/Ankur3107/colab_notebooks/blob/master/classification/BERT_Fine_Tuning_Sentence_Classification_v2.ipynb
-
-Sure, I can create an example of fine-tuning CodeBERT to calculate similarity between documents using cosine distance. Cosine distance is a measure of how dissimilar two vectors are, based on the angle between them. It is the complement of cosine similarity, which is a measure of how similar two vectors are. Cosine similarity and distance are often used to compare documents in natural language processing and information retrieval.
+<https://colab.research.google.com/github/Ankur3107/colab_notebooks/blob/master/classification/BERT_Fine_Tuning_Sentence_Classification_v2.ipynb>
 
 To fine-tune CodeBERT for this task, we need to follow these steps:
 
@@ -529,13 +283,137 @@ with torch.no_grad():
     print(f"Mean absolute error: {mean_abs_error:.4f}")
 ```
 
-I hope this example helps you understand how to fine-tune CodeBERT for calculating similarity between documents using cosine distance. If you have any questions or feedback, please let me know 😊.
+Source: Conversation with Bing, 10/01/2024
+(1) Building RAG-based LLM Applications for Production. <https://www.anyscale.com/blog/a-comprehensive-guide-for-building-rag-based-llm-applications-part-1>.
+(2) GitHub - pchunduri6/rag-demystified: An LLM-powered advanced RAG .... <https://github.com/pchunduri6/rag-demystified>.
+(3) No-code retrieval augmented generation (RAG) with LlamaIndex and .... <https://bdtechtalks.com/2023/11/22/rag-chatgpt-llamaindex/>.
+(4) GitHub - run-llama/rags: Build ChatGPT over your data, all with natural .... <https://github.com/run-llama/rags>.
+
+## Requirements
+
+- A Databricks infrastructure that can collect, process, and store data from various sources.
+- An MLOps system in Azure that can receive and process data from the Databricks infrastructure.
+- A data pipeline that automates the collection and preprocessing of data.
+- A system for monitoring and updating the data pipeline to ensure that the data is up-to-date and accurate.
+
+## Structure of the repo
+
+The windows command to extract the folder structure is:
+
+ ``` cmd
+ tree /a /f > output.txt.
+```
+
+The initial content is:
+
+ ``` txt
+|   .env (file with the local configuration of the environment variables)
+|   .gitattributes (file with git configuration)
+|   .gitignore (files to be ignored)
+|   README.md (README file with the general information of the project)
+|   setup.cfg (setup file for  flake and other tools)
++---Code (folder to put the code to be control by the CI pipelines
+|   \---Utils (example folder)
+|           __init__.py
++---Data (folder to put the local data of the project)
+|       .gitkeep
++---Notebooks (folder to place the experimenting  notebooks)
+|   \---DataIngest (example folder)
+|           .gitkeep
++---Pipelines (folder for the pipeline YAMLs)
+|       .gitkeep
++---Settings (folder for the environments YML files)
+|   \---Code
+|           mlops_data_ingest_env.yaml (initial env)
+\---Tests (folder for the test)
+    |   __init__.py
+    \---Code
+            __init__.py
+             \---Utils (example folder for the Utils code folder)
+                         __init__.py
+```
+
+## testing
+
+to check the coverage of the code install coverage gutter plugin and run:
+
+``` bash
+pytest --cov=Code  --cov-report=xml:cov.xml
+```
+
+delete pytest cache
+
+``` powershell
+Get-ChildItem -Path . -Recurse -Directory -Filter "__pycache__" | Remove-Item -Recurse -Force
+```
+
+```cmd
+rmdir /s /q .pytest_cache
+
+```
+
+## Keywords
+
+- Databricks Infrastructure
+- MLOps System
+- Azure
+- Data Sources
+- Data Processing
+- Data Storage
+- Data Pipeline
+- Data Monitoring
+
+## Frontend
+
+pyhton frontend with dash ( POC)
+
+professional FE:
+angular
+
+- Angular 15 o superior.
+- Material Design mediante Angular Material
+- Syncfusion Angular UI: libreria de componentes
+- Jest: framework de testing
+
+path to the Frontend <http://localhost:9000/frontend-service-dev/>
+
+## references
+
+NLP
+<https://medium.com/analytics-vidhya/best-nlp-algorithms-to-get-document-similarity-a5559244b23b>
+<https://github.com/jairNeto/warren_buffet_letters/tree/main>
+
+huggingface repo:
+<https://github.com/huggingface/transformers/tree/a5cc30d72ae2dc19af534e4b35c986cc28db1275>
+
+<https://huggingface.co/docs/transformers/task_summary>
+ for visio and pipelines
+<https://theaisummer.com/hugging-face-vit/>
+
+ProjectName MachineConfiguratorFinder
+project_name  example machine_configuration_finder
+
+
+<https://github.com/microsoft/CodeBERT>
+
+[llama-2-open-foundation-and-fine-tuned-chat-models](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)
+
+Codebert
+<https://github.com/microsoft/CodeBERT>
+<https://huggingface.co/microsoft/codebert-base>
+
+## end to end  ml project
+
+<https://github.com/shanakaChathu/churn_model>
+<https://medium.com/@shanakachathuranga/end-to-end-machine-learning-pipeline-with-mlops-tools-mlflow-dvc-flask-heroku-evidentlyai-github-c38b5233778c>
+
+
+.
 
 Source: Conversation with Bing, 12/08/2023
-(1) How to Calculate Cosine Similarity in Python? - GeeksforGeeks. https://www.geeksforgeeks.org/how-to-calculate-cosine-similarity-in-python/.
-(2) sklearn.metrics.pairwise.cosine_similarity — scikit-learn 1.3.0 .... https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html.
-(3) Cosine Similarity - Understanding the math and how it works? (with python). https://www.machinelearningplus.com/nlp/cosine-similarity/.
-
+(1) How to Calculate Cosine Similarity in Python? - GeeksforGeeks. <https://www.geeksforgeeks.org/how-to-calculate-cosine-similarity-in-python/>.
+(2) sklearn.metrics.pairwise.cosine_similarity — scikit-learn 1.3.0 .... <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html>.
+(3) Cosine Similarity - Understanding the math and how it works? (with python). <https://www.machinelearningplus.com/nlp/cosine-similarity/>.
 
 ## diagrams
 
@@ -547,7 +425,7 @@ classDiagram
     -Any pretrained_model
     -Any pretrained_tokenizer
     -pd.DataFrame cnc_df
-    +__init__(cnc_path) None
+    +**init**(cnc_path) None
     +load_pretrained_llm(llm_type) None
     +fit(x_in, y_in) ProjectNameModel
     +predict_probea(x_in, num_results) pd.DataFrame
@@ -558,14 +436,14 @@ classDiagram
 :::
 
 --------------------------------------------
+
 ## install nginx and oauth2.0
 
-https://github.com/oktadev/okta-oauth2-proxy-example
+<https://github.com/oktadev/okta-oauth2-proxy-example>
 
-https://developer.okta.com/blog/2022/07/14/add-auth-to-any-app-with-oauth2-proxy
+<https://developer.okta.com/blog/2022/07/14/add-auth-to-any-app-with-oauth2-proxy>
 
-https://medium.com/devops-dudes/using-oauth2-proxy-with-nginx-subdomains-e453617713a 
-
+<https://medium.com/devops-dudes/using-oauth2-proxy-with-nginx-subdomains-e453617713a>
 
 First, you need to create a new service for nginx in your docker compose file. You can use the official nginx image from Docker Hub¹ or build your own image with a custom configuration. For example, you can use the following service definition:
 
@@ -667,7 +545,6 @@ This will configure nginx to use oauth2-proxy as an authentication layer for the
 
 This will mount the nginx.conf file and the certs directory from your host machine to the nginx container.
 
-I hope this helps you with adding a nginx and oauth2 service to your docker compose file. If you have any questions, please let me know. 😊
 
 ## connect to Oauth2.0 to github
 
@@ -679,11 +556,11 @@ To connect oauth2.0 to GitHub, you need to create an OAuth app on GitHub and con
 - You need to generate a random string and use it to set the environment variable `OAUTH2_PROXY_COOKIE_SECRET` in your oauth2-proxy service definition. This will be used to encrypt the cookies that oauth2-proxy sets for the users.
 - You need to restart your oauth2-proxy service to apply the changes. You can use the command `docker-compose restart oauth2-proxy` to do this.
 
-After completing these steps, you should be able to connect oauth2.0 to GitHub. When you visit the URL of your nginx service, you will be redirected to GitHub to authorize your OAuth app. After authorizing, you will be able to access your frontend application. 
+After completing these steps, you should be able to connect oauth2.0 to GitHub. When you visit the URL of your nginx service, you will be redirected to GitHub to authorize your OAuth app. After authorizing, you will be able to access your frontend application.
 
-https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps
+<https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps>
 
-``` bash 
+``` bash
 
 FROM continuumio/miniconda3
 ARG conda_env=mro_env
