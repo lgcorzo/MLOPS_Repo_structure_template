@@ -8,7 +8,6 @@ dependencies:
     - dash==2.13.0
     - dash-extensions==1.0.4
     - flake8
-    - flask
     - numpy
     - pandas==2.1.1
     - pytest
@@ -17,12 +16,11 @@ dependencies:
     - requests
     - scikit-learn
     - tqdm
-    - gunicorn
     - pyarmor
     - autopep8
     - fastparquet
     - transformers[torch]
-    - dvc
+    - dvc[azure]
     - mlflow
     - tox
     - uvicorn
