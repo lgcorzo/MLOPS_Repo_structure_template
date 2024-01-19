@@ -592,11 +592,11 @@ https://github.com/josecelano/data-version-control/blob/master/docs/azure-blob-s
 MLOPS_cnc_data_temp
 
 
-az config set defaults.account=stmernonprodneu
+az config set defaults.account=
 az config set defaults.connection_string="--------------"
 
 dvc remote add -d Data azure://interim/cnc_tmeplate
-dvc remote modify Data account_name stmernonprodneu
+dvc remote modify Data account_name 
 
 dvc remote modify --local Data connection_string 
 
