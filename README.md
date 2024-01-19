@@ -590,12 +590,12 @@ https://dvc.org/doc/user-guide/data-management/remote-storage/azure-blob-storage
 https://github.com/josecelano/data-version-control/blob/master/docs/azure-blob-storage.md
 
 MLOPS_cnc_data_temp
-https://stmernonprodneu.blob.core.windows.net/interim
+
 
 az config set defaults.account=stmernonprodneu
 az config set defaults.connection_string="--------------"
 
-dvc remote add -d Data azure://stmernonprodneu/interim/cnc_tmeplate
+dvc remote add -d Data azure://interim/cnc_tmeplate
 dvc remote modify Data account_name stmernonprodneu
 
 dvc remote modify --local Data connection_string 
