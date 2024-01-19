@@ -598,8 +598,7 @@ az config set defaults.connection_string="--------------"
 dvc remote add -d Data azure://stmernonprodneu/interim/cnc_tmeplate
 dvc remote modify Data account_name stmernonprodneu
 
-dvc remote modify --local Data connection_string DefaultEndpointsProtocol=https;AccountName=stmernonprodneu;AccountKey=olLkKatxr2gRnjohM4kQkew/zhNZGP+EtDehuTdAI7FEtWIWY7+s/RvxheK1UzqbGU8IcJsMF5WKzQbBVnjZyg==;EndpointSuffix=core.windows.net
-
+dvc remote modify --local Data connection_string 
 
 dvc config core.hardlink_lock true
 
