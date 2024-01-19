@@ -1,0 +1,5 @@
+[core]
+    remote = data
+    hardlink_lock = true
+['remote "data"']
+    url = azure://interim/cnc_template

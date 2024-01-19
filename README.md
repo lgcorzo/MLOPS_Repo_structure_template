@@ -581,6 +581,25 @@ I can help you with that. Here is a guide to install and use DVC and git with Az
 3. Add your large files or directories to DVC: `dvc add path-to-large-file`
 4. Commit the changes to git: `git add path-to-large-file.dvc .gitignore` and `git commit -m "Add data file"`
 5. Set up your Azure container name and connection string as environment variables: `AZURE_STORAGE_CONTAINER_NAME` and `AZURE_STORAGE_CONNECTION_STRING`
-6. Configure DVC to use Azure as the remote storage: `dvc remote add -d myremote azure://mycontainer/myfolder`
+6. Configure DVC to use Azure as the remote storage: `dvc remote add -d Data azure://interim/MLOPS_template_data`
 7. Push your data to the remote storage: `dvc push`
 8. Pull your data from the remote storage: `dvc pull`
+
+https://dvc.org/doc/user-guide/data-management/remote-storage/azure-blob-storage
+
+https://github.com/josecelano/data-version-control/blob/master/docs/azure-blob-storage.md
+
+MLOPS_cnc_data_temp
+https://stmernonprodneu.blob.core.windows.net/interim
+
+az config set defaults.account=stmernonprodneu
+az config set defaults.connection_string="--------------"
+
+dvc remote add -d Data azure://stmernonprodneu/interim/cnc_tmeplate
+dvc remote modify Data account_name stmernonprodneu
+
+dvc remote modify --local Data connection_string DefaultEndpointsProtocol=https;AccountName=stmernonprodneu;AccountKey=olLkKatxr2gRnjohM4kQkew/zhNZGP+EtDehuTdAI7FEtWIWY7+s/RvxheK1UzqbGU8IcJsMF5WKzQbBVnjZyg==;EndpointSuffix=core.windows.net
+
+
+dvc config core.hardlink_lock true
+
