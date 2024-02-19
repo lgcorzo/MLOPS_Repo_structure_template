@@ -28,6 +28,7 @@ $$\color{red}{IMPORTANT}$$
 - [diagrams](#diagrams)
 - [install nginx and oauth2.0](#install-nginx-and-oauth20)
 - [connect to Oauth2.0 to github](#connect-to-oauth20-to-github)
+- [DVC installation:](#dvc-installation)
 
 <!-- cspell:enable -->
 ## Introduction
@@ -570,7 +571,7 @@ CMD [ "python", "test.py" ]
 
 ```
 
-DVC installation:
+## DVC installation:
 
 <https://iterative.ai/blog/azure-remotes-in-dvc#:~:text=First%2C%20add%20DVC%20as%20a%20requirement%20to%20your,to%20start%20versioning%20your%20data%20and%20tracking%20experiments>.
 
