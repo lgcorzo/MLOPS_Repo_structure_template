@@ -28,6 +28,7 @@ $$\color{red}{IMPORTANT}$$
 - [diagrams](#diagrams)
 - [install nginx and oauth2.0](#install-nginx-and-oauth20)
 - [connect to Oauth2.0 to github](#connect-to-oauth20-to-github)
+- [DVC installation:](#dvc-installation)
 
 <!-- cspell:enable -->
 ## Introduction
@@ -393,7 +394,6 @@ huggingface repo:
 ProjectName MachineConfiguratorFinder
 project_name  example machine_configuration_finder
 
-
 <https://github.com/microsoft/CodeBERT>
 
 [llama-2-open-foundation-and-fine-tuned-chat-models](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)
@@ -406,7 +406,6 @@ Codebert
 
 <https://github.com/shanakaChathu/churn_model>
 <https://medium.com/@shanakachathuranga/end-to-end-machine-learning-pipeline-with-mlops-tools-mlflow-dvc-flask-heroku-evidentlyai-github-c38b5233778c>
-
 
 .
 
@@ -545,7 +544,6 @@ This will configure nginx to use oauth2-proxy as an authentication layer for the
 
 This will mount the nginx.conf file and the certs directory from your host machine to the nginx container.
 
-
 ## connect to Oauth2.0 to github
 
 To connect oauth2.0 to GitHub, you need to create an OAuth app on GitHub and configure your oauth2-proxy service to use GitHub as the provider. Here are the steps you can follow:
@@ -572,3 +570,36 @@ CMD [ "python", "test.py" ]
 
 
 ```
+
+## DVC installation:
+
+<https://iterative.ai/blog/azure-remotes-in-dvc#:~:text=First%2C%20add%20DVC%20as%20a%20requirement%20to%20your,to%20start%20versioning%20your%20data%20and%20tracking%20experiments>.
+
+I can help you with that. Here is a guide to install and use DVC and git with Azure blob storage:
+
+1. Install DVC with the Azure option: `pip install 'dvc[azure]'`
+2. Initialize DVC in your project: `dvc init`
+3. Add your large files or directories to DVC: `dvc add path-to-large-file`
+4. Commit the changes to git: `git add path-to-large-file.dvc .gitignore` and `git commit -m "Add data file"`
+5. Set up your Azure container name and connection string as environment variables: `AZURE_STORAGE_CONTAINER_NAME` and `AZURE_STORAGE_CONNECTION_STRING`
+6. Configure DVC to use Azure as the remote storage: `dvc remote add -d Data azure://interim/MLOPS_template_data`
+7. Push your data to the remote storage: `dvc push`
+8. Pull your data from the remote storage: `dvc pull`
+
+https://dvc.org/doc/user-guide/data-management/remote-storage/azure-blob-storage
+
+https://github.com/josecelano/data-version-control/blob/master/docs/azure-blob-storage.md
+
+MLOPS_cnc_data_temp
+
+
+az config set defaults.account=
+az config set defaults.connection_string="--------------"
+
+dvc remote add -d Data azure://interim/cnc_tmeplate
+dvc remote modify Data account_name 
+
+dvc remote modify --local Data connection_string 
+
+dvc config core.hardlink_lock true
+
