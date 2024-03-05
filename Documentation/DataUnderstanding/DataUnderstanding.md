@@ -12,6 +12,7 @@ $$\color{red}{IMPORTANT}$$
 
 ## Introduction
 - [Resumen del documento](https://dev.azure.com/lanteksms/Merlin/_wiki/wikis/Merlin.wiki/1914/BusinessUnderstanding?anchor=b.)
+- Que es un CNC
 - [Estructura de CNC](https://www.programacioncnc.es/la-estructura-de-un-programa-de-cnc/)
 - Tipos de CNC
 - Arquitectura del programa 
@@ -25,9 +26,14 @@ $$\color{red}{IMPORTANT}$$
     - Fast API
   - MongoDB
   - ElasticSearch
-
-- Mejor forma para usar langchain, codebert
-- Mejor forma para ejecutar LLM en CNCs
+  
+- Tipos de algoritmos
+- Documentar los distintos lenguajes programación CNC
+  - G-code
+  - Siemmes
+  - Otros lenguajes
+- Resumen de los documentos utilizando el LLM codeBERT
+- Comparar los documentos con todas las metricas mostradas (en forma de tabla)
 
 ## Resumen del documento
 Resumen de las secciones (Análisis de datos - Estructura de un archivo CNC - Procesamiento de los archivos CNC con Python)
@@ -74,3 +80,172 @@ Existen varios tipos de máquinas CNC, cada una de las cuales se diferencia en s
 5. Rectificadoras CNC: Utilizan una muela abrasiva giratoria para rectificar el material, adoptando la forma deseada.
 
 6. Impresoras 3D CNC: Se utilizan para crear objetos tridimensionales a partir de un modelo digital.
+
+
+## Estudio de los Datos
+
+### CNC (Control Numerico Computarizado)
+
+1. Definición: Es un sistema que permite el control de la posición de un elemento que está montado en el interior de una máquina o herramienta mediante un software especialmente diseñado para ello.
+
+2. Funcionamiento: El funcionamiento del CNC está basado en el posicionamiento sobre los ejes X, Y, Z. Una misma pieza se puede taladrar, cortar, roscar o desbastar en todos sus planos y formas de manera automática mediante el uso del CNC.
+
+3. Utilidad: La programación CNC sirve para crear instrucciones de programa para que las computadoras puedan controlar una máquina. Esto significa que el CNC está muy involucrado en el proceso de fabricación de cualquier maquinaria, mejorando la automatización y la flexibilidad del sistema.
+
+4. Características: El CNC controla todos los movimientos de una máquina, maneja las coordenadas, la velocidad y algunos parámetros de las maquinarias. Además, personaliza los productos electrónicos para un cliente final y crea herramientas de alta tecnología, como las impresoras en 3D.
+
+### Lenguajes de Programcion de CNC
+
+_G-code:_ Es el lenguaje fundamental utilizado en la programación CNC para definir los movimientos y funciones de la herramienta de corte, abarcando desde movimientos simples hasta operaciones complejas de mecanizado.
+
+_M-code:_ Este tipo de código controla las funciones auxiliares de la máquina CNC, abarcando desde el encendido y apagado del husillo hasta la activación de sistemas de refrigeración y la gestión de cambios de herramientas, lo que garantiza una operación precisa y segura de la máquina.
+
+_Siemens (Sinumerik):_ Sinumerik, desarrollado por Siemens, es un sistema de control numérico avanzado que va más allá de los estándares G y M, ofreciendo funciones específicas y optimizaciones para maximizar la productividad y la calidad del mecanizado en máquinas equipadas con esta tecnología de vanguardia.
+
+_T-code:_ Los códigos T son esenciales en la programación CNC para designar herramientas específicas que se utilizarán en el proceso de mecanizado, lo que permite una gestión eficiente y precisa de las herramientas disponibles en la máquina.
+
+_S-code:_ Estos códigos se utilizan para establecer la velocidad del husillo de la máquina CNC, lo que resulta fundamental para optimizar las condiciones de corte y garantizar una operación eficiente y segura durante el proceso de mecanizado, contribuyendo así a la calidad y la precisión de las piezas producidas.
+
+### Comparacion de CNCs a partir de 4 metricas
+
+En esta seccion compararemos 3 archivos CNC con un 4, en donde utilizaremos 4 metricas para medir su similitud:
+
+1. TF-IDF (Term Frequency-Inverse Document Frequency): Además de calcular solo el IDF, también puedes considerar la frecuencia de términos (TF). TF-IDF es el producto de TF y IDF y puede proporcionar una medida más completa de la importancia de una palabra en un documento en relación con una colección de documentos.
+
+2. Similitud coseno: Esta métrica calcula el coseno del ángulo entre dos vectores de términos (representando los documentos) en un espacio vectorial de términos. Es una medida de similitud ampliamente utilizada para comparar documentos de texto.
+
+3. Distancia de Jaccard: Calcula la similitud entre dos conjuntos de términos dividiendo la intersección de los conjuntos por su unión. Es útil cuando se considera la similitud entre documentos basada en la presencia o ausencia de términos.
+
+4. Distancia de Hamming: Útil cuando se comparan documentos de la misma longitud y se quiere medir la cantidad de caracteres diferentes entre ellos.
+
+
+![alt text](image.png)
+
+Para determinar cuál es el documento más parecido al Documento 4 según las cuatro métricas proporcionadas en la tabla, nos basaremos en sus resultado:
+
+- _Similitud Coseno:_ El Documento 3 tiene el valor más alto de similitud coseno (0.82), lo que indica una mayor similitud con el Documento 4 en términos de sus vectores de características.
+
+- _IDF:_ El Documento 2 tiene el valor más alto de IDF (0.71), lo que sugiere que las palabras en común entre el Documento 4 y el Documento 2 tienen una mayor importancia relativa.
+
+- _Distancia de Hamming:_ El Documento 2 tiene la menor distancia de Hamming (8), lo que indica que tiene la menor cantidad de diferencias en términos de sus secuencias de caracteres.
+
+- _Distancia Jaccard:_ El Documento 1 tiene el valor más bajo de la distancia Jaccard (0.21), lo que sugiere una mayor similitud en términos de las palabras únicas presentes en cada documento.
+
+Si tuviéramos que tomar una decisión basada en una evaluación general, podríamos considerar el Documento 2 como el más parecido al Documento 4. Esto se debe a que tiene valores relativamente buenos en tres de las métricas: similitud coseno, IDF y distancia de Hamming.
+
+### Codigo del ejemplo
+
+```python
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
+
+# Definir los documentos
+documentos = [
+    "G90 G00 X18.78 Y-150.80 F6000.00 M23 M10 ...",  # Documento 1
+    "N10 EXTERN MACHINE_ON (INT) N11 EXTERN ...",    # Documento 2
+    "O0018 (SHEET Al99 180 X 115 X 0.8 AL99) ...",  # Documento 3
+    "% P0185 N2(*MSG, LANTEK HPC PSTHPC03 POST ...", # Documento 4
+]
+
+# Función para calcular la distancia de Hamming
+def hamming_distance(s1, s2):
+    return sum(c1 != c2 for c1, c2 in zip(s1, s2))
+
+# Tokenizar los documentos
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(documentos)
+
+# Calcular IDF
+idf_values = np.asarray(vectorizer.idf_)
+idf_similarity = 1 / (1 + idf_values)
+
+# Calcular similitud coseno
+cosine_sim = cosine_similarity(X, X)
+
+# Calcular distancia de Hamming
+hamming_sim = np.zeros((len(documentos), len(documentos)))
+for i, doc1 in enumerate(documentos):
+    for j, doc2 in enumerate(documentos):
+        hamming_sim[i, j] = hamming_distance(doc1, doc2)
+
+# Función para calcular la distancia Jaccard entre dos conjuntos
+def jaccard_distance(set1, set2):
+    intersection = len(set1.intersection(set2))
+    union = len(set1.union(set2))
+    return 1 - intersection / union if union else 0
+
+# Tokenizar los documentos en conjuntos de palabras únicas
+tokenized_docs = [set(doc.split()) for doc in documentos]
+
+# Calcular la distancia Jaccard entre cada par de documentos
+jaccard_sim = np.zeros((len(documentos), len(documentos)))
+for i, set1 in enumerate(tokenized_docs):
+    for j, set2 in enumerate(tokenized_docs):
+        jaccard_sim[i, j] = jaccard_distance(set1, set2)
+
+# Imprimir los resultados
+print("\nIDF:")
+print(idf_similarity)
+print("Similitud Coseno:")
+print(cosine_sim)
+print("\nDistancia de Hamming:")
+print(hamming_sim)
+print("\nDistancia Jaccard:")
+print(jaccard_sim)
+```
+
+## Resumen de los documentos utilizando el LLM codeBERT
+
+Para generar un resumen de los documentos utilizando un modelo pre-entrenado como BERT, primero necesitaríamos dividir los documentos en oraciones y luego utilizar el modelo para identificar las oraciones más relevantes que resuman el contenido principal del documento. Aquí tienes un ejemplo de cómo podríamos hacerlo en Python utilizando la biblioteca Transformers de Hugging Face:
+
+```python
+from transformers import BertTokenizer, BertForMaskedLM
+import torch
+
+# Cargar el modelo y el tokenizador pre-entrenado
+model_name = "bert-base-uncased"
+tokenizer = BertTokenizer.from_pretrained(model_name)
+model = BertForMaskedLM.from_pretrained(model_name)
+
+# Definir los documentos
+documentos = [
+    "G90 G00 X18.78 Y-150.80 F6000.00 M23 M10 ...",  # Documento 1
+    "N10 EXTERN MACHINE_ON (INT) N11 EXTERN ...",    # Documento 2
+    "O0018 (SHEET Al99 180 X 115 X 0.8 AL99) ...",  # Documento 3
+    "% P0185 N2(*MSG, LANTEK HPC PSTHPC03 POST ...", # Documento 4
+]
+
+# Generar resúmenes para cada documento
+for i, doc in enumerate(documentos):
+    # Tokenizar el documento
+    inputs = tokenizer(doc, return_tensors="pt", max_length=512, truncation=True)
+
+    # Generar resumen utilizando el modelo BERT
+    outputs = model(**inputs)
+    predictions = outputs.logits.argmax(-1)
+    summary = tokenizer.decode(predictions[0], skip_special_tokens=True)
+
+    # Imprimir el resumen generado
+    print(f"Resumen del Documento {i+1}:")
+    print(summary)
+    print()
+```
+
+Este código carga el modelo BERT pre-entrenado y el tokenizador correspondiente, luego genera un resumen para cada documento utilizando el modelo.
+
+## Tipos de Algoritmos controlados en CNC
+
+Los algoritmos utilizados en el control numérico por computadora (CNC) varían según el fabricante y el tipo de máquina CNC. Aquí hay una descripción general de algunos tipos comunes de algoritmos utilizados en CNC:
+
+1. _Algoritmos de interpolación:_ Estos algoritmos calculan trayectorias suaves y precisas para mover la máquina de corte a lo largo de una ruta específica. Los tipos comunes de interpolación incluyen interpolación lineal, interpolación circular (G02 y G03 en G-code), interpolación helicoidal y otros.
+
+2. _Algoritmos de compensación de herramientas:_ Estos algoritmos ajustan las trayectorias de la herramienta para tener en cuenta el radio de la herramienta de corte. Por ejemplo, la compensación de herramientas puede corregir las trayectorias para que la herramienta corte exactamente donde se espera, teniendo en cuenta su tamaño y forma.
+
+3. _Algoritmos de planificación de trayectorias:_ Estos algoritmos determinan la mejor secuencia de movimientos de la herramienta para minimizar el tiempo de mecanizado y evitar colisiones con la pieza de trabajo, la máquina u otras partes del entorno.
+
+4. _Algoritmos de control de velocidad de avance:_ Estos algoritmos ajustan la velocidad de avance de la herramienta de corte durante el mecanizado para mantener la calidad de la superficie, evitar la vibración y optimizar la velocidad de producción.
+
+5. _Algoritmos de detección de colisiones:_ Estos algoritmos analizan las trayectorias de la herramienta y detectan posibles colisiones entre la herramienta, la pieza de trabajo y otras partes de la máquina CNC. Esto ayuda a prevenir daños costosos y garantizar la seguridad del proceso de mecanizado.
+
+6. _Algoritmos de compensación de errores de máquina:_ Estos algoritmos ajustan automáticamente las trayectorias de la herramienta para compensar errores de geometría, desalineación o desgaste en la máquina CNC.
