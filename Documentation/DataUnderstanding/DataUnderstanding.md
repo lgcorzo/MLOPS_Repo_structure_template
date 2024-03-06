@@ -34,6 +34,7 @@ $$\color{red}{IMPORTANT}$$
   - Otros lenguajes
 - Resumen de los documentos utilizando el LLM codeBERT
 - Comparar los documentos con todas las metricas mostradas (en forma de tabla)
+- Utilizar el codeBERT para simplificar el CNC inicial para compararlo, para no limpiarlo a mano.
 
 ## Resumen del documento
 Resumen de las secciones (Análisis de datos - Estructura de un archivo CNC - Procesamiento de los archivos CNC con Python)
@@ -249,3 +250,209 @@ Los algoritmos utilizados en el control numérico por computadora (CNC) varían 
 5. _Algoritmos de detección de colisiones:_ Estos algoritmos analizan las trayectorias de la herramienta y detectan posibles colisiones entre la herramienta, la pieza de trabajo y otras partes de la máquina CNC. Esto ayuda a prevenir daños costosos y garantizar la seguridad del proceso de mecanizado.
 
 6. _Algoritmos de compensación de errores de máquina:_ Estos algoritmos ajustan automáticamente las trayectorias de la herramienta para compensar errores de geometría, desalineación o desgaste en la máquina CNC.
+
+
+## Propuesta de Arquitectura del Proyecto
+
+- Application (MLFlow)
+  - Services
+    - feedback_services.py
+    - model_services.py
+   - cnc_llm_algorithm.py
+   - cnc_llm_evaluation.py
+   - cnc_llm_model.py
+  
+- Controller (FastAPI)
+  - app.py
+  
+- Domain
+  - cnc_llm.py
+  - user_feedback.py
+  
+- FrontEnd (FastAPI, Dash)
+  - app.py
+  
+- Utils
+  - env_variables.py
+
+- MLFlow Server (registrar expermientos de ML)
+- MongoDB Server (guardar los datos)
+- ElasticSearch Server (base de datos vectorial, guarda el vector tokens)
+- Docker Composer Conf File
+
+### Primer modelo de diagrama
+
+``` mermaid
+flowchart TB
+
+    subgraph "Application (MLFlow)"
+        Services --> feedback_services.py
+        Services --> model_services.py
+        Services --> cnc_llm_algorithm.py
+        Services --> cnc_llm_evaluation.py
+        Services --> cnc_llm_model.py
+    end
+
+    subgraph "Controller (FastAPI)"
+        app.py
+    end
+
+    subgraph "Domain"
+        cnc_llm.py
+        user_feedback.py
+    end
+
+    subgraph "FrontEnd (FastAPI, Dash)"
+        app.py
+    end
+
+    subgraph "Utils"
+        env_variables.py
+    end
+
+```
+
+### Segundo modelo de diagrama
+
+``` mermaid
+graph LR;
+
+    subgraph Modules
+        cnc_llm_algorithm.py
+        cnc_llm_evaluation.py
+        cnc_llm_model.py
+    end
+
+    subgraph Services
+        model_services.py
+        feedback_services.py
+    end
+
+    Controller[app.py]
+
+    subgraph Domain
+        cnc_llm.py
+        user_feedback.py
+    end
+
+    FrontEnd[app.py]
+
+    Utils[env_variables.py]
+
+    Application(Appliacation) -->|Modules| Modules;
+    Application -->|Services| Services;
+    Application -->|Controller| Controller;
+    Application -->|Domain| Domain;
+    Application -->|FrontEnd| FrontEnd;
+    Application -->|Utils| Utils;
+
+```
+### Tercer modelo de diagrama
+
+``` mermaid
+---
+title: "Application Diagram"
+---
+flowchart LR
+	949631["Services"] --- 562563("model_services.py")
+	748309("feedback_services.py") --- 949631
+	125556["Modules"] --- 302727("cnc_llm_model.py")
+	125556 --- 611775("cnc_llm_algorithm.py")
+	344802("cnc_llm_evaluation.py") --- 125556
+	955316["utils"] --- 717637("env_variables.py")
+	583500("app.py") --- 906556["FrontEnd (Fast API, Dash)"]
+	588068("cnc_llm.py") --- 752243["Domain"]
+	535684("user_feedback.py") --- 752243
+	354520["Controller (Fast API)"] --- 296020("app.py")
+	949631 --- 125556
+	949631 --- 354520
+	949631 --- 752243
+	949631 --- 906556
+	949631 --- 955316
+	subgraph 949631["Services"]
+	end
+	subgraph 125556["Modules"]
+	end
+	subgraph 354520["Controller (Fast API)"]
+	end
+	subgraph 752243["Domain"]
+	end
+	subgraph 906556["FrontEnd (Fast API, Dash)"]
+	end
+	subgraph 955316["utils"]
+	end
+```
+
+### Ultimo modelo de diagrama
+
+![alt text](image-1.png)
+
+## BaseEstimator
+
+BaseEstimator es una clase base (base class) proporcionada por scikit-learn que sirve como la base para todos los estimadores de aprendizaje automático en esta biblioteca. Los estimadores son objetos en scikit-learn que implementan métodos para ajustar (fit) un modelo a los datos y hacer predicciones sobre nuevos datos.
+
+### Puntos Importante
+
+Algunos puntos clave para entender sobre BaseEstimator:
+
+1. Interfaz Consistente: Una de las características principales de scikit-learn es su consistencia en la interfaz de programación de aplicaciones (API). Todos los estimadores de scikit-learn, independientemente de su complejidad o tipo, siguen una interfaz coherente. Esto facilita el intercambio de estimadores y la construcción de tuberías (pipelines) de aprendizaje automático.
+
+2. Métodos Obligatorios: La clase BaseEstimator proporciona métodos que deben ser implementados por cualquier estimador personalizado que se cree en scikit-learn. Estos métodos incluyen fit() para ajustar el modelo a los datos de entrenamiento y predict() para hacer predicciones sobre nuevos datos. Otros métodos comunes incluyen score() para evaluar el rendimiento del modelo y get_params() para obtener los parámetros del estimador.
+
+3. Compatibilidad con Pipelines: Al heredar de BaseEstimator, los estimadores personalizados se vuelven compatibles con la construcción de tuberías en scikit-learn. Las tuberías permiten encadenar varios pasos de procesamiento de datos y estimación en un solo objeto, lo que facilita la implementación de flujos de trabajo de aprendizaje automático más complejos.
+
+4. Flexibilidad y Extensibilidad: La clase BaseEstimator permite a los desarrolladores crear sus propios estimadores personalizados con flexibilidad y extensibilidad. Esto significa que puedes crear y ajustar modelos que se adapten específicamente a tus necesidades y datos.
+
+### Ejemplo de BaseEstimator
+
+Ejemplo básico de cómo se puede usar BaseEstimator para crear un estimador personalizado en scikit-learn:
+
+``` python
+from sklearn.base import BaseEstimator
+import numpy as np
+
+class CustomEstimator(BaseEstimator):
+    def __init__(self, parameter1=1, parameter2=2):
+        self.parameter1 = parameter1
+        self.parameter2 = parameter2
+        self.coefficients_ = None
+
+    def fit(self, X, y=None):
+        # Aquí puedes implementar el ajuste del modelo, por ejemplo, regresión lineal simple
+        # Supongamos que X es una matriz de características y y son las etiquetas/targets
+        X = np.array(X)
+        y = np.array(y)
+        
+        # Ajustar los coeficientes del modelo
+        self.coefficients_ = np.linalg.inv(X.T @ X) @ X.T @ y
+        
+        return self
+
+    def predict(self, X):
+        # Implementación de la predicción aquí
+        if self.coefficients_ is None:
+            raise ValueError("El modelo no ha sido ajustado todavía.")
+        
+        X = np.array(X)
+        predictions = X @ self.coefficients_
+        return predictions
+
+    def score(self, X, y):
+        # Calcular la puntuación de rendimiento del modelo
+        # En este caso, simplemente calculamos la suma de residuos cuadrados
+        predictions = self.predict(X)
+        residuals = y - predictions
+        rss = np.sum(residuals ** 2)
+        return rss
+
+    def get_params(self, deep=True):
+        # Obtener los parámetros del estimador
+        return {"parameter1": self.parameter1, "parameter2": self.parameter2}
+
+    def set_params(self, **parameters):
+        # Establecer los parámetros del estimador
+        for parameter, value in parameters.items():
+            setattr(self, parameter, value)
+        return self
+
+```
