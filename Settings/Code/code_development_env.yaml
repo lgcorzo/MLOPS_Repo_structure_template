@@ -22,7 +22,7 @@ dependencies:
     - autopep8
     - fastparquet
     - transformers[torch]
-    - dvc
+    - dvc[Azure]
     - mlflow
     - tox
     - uvicorn

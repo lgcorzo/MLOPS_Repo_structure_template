@@ -217,3 +217,8 @@ if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
 
 ```
+
+## Ingestion De Datos
+
+Vamos a descargar los datos dlsde el Block Storage de Azure utilizando DVC.
+

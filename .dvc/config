@@ -1,0 +1,4 @@
+[core]
+    remote = data
+['remote "data"']
+    url = azure://interim/cnc_template
