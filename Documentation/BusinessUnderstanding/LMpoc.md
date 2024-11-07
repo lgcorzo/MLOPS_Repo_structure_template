@@ -28,29 +28,7 @@ El objetivo del proyecto es entrenar con datos propios un modelo estandar como e
 
 Para hacer un RAG (generación aumentada por recuperación) utilizando Langchain para el modelo CodeBERT, puedes seguir estos pasos:
 
-- Carga los datos (Data/Results/CNC) que quieres usar como documentos de conocimiento. Los datos son ficheros CNC de piezas generados por Lantek. Como ejemplo, se puede el 1.CNC de la carpeta nombrada anteriormente. Actualmente, hay 2687 ficheros.
 
-``` txt
-O0174
-(SHEET : L=180 X W=115 X 0.8 Al99)
-(PR/1)
-(MC/ACUTE255)
-(TR/Standard 1)
-(MA/Al990.80)
-(PZ/   0.00X    0.00)
-(WK/    0.80T  180.00X  115.00)
-(CL/ 0200.00  1000.00                  )
-(BP/   0.00X   0.00)
-(TT/00H00M30S)
-(CR/Y2022M06D22)
-G92X1210. Y1270.
-G06A0.8 B0
-M691
-M692
-M13
-G50
-%
-```
   
 - Transformación los documentos de conocimiento en vectores de características usando un modelo de incrustación como Hugging Face Embeddings, CodeBERT. Usaremos Elastic Search para crear un almacén de vectores que te permita recuperar los documentos más similares a una consulta.
   
