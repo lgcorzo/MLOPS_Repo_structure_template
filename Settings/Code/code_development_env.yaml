@@ -9,7 +9,7 @@ dependencies:
     - dash-extensions==1.0.4
     - flake8
     - numpy
-    - pandas==2.1.1
+    - pandas
     - pytest
     - pytest-cov
     - python-dotenv
