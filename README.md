@@ -7,28 +7,29 @@ $$\color{red}{IMPORTANT}$$
 | ------- |---------| ------------ | ----------- |
 | 1.0     | Luis Galo Corzo |February 13, 2023 | Initial release |
 <!-- PULL_REQUESTS_TABLE -->
-<!-- cspell:ignore Databricks LANTEK -->
+<!-- cspell:ignore Databricks  -->
 <!-- cspell:disable -->
 
 ## Contents
 
-- [Contents](#contents)
-- [Introduction](#introduction)
-- [Scope](#scope)
-- [Objectives](#objectives)
-- [rag for codeBert](#rag-for-codebert)
-- [codebert finetune](#codebert-finetune)
-- [Requirements](#requirements)
-- [Structure of the repo](#structure-of-the-repo)
-- [testing](#testing)
-- [Keywords](#keywords)
-- [Frontend](#frontend)
-- [references](#references)
-- [end to end  ml project](#end-to-end--ml-project)
-- [diagrams](#diagrams)
-- [install nginx and oauth2.0](#install-nginx-and-oauth20)
-- [connect to Oauth2.0 to github](#connect-to-oauth20-to-github)
-- [DVC installation:](#dvc-installation)
+- [Project ProjectName](#project-projectname)
+  - [Contents](#contents)
+  - [Introduction](#introduction)
+  - [Scope](#scope)
+  - [Objectives](#objectives)
+  - [rag for codeBert](#rag-for-codebert)
+  - [codebert finetune](#codebert-finetune)
+  - [Requirements](#requirements)
+  - [Structure of the repo](#structure-of-the-repo)
+  - [testing](#testing)
+  - [Keywords](#keywords)
+  - [Frontend](#frontend)
+  - [references](#references)
+  - [end to end  ml project](#end-to-end--ml-project)
+  - [diagrams](#diagrams)
+  - [install nginx and oauth2.0](#install-nginx-and-oauth20)
+  - [connect to Oauth2.0 to github](#connect-to-oauth20-to-github)
+  - [DVC installation:](#dvc-installation)
 
 <!-- cspell:enable -->
 ## Introduction
