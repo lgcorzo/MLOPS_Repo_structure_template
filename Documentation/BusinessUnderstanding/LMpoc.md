@@ -7,7 +7,7 @@ $$\color{red}{IMPORTANT}$$
 | ------- |---------| ------------ | ----------- |
 | 1.0     | Sabin Luja Hernandez |February 13, 2024 | Initial release |
 <!-- PULL_REQUESTS_TABLE -->
-<!-- cspell:ignore Databricks LANTEK -->
+<!-- cspell:ignore Databricks  -->
 <!-- cspell:enable -->
 
 ## Introduction
